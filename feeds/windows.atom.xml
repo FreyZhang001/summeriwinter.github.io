@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Windows</title><link href="https://summeriwiner.github.io/" rel="alternate"></link><link href="https://summeriwiner.github.io/feeds/windows.atom.xml" rel="self"></link><id>https://summeriwiner.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>windows系统盘瘦身</title><link href="https://summeriwiner.github.io/windowsxi-tong-pan-shou-shen.html" rel="alternate"></link><published>2017-09-02T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-09-02:/windowsxi-tong-pan-shou-shen.html</id><summary type="html">&lt;p&gt;C盘满了，瘦一下身&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.关闭系统休眠功能&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Windows</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/windows.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>windows系统盘瘦身</title><link href="https://summeriwinter.github.io/windowsxi-tong-pan-shou-shen.html" rel="alternate"></link><published>2017-09-02T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-02:/windowsxi-tong-pan-shou-shen.html</id><summary type="html">&lt;p&gt;C盘满了，瘦一下身&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.关闭系统休眠功能&lt;/h1&gt;
 &lt;p&gt;删除Hiberfil.sys文件&lt;br&gt;
 管理员运行cmd输入下面命令&lt;br&gt;
 &lt;code&gt;powercfg -h of&lt;/code&gt;&lt;/p&gt;
@@ -10,7 +10,7 @@
 &lt;p&gt;以下三个目录里的文件是临时文件，可以删除&lt;br&gt;
 C:\windows\temp&lt;br&gt;
 C:\ProgramData\TEMP&lt;br&gt;
-C:\Users\你的用户名\AppData\Local\Temp  &lt;/p&gt;</content><category term="windwos"></category></entry><entry><title>powershell脚本遍历目录</title><link href="https://summeriwiner.github.io/powershelljiao-ben-bian-li-mu-lu.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-09-01:/powershelljiao-ben-bian-li-mu-lu.html</id><summary type="html">&lt;p&gt;powershell脚本遍历目录&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.遍历目录及子目录,显示目录大小&lt;/h1&gt;
+C:\Users\你的用户名\AppData\Local\Temp  &lt;/p&gt;</content><category term="windwos"></category></entry><entry><title>powershell脚本遍历目录</title><link href="https://summeriwinter.github.io/powershelljiao-ben-bian-li-mu-lu.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-01:/powershelljiao-ben-bian-li-mu-lu.html</id><summary type="html">&lt;p&gt;powershell脚本遍历目录&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.遍历目录及子目录,显示目录大小&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; filesize &lt;span class="o"&gt;([&lt;/span&gt;string&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="nv"&gt;$filepath&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$filepath&lt;/span&gt; -eq &lt;span class="nv"&gt;$null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
         throw &lt;span class="s2"&gt;&amp;quot;路径不能为空&amp;quot;&lt;/span&gt;
@@ -53,7 +53,7 @@ loginip_jlu文件夹的大小为: 16.8 KB
 小说文件夹的大小为: 31,043.6 KB
 笑料文件夹的大小为: 1,578,575.8 KB
 PS F:\python&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>powershell卸载自带应用</title><link href="https://summeriwiner.github.io/powershellxie-zai-zi-dai-ying-yong.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-09-01:/powershellxie-zai-zi-dai-ying-yong.html</id><summary type="html">&lt;p&gt;通过powershell卸载windows自带应用&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.卸载全部自带应用&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>powershell卸载自带应用</title><link href="https://summeriwinter.github.io/powershellxie-zai-zi-dai-ying-yong.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-01:/powershellxie-zai-zi-dai-ying-yong.html</id><summary type="html">&lt;p&gt;通过powershell卸载windows自带应用&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.卸载全部自带应用&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;
 &lt;h1&gt;2.其他更多卸载&lt;/h1&gt;
 &lt;p&gt;OneNote:&lt;br&gt;
@@ -79,7 +79,7 @@ Groove音乐电影与电视:&lt;br&gt;
 录音机:&lt;br&gt;
 &lt;code&gt;Get-AppxPackage soundrec | Remove-AppxPackage&lt;/code&gt;&lt;br&gt;
 Xbox:&lt;br&gt;
-&lt;code&gt;Get-AppxPackage xbox | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>批处理for循环使用</title><link href="https://summeriwiner.github.io/pi-chu-li-forxun-huan-shi-yong.html" rel="alternate"></link><published>2017-04-22T10:01:00+08:00</published><updated>2017-04-22T12:30:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-04-22:/pi-chu-li-forxun-huan-shi-yong.html</id><summary type="html">&lt;p&gt;windows批处理FOR循环的使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;在cmd中输入使用时应写为&lt;/p&gt;
+&lt;code&gt;Get-AppxPackage xbox | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>批处理for循环使用</title><link href="https://summeriwinter.github.io/pi-chu-li-forxun-huan-shi-yong.html" rel="alternate"></link><published>2017-04-22T10:01:00+08:00</published><updated>2017-04-22T12:30:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-04-22:/pi-chu-li-forxun-huan-shi-yong.html</id><summary type="html">&lt;p&gt;windows批处理FOR循环的使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;在cmd中输入使用时应写为&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FOR %variable IN (set) DO command [command-parameters]
 &lt;/pre&gt;&lt;/div&gt;
 
