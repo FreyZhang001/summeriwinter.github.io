@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Frey's blog : 搬瓦工安装ss并加速</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://summeriwiner.github.io/theme/css/main.css" type="text/css" />
+        <link href="https://summeriwiner.github.io/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie.css"/>
+                <script src="https://summeriwiner.github.io/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body>
+        
+<header>
+    <h1><a href="https://summeriwiner.github.io/ban-wa-gong-an-zhuang-ssbing-jia-su.html" id="page-title">搬瓦工安装ss并加速</a></h1>
+    <span id="sitename"><a href="https://summeriwiner.github.io" id="site-title">Frey's blog </a> &sdot;</span>
+<time datetime="2017-08-03T10:01:00+08:00">2017-08-03</time></header>
+<article>
+    <p>搬瓦工（BandwagonHost）是美国IT7公司旗下的一家提供便宜年付OVZ架构的VPS主机方案的服务商。价格便宜、且依托的商家比较靠谱，具有较高的性价比。拿来搭个FQ是非常合适的，做个小站也是可以的。</p>
+<h1>1.购买地址</h1>
+<blockquote>
+<p>搬瓦工所有配置及购买地址:<a href="https://bandwagonhost.com/aff.php?aff=17697">https://bandwagonhost.com/aff.php?aff=17697</a> 以前有小内存的VPS年费三刀，很便宜，但现在没有了，缺货，连521M的有时候也会缺货，看来挺火的。</p>
+</blockquote>
+<h1>2.安装Shadowsocks</h1>
+<h2>2.1搬瓦工后台一键安装(不推荐)</h2>
+<p>登录账号-&gt;Client Area-&gt;Services-&gt;My Services-&gt;KiwiVM Control Panel
+来到管理面板，点击 Shadowsocks Server 就可以一键安装 Shadowsocks
+测试过它自带的一键安装，速度太慢，yotube视频看不了，有点慢。</p>
+<h2>2.2使用shell脚本安装(推荐)</h2>
+<h3>2.2.1安装 shadowsoksR</h3>
+<p>Shadowsocks的一个分支，比较不错。但是默认是 aes-256-cfb 加密，如果需要 chacha20 加密，需要手动切换。</p>
+<div class="highlight"><pre><span></span>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh
+chmod +x shadowsocksR.sh
+./shadowsocksR.sh <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee shadowsocksR.log
+</pre></div>
+
+
+<p>安装成功需要等几分钟
+这个速度可以看yotube无压力</p>
+<p>卸载方法：
+使用 root 用户登录，运行以下命令：</p>
+<div class="highlight"><pre><span></span>./shadowsocksR.sh uninstall
+</pre></div>
+
+
+<p>安装完成后即已后台启动 ShadowsocksR,运行：</p>
+<div class="highlight"><pre><span></span>/etc/init.d/shadowsocks status
+</pre></div>
+
+
+<p>可以查看 ShadowsocksR 进程是否已经启动。
+本脚本安装完成后，已将 ShadowsocksR 自动加入开机自启动。</p>
+<p>其它命令：<br>
+启动：/etc/init.d/shadowsocks start<br>
+停止：/etc/init.d/shadowsocks stop<br>
+重启：/etc/init.d/shadowsocks restart<br>
+状态：/etc/init.d/shadowsocks status  </p>
+<p>配置文件路径：/etc/shadowsocks.json<br>
+日志文件路径：/var/log/shadowsocks.log<br>
+代码安装目录：/usr/local/shadowsocks  </p>
+<h3>2.2.2安装 shadowsocks-go版本</h3>
+<p>据说有buff，比python版Shadowsocks要快：</p>
+<div class="highlight"><pre><span></span>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go.sh
+chmod +x shadowsocks-go.sh
+./shadowsocks-go.sh <span class="m">2</span><span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span><span class="m">1</span> <span class="p">|</span> tee shadowsocks-go.log
+</pre></div>
+
+
+<h3>2.2.3其他版本Shadowsocks一键安装：</h3>
+<p>来自 teddysun：https://github.com/teddysun/shadowsocks_install</p>
+<h1>3.遇到的一些问题</h1>
+<h2>3.1搬瓦工默认系统Centos没有wget命令需要安装</h2>
+<p>安装命令:</p>
+<div class="highlight"><pre><span></span>yum -y install wget
+</pre></div>
+
+
+<h2>3.2关于配置多用户</h2>
+<div class="highlight"><pre><span></span>vi /etc/shadowsocks.json
+</pre></div>
+
+
+<p>只需要在port_password项下添加”端口号”:”密码”</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;server_ipv6&quot;</span><span class="p">:</span><span class="s2">&quot;[::]&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;local_address&quot;</span><span class="p">:</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;local_port&quot;</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span>
+    <span class="nt">&quot;port_password&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;12345&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;23456&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;aes-256-cfb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;protocol_param&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obfs&quot;</span><span class="p">:</span><span class="s2">&quot;plain&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;obfs_param&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;redirect&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dns_ipv6&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;fast_open&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;workers&quot;</span><span class="p">:</span><span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h1>参考资料</h1>
+<p>1.<a href="https://blog.kuoruan.com/48.html">https://blog.kuoruan.com/48.html</a></p>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Linux</title><link href="https://summeriwiner.github.io/" rel="alternate"></link><link href="https://summeriwiner.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://summeriwiner.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>CentOS自带python26升级到27</title><link href="https://summeriwiner.github.io/centoszi-dai-python26sheng-ji-dao-27.html" rel="alternate"></link><published>2017-09-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-09-12:/centoszi-dai-python26sheng-ji-dao-27.html</id><summary type="html">&lt;p&gt;升级CentOS自带python26到27&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.下载安装&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#下载&lt;/span&gt;
+wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+&lt;span class="c1"&gt;#解压并更改目录   &lt;/span&gt;
+tar -jxvf Python-2.7.3.tar.bz2
+&lt;span class="nb"&gt;cd&lt;/span&gt; Python-2.7.3
+&lt;span class="c1"&gt;#编译安装&lt;/span&gt;
+./configure
+make all
+make install
+make clean
+make distclean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装需要gcc(如果系统没有gcc需要自己安装)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install -y gcc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查看版本信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[root@host ~]# /usr/local/bin/python2.7 -V
+Python 2.7.3
+[root@host ~]# python -V
+Python 2.6.6
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;python2.7已经安装,但系统的python还是2.6&lt;/p&gt;
+&lt;h1&gt;2.建立软连接&lt;/h1&gt;
+&lt;p&gt;使系统默认的python指向python2.7  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm /usr/bin/python /usr/bin/python2.6
+ln -s /usr/local/bin/python2.7 /usr/bin/python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但yum命令依赖python2.6.6，需要更改一些配置文件  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;su root                         &lt;span class="c1"&gt;##切换到root  &lt;/span&gt;
+vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;~~/usr/bin/python~~ ##删除此行&lt;br&gt;
+/usr/bin/python2.6.6 ##改为此行&lt;br&gt;
+更改需要管理员权限  &lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://blog.csdn.net/jcjc918/article/details/11022345"&gt;http://blog.csdn.net/jcjc918/article/details/11022345&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="centos"></category></entry><entry><title>搬瓦工VPS搭建Web服务器</title><link href="https://summeriwiner.github.io/ban-wa-gong-vpsda-jian-webfu-wu-qi.html" rel="alternate"></link><published>2017-08-04T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-08-04:/ban-wa-gong-vpsda-jian-webfu-wu-qi.html</id><summary type="html">&lt;p&gt;记录在centos上安装apache+php+mysql&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工VPS&lt;a href="https://bandwagonhost.com/aff.php?aff=17697"&gt;购买地址&lt;/a&gt;  &lt;/p&gt;
+&lt;h1&gt;1.安装apache&lt;/h1&gt;
+&lt;p&gt;安装&lt;code&gt;yum install httpd&lt;/code&gt;&lt;br&gt;
+启动&lt;code&gt;service httpd start&lt;/code&gt;&lt;br&gt;
+暂停&lt;code&gt;service httpd stop&lt;/code&gt;&lt;br&gt;
+重启&lt;code&gt;service httpd restart&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;检查开机启动情况&lt;code&gt;chkconfig --list httpd&lt;/code&gt;&lt;br&gt;
+默认情况下是全部关闭的，尽量设置开机启动，以防主机意外关机  &lt;/p&gt;
+&lt;p&gt;设置开机启动命令&lt;code&gt;chkconfig httpd on&lt;/code&gt;&lt;br&gt;
+再次检查启动情况，看到2，3，4，5为启动&lt;br&gt;
+关闭开机启动命令&lt;code&gt;chkconfig httpd off&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;到此Apache安装完成，在自己浏览器中输入主机IP和端口号能正常打开&lt;/p&gt;
+&lt;h1&gt;2.安装php&lt;/h1&gt;
+&lt;p&gt;命令为:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install php
+yum install php-mysql  php-gd  php-imap  php-ldap  php-odbc php-pear  php-xml  php-xmlrpc
+yum install php-mysql
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上命令为安装php及其支持的组件  &lt;/p&gt;
+&lt;h1&gt;3.安装mysql&lt;/h1&gt;
+&lt;h2&gt;3.1安装&lt;/h2&gt;
+&lt;p&gt;首先查看主机是否已经安装&lt;code&gt;rpm -qa|grep mysql&lt;/code&gt;&lt;br&gt;
+注意：可能检查中安装有php-mysql XXXXX 和 mysql-libXXXX,这是刚刚第二步安装的php的组件,不必理会  &lt;/p&gt;
+&lt;p&gt;已经安装的话就执行删除命令&lt;code&gt;rpm -e mysql&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;然后继续安装&lt;br&gt;
+使用命令yum list | grep mysql&lt;br&gt;
+来查看yum上提供的mysql数据库可下载的版本  &lt;/p&gt;
+&lt;p&gt;安装命令&lt;code&gt;yum install -y mysql-server mysql mysql-devel&lt;/code&gt;
+等待一段时间安装成功&lt;/p&gt;
+&lt;h2&gt;3.2配置&lt;/h2&gt;
+&lt;p&gt;接下来是对mysql的配置(&lt;font color="red"&gt;注意:命令中是”mysqld”,不是mysql&lt;/font&gt;)&lt;br&gt;
+初始化:&lt;code&gt;service mysqld start&lt;/code&gt;&lt;br&gt;
+重启:&lt;code&gt;service mysqld restart&lt;/code&gt;&lt;br&gt;
+配置开机自动启动:&lt;code&gt;chkconfig mysqld on&lt;/code&gt;  &lt;/p&gt;
+&lt;p&gt;为mysql的root账户设置密码:&lt;code&gt;mysqladmin -u root password '*********'&lt;/code&gt;&lt;br&gt;
+登录命令&lt;code&gt;mysql -u root -p&lt;/code&gt;  &lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="apache"></category><category term="php"></category><category term="mysql"></category><category term="web"></category><category term="服务器"></category></entry><entry><title>搬瓦工安装ss并加速</title><link href="https://summeriwiner.github.io/ban-wa-gong-an-zhuang-ssbing-jia-su.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-08-03:/ban-wa-gong-an-zhuang-ssbing-jia-su.html</id><summary type="html">&lt;p&gt;通过搬瓦工的VPS安装ss的几种方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工（BandwagonHost）是美国IT7公司旗下的一家提供便宜年付OVZ架构的VPS主机方案的服务商。价格便宜、且依托的商家比较靠谱，具有较高的性价比。拿来搭个FQ是非常合适的，做个小站也是可以的。&lt;/p&gt;
+&lt;h1&gt;1.购买地址&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;搬瓦工所有配置及购买地址:&lt;a href="https://bandwagonhost.com/aff.php?aff=17697"&gt;https://bandwagonhost.com/aff.php?aff=17697&lt;/a&gt; 以前有小内存的VPS年费三刀，很便宜，但现在没有了，缺货，连521M的有时候也会缺货，看来挺火的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;2.安装Shadowsocks&lt;/h1&gt;
+&lt;h2&gt;2.1搬瓦工后台一键安装(不推荐)&lt;/h2&gt;
+&lt;p&gt;登录账号-&amp;gt;Client Area-&amp;gt;Services-&amp;gt;My Services-&amp;gt;KiwiVM Control Panel
+来到管理面板，点击 Shadowsocks Server 就可以一键安装 Shadowsocks
+测试过它自带的一键安装，速度太慢，yotube视频看不了，有点慢。&lt;/p&gt;
+&lt;h2&gt;2.2使用shell脚本安装(推荐)&lt;/h2&gt;
+&lt;h3&gt;2.2.1安装 shadowsoksR&lt;/h3&gt;
+&lt;p&gt;Shadowsocks的一个分支，比较不错。但是默认是 aes-256-cfb 加密，如果需要 chacha20 加密，需要手动切换。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh
+chmod +x shadowsocksR.sh
+./shadowsocksR.sh &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tee shadowsocksR.log
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装成功需要等几分钟
+这个速度可以看yotube无压力&lt;/p&gt;
+&lt;p&gt;卸载方法：
+使用 root 用户登录，运行以下命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./shadowsocksR.sh uninstall
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装完成后即已后台启动 ShadowsocksR,运行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/etc/init.d/shadowsocks status
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以查看 ShadowsocksR 进程是否已经启动。
+本脚本安装完成后，已将 ShadowsocksR 自动加入开机自启动。&lt;/p&gt;
+&lt;p&gt;其它命令：&lt;br&gt;
+启动：/etc/init.d/shadowsocks start&lt;br&gt;
+停止：/etc/init.d/shadowsocks stop&lt;br&gt;
+重启：/etc/init.d/shadowsocks restart&lt;br&gt;
+状态：/etc/init.d/shadowsocks status  &lt;/p&gt;
+&lt;p&gt;配置文件路径：/etc/shadowsocks.json&lt;br&gt;
+日志文件路径：/var/log/shadowsocks.log&lt;br&gt;
+代码安装目录：/usr/local/shadowsocks  &lt;/p&gt;
+&lt;h3&gt;2.2.2安装 shadowsocks-go版本&lt;/h3&gt;
+&lt;p&gt;据说有buff，比python版Shadowsocks要快：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go.sh
+chmod +x shadowsocks-go.sh
+./shadowsocks-go.sh &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;amp&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tee shadowsocks-go.log
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;2.2.3其他版本Shadowsocks一键安装：&lt;/h3&gt;
+&lt;p&gt;来自 teddysun：https://github.com/teddysun/shadowsocks_install&lt;/p&gt;
+&lt;h1&gt;3.遇到的一些问题&lt;/h1&gt;
+&lt;h2&gt;3.1搬瓦工默认系统Centos没有wget命令需要安装&lt;/h2&gt;
+&lt;p&gt;安装命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum -y install wget
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;3.2关于配置多用户&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/shadowsocks.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;只需要在port_password项下添加”端口号”:”密码”&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0.0.0.0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;server_ipv6&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[::]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;local_address&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;local_port&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;port_password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;quot;12345&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;123456&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;quot;23456&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;123456&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;timeout&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;method&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;aes-256-cfb&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;protocol&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;origin&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;protocol_param&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;obfs&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;plain&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;obfs_param&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;redirect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;dns_ipv6&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;fast_open&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;workers&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.kuoruan.com/48.html"&gt;https://blog.kuoruan.com/48.html&lt;/a&gt;&lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="shadowsocks"></category></entry></feed>

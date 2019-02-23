@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Frey's blog : JAVA套接字之TCP实现聊天室</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://summeriwiner.github.io/theme/css/main.css" type="text/css" />
+        <link href="https://summeriwiner.github.io/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie.css"/>
+                <script src="https://summeriwiner.github.io/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body>
+        
+<header>
+    <h1><a href="https://summeriwiner.github.io/javatao-jie-zi-zhi-tcpshi-xian-liao-tian-shi.html" id="page-title">JAVA套接字之TCP实现聊天室</a></h1>
+    <span id="sitename"><a href="https://summeriwiner.github.io" id="site-title">Frey's blog </a> &sdot;</span>
+<time datetime="2017-08-10T10:01:00+08:00">2017-08-10</time></header>
+<article>
+    <h1>1.客户端程序</h1>
+<p>客户端有两个线程<br>
+一个线程由主类SocketClient实现向服务器发送消息<br>
+一个线程由内部类readLineThread实现监听服务器发来的消息并显示  </p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SocketClient</span> <span class="kd">extends</span> <span class="n">Socket</span><span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">SERVER_IP</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SERVER_PORT</span> <span class="o">=</span> <span class="mi">2017</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Socket</span> <span class="n">client</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">PrintWriter</span> <span class="n">out</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">BufferedReader</span> <span class="n">in</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 与服务器连接，并输入发送消息</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">SocketClient</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">SERVER_IP</span><span class="o">,</span> <span class="n">SERVER_PORT</span><span class="o">);</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+        <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+        <span class="k">new</span> <span class="n">readLineThread</span><span class="o">();</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+            <span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 用于监听服务器端向客户端发送消息线程类</span>
+<span class="cm">     */</span>
+    <span class="kd">class</span> <span class="nc">readLineThread</span> <span class="kd">extends</span> <span class="n">Thread</span><span class="o">{</span>
+
+        <span class="kd">private</span> <span class="n">BufferedReader</span> <span class="n">buff</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">readLineThread</span><span class="o">(){</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">buff</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+                <span class="n">start</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+                    <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">buff</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+                    <span class="k">if</span><span class="o">(</span><span class="s">&quot;byeClient&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">result</span><span class="o">)){</span><span class="c1">//客户端申请退出，服务端返回确认退出</span>
+                        <span class="k">break</span><span class="o">;</span>
+                    <span class="o">}</span><span class="k">else</span><span class="o">{</span><span class="c1">//输出服务端发送消息</span>
+                        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">client</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">new</span> <span class="n">SocketClient</span><span class="o">();</span><span class="c1">//启动客户端</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1>2.服务器程序</h1>
+<p>服务器由三个类实现<br>
+主类Server监听客户端请求，并启用线程处理请求<br>
+内部类PrintOutThread监听输出消息请求，将消息发送到所有客户端<br>
+内部类ServerThread提供与每一个用户的连接  </p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.Socket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Server</span> <span class="kd">extends</span> <span class="n">ServerSocket</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SERVER_PORT</span> <span class="o">=</span> <span class="mi">2017</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">isPrint</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span><span class="c1">// 是否输出消息标志</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">List</span> <span class="n">user_list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span><span class="c1">// 登录用户集合</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ServerThread</span><span class="o">&gt;</span> <span class="n">thread_list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ServerThread</span><span class="o">&gt;();</span><span class="c1">// 服务器已启用线程集合</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">LinkedList</span> <span class="n">message_list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">();</span><span class="c1">// 存放消息队列</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 创建服务端Socket,创建向客户端发送消息线程,监听客户端请求并处理</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Server</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">SERVER_PORT</span><span class="o">);</span><span class="c1">// 创建ServerSocket</span>
+        <span class="k">new</span> <span class="n">PrintOutThread</span><span class="o">();</span><span class="c1">// 创建向客户端发送消息线程</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span><span class="c1">// 监听客户端请求，启用一个线程处理</span>
+                <span class="n">Socket</span> <span class="n">socket</span> <span class="o">=</span> <span class="n">accept</span><span class="o">();</span>
+                <span class="k">new</span> <span class="n">ServerThread</span><span class="o">(</span><span class="n">socket</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">close</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 监听是否有输出消息请求线程类,向客户端发送消息</span>
+<span class="cm">     */</span>
+    <span class="kd">class</span> <span class="nc">PrintOutThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+
+        <span class="kd">public</span> <span class="nf">PrintOutThread</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//没有打印这句，if里面的语句不会执行，可能是多线程访问isPrint造成的</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;运行中。。。&quot;</span><span class="o">+</span><span class="n">isPrint</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">isPrint</span><span class="o">)</span> <span class="o">{</span><span class="c1">// 将缓存在队列中的消息按顺序发送到各客户端,并从队列中清除。</span>
+                    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">message_list</span><span class="o">.</span><span class="na">getFirst</span><span class="o">();</span>
+                    <span class="k">for</span> <span class="o">(</span><span class="n">ServerThread</span> <span class="n">thread</span> <span class="o">:</span> <span class="n">thread_list</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">thread</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+                    <span class="o">}</span>
+                    <span class="n">message_list</span><span class="o">.</span><span class="na">removeFirst</span><span class="o">();</span>
+                    <span class="n">isPrint</span> <span class="o">=</span> <span class="n">message_list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 服务器线程类</span>
+<span class="cm">     */</span>
+    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&quot;unchecked&quot;</span><span class="o">)</span>
+    <span class="kd">class</span> <span class="nc">ServerThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="n">Socket</span> <span class="n">client</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="n">PrintWriter</span> <span class="n">out</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="n">BufferedReader</span> <span class="n">in</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">ServerThread</span><span class="o">(</span><span class="n">Socket</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">(),</span> <span class="kc">true</span><span class="o">);</span>
+            <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+            <span class="c1">//in.readLine();</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;成功连上聊天室,请输入你的名字：&quot;</span><span class="o">);</span>
+            <span class="n">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+                <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+                <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// 查看在线用户列表</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="s">&quot;showuser&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">line</span><span class="o">))</span> <span class="o">{</span>
+                        <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">listOnlineUsers</span><span class="o">());</span>
+                    <span class="o">}</span>
+                    <span class="k">if</span><span class="o">(</span><span class="s">&quot;bye&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">line</span><span class="o">)){</span>
+                        <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;bye&quot;</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;}</span>
+                    <span class="c1">// 第一次进入，保存名字</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">flag</span><span class="o">++</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">line</span><span class="o">;</span>
+                        <span class="n">user_list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+                        <span class="n">thread_list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+                        <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot;你好,可以开始聊天了...&quot;</span><span class="o">);</span>
+                        <span class="k">this</span><span class="o">.</span><span class="na">pushMessage</span><span class="o">(</span><span class="s">&quot;Client&lt;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;&gt;进入聊天室...&quot;</span><span class="o">);</span>
+                    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                        <span class="k">this</span><span class="o">.</span><span class="na">pushMessage</span><span class="o">(</span><span class="s">&quot;Client&lt;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;&gt; say : &quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">);</span>
+                    <span class="o">}</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+
+                <span class="o">}</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;byeClient&quot;</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span><span class="c1">// 用户退出聊天室</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">client</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="n">thread_list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+                <span class="n">user_list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+                <span class="n">pushMessage</span><span class="o">(</span><span class="s">&quot;Client&lt;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;&gt;退出了聊天室&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 放入消息队列末尾，准备发送给客户端</span>
+        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">pushMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">message_list</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+            <span class="n">isPrint</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 向客户端发送一条消息</span>
+        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">sendMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 统计在线用户列表</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="nf">listOnlineUsers</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;--- 在线用户列表 ---\015\012&quot;</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">user_list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="s">&quot;[&quot;</span> <span class="o">+</span> <span class="n">user_list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;]\015\012&quot;</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s">&quot;--------------------&quot;</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">Server</span><span class="o">();</span><span class="c1">// 启动服务端</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>这里好像出现了多线程问题</p>
+<div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//没有打印下面这句，if里面的语句不会执行，可能是这个线程一直访问isPrint,改变它的线程不能访问到它造成的</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;运行中。。。&quot;</span><span class="o">+</span><span class="n">isPrint</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isPrint</span><span class="o">)</span> <span class="o">{</span><span class="c1">// 将缓存在队列中的消息按顺序发送到各客户端，并从队列中清除。</span>
+            <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">message_list</span><span class="o">.</span><span class="na">getFirst</span><span class="o">();</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">ServerThread</span> <span class="n">thread</span> <span class="o">:</span> <span class="n">thread_list</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">thread</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">message_list</span><span class="o">.</span><span class="na">removeFirst</span><span class="o">();</span>
+            <span class="n">isPrint</span> <span class="o">=</span> <span class="n">message_list</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</article>
+
+</body>
+</html>

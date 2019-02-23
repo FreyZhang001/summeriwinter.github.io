@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Frey's blog : 搬瓦工VPS搭建Web服务器</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://summeriwiner.github.io/theme/css/main.css" type="text/css" />
+        <link href="https://summeriwiner.github.io/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie.css"/>
+                <script src="https://summeriwiner.github.io/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body>
+        
+<header>
+    <h1><a href="https://summeriwiner.github.io/ban-wa-gong-vpsda-jian-webfu-wu-qi.html" id="page-title">搬瓦工VPS搭建Web服务器</a></h1>
+    <span id="sitename"><a href="https://summeriwiner.github.io" id="site-title">Frey's blog </a> &sdot;</span>
+<time datetime="2017-08-04T10:01:00+08:00">2017-08-04</time></header>
+<article>
+    <p>搬瓦工VPS<a href="https://bandwagonhost.com/aff.php?aff=17697">购买地址</a>  </p>
+<h1>1.安装apache</h1>
+<p>安装<code>yum install httpd</code><br>
+启动<code>service httpd start</code><br>
+暂停<code>service httpd stop</code><br>
+重启<code>service httpd restart</code>  </p>
+<p>检查开机启动情况<code>chkconfig --list httpd</code><br>
+默认情况下是全部关闭的，尽量设置开机启动，以防主机意外关机  </p>
+<p>设置开机启动命令<code>chkconfig httpd on</code><br>
+再次检查启动情况，看到2，3，4，5为启动<br>
+关闭开机启动命令<code>chkconfig httpd off</code>  </p>
+<p>到此Apache安装完成，在自己浏览器中输入主机IP和端口号能正常打开</p>
+<h1>2.安装php</h1>
+<p>命令为:</p>
+<div class="highlight"><pre><span></span>yum install php
+yum install php-mysql  php-gd  php-imap  php-ldap  php-odbc php-pear  php-xml  php-xmlrpc
+yum install php-mysql
+</pre></div>
+
+
+<p>以上命令为安装php及其支持的组件  </p>
+<h1>3.安装mysql</h1>
+<h2>3.1安装</h2>
+<p>首先查看主机是否已经安装<code>rpm -qa|grep mysql</code><br>
+注意：可能检查中安装有php-mysql XXXXX 和 mysql-libXXXX,这是刚刚第二步安装的php的组件,不必理会  </p>
+<p>已经安装的话就执行删除命令<code>rpm -e mysql</code>  </p>
+<p>然后继续安装<br>
+使用命令yum list | grep mysql<br>
+来查看yum上提供的mysql数据库可下载的版本  </p>
+<p>安装命令<code>yum install -y mysql-server mysql mysql-devel</code>
+等待一段时间安装成功</p>
+<h2>3.2配置</h2>
+<p>接下来是对mysql的配置(<font color="red">注意:命令中是”mysqld”,不是mysql</font>)<br>
+初始化:<code>service mysqld start</code><br>
+重启:<code>service mysqld restart</code><br>
+配置开机自动启动:<code>chkconfig mysqld on</code>  </p>
+<p>为mysql的root账户设置密码:<code>mysqladmin -u root password '*********'</code><br>
+登录命令<code>mysql -u root -p</code>  </p>
+</article>
+
+</body>
+</html>

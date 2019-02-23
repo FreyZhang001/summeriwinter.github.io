@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Frey's blog : Matlab函数freqs和freqz</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://summeriwiner.github.io/theme/css/main.css" type="text/css" />
+        <link href="https://summeriwiner.github.io/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie.css"/>
+                <script src="https://summeriwiner.github.io/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwiner.github.io/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body>
+        
+<header>
+    <h1><a href="https://summeriwiner.github.io/matlabhan-shu-freqshe-freqz.html" id="page-title">Matlab函数freqs和freqz</a></h1>
+    <span id="sitename"><a href="https://summeriwiner.github.io" id="site-title">Frey's blog </a> &sdot;</span>
+<time datetime="2017-08-09T10:01:00+08:00">2017-08-09</time></header>
+<article>
+    <h1>1.freqs</h1>
+<p>模拟滤波器的频率响应<br>
+语法：</p>
+<div class="highlight"><pre><span></span><span class="n">h</span> <span class="p">=</span> <span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+<span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="p">=</span> <span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="p">[</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="p">=</span> <span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>1.1描述：</h2>
+<p>freqs 返回一个模拟滤波器的H(jw)的复频域响应(拉普拉斯格式)
+$$
+H\left(s\right)
+=\frac{B\left(s\right)}{A\left(s\right)}
+=\frac
+{b\left(1\right)s^n+b\left(2\right)s^{n-1}+\dots+b\left(n+1\right)}
+{a\left(1\right)s^m+a\left(2\right)s^{m-1}+\dots+a\left(m+1\right)}
+$$
+h = freqs(b, a, w) 根据系数向量计算返回模拟滤波器的复频域响应<br>
+freqs 计算在复平面虚轴上的频率响应h，角频率w确定了输入的实向量，因此必须包含至少一个频率点。<br>
+[h, w] = freqs(b, a) 自动挑选200个频率点来计算频率响应h<br>
+[h, w] = freqs(b, a, f) 挑选f个频率点来计算频率响应h  </p>
+<h2>1.2例子：</h2>
+<p>找到并画出下面传递函数的频率响应
+$$
+H\left(s\right)
+=\frac{0.2s^2+0.3s+1}{s^2+0.4s+1}
+$$
+Matlab代码：</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mf">0.4</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.2</span> <span class="mf">0.3</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">w</span> <span class="p">=</span> <span class="nb">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
+</pre></div>
+
+
+<p>logspace 功能：生成从10的a次方到10的b次方之间按对数等分的n个元素的行向量<br>
+n如果省略，则默认值为50。  </p>
+<div class="highlight"><pre><span></span><span class="n">h</span><span class="p">=</span><span class="n">freqs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">);</span>
+<span class="n">mag</span> <span class="p">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">);</span><span class="n">phase</span> <span class="p">=</span> <span class="nb">angle</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loglog</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">mag</span><span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">semilogx</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">phase</span><span class="p">);</span>
+<span class="n">f</span> <span class="p">=</span> <span class="n">w</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">);</span><span class="n">mag</span> <span class="p">=</span> <span class="mi">20</span><span class="o">*</span><span class="nb">log10</span><span class="p">(</span><span class="n">mag</span><span class="p">);</span><span class="n">phase</span> <span class="p">=</span> <span class="n">phase</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">;</span>
+</pre></div>
+
+
+<p><img src="http://upload-images.jianshu.io/upload_images/2950376-b264b55b452e2e05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  </p>
+<h1>2.freqz</h1>
+<p>MATLAB提供了专门用于求离散系统频响特性的函数freqz()<br>
+调用freqz()的格式有以下两种：  </p>
+<h2>2.1[H,w]=freqz(B,A,N)</h2>
+<p>$$
+H\left(e^{jw}\right)
+=\frac{B\left(e^{jw}\right)}{A\left(e^{jw}\right)}
+=\frac
+{b\left(1\right)+b\left(2\right)e^{-jw}+b\left(2\right)e^{-j2w}+\dots+b\left(M\right)e^{-j\left(M-1\right)w}}
+{a\left(1\right)+a\left(2\right)e^{-jw}+a\left(2\right)e^{-j2w}+\dots+b\left(N\right)e^{-j\left(N-1\right)w}}
+$$
+B和A分别为离散系统的系统函数分子、分母多项式的系数向量，N为正整数，返回量H则包含了离散系统频响 在 0——pi范围内N个频率等分点的值，向量w则包含范围内N个频率等分点。调用中若N默认，默认值为512。  </p>
+<h2>2.2[H,w]=freqz(B,A,N,’whole’)</h2>
+<p>该调用格式将计算离散系统在0—pi范内的N个频率等分店的频率响应的值。因此，可以先调用freqz()函数计算系统的频率响应，然后利用abs()和angle()函数及plot()函数，即可绘制出系统在 或 范围内的频响曲线。<br>
+例：绘制如下系统的频响曲线<br>
+H(z)=(z-0.5)/z<br>
+MATLAB命令如下：  </p>
+<div class="highlight"><pre><span></span><span class="n">B</span><span class="p">=[</span><span class="mi">1</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">];</span>
+<span class="n">A</span> <span class="p">=[</span><span class="mi">1</span> <span class="mi">0</span><span class="p">];</span>
+<span class="p">[</span><span class="n">H</span><span class="p">,</span><span class="n">w</span><span class="p">]=</span><span class="n">freqz</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="s">&#39;whole&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>H是频率响应的幅度，w是0—pi内的400个点  </p>
+<div class="highlight"><pre><span></span><span class="n">Hf</span><span class="p">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="n">Hx</span><span class="p">=</span><span class="nb">angle</span><span class="p">(</span><span class="n">H</span><span class="p">);</span>
+<span class="n">clf</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">Hf</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;离散系统幅频特性曲线&#39;</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">Hx</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;离散系统相频特性曲线&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>幅频特性:<br>
+<img src="http://upload-images.jianshu.io/upload_images/2950376-6cf701c431d25ecf.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>
+相频特性:<br>
+<img src="http://upload-images.jianshu.io/upload_images/2950376-2b3df07daa4591a4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>
+这样画出来的是线性的，要想获得db格式的幅度，需要转换 20*log10（Hf）
+之后再画就是db格式的<br>
+也可以直接用freqz(b,a,w)这样就会画出幅频响应和相频响应，幅频响应直接是db格式的幅度。  </p>
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ['$', '$'] ], displayMath: [ ['$$', '$$']], processEscapes: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }, messageStyle: "none", "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] } }); </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</article>
+
+</body>
+</html>

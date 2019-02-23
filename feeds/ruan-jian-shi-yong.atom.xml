@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - 软件使用</title><link href="https://summeriwiner.github.io/" rel="alternate"></link><link href="https://summeriwiner.github.io/feeds/ruan-jian-shi-yong.atom.xml" rel="self"></link><id>https://summeriwiner.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>Git使用中的一些问题</title><link href="https://summeriwiner.github.io/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
+&lt;p&gt;全局配置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git config --list  查看当前用户信息
+$ git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名
+$ git config --global user.email emailname@example.com 配置邮箱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;项目配置(进入项目目录)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat .git/config  项目配置信息
+$ git config  user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名
+$ git config  user.email emailname@example.com 配置邮箱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;全局的配置就是加上--global&lt;br&gt;
+项目未设置的配置默认使用全局配置  &lt;/p&gt;
+&lt;h1&gt;2.密钥问题&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/.ssh  查看是否存在密钥
+$ ssh-keygen -t rsa -C &lt;span class="s2"&gt;&amp;quot;emailname@example.com&amp;quot;&lt;/span&gt; 生成密钥
+$ ssh -T git@github.com  测试是否配置成功
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成密钥过程中回车三次，是密码为空，不然每次push都要输入密码&lt;br&gt;
+生成密钥后主要有两个文件&lt;br&gt;
+~/.ssh/id_rsa&lt;br&gt;
+私钥进行处理后的一些内容&lt;br&gt;
+~/.ssh/id_rsa.pub&lt;br&gt;
+公钥进行处理后的内容，提交到服务器(github或coding)的内容&lt;br&gt;
+~/.ssh/known_hosts&lt;br&gt;
+这个文件可能会有，是ssh对服务短的一些记录  &lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html"&gt;https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>Altium快捷键</title><link href="https://summeriwiner.github.io/altiumkuai-jie-jian.html" rel="alternate"></link><published>2017-12-31T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-12-31:/altiumkuai-jie-jian.html</id><summary type="html">&lt;p&gt;Altium快捷键使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;ctrl+shft+T(top):上对齐&lt;br&gt;
+ctrl+shft+B(bottom):下对齐&lt;br&gt;
+ctrl+shft+L(left):左对齐&lt;br&gt;
+ctrl+shft+T(right):右对齐&lt;br&gt;
+ctrl+shft+H(horizonta):水平方向上等距&lt;br&gt;
+ctrl+shft+V(vertical):竖直方向上的等距  &lt;/p&gt;</content><category term="Altium"></category></entry><entry><title>sublime_Text3插入当前时间</title><link href="https://summeriwiner.github.io/sublime_text3cha-ru-dang-qian-shi-jian.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-12-21:/sublime_text3cha-ru-dang-qian-shi-jian.html</id><summary type="html">&lt;p&gt;sublime_Text3插入当前时间&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.创建新snippet&lt;/h1&gt;
+&lt;p&gt;tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):&lt;br&gt;
+其内容:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;snippet&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;content&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;![CDATA[&lt;/span&gt;
+&lt;span class="cp"&gt;/**&lt;/span&gt;
+&lt;span class="cp"&gt; * ============================&lt;/span&gt;
+&lt;span class="cp"&gt; * @Author:   XX&lt;/span&gt;
+&lt;span class="cp"&gt; * @Version:  1.0 &lt;/span&gt;
+&lt;span class="cp"&gt; * @DateTime: ${1:alt+t}&lt;/span&gt;
+&lt;span class="cp"&gt; * ============================&lt;/span&gt;
+&lt;span class="cp"&gt; */&lt;/span&gt;
+&lt;span class="cp"&gt;]]&amp;gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/content&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tabTrigger&amp;gt;&lt;/span&gt;author&lt;span class="nt"&gt;&amp;lt;/tabTrigger&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- Optional: Set a scope to limit where the snippet will trigger --&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- &amp;lt;scope&amp;gt;source.python&amp;lt;/scope&amp;gt; --&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/snippet&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;2.创建新插件&lt;/h1&gt;
+&lt;p&gt;Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:
+其内容为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sublime&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sublime_plugin&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AddCurrentTimeCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sublime_plugin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextCommand&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;edit&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_command&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;insert_snippet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+            &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="s2"&gt;&amp;quot;contents&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt; %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;3.绑定快捷键&lt;/h1&gt;
+&lt;p&gt;Preference → Key Bindings → User.绑定快捷键:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[
+    {
+        &amp;quot;command&amp;quot;: &amp;quot;add_current_time&amp;quot;,
+        &amp;quot;keys&amp;quot;: [
+            &amp;quot;alt+t&amp;quot;
+        ]
+    }
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中绑定的命令的名字是由所创建的插件的类名而来&lt;br&gt;
+AddCurrentTimeCommand—&amp;gt;add_current_time&lt;br&gt;
+这应该是Sublime创建插件的规则  &lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1,&lt;a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html"&gt;http://www.cnblogs.com/xiaomingzaixian/p/6984664.html&lt;/a&gt;
+2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>谷歌浏览器运行安卓APK</title><link href="https://summeriwiner.github.io/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html" rel="alternate"></link><published>2017-06-25T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwiner.github.io,2017-06-25:/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html</id><summary type="html">&lt;p&gt;使用谷歌浏览器的插件ARChon实现安卓APK在电脑上运行&lt;/p&gt;</summary><content type="html">&lt;p&gt;用谷歌插件在电脑上运行安卓APK&lt;/p&gt;
+&lt;p&gt;1，直接谷歌应用商店下载出现错误
+程序包无效：“CRX_SIGNATURE_VERIFICATION_FAILED”。&lt;/p&gt;
+&lt;p&gt;2，直接下载crx包参考百度经验&lt;/p&gt;
+&lt;p&gt;3，出现错误：Cannot load extension with file or directory name &lt;em&gt;metadata. Filenames starting with “&lt;/em&gt;” are reserved for use by the system.
+更改解压后文件夹_metadata为metadata&lt;/p&gt;
+&lt;p&gt;4，出现错误：’import’ extension is not installed.
+打开文件manifest.json去掉import一句&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;import&amp;quot;:[{&amp;quot;id&amp;quot;:&amp;quot;mfaihdlpglflfgpfjcifdjdjcckigekc&amp;quot;}],
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;继续谷歌去掉这句话不对
+看这篇CSDN文章
+说要下载插件ARChon
+(以下废话，直接看5）&lt;/p&gt;
+&lt;p&gt;4.1，安装成功，但启用后一直白屏&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-a275f201f7fdead8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
+&lt;p&gt;怀疑是不是去掉import一句出问题了&lt;/p&gt;
+&lt;p&gt;4.2，网上看到开启Native Client
+谷歌浏览器地址栏输入chrome://flags/开启Native Client
+无用&lt;/p&gt;
+&lt;p&gt;4.3，发现另一个谷歌商店的应用twerk这个应用是把 APK 文件转换成 Chrome App用的&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-2372cf692c93b5a9.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
+&lt;p&gt;5ARChon是谷歌插件要在扩展程序，打钩开发者模式，点击加载已解压扩展程序，选择解压文件夹
+加载ARChon时有警告，可忽略
+先加载ARC Welder出现4的错误后
+再加载ARChon，然后ARC Welder就好了，不好的话重新加载就好了
+安装好了就是APK运行不了&lt;/p&gt;
+&lt;p&gt;4.3安装的twerk可以把 APK 文件转换一个文件夹
+然后ARC Welder运行
+谷歌浏览器如何运行APK博客CSDN可以试一试&lt;/p&gt;
+&lt;h2&gt;又遇到的问题&lt;/h2&gt;
+&lt;p&gt;Chrome加载Android应用，提示“There is no “message” element for key extName”错误，如：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-0c0702ed3e06b504.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
+&lt;h2&gt;解决方法：&lt;/h2&gt;
+&lt;p&gt;找到该Crx文件夹下的"_locales\en"目录下的"messages.json"文件，在"extName"节点下，添加"message"字段标签，值对应应用的包名：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-c5a40ac2756b5a87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
+&lt;p&gt;WebGL 不受支持
+知乎有教程
+浏览器快捷方式属性增加—ignore-gpu-blacklist
+开启硬件加速
+试了一下掌阅&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-f4ed0ddb2b2d06e1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
+&lt;p&gt;试了一下简书
+可以运行&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-ed37c301d49d7485.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;</content><category term="安卓模拟器"></category></entry></feed>
