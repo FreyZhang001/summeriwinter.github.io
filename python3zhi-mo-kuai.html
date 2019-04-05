@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Frey's blog : python3之模块</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://summeriwinter.github.io/theme/css/main.css" type="text/css" />
+        <link href="https://summeriwinter.github.io/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwinter.github.io/css/ie.css"/>
+                <script src="https://summeriwinter.github.io/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://summeriwinter.github.io/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body>
+        
+<header>
+    <h1><a href="https://summeriwinter.github.io/python3zhi-mo-kuai.html" id="page-title">python3之模块</a></h1>
+    <span id="sitename"><a href="https://summeriwinter.github.io" id="site-title">Frey's blog </a> &sdot;</span>
+<time datetime="2018-04-28T10:01:00+08:00">2018-04-28</time></header>
+<article>
+    <h1>1.python3模块</h1>
+<p>简单讲，一个模块就是一个*.py文件，这个文件里面可以定义类，函数，变量，也可以包含可执行代码。</p>
+<h1>2.模块的引入</h1>
+<h2>2.1import引入</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module1</span><span class="o">,</span><span class="p">[</span><span class="n">module2</span><span class="p">[,</span><span class="o">.........</span><span class="n">moduleN</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>一个模块只会被导入一次，不管执行了多少次import，这样可以防止导入模块被重复执行。</p>
+<h2>2.2from * import语句</h2>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">modname</span> <span class="kn">import</span> <span class="n">name1</span><span class="p">,</span><span class="n">name2</span><span class="o">..........</span><span class="n">nameN</span>
+<span class="kn">from</span> <span class="nn">mod</span> <span class="kn">import</span> <span class="n">func_1</span>
+</pre></div>
+
+
+<p>这个声明不会把整个mod模块导入到当前命名空间中，它只会将mod里的func_1单个引入到执行这个声明的模块的全局符号表。</p>
+<p>from … import * ：这样会把模块中的所有内容导入到当前命名空间，一般不建议使用，消耗内存空间，也容易出现未预知的问题。</p>
+<h1>3.搜索路径</h1>
+<p>搜索顺序：当前目录-&gt;系统环境变量PATHONHOME-&gt;标准链接库目录
+通过<code>sys.path</code>可查看搜索路径</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Python36</span><span class="se">\\</span><span class="s1">python36.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Python36</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Python36</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Python36&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Python36</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<h1>4.命名空间</h1>
+<p>变量是拥有匹配对象的名字（标识符）。命名空间是一个包含了变量名称（键）和它们各自相应的对象们（值）的字典。
+函数内用到全局变量要用global语句，否则会当作局部变量处理</p>
+<h1>其他问题:</h1>
+<p>1.python模块里的可执行代码何时执行？
+当导入模块时，python顶层的代码会执行一次，若要重新执行模块的顶层代码需要通道reload()函数
+另外python3中的reload()需要从imp包中导入
+2.关于python模块循环引入的问题？</p>
+<h1>参考资料</h1>
+<p>1.<a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html">https://www.cnblogs.com/zhangxinqi/p/7905103.html</a></p>
+</article>
+
+</body>
+</html>
