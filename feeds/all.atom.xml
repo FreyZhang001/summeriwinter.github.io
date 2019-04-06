@@ -1,5 +1,434 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/all.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>python3之模块</title><link href="https://summeriwinter.github.io/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/all.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>简单的iptables配置过程</title><link href="https://summeriwinter.github.io/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+&lt;h1&gt;iptables配置过程&lt;/h1&gt;
+&lt;h4&gt;1.清除规则:&lt;/h4&gt;
+&lt;p&gt;清楚旧的规则
+iptables -F 清除预设表filter中的所有规则链的规则
+iptables -X 清除预设表filter中使用者自定链中的规则&lt;/p&gt;
+&lt;h4&gt;2.设定预设规则&lt;/h4&gt;
+&lt;p&gt;默认情况下对各种包的处理方式
+iptables -p INPUT DROP
+iptables -p OUTPUT ACCEPT
+iptables -p FORWARD DROP&lt;/p&gt;
+&lt;h4&gt;3.添加用户自定义规则&lt;/h4&gt;
+&lt;p&gt;对于特定端口协议的包的规则进行设置
+iptables -A INPUT -p tcp —dport 22 -j ACCEPT
+-A:表示添加规则到INPUT(OUTPUT,FORWARD)链
+-p:表示tcp(udp)协议
+—dport(—sport):目的端口号(源端口号)
+-j():添加规则为接受&lt;/p&gt;
+&lt;h4&gt;4.保存规则&lt;/h4&gt;
+&lt;p&gt;不保存的话重启后就没有了
+service iptables save&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html"&gt;http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html&lt;/a&gt;&lt;/p&gt;</content><category term="服务器"></category><category term="系统"></category></entry><entry><title>socket网络编程</title><link href="https://summeriwinter.github.io/socketwang-luo-bian-cheng.html" rel="alternate"></link><published>2018-10-18T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-10-18:/socketwang-luo-bian-cheng.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;socket网络编程&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;inet_aton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;in_addr&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;inp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络主机地址为二进制数值并存储与第二个参数中
+函数返回0表示主机地址无效，非0表示主机地址有效
+转化完后需要调用htons或htonl函数才能将主机字节序转换为网络字节序用于网络传输&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;inet_ntoa&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;in_addr&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络字节序为标准的ASCII以点分开的地址，函数返回字符串指针
+该字符串空间为静态分配，第二次调用时会覆盖第一次的内容&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;in_addr_t&lt;/span&gt; &lt;span class="nf"&gt;inet_addr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络主机地址为网络字节序二进制值
+参数无效，返回-1(INADDR_NONE)
+注意：转换255.255.255.255时也返回-1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;inet_pton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;af&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dst&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换字符串到网络地址，af是地址簇，&lt;em&gt;src是来源地址，&lt;/em&gt; dst接收转换后的数据。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;inet_ntop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;af&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dst&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;socklen_t&lt;/span&gt; &lt;span class="n"&gt;cnt&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络字节序二进制值到ASCII类型的地址，参数的作用和inet_pton相同，
+socklen_t cnt指所指向缓存区dst的大小，避免溢出，如果缓存区太小无法存储地址的值，则返回一个空指针，并将errno置为ENOSPC。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;maxfdp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;readfds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;writefds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;errorfds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;timeval&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;int maxfdp 指集合中所有文件描述符的范围，即所有文件描述符的最大值加1，不能错！在Windows中这个参数的值无所谓，可以设置不正确。
+struct fd_set 可以理解为一个集合，这个集合中存放的是文件描述符(filedescriptor)，即文件句柄。监视这些文件描述符的读变化&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SOCKET&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;optname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;optval&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;optlen&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;s(套接字): 指向一个打开的套接口描述字
+level:(级别)： 指定选项代码的类型。
+SOL_SOCKET: 基本套接口
+IPPROTO_IP: IPv4套接口
+IPPROTO_IPV6: IPv6套接口
+IPPROTO_TCP: TCP套接口
+optname(选项名)： 选项名称
+optval(选项值): 是一个指向变量的指针 类型：整形，套接口结构， 其他结构类型:linger{}, timeval{ }
+optlen(选项长度) ：optval 的大小&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;PASCAL&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt; &lt;span class="nf"&gt;recvfrom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;SOCKET&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;flags&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;sockaddr&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fromlen&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;s：标识一个已连接套接口的描述字。
+buf：接收数据缓冲区。
+len：缓冲区长度。
+flags：调用操作方式。
+from：（可选）指针，指向装有源地址的缓冲区。
+fromlen：（可选）指针，指向from缓冲区长度值。&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/zyy617532750/article/details/58595700"&gt;https://blog.csdn.net/zyy617532750/article/details/58595700&lt;/a&gt;
+2.&lt;a href="https://www.cnblogs.com/zhoudingcocng/p/6209961.html"&gt;https://www.cnblogs.com/zhoudingcocng/p/6209961.html&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="socket"></category></entry><entry><title>形式语言与自动机基础知识</title><link href="https://summeriwinter.github.io/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html" rel="alternate"></link><published>2018-09-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-09-22:/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html</id><summary type="html">&lt;p&gt;形式语言与自动机这门课需要有离散数学的基础，但本科通信工程里没有学过这门课，总结一些这门课中需要的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.集合及其运算&lt;/h1&gt;
+&lt;h2&gt;1.1子集和真子集&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A​\)&lt;/span&gt;是&lt;span class="math"&gt;\(B​\)&lt;/span&gt;的子集：&lt;span class="math"&gt;\(A \subseteq B​\)&lt;/span&gt;或&lt;span class="math"&gt;\(B \subseteq A​\)&lt;/span&gt;
+&lt;span class="math"&gt;\(A​\)&lt;/span&gt;是&lt;span class="math"&gt;\(B​\)&lt;/span&gt;的真子集：&lt;span class="math"&gt;\(A \subset B​\)&lt;/span&gt;或&lt;span class="math"&gt;\(B \subset A​\)&lt;/span&gt;
+&lt;span class="math"&gt;\(x​\)&lt;/span&gt;是&lt;span class="math"&gt;\(A​\)&lt;/span&gt;的一个元素：&lt;span class="math"&gt;\(x \in A​\)&lt;/span&gt;
+&lt;span class="math"&gt;\(x​\)&lt;/span&gt;不是&lt;span class="math"&gt;\(A​\)&lt;/span&gt;的一个元素：&lt;span class="math"&gt;\(x \notin A​\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.2集合的交并差补&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A\)&lt;/span&gt;和&lt;span class="math"&gt;\(B\)&lt;/span&gt;的并集：&lt;span class="math"&gt;\(A\cup B=\{x|x\in A或x\in B\}\)&lt;/span&gt;
+&lt;span class="math"&gt;\(A\)&lt;/span&gt;和&lt;span class="math"&gt;\(B\)&lt;/span&gt;的交集：&lt;span class="math"&gt;\(A\cap B=\{x|x\in A且x\in B\}\)&lt;/span&gt;
+&lt;span class="math"&gt;\(A\)&lt;/span&gt;和&lt;span class="math"&gt;\(B\)&lt;/span&gt;的差集：&lt;span class="math"&gt;\(A - B=\{x|x\in A且x\notin B\}\)&lt;/span&gt;
+若&lt;span class="math"&gt;\(B\subseteq A\)&lt;/span&gt;我们也称&lt;span class="math"&gt;\(A−B\)&lt;/span&gt;为&lt;span class="math"&gt;\(B\)&lt;/span&gt;的（关于&lt;span class="math"&gt;\(A\)&lt;/span&gt;）补,记作：&lt;span class="math"&gt;\(\overline B(A)​\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.3集合的并的推广&lt;/h2&gt;
+&lt;p&gt;设&lt;span class="math"&gt;\(I​\)&lt;/span&gt;是某些标号的集合我们将&lt;span class="math"&gt;\(\displaystyle \bigcup_{i\in I}A_i=\{x|存在i\in I,使得x\in A_i\}​\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.4A的幂集&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A\)&lt;/span&gt;的所有子集的集合，记作&lt;span class="math"&gt;\(2^A=\{B|B\subseteq A\}​\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.5笛卡尔乘积&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A\times B=\{(a,b)|a\in A且b\in B\}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.6集合之间的关系&lt;/h2&gt;
+&lt;p&gt;由&lt;span class="math"&gt;\(A\)&lt;/span&gt;到&lt;span class="math"&gt;\(B\)&lt;/span&gt;的关系是&lt;span class="math"&gt;\(A×B\)&lt;/span&gt;的任何子集。若&lt;span class="math"&gt;\(A=B\)&lt;/span&gt;，则称为&lt;span class="math"&gt;\(A\)&lt;/span&gt;上的关系。若&lt;span class="math"&gt;\(R\)&lt;/span&gt;为&lt;span class="math"&gt;\(A\)&lt;/span&gt;到&lt;span class="math"&gt;\(B\)&lt;/span&gt;的关系，当&lt;span class="math"&gt;\((a,b)\)&lt;/span&gt;在&lt;span class="math"&gt;\(R\)&lt;/span&gt;内时，可写成&lt;span class="math"&gt;\(aRb​\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.7集合关系的性质&lt;/h2&gt;
+&lt;p&gt;设&lt;span class="math"&gt;\(R\)&lt;/span&gt;是集合&lt;span class="math"&gt;\(A\)&lt;/span&gt;上的关系，则有
+（1）若对&lt;span class="math"&gt;\(A\)&lt;/span&gt;中的任一元素&lt;span class="math"&gt;\(a\)&lt;/span&gt;，都有&lt;span class="math"&gt;\(aRa\)&lt;/span&gt;，则称&lt;span class="math"&gt;\(R\)&lt;/span&gt;是&lt;strong&gt;自反的&lt;/strong&gt;；
+（2）若对&lt;span class="math"&gt;\(A\)&lt;/span&gt;中的任何元素&lt;span class="math"&gt;\(a,b\)&lt;/span&gt;，从&lt;span class="math"&gt;\(aRb\)&lt;/span&gt;能够推到出&lt;span class="math"&gt;\(bRa\)&lt;/span&gt;，则称&lt;span class="math"&gt;\(R\)&lt;/span&gt;是&lt;strong&gt;对称的&lt;/strong&gt;；
+（3）若&lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;是&lt;span class="math"&gt;\(A\)&lt;/span&gt;中的元素，从&lt;span class="math"&gt;\(aRb\)&lt;/span&gt;和&lt;span class="math"&gt;\(bRc\)&lt;/span&gt;能够推出&lt;span class="math"&gt;\(aRc\)&lt;/span&gt;，则称&lt;span class="math"&gt;\(R\)&lt;/span&gt;是&lt;strong&gt;传递的&lt;/strong&gt;；
+若关系&lt;span class="math"&gt;\(R​\)&lt;/span&gt;同时是自反的，对称的和传递的，则称之为&lt;strong&gt;等价关系&lt;/strong&gt;。
+2018-09-22 15:28:12&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.《形式语言与自动机》陈有祺编著&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="math"></category></entry><entry><title>梯度旋度和散度</title><link href="https://summeriwinter.github.io/ti-du-xuan-du-he-san-du.html" rel="alternate"></link><published>2018-09-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-09-08:/ti-du-xuan-du-he-san-du.html</id><summary type="html">&lt;p&gt;有关梯度旋度和散度的定义和计算,记录一下&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.定义&lt;/h1&gt;
+&lt;h2&gt;1.1梯度&lt;/h2&gt;
+&lt;p&gt;设函数&lt;span class="math"&gt;\(u=f(x,y,z)\)&lt;/span&gt;在空间区域&lt;span class="math"&gt;\(G\)&lt;/span&gt;内具有一阶连续偏导数,其中点&lt;span class="math"&gt;\(P(x,y,z) \in G\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;向量
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\left\{
+  \frac {\partial f}{\partial x},
+  \frac {\partial f}{\partial y},
+  \frac {\partial f}{\partial z}
+  \right\}=
+  \frac {\partial f}{\partial x}\vec i+
+  \frac {\partial f}{\partial y}\vec j+
+  \frac {\partial f}{\partial z}\vec k
+$$&lt;/div&gt;
+&lt;p&gt;
+为函数&lt;span class="math"&gt;\(u=f(x,y,z)​\)&lt;/span&gt;在点&lt;span class="math"&gt;\(P(x,y,z)​\)&lt;/span&gt;的&lt;strong&gt;梯度&lt;/strong&gt;
+记为&lt;span class="math"&gt;\(gradf(x,y,z)​\)&lt;/span&gt;或&lt;span class="math"&gt;\(\nabla f(x,y,z)​\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;(注:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\nabla = \frac {\partial}{\partial x}\vec i+\frac {\partial}{\partial y}\vec j+\frac {\partial}{\partial z}\vec k
+$$&lt;/div&gt;
+&lt;p&gt;
+称为三维的向量微分算子)&lt;/p&gt;
+&lt;h2&gt;1.2旋度&lt;/h2&gt;
+&lt;p&gt;在三维空间&lt;span class="math"&gt;\(G​\)&lt;/span&gt;中有三维直角坐标系&lt;span class="math"&gt;\(O_{xyz}​\)&lt;/span&gt;,设向量场:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\vec v=v_x\vec i+v_y\vec j+v_z\vec k
+$$&lt;/div&gt;
+&lt;p&gt;
+其中&lt;span class="math"&gt;\(v_x,v_y,v_z\)&lt;/span&gt;具有一阶连续偏导数,点&lt;span class="math"&gt;\(P(x,y,z) \in G​\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;向量
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+  \begin{vmatrix}
+  \vec i &amp;amp; \vec j &amp;amp; \vec k \\
+  \frac {\partial}{\partial x} &amp;amp; \frac {\partial}{\partial y} &amp;amp; \frac {\partial}{\partial z} \\
+  v_x &amp;amp; v_y &amp;amp; v_z \\
+  \end{vmatrix} = 
+  (\frac {\partial v_z}{\partial y} - \frac {\partial v_y}{\partial z})\vec i+
+  (\frac {\partial v_x}{\partial z} - \frac {\partial v_z}{\partial x})\vec j+
+  (\frac {\partial v_y}{\partial x} - \frac {\partial v_x}{\partial y})\vec k
+$$&lt;/div&gt;
+&lt;p&gt;
+为向量场&lt;span class="math"&gt;\(\vec v\)&lt;/span&gt;在点&lt;span class="math"&gt;\(P(x,y,z)\)&lt;/span&gt;的&lt;strong&gt;旋度&lt;/strong&gt;
+记为&lt;span class="math"&gt;\(curl\;v\)&lt;/span&gt;或者&lt;span class="math"&gt;\(\nabla \times v\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;1.3散度&lt;/h2&gt;
+&lt;p&gt;在三维空间&lt;span class="math"&gt;\(G\)&lt;/span&gt;中有三维直角坐标系&lt;span class="math"&gt;\(O_{xyz}\)&lt;/span&gt;,设向量场:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\vec v=v_x\vec i+v_y\vec j+v_z\vec k
+$$&lt;/div&gt;
+&lt;p&gt;
+其中&lt;span class="math"&gt;\(v_x,v_y,v_z\)&lt;/span&gt;具有一阶连续偏导数,点&lt;span class="math"&gt;\(P(x,y,z) \in G​\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;标量
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\frac {\partial v_x}{\partial x}+
+\frac {\partial v_y}{\partial y}+
+\frac {\partial v_z}{\partial z}
+$$&lt;/div&gt;
+&lt;p&gt;
+为向量场&lt;span class="math"&gt;\(\vec v\)&lt;/span&gt;在点&lt;span class="math"&gt;\(P(x,y,z)\)&lt;/span&gt;的&lt;strong&gt;散度&lt;/strong&gt;
+记为&lt;span class="math"&gt;\(div\;v\)&lt;/span&gt;或者&lt;span class="math"&gt;\(\nabla \cdot v​\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;2018-09-08 15:26:31&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="math"></category></entry><entry><title>vim的使用</title><link href="https://summeriwinter.github.io/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
+&lt;p&gt;h,j,k,l(空格):向左，下，上，右移动光标&lt;/p&gt;
+&lt;p&gt;Ctrl+(f,b,d,u):屏幕向下移一页，向上移一页，向下移半页，向上移半页
++-:下一行，上一行
+H,M,L:光标移动到这个屏幕的最上方，中央，最下方那一行的第一个字符
+G,nG,gg:移动都文档末，移动到第n行，移动到第一行
+n:向下移动n行&lt;/p&gt;
+&lt;h1&gt;2.搜索替换&lt;/h1&gt;
+&lt;p&gt;/word:向光标之下寻找word
+?word:向光标之上寻找word
+n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>git的使用</title><link href="https://summeriwinter.github.io/gitde-shi-yong.html" rel="alternate"></link><published>2018-06-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-06-08:/gitde-shi-yong.html</id><summary type="html">&lt;p&gt;git的一些命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;配置用户名和邮箱&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt;
+git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成密钥
+&lt;code&gt;ssh-keygen -t rsa&lt;/code&gt;
+添加远程仓库
+&lt;code&gt;git remote add origin git@github.com:name/reponame.git&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://summeriwinter.github.io/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
+&lt;p&gt;self代表类的实例,如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;:
+    &lt;span class="kt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;#类的属性&lt;/span&gt;
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;#实例的属性&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfc&amp;#39;&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;classa&lt;/span&gt; &lt;span class="nx"&gt;classb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;访问类的属性&lt;/span&gt;
+&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;classa&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;通过实例访问类的属性&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;selfb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;当实例和类都具有某属性时&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;输出实例属性&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当实例和类有相同的属性时，如何通过实例访问类的属性呢？
+可以通过__class__访问&lt;/p&gt;
+&lt;h1&gt;2,&lt;strong&gt;class&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;__class__是指实例所对应的类&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt; &lt;span class="nx"&gt;coding&lt;/span&gt;: &lt;span class="kt"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt;
+&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;:
+    &lt;span class="kt"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfa&amp;#39;&lt;/span&gt;
+        &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt; &lt;span class="nx"&gt;object&lt;/span&gt; &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x055A1270&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__.Test&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;实例a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt; &lt;span class="nx"&gt;object&lt;/span&gt; &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x055A1270&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;类Test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__.Test&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;selfa&lt;/span&gt; &lt;span class="nx"&gt;classa&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;通过__init__()可以实现对类的实例的统计&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt; &lt;span class="nx"&gt;coding&lt;/span&gt;: &lt;span class="kt"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt;
+&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="kr"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;输出为&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1
+2
+3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;每创建一个Test类的实例,Test.count都加1&lt;/p&gt;
+&lt;h1&gt;3,&lt;strong&gt;dict&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;dict__是一个字典，键是属性名，值为属性值。
+类有自己的__dict&lt;/strong&gt;，类的实例也有自己的__dict__&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt; &lt;span class="nx"&gt;coding&lt;/span&gt;: &lt;span class="kt"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt;
+&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;classa&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="kr"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;selfb&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;输出为&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{&amp;#39;__module__&amp;#39;: &amp;#39;__main__&amp;#39;, &amp;#39;classa&amp;#39;: &amp;#39;classa&amp;#39;, &amp;#39;__init__&amp;#39;: &amp;lt;function Test.__init__ at 0x04D03468&amp;gt;, &amp;#39;__dict__&amp;#39;: &amp;lt;attribute &amp;#39;__dict__&amp;#39; of &amp;#39;Test&amp;#39; objects&amp;gt;, &amp;#39;__weakref__&amp;#39;: &amp;lt;attribute &amp;#39;__weakref__&amp;#39; of &amp;#39;Test&amp;#39; objects&amp;gt;, &amp;#39;__doc__&amp;#39;: None}
+{&amp;#39;selfb&amp;#39;: &amp;#39;selfb&amp;#39;}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可见类Test有classa属性以及一些其他属性
+类Test的实例a只有selfb属性
+2018-05-23 14:54:58&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://summeriwinter.github.io/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;#输出当前路径&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;#输出当前路径下的所有文件夹名和文件名&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;filename.xxx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;和&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unlink&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;filename.xxx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;功能一样&lt;/span&gt;
+&lt;span class="c1"&gt;#删除文件filename.xxx&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rmdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#删除目录（目录必须为空）&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;removedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;p1//p2//p3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#依次删除目录p3,p2,p1直到某一目录不为空&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#更改当前路径&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/yanglang/p/7610838.html"&gt;https://www.cnblogs.com/yanglang/p/7610838.html&lt;/a&gt;
+2.&lt;a href="https://blog.csdn.net/muwinter/article/details/77196261"&gt;https://blog.csdn.net/muwinter/article/details/77196261&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python3之模块</title><link href="https://summeriwinter.github.io/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
 &lt;p&gt;简单讲，一个模块就是一个*.py文件，这个文件里面可以定义类，函数，变量，也可以包含可执行代码。&lt;/p&gt;
 &lt;h1&gt;2.模块的引入&lt;/h1&gt;
 &lt;h2&gt;2.1import引入&lt;/h2&gt;
@@ -148,13 +577,42 @@ ctrl+shft+B(bottom):下对齐&lt;br&gt;
 ctrl+shft+L(left):左对齐&lt;br&gt;
 ctrl+shft+T(right):右对齐&lt;br&gt;
 ctrl+shft+H(horizonta):水平方向上等距&lt;br&gt;
-ctrl+shft+V(vertical):竖直方向上的等距  &lt;/p&gt;</content><category term="Altium"></category></entry><entry><title>python遇到的错误</title><link href="https://summeriwinter.github.io/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;font color="red"&gt;python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序&lt;/font&gt; 
+ctrl+shft+V(vertical):竖直方向上的等距  &lt;/p&gt;</content><category term="Altium"></category></entry><entry><title>python遇到的错误</title><link href="https://summeriwinter.github.io/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-17T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.DLL load failed&lt;/h1&gt;
+&lt;p&gt;&lt;font color="red"&gt;python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序&lt;/font&gt; 
 解决方法：去下载与你所安装的Python版本对应的pywin32并安装&lt;br&gt;
 下载链接：https://sourceforge.net/projects/pywin32/files/pywin32/&lt;br&gt;
 对应版本和位数&lt;br&gt;
 Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 bit (Intel)] on win32&lt;br&gt;
 Type “help”, “copyright”, “credits” or “license” for more information.&lt;br&gt;
-还有一种可能是导入的模块是64位的，而你的python是32位的  &lt;/p&gt;</content><category term="python"></category></entry><entry><title>位运算的妙用之二进制1的个数</title><link href="https://summeriwinter.github.io/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html</id><summary type="html">&lt;p&gt;求出一个正整数转换成二进制形式中数字”1”的个数&lt;/p&gt;</summary><content type="html">&lt;p&gt;题目：求出一个正整数转换成二进制形式中数字”1”的个数&lt;br&gt;
+还有一种可能是导入的模块是64位的，而你的python是32位的  &lt;/p&gt;
+&lt;h1&gt;2.使用libsvm for python时出错[1]&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Traceback &lt;span class="o"&gt;(&lt;/span&gt;most recent call last&lt;span class="o"&gt;)&lt;/span&gt;:
+  File &lt;span class="s2"&gt;&amp;quot;C:\Python36\lib\libsvm\python\svm.py&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;28&lt;/span&gt;, in &amp;lt;module&amp;gt;
+    &lt;span class="nv"&gt;libsvm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; CDLL&lt;span class="o"&gt;(&lt;/span&gt;path.join&lt;span class="o"&gt;(&lt;/span&gt;dirname, r&lt;span class="s1"&gt;&amp;#39;..\windows\libsvm.dll&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+  File &lt;span class="s2"&gt;&amp;quot;C:\Python36\lib\ctypes\__init__.py&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;348&lt;/span&gt;, in __init__
+    self._handle &lt;span class="o"&gt;=&lt;/span&gt; _dlopen&lt;span class="o"&gt;(&lt;/span&gt;self._name, mode&lt;span class="o"&gt;)&lt;/span&gt;
+OSError: &lt;span class="o"&gt;[&lt;/span&gt;WinError &lt;span class="m"&gt;126&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; 找不到指定的模块。
+
+During handling of the above exception, another exception occurred:
+
+Traceback &lt;span class="o"&gt;(&lt;/span&gt;most recent call last&lt;span class="o"&gt;)&lt;/span&gt;:
+  File &lt;span class="s2"&gt;&amp;quot;train.py&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;3&lt;/span&gt;, in &amp;lt;module&amp;gt;
+    from libsvm.python.svmutil import *
+  File &lt;span class="s2"&gt;&amp;quot;C:\Python36\lib\libsvm\python\svmutil.py&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;5&lt;/span&gt;, in &amp;lt;module&amp;gt;
+    from svm import *
+  File &lt;span class="s2"&gt;&amp;quot;C:\Python36\lib\libsvm\python\svm.py&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;38&lt;/span&gt;, in &amp;lt;module&amp;gt;
+    raise Exception&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;LIBSVM library not found.&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Exception: LIBSVM library not found.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;出错原因：在github上下载的libsvm中的libsvm.lib是win64版本的，而自己的python版本是32位的
+解决方案：
+方法1.更换python版本（太麻烦了，还要重新下载好多库）
+方法2.去&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/"&gt;万能宝库&lt;/a&gt;上下载对应版本的.whl文件，（不用安装）直接解压后找到&lt;a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl"&gt;libsvm.lib&lt;/a&gt;更换即可
+2018-09-07 22:11:58&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/rena521/article/details/51187981"&gt;https://blog.csdn.net/rena521/article/details/51187981&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="libsvm"></category></entry><entry><title>位运算的妙用之二进制1的个数</title><link href="https://summeriwinter.github.io/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html</id><summary type="html">&lt;p&gt;求出一个正整数转换成二进制形式中数字”1”的个数&lt;/p&gt;</summary><content type="html">&lt;p&gt;题目：求出一个正整数转换成二进制形式中数字”1”的个数&lt;br&gt;
 如：&lt;br&gt;
 int 型数值为 80&lt;br&gt;
 转化成二进制形式：80 = 00000000 00000000 00000000 01010000&lt;br&gt;
@@ -1528,23 +1986,27 @@ Xbox:&lt;br&gt;
 
 &lt;h2&gt;1.1描述：&lt;/h2&gt;
 &lt;p&gt;freqs 返回一个模拟滤波器的H(jw)的复频域响应(拉普拉斯格式)
-$$
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 H\left(s\right)
 =\frac{B\left(s\right)}{A\left(s\right)}
 =\frac
 {b\left(1\right)s^n+b\left(2\right)s^{n-1}+\dots+b\left(n+1\right)}
 {a\left(1\right)s^m+a\left(2\right)s^{m-1}+\dots+a\left(m+1\right)}
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
 h = freqs(b, a, w) 根据系数向量计算返回模拟滤波器的复频域响应&lt;br&gt;
 freqs 计算在复平面虚轴上的频率响应h，角频率w确定了输入的实向量，因此必须包含至少一个频率点。&lt;br&gt;
 [h, w] = freqs(b, a) 自动挑选200个频率点来计算频率响应h&lt;br&gt;
 [h, w] = freqs(b, a, f) 挑选f个频率点来计算频率响应h  &lt;/p&gt;
 &lt;h2&gt;1.2例子：&lt;/h2&gt;
 &lt;p&gt;找到并画出下面传递函数的频率响应
-$$
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
 H\left(s\right)
 =\frac{0.2s^2+0.3s+1}{s^2+0.4s+1}
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
 Matlab代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mf"&gt;0.4&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt; &lt;span class="mf"&gt;0.3&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
@@ -1568,13 +2030,14 @@ n如果省略，则默认值为50。  &lt;/p&gt;
 &lt;p&gt;MATLAB提供了专门用于求离散系统频响特性的函数freqz()&lt;br&gt;
 调用freqz()的格式有以下两种：  &lt;/p&gt;
 &lt;h2&gt;2.1[H,w]=freqz(B,A,N)&lt;/h2&gt;
-&lt;p&gt;$$
+&lt;div class="math"&gt;$$
 H\left(e^{jw}\right)
 =\frac{B\left(e^{jw}\right)}{A\left(e^{jw}\right)}
 =\frac
 {b\left(1\right)+b\left(2\right)e^{-jw}+b\left(2\right)e^{-j2w}+\dots+b\left(M\right)e^{-j\left(M-1\right)w}}
 {a\left(1\right)+a\left(2\right)e^{-jw}+a\left(2\right)e^{-j2w}+\dots+b\left(N\right)e^{-j\left(N-1\right)w}}
-$$
+$$&lt;/div&gt;
+&lt;p&gt;
 B和A分别为离散系统的系统函数分子、分母多项式的系数向量，N为正整数，返回量H则包含了离散系统频响 在 0——pi范围内N个频率等分点的值，向量w则包含范围内N个频率等分点。调用中若N默认，默认值为512。  &lt;/p&gt;
 &lt;h2&gt;2.2[H,w]=freqz(B,A,N,’whole’)&lt;/h2&gt;
 &lt;p&gt;该调用格式将计算离散系统在0—pi范内的N个频率等分店的频率响应的值。因此，可以先调用freqz()函数计算系统的频率响应，然后利用abs()和angle()函数及plot()函数，即可绘制出系统在 或 范围内的频响曲线。&lt;br&gt;
@@ -1606,7 +2069,62 @@ MATLAB命令如下：  &lt;/p&gt;
 &lt;img src="http://upload-images.jianshu.io/upload_images/2950376-2b3df07daa4591a4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;br&gt;
 这样画出来的是线性的，要想获得db格式的幅度，需要转换 20*log10（Hf）
 之后再画就是db格式的&lt;br&gt;
-也可以直接用freqz(b,a,w)这样就会画出幅频响应和相频响应，幅频响应直接是db格式的幅度。  &lt;/p&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="https://summeriwinter.github.io/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
+也可以直接用freqz(b,a,w)这样就会画出幅频响应和相频响应，幅频响应直接是db格式的幅度。  &lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="https://summeriwinter.github.io/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install python-qt5
 &lt;/pre&gt;&lt;/div&gt;
 

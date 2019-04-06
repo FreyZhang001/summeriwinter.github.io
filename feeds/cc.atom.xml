@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - C/C++</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/cc.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>C语言文件读写</title><link href="https://summeriwinter.github.io/cyu-yan-wen-jian-du-xie.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-21:/cyu-yan-wen-jian-du-xie.html</id><summary type="html">&lt;p&gt;C语言文件操作笔记&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;fopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//打开文件&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - C/C++</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/cc.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2018-10-18T10:01:00+08:00</updated><entry><title>socket网络编程</title><link href="https://summeriwinter.github.io/socketwang-luo-bian-cheng.html" rel="alternate"></link><published>2018-10-18T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-10-18:/socketwang-luo-bian-cheng.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;socket网络编程&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;inet_aton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;in_addr&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;inp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络主机地址为二进制数值并存储与第二个参数中
+函数返回0表示主机地址无效，非0表示主机地址有效
+转化完后需要调用htons或htonl函数才能将主机字节序转换为网络字节序用于网络传输&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;inet_ntoa&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;in_addr&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络字节序为标准的ASCII以点分开的地址，函数返回字符串指针
+该字符串空间为静态分配，第二次调用时会覆盖第一次的内容&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;in_addr_t&lt;/span&gt; &lt;span class="nf"&gt;inet_addr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络主机地址为网络字节序二进制值
+参数无效，返回-1(INADDR_NONE)
+注意：转换255.255.255.255时也返回-1&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;inet_pton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;af&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dst&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换字符串到网络地址，af是地址簇，&lt;em&gt;src是来源地址，&lt;/em&gt; dst接收转换后的数据。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;inet_ntop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;af&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dst&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;socklen_t&lt;/span&gt; &lt;span class="n"&gt;cnt&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;转换网络字节序二进制值到ASCII类型的地址，参数的作用和inet_pton相同，
+socklen_t cnt指所指向缓存区dst的大小，避免溢出，如果缓存区太小无法存储地址的值，则返回一个空指针，并将errno置为ENOSPC。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;select&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;maxfdp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;readfds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;writefds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;fd_set&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;errorfds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;timeval&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;int maxfdp 指集合中所有文件描述符的范围，即所有文件描述符的最大值加1，不能错！在Windows中这个参数的值无所谓，可以设置不正确。
+struct fd_set 可以理解为一个集合，这个集合中存放的是文件描述符(filedescriptor)，即文件句柄。监视这些文件描述符的读变化&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SOCKET&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;optname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;optval&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;optlen&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;s(套接字): 指向一个打开的套接口描述字
+level:(级别)： 指定选项代码的类型。
+SOL_SOCKET: 基本套接口
+IPPROTO_IP: IPv4套接口
+IPPROTO_IPV6: IPv6套接口
+IPPROTO_TCP: TCP套接口
+optname(选项名)： 选项名称
+optval(选项值): 是一个指向变量的指针 类型：整形，套接口结构， 其他结构类型:linger{}, timeval{ }
+optlen(选项长度) ：optval 的大小&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;PASCAL&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt; &lt;span class="nf"&gt;recvfrom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;SOCKET&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;buf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;flags&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;sockaddr&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;FAR&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;fromlen&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;s：标识一个已连接套接口的描述字。
+buf：接收数据缓冲区。
+len：缓冲区长度。
+flags：调用操作方式。
+from：（可选）指针，指向装有源地址的缓冲区。
+fromlen：（可选）指针，指向from缓冲区长度值。&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/zyy617532750/article/details/58595700"&gt;https://blog.csdn.net/zyy617532750/article/details/58595700&lt;/a&gt;
+2.&lt;a href="https://www.cnblogs.com/zhoudingcocng/p/6209961.html"&gt;https://www.cnblogs.com/zhoudingcocng/p/6209961.html&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="socket"></category></entry><entry><title>C语言文件读写</title><link href="https://summeriwinter.github.io/cyu-yan-wen-jian-du-xie.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-21:/cyu-yan-wen-jian-du-xie.html</id><summary type="html">&lt;p&gt;C语言文件操作笔记&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;fopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//打开文件&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fclose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//关闭文件&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fgetc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//读一个字符指针后移&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;getc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;

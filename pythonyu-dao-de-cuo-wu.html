@@ -25,13 +25,42 @@
     <span id="sitename"><a href="https://summeriwinter.github.io" id="site-title">Frey's blog </a> &sdot;</span>
 <time datetime="2017-12-26T10:01:00+08:00">2017-12-26</time></header>
 <article>
-    <p><font color="red">python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序</font> 
+    <h1>1.DLL load failed</h1>
+<p><font color="red">python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序</font> 
 解决方法：去下载与你所安装的Python版本对应的pywin32并安装<br>
 下载链接：https://sourceforge.net/projects/pywin32/files/pywin32/<br>
 对应版本和位数<br>
 Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 bit (Intel)] on win32<br>
 Type “help”, “copyright”, “credits” or “license” for more information.<br>
 还有一种可能是导入的模块是64位的，而你的python是32位的  </p>
+<h1>2.使用libsvm for python时出错[1]</h1>
+<div class="highlight"><pre><span></span>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;C:\Python36\lib\libsvm\python\svm.py&quot;</span>, line <span class="m">28</span>, in &lt;module&gt;
+    <span class="nv">libsvm</span> <span class="o">=</span> CDLL<span class="o">(</span>path.join<span class="o">(</span>dirname, r<span class="s1">&#39;..\windows\libsvm.dll&#39;</span><span class="o">))</span>
+  File <span class="s2">&quot;C:\Python36\lib\ctypes\__init__.py&quot;</span>, line <span class="m">348</span>, in __init__
+    self._handle <span class="o">=</span> _dlopen<span class="o">(</span>self._name, mode<span class="o">)</span>
+OSError: <span class="o">[</span>WinError <span class="m">126</span><span class="o">]</span> 找不到指定的模块。
+
+During handling of the above exception, another exception occurred:
+
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;train.py&quot;</span>, line <span class="m">3</span>, in &lt;module&gt;
+    from libsvm.python.svmutil import *
+  File <span class="s2">&quot;C:\Python36\lib\libsvm\python\svmutil.py&quot;</span>, line <span class="m">5</span>, in &lt;module&gt;
+    from svm import *
+  File <span class="s2">&quot;C:\Python36\lib\libsvm\python\svm.py&quot;</span>, line <span class="m">38</span>, in &lt;module&gt;
+    raise Exception<span class="o">(</span><span class="s1">&#39;LIBSVM library not found.&#39;</span><span class="o">)</span>
+Exception: LIBSVM library not found.
+</pre></div>
+
+
+<p>出错原因：在github上下载的libsvm中的libsvm.lib是win64版本的，而自己的python版本是32位的
+解决方案：
+方法1.更换python版本（太麻烦了，还要重新下载好多库）
+方法2.去<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">万能宝库</a>上下载对应版本的.whl文件，（不用安装）直接解压后找到<a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl">libsvm.lib</a>更换即可
+2018-09-07 22:11:58</p>
+<h1>参考资料</h1>
+<p>1.<a href="https://blog.csdn.net/rena521/article/details/51187981">https://blog.csdn.net/rena521/article/details/51187981</a></p>
 </article>
 
 </body>
