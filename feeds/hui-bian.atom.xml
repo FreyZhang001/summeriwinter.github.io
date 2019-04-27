@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - 汇编</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/hui-bian.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>DEBUG常用功能</title><link href="https://www.vhcffh.com/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - 汇编</title><link href="https://vhcffh.com/" rel="alternate"></link><link href="https://vhcffh.com/feeds/hui-bian.atom.xml" rel="self"></link><id>https://vhcffh.com/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>DEBUG常用功能</title><link href="https://vhcffh.com/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
 &lt;p&gt;window 10中好像已经没有了Debug的调试工具，需要下载另外的软件&lt;/p&gt;
 &lt;p&gt;下载安装DOSBox.百度云下载地址：(DOSBOX)[https://pan.baidu.com/s/1cC3cuy]&lt;br&gt;
 下载后先安装DOSBox0.74-win32-installer.exe&lt;br&gt;
@@ -57,7 +57,7 @@ Q命令：退出DEBUG调试  &lt;/p&gt;
 &lt;img src="/images/2018/2_12_T命令.PNG"&gt;&lt;/p&gt;
 &lt;h1&gt;3.6A命令:&lt;/h1&gt;
 &lt;p&gt;A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
-&lt;img src="/images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>简单了解汇编</title><link href="https://www.vhcffh.com/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
+&lt;img src="/images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>简单了解汇编</title><link href="https://vhcffh.com/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
 &lt;p&gt;汇编语言的主体是汇编指令，汇编指令是由机器指令发展而来，例如：&lt;br&gt;
 操作：将寄存器bx的内容送到ax&lt;br&gt;
 机器指令：101100000000000000000011&lt;br&gt;
