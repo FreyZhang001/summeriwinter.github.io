@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://summeriwinter.github.io/" rel="alternate"></link><link href="https://summeriwinter.github.io/feeds/all.atom.xml" rel="self"></link><id>https://summeriwinter.github.io/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>简单的iptables配置过程</title><link href="https://summeriwinter.github.io/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/all.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
 &lt;h4&gt;1.清除规则:&lt;/h4&gt;
 &lt;p&gt;清楚旧的规则
@@ -21,7 +21,7 @@ iptables -A INPUT -p tcp —dport 22 -j ACCEPT
 &lt;p&gt;不保存的话重启后就没有了
 service iptables save&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html"&gt;http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html&lt;/a&gt;&lt;/p&gt;</content><category term="服务器"></category><category term="系统"></category></entry><entry><title>socket网络编程</title><link href="https://summeriwinter.github.io/socketwang-luo-bian-cheng.html" rel="alternate"></link><published>2018-10-18T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-10-18:/socketwang-luo-bian-cheng.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;socket网络编程&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html"&gt;http://www.cnblogs.com/JemBai/archive/2009/03/19/1416364.html&lt;/a&gt;&lt;/p&gt;</content><category term="服务器"></category><category term="系统"></category></entry><entry><title>socket网络编程</title><link href="https://www.vhcffh.com/socketwang-luo-bian-cheng.html" rel="alternate"></link><published>2018-10-18T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-18:/socketwang-luo-bian-cheng.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;socket网络编程&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;inet_aton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;in_addr&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;inp&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -84,7 +84,7 @@ from：（可选）指针，指向装有源地址的缓冲区。
 fromlen：（可选）指针，指向from缓冲区长度值。&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="https://blog.csdn.net/zyy617532750/article/details/58595700"&gt;https://blog.csdn.net/zyy617532750/article/details/58595700&lt;/a&gt;
-2.&lt;a href="https://www.cnblogs.com/zhoudingcocng/p/6209961.html"&gt;https://www.cnblogs.com/zhoudingcocng/p/6209961.html&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="socket"></category></entry><entry><title>形式语言与自动机基础知识</title><link href="https://summeriwinter.github.io/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html" rel="alternate"></link><published>2018-09-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-09-22:/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html</id><summary type="html">&lt;p&gt;形式语言与自动机这门课需要有离散数学的基础，但本科通信工程里没有学过这门课，总结一些这门课中需要的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.集合及其运算&lt;/h1&gt;
+2.&lt;a href="https://www.cnblogs.com/zhoudingcocng/p/6209961.html"&gt;https://www.cnblogs.com/zhoudingcocng/p/6209961.html&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="socket"></category></entry><entry><title>形式语言与自动机基础知识</title><link href="https://www.vhcffh.com/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html" rel="alternate"></link><published>2018-09-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-09-22:/xing-shi-yu-yan-yu-zi-dong-ji-ji-chu-zhi-shi.html</id><summary type="html">&lt;p&gt;形式语言与自动机这门课需要有离散数学的基础，但本科通信工程里没有学过这门课，总结一些这门课中需要的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.集合及其运算&lt;/h1&gt;
 &lt;h2&gt;1.1子集和真子集&lt;/h2&gt;
 &lt;p&gt;&lt;span class="math"&gt;\(A​\)&lt;/span&gt;是&lt;span class="math"&gt;\(B​\)&lt;/span&gt;的子集：&lt;span class="math"&gt;\(A \subseteq B​\)&lt;/span&gt;或&lt;span class="math"&gt;\(B \subseteq A​\)&lt;/span&gt;
 &lt;span class="math"&gt;\(A​\)&lt;/span&gt;是&lt;span class="math"&gt;\(B​\)&lt;/span&gt;的真子集：&lt;span class="math"&gt;\(A \subset B​\)&lt;/span&gt;或&lt;span class="math"&gt;\(B \subset A​\)&lt;/span&gt;
@@ -166,7 +166,7 @@ fromlen：（可选）指针，指向from缓冲区长度值。&lt;/p&gt;
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="math"></category></entry><entry><title>梯度旋度和散度</title><link href="https://summeriwinter.github.io/ti-du-xuan-du-he-san-du.html" rel="alternate"></link><published>2018-09-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-09-08:/ti-du-xuan-du-he-san-du.html</id><summary type="html">&lt;p&gt;有关梯度旋度和散度的定义和计算,记录一下&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.定义&lt;/h1&gt;
+&lt;/script&gt;</content><category term="math"></category></entry><entry><title>梯度旋度和散度</title><link href="https://www.vhcffh.com/ti-du-xuan-du-he-san-du.html" rel="alternate"></link><published>2018-09-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-09-08:/ti-du-xuan-du-he-san-du.html</id><summary type="html">&lt;p&gt;有关梯度旋度和散度的定义和计算,记录一下&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.定义&lt;/h1&gt;
 &lt;h2&gt;1.1梯度&lt;/h2&gt;
 &lt;p&gt;设函数&lt;span class="math"&gt;\(u=f(x,y,z)\)&lt;/span&gt;在空间区域&lt;span class="math"&gt;\(G\)&lt;/span&gt;内具有一阶连续偏导数,其中点&lt;span class="math"&gt;\(P(x,y,z) \in G\)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;向量
@@ -287,7 +287,7 @@ $$&lt;/div&gt;
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="math"></category></entry><entry><title>vim的使用</title><link href="https://summeriwinter.github.io/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
+&lt;/script&gt;</content><category term="math"></category></entry><entry><title>vim的使用</title><link href="https://www.vhcffh.com/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
 &lt;p&gt;h,j,k,l(空格):向左，下，上，右移动光标&lt;/p&gt;
 &lt;p&gt;Ctrl+(f,b,d,u):屏幕向下移一页，向上移一页，向下移半页，向上移半页
 +-:下一行，上一行
@@ -299,7 +299,7 @@ n:向下移动n行&lt;/p&gt;
 ?word:向光标之上寻找word
 n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>git的使用</title><link href="https://summeriwinter.github.io/gitde-shi-yong.html" rel="alternate"></link><published>2018-06-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-06-08:/gitde-shi-yong.html</id><summary type="html">&lt;p&gt;git的一些命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;配置用户名和邮箱&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>git的使用</title><link href="https://www.vhcffh.com/gitde-shi-yong.html" rel="alternate"></link><published>2018-06-08T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-06-08:/gitde-shi-yong.html</id><summary type="html">&lt;p&gt;git的一些命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;配置用户名和邮箱&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt;
 git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -310,48 +310,48 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 添加远程仓库
 &lt;code&gt;git remote add origin git@github.com:name/reponame.git&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://summeriwinter.github.io/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
 &lt;p&gt;self代表类的实例,如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;:
-    &lt;span class="kt"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;#类的属性&lt;/span&gt;
-    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;&lt;span class="err"&gt;#实例的属性&lt;/span&gt;
-        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfc&amp;#39;&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;classa&lt;/span&gt; &lt;span class="nx"&gt;classb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;访问类的属性&lt;/span&gt;
-&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;classa&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;通过实例访问类的属性&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;selfb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="err"&gt;当实例和类都具有某属性时&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;输出实例属性&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;#类的属性&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;#实例的属性&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfc&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:classa classb-访问类的属性&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:classa-通过实例访问类的属性&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:selfb-当实例和类都具有某属性时,输出实例属性&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#output&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;当实例和类有相同的属性时，如何通过实例访问类的属性呢？
 可以通过__class__访问&lt;/p&gt;
-&lt;h1&gt;2,&lt;strong&gt;class&lt;/strong&gt;&lt;/h1&gt;
+&lt;h1&gt;2,__class__&lt;/h1&gt;
 &lt;p&gt;__class__是指实例所对应的类&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt; &lt;span class="nx"&gt;coding&lt;/span&gt;: &lt;span class="kt"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt;
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;:
-    &lt;span class="kt"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
-    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfa&amp;#39;&lt;/span&gt;
-        &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt; &lt;span class="nx"&gt;object&lt;/span&gt; &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x055A1270&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__.Test&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;实例a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt; &lt;span class="nx"&gt;object&lt;/span&gt; &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x055A1270&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;类Test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="o"&gt;:&amp;lt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__.Test&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;output&lt;/span&gt;:&lt;span class="kt"&gt;selfa&lt;/span&gt; &lt;span class="nx"&gt;classa&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfa&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;#-output:&amp;lt;__main__.Test object at 0x055A1270&amp;gt;&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;#-output:&amp;lt;class &amp;#39;__main__.Test&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;实例a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:&amp;lt;__main__.Test object at 0x055A1270&amp;gt;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;类Test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:&amp;lt;class &amp;#39;__main__.Test&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__class__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#-output:selfa classa&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -380,25 +380,25 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 
 
 &lt;p&gt;每创建一个Test类的实例,Test.count都加1&lt;/p&gt;
-&lt;h1&gt;3,&lt;strong&gt;dict&lt;/strong&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;dict__是一个字典，键是属性名，值为属性值。
-类有自己的__dict&lt;/strong&gt;，类的实例也有自己的__dict__&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt; &lt;span class="nx"&gt;coding&lt;/span&gt;: &lt;span class="kt"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;-*-&lt;/span&gt;
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="nx"&gt;classa&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
-    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="kr"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;selfb&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="nx"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;h1&gt;3,__dict__&lt;/h1&gt;
+&lt;p&gt;__dict__是一个字典，键是属性名，值为属性值。
+类有自己的__dict__，类的实例也有自己的__dict__&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;classa&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;selfb&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;输出为&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{&amp;#39;__module__&amp;#39;: &amp;#39;__main__&amp;#39;, &amp;#39;classa&amp;#39;: &amp;#39;classa&amp;#39;, &amp;#39;__init__&amp;#39;: &amp;lt;function Test.__init__ at 0x04D03468&amp;gt;, &amp;#39;__dict__&amp;#39;: &amp;lt;attribute &amp;#39;__dict__&amp;#39; of &amp;#39;Test&amp;#39; objects&amp;gt;, &amp;#39;__weakref__&amp;#39;: &amp;lt;attribute &amp;#39;__weakref__&amp;#39; of &amp;#39;Test&amp;#39; objects&amp;gt;, &amp;#39;__doc__&amp;#39;: None}
-{&amp;#39;selfb&amp;#39;: &amp;#39;selfb&amp;#39;}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;__module__&amp;#39;&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;__init__&amp;#39;&lt;/span&gt;: &amp;lt;&lt;span class="k"&gt;function&lt;/span&gt; Test.__init__ at 0x04D03468&amp;gt;, &lt;span class="s1"&gt;&amp;#39;__dict__&amp;#39;&lt;/span&gt;: &amp;lt;attribute &lt;span class="s1"&gt;&amp;#39;__dict__&amp;#39;&lt;/span&gt; of &lt;span class="s1"&gt;&amp;#39;Test&amp;#39;&lt;/span&gt; objects&amp;gt;, &lt;span class="s1"&gt;&amp;#39;__weakref__&amp;#39;&lt;/span&gt;: &amp;lt;attribute &lt;span class="s1"&gt;&amp;#39;__weakref__&amp;#39;&lt;/span&gt; of &lt;span class="s1"&gt;&amp;#39;Test&amp;#39;&lt;/span&gt; objects&amp;gt;, &lt;span class="s1"&gt;&amp;#39;__doc__&amp;#39;&lt;/span&gt;: None&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;: &lt;span class="s1"&gt;&amp;#39;selfb&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -406,7 +406,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 类Test的实例a只有selfb属性
 2018-05-23 14:54:58&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://summeriwinter.github.io/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://www.vhcffh.com/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="c1"&gt;#输出当前路径&lt;/span&gt;
 
 &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -428,7 +428,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="https://www.cnblogs.com/yanglang/p/7610838.html"&gt;https://www.cnblogs.com/yanglang/p/7610838.html&lt;/a&gt;
-2.&lt;a href="https://blog.csdn.net/muwinter/article/details/77196261"&gt;https://blog.csdn.net/muwinter/article/details/77196261&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python3之模块</title><link href="https://summeriwinter.github.io/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
+2.&lt;a href="https://blog.csdn.net/muwinter/article/details/77196261"&gt;https://blog.csdn.net/muwinter/article/details/77196261&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python3之模块</title><link href="https://www.vhcffh.com/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
 &lt;p&gt;简单讲，一个模块就是一个*.py文件，这个文件里面可以定义类，函数，变量，也可以包含可执行代码。&lt;/p&gt;
 &lt;h1&gt;2.模块的引入&lt;/h1&gt;
 &lt;h2&gt;2.1import引入&lt;/h2&gt;
@@ -463,7 +463,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 另外python3中的reload()需要从imp包中导入
 2.关于python模块循环引入的问题？&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>DEBUG常用功能</title><link href="https://summeriwinter.github.io/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>DEBUG常用功能</title><link href="https://www.vhcffh.com/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
 &lt;p&gt;window 10中好像已经没有了Debug的调试工具，需要下载另外的软件&lt;/p&gt;
 &lt;p&gt;下载安装DOSBox.百度云下载地址：(DOSBOX)[https://pan.baidu.com/s/1cC3cuy]&lt;br&gt;
 下载后先安装DOSBox0.74-win32-installer.exe&lt;br&gt;
@@ -521,7 +521,7 @@ Q命令：退出DEBUG调试  &lt;/p&gt;
 &lt;img src="/images/2018/2_12_T命令.PNG"&gt;&lt;/p&gt;
 &lt;h1&gt;3.6A命令:&lt;/h1&gt;
 &lt;p&gt;A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
-&lt;img src="/images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>Git使用中的一些问题</title><link href="https://summeriwinter.github.io/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
+&lt;img src="/images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>Git使用中的一些问题</title><link href="https://www.vhcffh.com/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
 &lt;p&gt;全局配置&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git config --list  查看当前用户信息
 $ git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名
@@ -554,7 +554,7 @@ $ ssh -T git@github.com  测试是否配置成功
 ~/.ssh/known_hosts&lt;br&gt;
 这个文件可能会有，是ssh对服务短的一些记录  &lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html"&gt;https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>简单了解汇编</title><link href="https://summeriwinter.github.io/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html"&gt;https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>简单了解汇编</title><link href="https://www.vhcffh.com/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
 &lt;p&gt;汇编语言的主体是汇编指令，汇编指令是由机器指令发展而来，例如：&lt;br&gt;
 操作：将寄存器bx的内容送到ax&lt;br&gt;
 机器指令：101100000000000000000011&lt;br&gt;
@@ -572,12 +572,12 @@ $ ssh -T git@github.com  测试是否配置成功
 &lt;p&gt;RAM：程序和数据都要加载到RAM即内存中，才能通过CPU运行，可读可写&lt;br&gt;
 ROM：一些芯片的主要参数，及操作指令，芯片出厂时已经固定，仅可读&lt;br&gt;
 计算机运行时，全部程序和数据都要加载到RAM中&lt;br&gt;
-通过ROM中的一些必要信息，CPU才能对外设进行操作  &lt;/p&gt;</content><category term="汇编"></category><category term="x8086"></category></entry><entry><title>Altium快捷键</title><link href="https://summeriwinter.github.io/altiumkuai-jie-jian.html" rel="alternate"></link><published>2017-12-31T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-31:/altiumkuai-jie-jian.html</id><summary type="html">&lt;p&gt;Altium快捷键使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;ctrl+shft+T(top):上对齐&lt;br&gt;
+通过ROM中的一些必要信息，CPU才能对外设进行操作  &lt;/p&gt;</content><category term="汇编"></category><category term="x8086"></category></entry><entry><title>Altium快捷键</title><link href="https://www.vhcffh.com/altiumkuai-jie-jian.html" rel="alternate"></link><published>2017-12-31T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-31:/altiumkuai-jie-jian.html</id><summary type="html">&lt;p&gt;Altium快捷键使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;ctrl+shft+T(top):上对齐&lt;br&gt;
 ctrl+shft+B(bottom):下对齐&lt;br&gt;
 ctrl+shft+L(left):左对齐&lt;br&gt;
 ctrl+shft+T(right):右对齐&lt;br&gt;
 ctrl+shft+H(horizonta):水平方向上等距&lt;br&gt;
-ctrl+shft+V(vertical):竖直方向上的等距  &lt;/p&gt;</content><category term="Altium"></category></entry><entry><title>python遇到的错误</title><link href="https://summeriwinter.github.io/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-17T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.DLL load failed&lt;/h1&gt;
+ctrl+shft+V(vertical):竖直方向上的等距  &lt;/p&gt;</content><category term="Altium"></category></entry><entry><title>python遇到的错误</title><link href="https://www.vhcffh.com/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-17T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.DLL load failed&lt;/h1&gt;
 &lt;p&gt;&lt;font color="red"&gt;python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序&lt;/font&gt; 
 解决方法：去下载与你所安装的Python版本对应的pywin32并安装&lt;br&gt;
 下载链接：https://sourceforge.net/projects/pywin32/files/pywin32/&lt;br&gt;
@@ -612,7 +612,7 @@ Exception: LIBSVM library not found.
 方法2.去&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/"&gt;万能宝库&lt;/a&gt;上下载对应版本的.whl文件，（不用安装）直接解压后找到&lt;a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl"&gt;libsvm.lib&lt;/a&gt;更换即可
 2018-09-07 22:11:58&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.csdn.net/rena521/article/details/51187981"&gt;https://blog.csdn.net/rena521/article/details/51187981&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="libsvm"></category></entry><entry><title>位运算的妙用之二进制1的个数</title><link href="https://summeriwinter.github.io/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-26:/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html</id><summary type="html">&lt;p&gt;求出一个正整数转换成二进制形式中数字”1”的个数&lt;/p&gt;</summary><content type="html">&lt;p&gt;题目：求出一个正整数转换成二进制形式中数字”1”的个数&lt;br&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/rena521/article/details/51187981"&gt;https://blog.csdn.net/rena521/article/details/51187981&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="libsvm"></category></entry><entry><title>位运算的妙用之二进制1的个数</title><link href="https://www.vhcffh.com/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-26:/wei-yun-suan-de-miao-yong-zhi-er-jin-zhi-1de-ge-shu.html</id><summary type="html">&lt;p&gt;求出一个正整数转换成二进制形式中数字”1”的个数&lt;/p&gt;</summary><content type="html">&lt;p&gt;题目：求出一个正整数转换成二进制形式中数字”1”的个数&lt;br&gt;
 如：&lt;br&gt;
 int 型数值为 80&lt;br&gt;
 转化成二进制形式：80 = 00000000 00000000 00000000 01010000&lt;br&gt;
@@ -644,7 +644,7 @@ int 型数值为 80&lt;br&gt;
 
 
 &lt;h1&gt;参考文章&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://www.jianshu.com/p/25c75149e7a2"&gt;https://www.jianshu.com/p/25c75149e7a2&lt;/a&gt;&lt;/p&gt;</content><category term="C语言 算法"></category></entry><entry><title>C语言文件读写</title><link href="https://summeriwinter.github.io/cyu-yan-wen-jian-du-xie.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-21:/cyu-yan-wen-jian-du-xie.html</id><summary type="html">&lt;p&gt;C语言文件操作笔记&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;fopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//打开文件&lt;/span&gt;
+&lt;p&gt;1.&lt;a href="https://www.jianshu.com/p/25c75149e7a2"&gt;https://www.jianshu.com/p/25c75149e7a2&lt;/a&gt;&lt;/p&gt;</content><category term="C语言 算法"></category></entry><entry><title>C语言文件读写</title><link href="https://www.vhcffh.com/cyu-yan-wen-jian-du-xie.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-21:/cyu-yan-wen-jian-du-xie.html</id><summary type="html">&lt;p&gt;C语言文件操作笔记&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nf"&gt;fopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//打开文件&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fclose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//关闭文件&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fgetc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//读一个字符指针后移&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;getc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;FILE&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -662,7 +662,7 @@ type可取的至如下&lt;br&gt;
 “w+”:打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件&lt;br&gt;
 “a+”:打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式&lt;br&gt;
 如果处理的是二进制文件，则需使用下面的访问模式来取代上面的访问模式:&lt;br&gt;
-&lt;code&gt;"rb", "wb", "ab", "rb+", "r+b", "wb+", "w+b", "ab+", "a+b"&lt;/code&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="文件"></category></entry><entry><title>sublime_Text3插入当前时间</title><link href="https://summeriwinter.github.io/sublime_text3cha-ru-dang-qian-shi-jian.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-21:/sublime_text3cha-ru-dang-qian-shi-jian.html</id><summary type="html">&lt;p&gt;sublime_Text3插入当前时间&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.创建新snippet&lt;/h1&gt;
+&lt;code&gt;"rb", "wb", "ab", "rb+", "r+b", "wb+", "w+b", "ab+", "a+b"&lt;/code&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="文件"></category></entry><entry><title>sublime_Text3插入当前时间</title><link href="https://www.vhcffh.com/sublime_text3cha-ru-dang-qian-shi-jian.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-21:/sublime_text3cha-ru-dang-qian-shi-jian.html</id><summary type="html">&lt;p&gt;sublime_Text3插入当前时间&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.创建新snippet&lt;/h1&gt;
 &lt;p&gt;tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):&lt;br&gt;
 其内容:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;snippet&amp;gt;&lt;/span&gt;
@@ -716,7 +716,7 @@ AddCurrentTimeCommand—&amp;gt;add_current_time&lt;br&gt;
 这应该是Sublime创建插件的规则  &lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1,&lt;a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html"&gt;http://www.cnblogs.com/xiaomingzaixian/p/6984664.html&lt;/a&gt;
-2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>字符串匹配</title><link href="https://summeriwinter.github.io/zi-fu-chuan-pi-pei.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-21:/zi-fu-chuan-pi-pei.html</id><summary type="html">&lt;p&gt;字符串匹配算法&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.BM算法&lt;/h1&gt;
+2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>字符串匹配</title><link href="https://www.vhcffh.com/zi-fu-chuan-pi-pei.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-21:/zi-fu-chuan-pi-pei.html</id><summary type="html">&lt;p&gt;字符串匹配算法&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.BM算法&lt;/h1&gt;
 &lt;p&gt;从左到右依次比较&lt;br&gt;
 s:主串&lt;br&gt;
 r:模式串  &lt;/p&gt;
@@ -776,7 +776,7 @@ r:模式串  &lt;/p&gt;
 
 
 &lt;h1&gt;参考文章&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html"&gt;字符串匹配的KMP算法&lt;/a&gt;&lt;/p&gt;</content><category term="C语言 算法"></category></entry><entry><title>图片头文件解析</title><link href="https://summeriwinter.github.io/tu-pian-tou-wen-jian-jie-xi.html" rel="alternate"></link><published>2017-12-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-12-12:/tu-pian-tou-wen-jian-jie-xi.html</id><summary type="html">&lt;p&gt;各种类型的图片头文件解析&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.PNG图片文件头&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html"&gt;字符串匹配的KMP算法&lt;/a&gt;&lt;/p&gt;</content><category term="C语言 算法"></category></entry><entry><title>图片头文件解析</title><link href="https://www.vhcffh.com/tu-pian-tou-wen-jian-jie-xi.html" rel="alternate"></link><published>2017-12-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-12:/tu-pian-tou-wen-jian-jie-xi.html</id><summary type="html">&lt;p&gt;各种类型的图片头文件解析&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.PNG图片文件头&lt;/h1&gt;
 &lt;h2&gt;1.1PNG文件结构&lt;/h2&gt;
 &lt;p&gt;PNG图像格式文件由一个8字节的PNG文件标识（file signature）域和3个以上的后续数据块（IHDR、IDAT、IEND等）组成。&lt;br&gt;
 PNG文件包括8字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别PNG格式。  &lt;/p&gt;
@@ -966,7 +966,7 @@ PNG文件包括8字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制）�
 &lt;td align="center"&gt;最后一个数据块&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="文件头"></category><category term="图片"></category></entry><entry><title>CentOS自带python26升级到27</title><link href="https://summeriwinter.github.io/centoszi-dai-python26sheng-ji-dao-27.html" rel="alternate"></link><published>2017-09-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-12:/centoszi-dai-python26sheng-ji-dao-27.html</id><summary type="html">&lt;p&gt;升级CentOS自带python26到27&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.下载安装&lt;/h1&gt;
+&lt;/table&gt;</content><category term="文件头"></category><category term="图片"></category></entry><entry><title>CentOS自带python26升级到27</title><link href="https://www.vhcffh.com/centoszi-dai-python26sheng-ji-dao-27.html" rel="alternate"></link><published>2017-09-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-12:/centoszi-dai-python26sheng-ji-dao-27.html</id><summary type="html">&lt;p&gt;升级CentOS自带python26到27&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.下载安装&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#下载&lt;/span&gt;
 wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
 &lt;span class="c1"&gt;#解压并更改目录   &lt;/span&gt;
@@ -1012,7 +1012,7 @@ vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&g
 /usr/bin/python2.6.6 ##改为此行&lt;br&gt;
 更改需要管理员权限  &lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://blog.csdn.net/jcjc918/article/details/11022345"&gt;http://blog.csdn.net/jcjc918/article/details/11022345&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="centos"></category></entry><entry><title>C实现简单TCP通信</title><link href="https://summeriwinter.github.io/cshi-xian-jian-dan-tcptong-xin.html" rel="alternate"></link><published>2017-09-05T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-05:/cshi-xian-jian-dan-tcptong-xin.html</id><summary type="html">&lt;p&gt;C实现简单TCP通信&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.添加所需的window库&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://blog.csdn.net/jcjc918/article/details/11022345"&gt;http://blog.csdn.net/jcjc918/article/details/11022345&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="centos"></category></entry><entry><title>C实现简单TCP通信</title><link href="https://www.vhcffh.com/cshi-xian-jian-dan-tcptong-xin.html" rel="alternate"></link><published>2017-09-05T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-05:/cshi-xian-jian-dan-tcptong-xin.html</id><summary type="html">&lt;p&gt;C实现简单TCP通信&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.添加所需的window库&lt;/h1&gt;
 &lt;p&gt;在VC6++下编程&lt;br&gt;
 代码用到了其他的lib库,需要添加&lt;br&gt;
 工程—&amp;gt;设置—&amp;gt;Link—&amp;gt;library modules添加ws2_32.lib(与其他lib用空格隔开)&lt;/p&gt;
@@ -1165,7 +1165,7 @@ vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&g
 
 
 &lt;p&gt;客户端和服务器应分别属于两个exe&lt;br&gt;
-先运行服务器，后运行客户端  &lt;/p&gt;</content><category term="C语言"></category><category term="TCP"></category><category term="套接字"></category></entry><entry><title>VC6聊天室程序设计</title><link href="https://summeriwinter.github.io/vc6liao-tian-shi-cheng-xu-she-ji.html" rel="alternate"></link><published>2017-09-05T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-05:/vc6liao-tian-shi-cheng-xu-she-ji.html</id><summary type="html">&lt;p&gt;了解了C语言多线程的实例和简单的TCP通信，来编写一个简单的聊天室&lt;/p&gt;</summary><content type="html">&lt;p&gt;曾经java实现的聊天室程序在这里&lt;/p&gt;
+先运行服务器，后运行客户端  &lt;/p&gt;</content><category term="C语言"></category><category term="TCP"></category><category term="套接字"></category></entry><entry><title>VC6聊天室程序设计</title><link href="https://www.vhcffh.com/vc6liao-tian-shi-cheng-xu-she-ji.html" rel="alternate"></link><published>2017-09-05T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-05:/vc6liao-tian-shi-cheng-xu-she-ji.html</id><summary type="html">&lt;p&gt;了解了C语言多线程的实例和简单的TCP通信，来编写一个简单的聊天室&lt;/p&gt;</summary><content type="html">&lt;p&gt;曾经java实现的聊天室程序在这里&lt;/p&gt;
 &lt;h1&gt;1.客户端程序&lt;/h1&gt;
 &lt;p&gt;客户端需要两个线程，主线程接受用户输入并发送到服务器&lt;br&gt;
 另一个线程监听服务器发来的消息，显示在屏幕上  &lt;/p&gt;
@@ -1382,7 +1382,7 @@ vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&g
 
 &lt;p&gt;&lt;font color="red"&gt;未完成的问题&lt;/font&gt;&lt;br&gt;
 用户离线时出现bug
-全部代码:&lt;a href="https://github.com/summerIwinter/Chatroom"&gt;https://github.com/summerIwinter/Chatroom&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>C语言多线程学习</title><link href="https://summeriwinter.github.io/cyu-yan-duo-xian-cheng-xue-xi.html" rel="alternate"></link><published>2017-09-04T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-04:/cyu-yan-duo-xian-cheng-xue-xi.html</id><summary type="html">&lt;p&gt;VC6++环境下C语言创建多线程&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.简单的创建多线程实例&lt;/h1&gt;
+全部代码:&lt;a href="https://github.com/summerIwinter/Chatroom"&gt;https://github.com/summerIwinter/Chatroom&lt;/a&gt;&lt;/p&gt;</content><category term="C语言"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>C语言多线程学习</title><link href="https://www.vhcffh.com/cyu-yan-duo-xian-cheng-xue-xi.html" rel="alternate"></link><published>2017-09-04T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-04:/cyu-yan-duo-xian-cheng-xue-xi.html</id><summary type="html">&lt;p&gt;VC6++环境下C语言创建多线程&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.简单的创建多线程实例&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="c1"&gt;//子线程函数&lt;/span&gt;
@@ -1460,7 +1460,7 @@ vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&g
 函数作用&lt;br&gt;
 首先要知道—-线程的句柄在线程运行时是未触发的，结束后触发&lt;br&gt;
 在主函数中调用等待线程执行完毕，然后主函数结束&lt;br&gt;
-不用此函数可能会导致线程没有执行完，主函数结束，程序结束  &lt;/p&gt;</content><category term="C语言"></category><category term="多线程"></category></entry><entry><title>windows系统盘瘦身</title><link href="https://summeriwinter.github.io/windowsxi-tong-pan-shou-shen.html" rel="alternate"></link><published>2017-09-02T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-02:/windowsxi-tong-pan-shou-shen.html</id><summary type="html">&lt;p&gt;C盘满了，瘦一下身&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.关闭系统休眠功能&lt;/h1&gt;
+不用此函数可能会导致线程没有执行完，主函数结束，程序结束  &lt;/p&gt;</content><category term="C语言"></category><category term="多线程"></category></entry><entry><title>windows系统盘瘦身</title><link href="https://www.vhcffh.com/windowsxi-tong-pan-shou-shen.html" rel="alternate"></link><published>2017-09-02T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-02:/windowsxi-tong-pan-shou-shen.html</id><summary type="html">&lt;p&gt;C盘满了，瘦一下身&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.关闭系统休眠功能&lt;/h1&gt;
 &lt;p&gt;删除Hiberfil.sys文件&lt;br&gt;
 管理员运行cmd输入下面命令&lt;br&gt;
 &lt;code&gt;powercfg -h of&lt;/code&gt;&lt;/p&gt;
@@ -1471,7 +1471,7 @@ vi /usr/bin/yum                 &lt;span class="c1"&gt;##打开文件&lt;/span&g
 &lt;p&gt;以下三个目录里的文件是临时文件，可以删除&lt;br&gt;
 C:\windows\temp&lt;br&gt;
 C:\ProgramData\TEMP&lt;br&gt;
-C:\Users\你的用户名\AppData\Local\Temp  &lt;/p&gt;</content><category term="windwos"></category></entry><entry><title>powershell脚本遍历目录</title><link href="https://summeriwinter.github.io/powershelljiao-ben-bian-li-mu-lu.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-01:/powershelljiao-ben-bian-li-mu-lu.html</id><summary type="html">&lt;p&gt;powershell脚本遍历目录&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.遍历目录及子目录,显示目录大小&lt;/h1&gt;
+C:\Users\你的用户名\AppData\Local\Temp  &lt;/p&gt;</content><category term="windwos"></category></entry><entry><title>powershell脚本遍历目录</title><link href="https://www.vhcffh.com/powershelljiao-ben-bian-li-mu-lu.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-01:/powershelljiao-ben-bian-li-mu-lu.html</id><summary type="html">&lt;p&gt;powershell脚本遍历目录&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.遍历目录及子目录,显示目录大小&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt; filesize &lt;span class="o"&gt;([&lt;/span&gt;string&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="nv"&gt;$filepath&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$filepath&lt;/span&gt; -eq &lt;span class="nv"&gt;$null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
         throw &lt;span class="s2"&gt;&amp;quot;路径不能为空&amp;quot;&lt;/span&gt;
@@ -1514,7 +1514,7 @@ loginip_jlu文件夹的大小为: 16.8 KB
 小说文件夹的大小为: 31,043.6 KB
 笑料文件夹的大小为: 1,578,575.8 KB
 PS F:\python&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>powershell卸载自带应用</title><link href="https://summeriwinter.github.io/powershellxie-zai-zi-dai-ying-yong.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-09-01:/powershellxie-zai-zi-dai-ying-yong.html</id><summary type="html">&lt;p&gt;通过powershell卸载windows自带应用&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.卸载全部自带应用&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>powershell卸载自带应用</title><link href="https://www.vhcffh.com/powershellxie-zai-zi-dai-ying-yong.html" rel="alternate"></link><published>2017-09-01T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-01:/powershellxie-zai-zi-dai-ying-yong.html</id><summary type="html">&lt;p&gt;通过powershell卸载windows自带应用&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.卸载全部自带应用&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;
 &lt;h1&gt;2.其他更多卸载&lt;/h1&gt;
 &lt;p&gt;OneNote:&lt;br&gt;
@@ -1540,7 +1540,7 @@ Groove音乐电影与电视:&lt;br&gt;
 录音机:&lt;br&gt;
 &lt;code&gt;Get-AppxPackage soundrec | Remove-AppxPackage&lt;/code&gt;&lt;br&gt;
 Xbox:&lt;br&gt;
-&lt;code&gt;Get-AppxPackage xbox | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>自己写一个Android照相机应用-2</title><link href="https://summeriwinter.github.io/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-2.html" rel="alternate"></link><published>2017-08-19T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-19:/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-2.html</id><summary type="html">&lt;p&gt;Android自定义相机的实现&lt;/p&gt;</summary><content type="html">&lt;p&gt;首先是要创建camera的生命周期  &lt;/p&gt;
+&lt;code&gt;Get-AppxPackage xbox | Remove-AppxPackage&lt;/code&gt;  &lt;/p&gt;</content><category term="windwos"></category><category term="powershell"></category></entry><entry><title>自己写一个Android照相机应用-2</title><link href="https://www.vhcffh.com/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-2.html" rel="alternate"></link><published>2017-08-19T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-19:/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-2.html</id><summary type="html">&lt;p&gt;Android自定义相机的实现&lt;/p&gt;</summary><content type="html">&lt;p&gt;首先是要创建camera的生命周期  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;getCamera&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;&lt;span class="c1"&gt;//获取Camera对象&lt;/span&gt;
 &lt;span class="n"&gt;setStartPreview&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Camera&lt;/span&gt; &lt;span class="n"&gt;camera&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;SurfaceHolder&lt;/span&gt; &lt;span class="n"&gt;holder&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;//预览相机内容&lt;/span&gt;
 &lt;span class="n"&gt;releaseCamera&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;&lt;span class="c1"&gt;//释放相机资源&lt;/span&gt;
@@ -1624,7 +1624,7 @@ Xbox:&lt;br&gt;
     &lt;span class="o"&gt;});&lt;/span&gt;
 
 &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="android"></category><category term="相机"></category></entry><entry><title>JAVA套接字之TCP实现聊天室</title><link href="https://summeriwinter.github.io/javatao-jie-zi-zhi-tcpshi-xian-liao-tian-shi.html" rel="alternate"></link><published>2017-08-10T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-10:/javatao-jie-zi-zhi-tcpshi-xian-liao-tian-shi.html</id><summary type="html">&lt;p&gt;java实现聊天室,通过多线程实现随时加入,随时退出&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.客户端程序&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="android"></category><category term="相机"></category></entry><entry><title>JAVA套接字之TCP实现聊天室</title><link href="https://www.vhcffh.com/javatao-jie-zi-zhi-tcpshi-xian-liao-tian-shi.html" rel="alternate"></link><published>2017-08-10T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-10:/javatao-jie-zi-zhi-tcpshi-xian-liao-tian-shi.html</id><summary type="html">&lt;p&gt;java实现聊天室,通过多线程实现随时加入,随时退出&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.客户端程序&lt;/h1&gt;
 &lt;p&gt;客户端有两个线程&lt;br&gt;
 一个线程由主类SocketClient实现向服务器发送消息&lt;br&gt;
 一个线程由内部类readLineThread实现监听服务器发来的消息并显示  &lt;/p&gt;
@@ -1875,7 +1875,7 @@ Xbox:&lt;br&gt;
         &lt;span class="o"&gt;}&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="java"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>JAVA套接字之TCP简单实用</title><link href="https://summeriwinter.github.io/javatao-jie-zi-zhi-tcpjian-dan-shi-yong.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/javatao-jie-zi-zhi-tcpjian-dan-shi-yong.html</id><summary type="html">&lt;p&gt;java套接字之TCP&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.单客户端排队与服务器建立连接&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="java"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>JAVA套接字之TCP简单实用</title><link href="https://www.vhcffh.com/javatao-jie-zi-zhi-tcpjian-dan-shi-yong.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/javatao-jie-zi-zhi-tcpjian-dan-shi-yong.html</id><summary type="html">&lt;p&gt;java套接字之TCP&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.单客户端排队与服务器建立连接&lt;/h1&gt;
 &lt;p&gt;&lt;font color="red"&gt;客户端程序&lt;/font&gt;  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.net.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.io.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -1974,7 +1974,7 @@ Xbox:&lt;br&gt;
         &lt;span class="o"&gt;}&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;   
 &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="Java"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>Matlab函数freqs和freqz</title><link href="https://summeriwinter.github.io/matlabhan-shu-freqshe-freqz.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/matlabhan-shu-freqshe-freqz.html</id><summary type="html">&lt;p&gt;matlab中的freqs和freqz函数&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.freqs&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Java"></category><category term="TCP"></category><category term="聊天室"></category></entry><entry><title>Matlab函数freqs和freqz</title><link href="https://www.vhcffh.com/matlabhan-shu-freqshe-freqz.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/matlabhan-shu-freqshe-freqz.html</id><summary type="html">&lt;p&gt;matlab中的freqs和freqz函数&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.freqs&lt;/h1&gt;
 &lt;p&gt;模拟滤波器的频率响应&lt;br&gt;
 语法：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;freqs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -2124,7 +2124,7 @@ MATLAB命令如下：  &lt;/p&gt;
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="https://summeriwinter.github.io/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
+&lt;/script&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="https://www.vhcffh.com/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install python-qt5
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2182,7 +2182,7 @@ pyinstaller demo.py
 &lt;td&gt;改变生成程序的icon图标&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="python"></category><category term="pyqt5"></category></entry><entry><title>自己写一个Android照相机应用-1</title><link href="https://summeriwinter.github.io/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-1.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-09:/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-1.html</id><summary type="html">&lt;p&gt;Android相机的相关知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Android Camera相关知识&lt;/h1&gt;
+&lt;/table&gt;</content><category term="python"></category><category term="pyqt5"></category></entry><entry><title>自己写一个Android照相机应用-1</title><link href="https://www.vhcffh.com/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-1.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/zi-ji-xie-yi-ge-androidzhao-xiang-ji-ying-yong-1.html</id><summary type="html">&lt;p&gt;Android相机的相关知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Android Camera相关知识&lt;/h1&gt;
 &lt;p&gt;调用系统相机&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Intent&lt;/span&gt; &lt;span class="n"&gt;intent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Intent&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MediaStore&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;ACTION_IMAGE_CAPTURE&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
 &lt;span class="c1"&gt;//使用action启动系统相机&lt;/span&gt;
@@ -2245,7 +2245,7 @@ pyinstaller demo.py
         &lt;span class="nt"&gt;&amp;lt;action&lt;/span&gt; &lt;span class="na"&gt;android:name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;android.media.action.IMAGE_CAPTURE&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;lt;category&lt;/span&gt; &lt;span class="na"&gt;android:name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;android.intent.category.DEFAULT&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="android"></category><category term="相机"></category></entry><entry><title>搬瓦工VPS搭建Web服务器</title><link href="https://summeriwinter.github.io/ban-wa-gong-vpsda-jian-webfu-wu-qi.html" rel="alternate"></link><published>2017-08-04T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-04:/ban-wa-gong-vpsda-jian-webfu-wu-qi.html</id><summary type="html">&lt;p&gt;记录在centos上安装apache+php+mysql&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工VPS&lt;a href="https://bandwagonhost.com/aff.php?aff=17697"&gt;购买地址&lt;/a&gt;  &lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="android"></category><category term="相机"></category></entry><entry><title>搬瓦工VPS搭建Web服务器</title><link href="https://www.vhcffh.com/ban-wa-gong-vpsda-jian-webfu-wu-qi.html" rel="alternate"></link><published>2017-08-04T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-04:/ban-wa-gong-vpsda-jian-webfu-wu-qi.html</id><summary type="html">&lt;p&gt;记录在centos上安装apache+php+mysql&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工VPS&lt;a href="https://bandwagonhost.com/aff.php?aff=17697"&gt;购买地址&lt;/a&gt;  &lt;/p&gt;
 &lt;h1&gt;1.安装apache&lt;/h1&gt;
 &lt;p&gt;安装&lt;code&gt;yum install httpd&lt;/code&gt;&lt;br&gt;
 启动&lt;code&gt;service httpd start&lt;/code&gt;&lt;br&gt;
@@ -2282,7 +2282,7 @@ yum install php-mysql
 重启:&lt;code&gt;service mysqld restart&lt;/code&gt;&lt;br&gt;
 配置开机自动启动:&lt;code&gt;chkconfig mysqld on&lt;/code&gt;  &lt;/p&gt;
 &lt;p&gt;为mysql的root账户设置密码:&lt;code&gt;mysqladmin -u root password '*********'&lt;/code&gt;&lt;br&gt;
-登录命令&lt;code&gt;mysql -u root -p&lt;/code&gt;  &lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="apache"></category><category term="php"></category><category term="mysql"></category><category term="web"></category><category term="服务器"></category></entry><entry><title>搬瓦工安装ss并加速</title><link href="https://summeriwinter.github.io/ban-wa-gong-an-zhuang-ssbing-jia-su.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-03:/ban-wa-gong-an-zhuang-ssbing-jia-su.html</id><summary type="html">&lt;p&gt;通过搬瓦工的VPS安装ss的几种方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工（BandwagonHost）是美国IT7公司旗下的一家提供便宜年付OVZ架构的VPS主机方案的服务商。价格便宜、且依托的商家比较靠谱，具有较高的性价比。拿来搭个FQ是非常合适的，做个小站也是可以的。&lt;/p&gt;
+登录命令&lt;code&gt;mysql -u root -p&lt;/code&gt;  &lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="apache"></category><category term="php"></category><category term="mysql"></category><category term="web"></category><category term="服务器"></category></entry><entry><title>搬瓦工安装ss并加速</title><link href="https://www.vhcffh.com/ban-wa-gong-an-zhuang-ssbing-jia-su.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-03:/ban-wa-gong-an-zhuang-ssbing-jia-su.html</id><summary type="html">&lt;p&gt;通过搬瓦工的VPS安装ss的几种方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;搬瓦工（BandwagonHost）是美国IT7公司旗下的一家提供便宜年付OVZ架构的VPS主机方案的服务商。价格便宜、且依托的商家比较靠谱，具有较高的性价比。拿来搭个FQ是非常合适的，做个小站也是可以的。&lt;/p&gt;
 &lt;h1&gt;1.购买地址&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;搬瓦工所有配置及购买地址:&lt;a href="https://bandwagonhost.com/aff.php?aff=17697"&gt;https://bandwagonhost.com/aff.php?aff=17697&lt;/a&gt; 以前有小内存的VPS年费三刀，很便宜，但现在没有了，缺货，连521M的有时候也会缺货，看来挺火的。&lt;/p&gt;
@@ -2371,7 +2371,7 @@ chmod +x shadowsocks-go.sh
 
 
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.kuoruan.com/48.html"&gt;https://blog.kuoruan.com/48.html&lt;/a&gt;&lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="shadowsocks"></category></entry><entry><title>Python2与Python3共存</title><link href="https://summeriwinter.github.io/python2yu-python3gong-cun.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-08-03:/python2yu-python3gong-cun.html</id><summary type="html">&lt;p&gt;在windows下安装多个版本的python&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装两个版本的Python&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.kuoruan.com/48.html"&gt;https://blog.kuoruan.com/48.html&lt;/a&gt;&lt;/p&gt;</content><category term="centos"></category><category term="搬瓦工"></category><category term="shadowsocks"></category></entry><entry><title>Python2与Python3共存</title><link href="https://www.vhcffh.com/python2yu-python3gong-cun.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-03:/python2yu-python3gong-cun.html</id><summary type="html">&lt;p&gt;在windows下安装多个版本的python&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装两个版本的Python&lt;/h1&gt;
 &lt;p&gt;选择想要安装的版本下载例如:
 python2下载地址:https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi&lt;br&gt;
 python3下载地址:https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe&lt;/p&gt;
@@ -2412,7 +2412,7 @@ pip的问题也解决了&lt;br&gt;
 但直接调用pip是还能执行并且是后安装的pip的版本&lt;br&gt;
 python命令已经不存在&lt;br&gt;
 直接运行py结尾的文件时会出现问题&lt;br&gt;
-python自带的编辑器出现了两个  &lt;/p&gt;</content><category term="python"></category></entry><entry><title>JAVA实现MD5加密</title><link href="https://summeriwinter.github.io/javashi-xian-md5jia-mi.html" rel="alternate"></link><published>2017-07-02T10:02:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-07-02:/javashi-xian-md5jia-mi.html</id><summary type="html">&lt;p&gt;java实现MD5加密的两种方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;java实现MD5加密的两种方法&lt;/p&gt;
+python自带的编辑器出现了两个  &lt;/p&gt;</content><category term="python"></category></entry><entry><title>JAVA实现MD5加密</title><link href="https://www.vhcffh.com/javashi-xian-md5jia-mi.html" rel="alternate"></link><published>2017-07-02T10:02:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-07-02:/javashi-xian-md5jia-mi.html</id><summary type="html">&lt;p&gt;java实现MD5加密的两种方法&lt;/p&gt;</summary><content type="html">&lt;p&gt;java实现MD5加密的两种方法&lt;/p&gt;
 &lt;p&gt;1,调用MessageDigest实现&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.security.MessageDigest&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.security.NoSuchAlgorithmException&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -2728,7 +2728,7 @@ python自带的编辑器出现了两个  &lt;/p&gt;</content><category term="pyt
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="mh"&gt;0xFFFFFFFFL&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="java"></category><category term="MD5"></category><category term="加密"></category></entry><entry><title>谷歌浏览器运行安卓APK</title><link href="https://summeriwinter.github.io/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html" rel="alternate"></link><published>2017-06-25T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-06-25:/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html</id><summary type="html">&lt;p&gt;使用谷歌浏览器的插件ARChon实现安卓APK在电脑上运行&lt;/p&gt;</summary><content type="html">&lt;p&gt;用谷歌插件在电脑上运行安卓APK&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="java"></category><category term="MD5"></category><category term="加密"></category></entry><entry><title>谷歌浏览器运行安卓APK</title><link href="https://www.vhcffh.com/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html" rel="alternate"></link><published>2017-06-25T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-06-25:/gu-ge-liu-lan-qi-yun-xing-an-zhuo-apk.html</id><summary type="html">&lt;p&gt;使用谷歌浏览器的插件ARChon实现安卓APK在电脑上运行&lt;/p&gt;</summary><content type="html">&lt;p&gt;用谷歌插件在电脑上运行安卓APK&lt;/p&gt;
 &lt;p&gt;1，直接谷歌应用商店下载出现错误
 程序包无效：“CRX_SIGNATURE_VERIFICATION_FAILED”。&lt;/p&gt;
 &lt;p&gt;2，直接下载crx包参考百度经验&lt;/p&gt;
@@ -2774,7 +2774,7 @@ python自带的编辑器出现了两个  &lt;/p&gt;</content><category term="pyt
 &lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-f4ed0ddb2b2d06e1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;
 &lt;p&gt;试了一下简书
 可以运行&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-ed37c301d49d7485.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;</content><category term="安卓模拟器"></category></entry><entry><title>批处理for循环使用</title><link href="https://summeriwinter.github.io/pi-chu-li-forxun-huan-shi-yong.html" rel="alternate"></link><published>2017-04-22T10:01:00+08:00</published><updated>2017-04-22T12:30:00+08:00</updated><author><name>Frey</name></author><id>tag:summeriwinter.github.io,2017-04-22:/pi-chu-li-forxun-huan-shi-yong.html</id><summary type="html">&lt;p&gt;windows批处理FOR循环的使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;在cmd中输入使用时应写为&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://upload-images.jianshu.io/upload_images/2950376-ed37c301d49d7485.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"&gt;&lt;/p&gt;</content><category term="安卓模拟器"></category></entry><entry><title>批处理for循环使用</title><link href="https://www.vhcffh.com/pi-chu-li-forxun-huan-shi-yong.html" rel="alternate"></link><published>2017-04-22T10:01:00+08:00</published><updated>2017-04-22T12:30:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-04-22:/pi-chu-li-forxun-huan-shi-yong.html</id><summary type="html">&lt;p&gt;windows批处理FOR循环的使用&lt;/p&gt;</summary><content type="html">&lt;p&gt;在cmd中输入使用时应写为&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;FOR %variable IN (set) DO command [command-parameters]
 &lt;/pre&gt;&lt;/div&gt;
 
