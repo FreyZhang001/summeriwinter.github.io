@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Python</title><link href="http://vhcffh.com/" rel="alternate"></link><link href="http://vhcffh.com/feeds/python.atom.xml" rel="self"></link><id>http://vhcffh.com/</id><updated>2018-09-17T12:00:00+08:00</updated><entry><title>vim的使用</title><link href="http://vhcffh.com/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Python</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/python.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2018-09-17T12:00:00+08:00</updated><entry><title>vim的使用</title><link href="https://www.vhcffh.com/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
 &lt;p&gt;h,j,k,l(空格):向左，下，上，右移动光标&lt;/p&gt;
 &lt;p&gt;Ctrl+(f,b,d,u):屏幕向下移一页，向上移一页，向下移半页，向上移半页
 +-:下一行，上一行
@@ -11,7 +11,7 @@ n:向下移动n行&lt;/p&gt;
 ?word:向光标之上寻找word
 n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>python类和实例的一些属性</title><link href="http://vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
 &lt;p&gt;self代表类的实例,如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;#类的属性&lt;/span&gt;
@@ -107,7 +107,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 类Test的实例a只有selfb属性
 2018-05-23 14:54:58&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="http://vhcffh.com/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://www.vhcffh.com/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="c1"&gt;#输出当前路径&lt;/span&gt;
 
 &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -129,7 +129,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="https://www.cnblogs.com/yanglang/p/7610838.html"&gt;https://www.cnblogs.com/yanglang/p/7610838.html&lt;/a&gt;
-2.&lt;a href="https://blog.csdn.net/muwinter/article/details/77196261"&gt;https://blog.csdn.net/muwinter/article/details/77196261&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python3之模块</title><link href="http://vhcffh.com/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
+2.&lt;a href="https://blog.csdn.net/muwinter/article/details/77196261"&gt;https://blog.csdn.net/muwinter/article/details/77196261&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python3之模块</title><link href="https://www.vhcffh.com/python3zhi-mo-kuai.html" rel="alternate"></link><published>2018-04-28T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-04-28:/python3zhi-mo-kuai.html</id><summary type="html">&lt;p&gt;关于python模块的一些问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.python3模块&lt;/h1&gt;
 &lt;p&gt;简单讲，一个模块就是一个*.py文件，这个文件里面可以定义类，函数，变量，也可以包含可执行代码。&lt;/p&gt;
 &lt;h1&gt;2.模块的引入&lt;/h1&gt;
 &lt;h2&gt;2.1import引入&lt;/h2&gt;
@@ -164,7 +164,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 另外python3中的reload()需要从imp包中导入
 2.关于python模块循环引入的问题？&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python遇到的错误</title><link href="http://vhcffh.com/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-17T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.DLL load failed&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python遇到的错误</title><link href="https://www.vhcffh.com/pythonyu-dao-de-cuo-wu.html" rel="alternate"></link><published>2017-12-26T10:01:00+08:00</published><updated>2018-09-17T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-26:/pythonyu-dao-de-cuo-wu.html</id><summary type="html">&lt;p&gt;python使用在中遇到的错误&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.DLL load failed&lt;/h1&gt;
 &lt;p&gt;&lt;font color="red"&gt;python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序&lt;/font&gt; 
 解决方法：去下载与你所安装的Python版本对应的pywin32并安装&lt;br&gt;
 下载链接：https://sourceforge.net/projects/pywin32/files/pywin32/&lt;br&gt;
@@ -199,7 +199,7 @@ Exception: LIBSVM library not found.
 方法2.去&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/"&gt;万能宝库&lt;/a&gt;上下载对应版本的.whl文件，（不用安装）直接解压后找到&lt;a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl"&gt;libsvm.lib&lt;/a&gt;更换即可
 2018-09-07 22:11:58&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.csdn.net/rena521/article/details/51187981"&gt;https://blog.csdn.net/rena521/article/details/51187981&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="libsvm"></category></entry><entry><title>Matlab函数freqs和freqz</title><link href="http://vhcffh.com/matlabhan-shu-freqshe-freqz.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2017-08-09:/matlabhan-shu-freqshe-freqz.html</id><summary type="html">&lt;p&gt;matlab中的freqs和freqz函数&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.freqs&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/rena521/article/details/51187981"&gt;https://blog.csdn.net/rena521/article/details/51187981&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="libsvm"></category></entry><entry><title>Matlab函数freqs和freqz</title><link href="https://www.vhcffh.com/matlabhan-shu-freqshe-freqz.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/matlabhan-shu-freqshe-freqz.html</id><summary type="html">&lt;p&gt;matlab中的freqs和freqz函数&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.freqs&lt;/h1&gt;
 &lt;p&gt;模拟滤波器的频率响应&lt;br&gt;
 语法：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;freqs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -349,7 +349,7 @@ MATLAB命令如下：  &lt;/p&gt;
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="http://vhcffh.com/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
+&lt;/script&gt;</content><category term="python"></category></entry><entry><title>涉及PyQt5的一些命令</title><link href="https://www.vhcffh.com/she-ji-pyqt5de-yi-xie-ming-ling.html" rel="alternate"></link><published>2017-08-09T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-09:/she-ji-pyqt5de-yi-xie-ming-ling.html</id><summary type="html">&lt;p&gt;记录pyqt5中用到的几个命令&lt;/p&gt;</summary><content type="html">&lt;p&gt;安装&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install python-qt5
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -407,7 +407,7 @@ pyinstaller demo.py
 &lt;td&gt;改变生成程序的icon图标&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="python"></category><category term="pyqt5"></category></entry><entry><title>Python2与Python3共存</title><link href="http://vhcffh.com/python2yu-python3gong-cun.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:vhcffh.com,2017-08-03:/python2yu-python3gong-cun.html</id><summary type="html">&lt;p&gt;在windows下安装多个版本的python&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装两个版本的Python&lt;/h1&gt;
+&lt;/table&gt;</content><category term="python"></category><category term="pyqt5"></category></entry><entry><title>Python2与Python3共存</title><link href="https://www.vhcffh.com/python2yu-python3gong-cun.html" rel="alternate"></link><published>2017-08-03T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-08-03:/python2yu-python3gong-cun.html</id><summary type="html">&lt;p&gt;在windows下安装多个版本的python&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装两个版本的Python&lt;/h1&gt;
 &lt;p&gt;选择想要安装的版本下载例如:
 python2下载地址:https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi&lt;br&gt;
 python3下载地址:https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe&lt;/p&gt;
