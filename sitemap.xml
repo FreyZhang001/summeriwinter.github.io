@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.vhcffh.com/</loc>
-<lastmod>2019-05-13T15:45:50-00:00</lastmod>
+<lastmod>2019-05-13T15:49:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.vhcffh.com/archives.html</loc>
-<lastmod>2019-05-13T15:45:50-00:00</lastmod>
+<lastmod>2019-05-13T15:49:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -284,350 +284,350 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/android.html</loc>
+<loc>https://www.vhcffh.com/categories/android/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/cc.html</loc>
+<loc>https://www.vhcffh.com/categories/cc/index.html</loc>
 <lastmod>2018-10-18T10:01:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/hui-bian.html</loc>
+<loc>https://www.vhcffh.com/categories/hui-bian/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/java.html</loc>
+<loc>https://www.vhcffh.com/categories/java/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/linux.html</loc>
+<loc>https://www.vhcffh.com/categories/linux/index.html</loc>
 <lastmod>2019-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/mathematics.html</loc>
+<loc>https://www.vhcffh.com/categories/mathematics/index.html</loc>
 <lastmod>2018-09-22T10:01:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/python.html</loc>
+<loc>https://www.vhcffh.com/categories/python/index.html</loc>
 <lastmod>2018-09-17T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/ruan-jian-shi-yong.html</loc>
+<loc>https://www.vhcffh.com/categories/ruan-jian-shi-yong/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/suan-fa-zong-jie.html</loc>
+<loc>https://www.vhcffh.com/categories/suan-fa-zong-jie/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/wen-jian.html</loc>
+<loc>https://www.vhcffh.com/categories/wen-jian/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/windows.html</loc>
+<loc>https://www.vhcffh.com/categories/windows/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/fu-wu-qi.html</loc>
+<loc>https://www.vhcffh.com/tags/fu-wu-qi/index.html</loc>
 <lastmod>2019-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/xi-tong.html</loc>
+<loc>https://www.vhcffh.com/tags/xi-tong/index.html</loc>
 <lastmod>2019-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/cyu-yan.html</loc>
+<loc>https://www.vhcffh.com/tags/cyu-yan/index.html</loc>
 <lastmod>2018-10-18T10:01:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/socket.html</loc>
+<loc>https://www.vhcffh.com/tags/socket/index.html</loc>
 <lastmod>2018-10-18T10:01:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/math.html</loc>
+<loc>https://www.vhcffh.com/tags/math/index.html</loc>
 <lastmod>2018-09-22T10:01:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/vim.html</loc>
+<loc>https://www.vhcffh.com/tags/vim/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/git.html</loc>
+<loc>https://www.vhcffh.com/tags/git/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/python.html</loc>
+<loc>https://www.vhcffh.com/tags/python/index.html</loc>
 <lastmod>2018-09-17T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/hui-bian.html</loc>
+<loc>https://www.vhcffh.com/tags/hui-bian/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/debug.html</loc>
+<loc>https://www.vhcffh.com/tags/debug/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/x8086.html</loc>
+<loc>https://www.vhcffh.com/tags/x8086/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/altium.html</loc>
+<loc>https://www.vhcffh.com/tags/altium/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/libsvm.html</loc>
+<loc>https://www.vhcffh.com/tags/libsvm/index.html</loc>
 <lastmod>2018-09-17T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/cyu-yan-suan-fa.html</loc>
+<loc>https://www.vhcffh.com/tags/cyu-yan-suan-fa/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/wen-jian.html</loc>
+<loc>https://www.vhcffh.com/tags/wen-jian/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/sublime.html</loc>
+<loc>https://www.vhcffh.com/tags/sublime/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/wen-jian-tou.html</loc>
+<loc>https://www.vhcffh.com/tags/wen-jian-tou/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/tu-pian.html</loc>
+<loc>https://www.vhcffh.com/tags/tu-pian/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/centos.html</loc>
+<loc>https://www.vhcffh.com/tags/centos/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/tcp.html</loc>
+<loc>https://www.vhcffh.com/tags/tcp/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/tao-jie-zi.html</loc>
+<loc>https://www.vhcffh.com/tags/tao-jie-zi/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/liao-tian-shi.html</loc>
+<loc>https://www.vhcffh.com/tags/liao-tian-shi/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/duo-xian-cheng.html</loc>
+<loc>https://www.vhcffh.com/tags/duo-xian-cheng/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/windwos.html</loc>
+<loc>https://www.vhcffh.com/tags/windwos/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/powershell.html</loc>
+<loc>https://www.vhcffh.com/tags/powershell/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/android.html</loc>
+<loc>https://www.vhcffh.com/tags/android/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/xiang-ji.html</loc>
+<loc>https://www.vhcffh.com/tags/xiang-ji/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/java.html</loc>
+<loc>https://www.vhcffh.com/tags/java/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/pyqt5.html</loc>
+<loc>https://www.vhcffh.com/tags/pyqt5/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/ban-wa-gong.html</loc>
+<loc>https://www.vhcffh.com/tags/ban-wa-gong/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/apache.html</loc>
+<loc>https://www.vhcffh.com/tags/apache/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/php.html</loc>
+<loc>https://www.vhcffh.com/tags/php/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/mysql.html</loc>
+<loc>https://www.vhcffh.com/tags/mysql/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/web.html</loc>
+<loc>https://www.vhcffh.com/tags/web/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/shadowsocks.html</loc>
+<loc>https://www.vhcffh.com/tags/shadowsocks/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/md5.html</loc>
+<loc>https://www.vhcffh.com/tags/md5/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/jia-mi.html</loc>
+<loc>https://www.vhcffh.com/tags/jia-mi/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/an-zhuo-mo-ni-qi.html</loc>
+<loc>https://www.vhcffh.com/tags/an-zhuo-mo-ni-qi/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/tags/pi-chu-li.html</loc>
+<loc>https://www.vhcffh.com/tags/pi-chu-li/index.html</loc>
 <lastmod>2017-04-22T12:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
