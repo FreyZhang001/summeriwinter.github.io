@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Linux</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/linux.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
-&lt;h4&gt;1.清除规则:&lt;/h4&gt;
+&lt;h2&gt;1.清除规则:&lt;/h2&gt;
 &lt;p&gt;清楚旧的规则
 iptables -F 清除预设表filter中的所有规则链的规则
 iptables -X 清除预设表filter中使用者自定链中的规则&lt;/p&gt;
-&lt;h4&gt;2.设定预设规则&lt;/h4&gt;
+&lt;h2&gt;2.设定预设规则&lt;/h2&gt;
 &lt;p&gt;默认情况下对各种包的处理方式
 iptables -p INPUT DROP
 iptables -p OUTPUT ACCEPT
 iptables -p FORWARD DROP&lt;/p&gt;
-&lt;h4&gt;3.添加用户自定义规则&lt;/h4&gt;
+&lt;h2&gt;3.添加用户自定义规则&lt;/h2&gt;
 &lt;p&gt;对于特定端口协议的包的规则进行设置
 iptables -A INPUT -p tcp —dport 22 -j ACCEPT
 -A:表示添加规则到INPUT(OUTPUT,FORWARD)链
 -p:表示tcp(udp)协议
 —dport(—sport):目的端口号(源端口号)
 -j():添加规则为接受&lt;/p&gt;
-&lt;h4&gt;4.保存规则&lt;/h4&gt;
+&lt;h2&gt;4.保存规则&lt;/h2&gt;
 &lt;p&gt;不保存的话重启后就没有了
 service iptables save&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;

@@ -1,51 +1,492 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-        <title>Frey's blog - windwos</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="https://www.vhcffh.com/theme/css/main.css" type="text/css" />
-        <link href="https://www.vhcffh.com/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Frey's blog - windwos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Frey">
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Le styles -->
+    <link rel="stylesheet" href="https://www.vhcffh.com/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="https://www.vhcffh.com/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="https://www.vhcffh.com/theme/css/font-awesome.css" rel="stylesheet">
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="https://www.vhcffh.com/css/ie.css"/>
-                <script src="https://www.vhcffh.com/js/IE8.js" type="text/javascript"></script><![endif]-->
+    <link href="https://www.vhcffh.com/theme/css/pygments.css" rel="stylesheet">
 
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="https://www.vhcffh.com/css/ie6.css"/><![endif]-->
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111205240-3"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-          gtag('config', 'UA-111205240-3');
-        </script>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://www.vhcffh.com/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.vhcffh.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.vhcffh.com/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.vhcffh.com/images/apple-touch-icon-114x114.png">
 
-</head>
+    <link href="https://www.vhcffh.com/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
 
-<body>
-        
-        
- 
-            <li><a href="https://www.vhcffh.com/windowsxi-tong-pan-shou-shen.html" rel="bookmark" title="Permalink to windows系统盘瘦身">windows系统盘瘦身</a></li>
-    </ol>
-    </section><!-- #article-list -->
-        
- 
-            <li><a href="https://www.vhcffh.com/powershelljiao-ben-bian-li-mu-lu.html" rel="bookmark" title="Permalink to powershell脚本遍历目录">powershell脚本遍历目录</a></li>
-    </ol>
-    </section><!-- #article-list -->
-        
- 
-            <li><a href="https://www.vhcffh.com/powershellxie-zai-zi-dai-ying-yong.html" rel="bookmark" title="Permalink to powershell卸载自带应用">powershell卸载自带应用</a></li>
-    </ol>
-    </section><!-- #article-list -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="https://www.vhcffh.com/index.html">Frey's blog </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/android/index.html">
+						<i class="icon-folder-open icon-large"></i>Android
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/cc/index.html">
+						<i class="icon-folder-open icon-large"></i>C/C++
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/hui-bian/index.html">
+						<i class="icon-folder-open icon-large"></i>汇编
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/java/index.html">
+						<i class="icon-folder-open icon-large"></i>Java
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/linux/index.html">
+						<i class="icon-folder-open icon-large"></i>Linux
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/mathematics/index.html">
+						<i class="icon-folder-open icon-large"></i>Mathematics
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/python/index.html">
+						<i class="icon-folder-open icon-large"></i>Python
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/ruan-jian-shi-yong/index.html">
+						<i class="icon-folder-open icon-large"></i>软件使用
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/suan-fa-zong-jie/index.html">
+						<i class="icon-folder-open icon-large"></i>算法总结
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/wen-jian/index.html">
+						<i class="icon-folder-open icon-large"></i>文件
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/windows/index.html">
+						<i class="icon-folder-open icon-large"></i>Windows
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="https://www.vhcffh.com/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+        <div class="article">
+                <h1><a href="https://www.vhcffh.com/windowsxi-tong-pan-shou-shen.html">windows系统盘瘦身</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<span class="published" title="2017-09-02T10:01:00+08:00">
+        <i class="icon-calendar"></i>2017-09-02
+</span>
+<span class="label">By</span>
+<a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
+<span class="label">Category</span>
+<a href="https://www.vhcffh.com/categories/windows/index.html"><i class="icon-folder-open"></i>Windows</a>.
 
 
+<span class="label">Tags</span>
+	<a href="https://www.vhcffh.com/tags/windwos/index.html"><i class="icon-tag"></i>windwos</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>C盘满了，瘦一下身</p>
+                        <a class="btn primary xsmall" href="https://www.vhcffh.com/windowsxi-tong-pan-shou-shen.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="https://www.vhcffh.com/powershelljiao-ben-bian-li-mu-lu.html">powershell脚本遍历目录</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<span class="published" title="2017-09-01T10:01:00+08:00">
+        <i class="icon-calendar"></i>2017-09-01
+</span>
+<span class="label">By</span>
+<a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
+<span class="label">Category</span>
+<a href="https://www.vhcffh.com/categories/windows/index.html"><i class="icon-folder-open"></i>Windows</a>.
 
-</body>
+
+<span class="label">Tags</span>
+	<a href="https://www.vhcffh.com/tags/windwos/index.html"><i class="icon-tag"></i>windwos</a>
+	<a href="https://www.vhcffh.com/tags/powershell/index.html"><i class="icon-tag"></i>powershell</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>powershell脚本遍历目录</p>
+                        <a class="btn primary xsmall" href="https://www.vhcffh.com/powershelljiao-ben-bian-li-mu-lu.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="https://www.vhcffh.com/powershellxie-zai-zi-dai-ying-yong.html">powershell卸载自带应用</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<span class="published" title="2017-09-01T10:01:00+08:00">
+        <i class="icon-calendar"></i>2017-09-01
+</span>
+<span class="label">By</span>
+<a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
+<span class="label">Category</span>
+<a href="https://www.vhcffh.com/categories/windows/index.html"><i class="icon-folder-open"></i>Windows</a>.
+
+
+<span class="label">Tags</span>
+	<a href="https://www.vhcffh.com/tags/windwos/index.html"><i class="icon-tag"></i>windwos</a>
+	<a href="https://www.vhcffh.com/tags/powershell/index.html"><i class="icon-tag"></i>powershell</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><p>通过powershell卸载windows自带应用</p>
+                        <a class="btn primary xsmall" href="https://www.vhcffh.com/powershellxie-zai-zi-dai-ying-yong.html">more ...</a>
+                </div>
+        </div>
+        <hr />
+
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="https://www.vhcffh.com/categories/android/index.html">
+    <i class="icon-folder-open icon-large"></i>Android
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/cc/index.html">
+    <i class="icon-folder-open icon-large"></i>C/C++
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/hui-bian/index.html">
+    <i class="icon-folder-open icon-large"></i>汇编
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/java/index.html">
+    <i class="icon-folder-open icon-large"></i>Java
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/linux/index.html">
+    <i class="icon-folder-open icon-large"></i>Linux
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/mathematics/index.html">
+    <i class="icon-folder-open icon-large"></i>Mathematics
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/python/index.html">
+    <i class="icon-folder-open icon-large"></i>Python
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/ruan-jian-shi-yong/index.html">
+    <i class="icon-folder-open icon-large"></i>软件使用
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/suan-fa-zong-jie/index.html">
+    <i class="icon-folder-open icon-large"></i>算法总结
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/wen-jian/index.html">
+    <i class="icon-folder-open icon-large"></i>文件
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/windows/index.html">
+    <i class="icon-folder-open icon-large"></i>Windows
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa658438>, <pelican.contents.Article object at 0x7fd9fa6cd240>]">
+    <a href="https://www.vhcffh.com/tags/fu-wu-qi/index.html">
+        <i class="icon-tag icon-large"></i>服务器
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa658438>]">
+    <a href="https://www.vhcffh.com/tags/xi-tong/index.html">
+        <i class="icon-tag icon-large"></i>系统
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa672400>, <pelican.contents.Article object at 0x7fd9fa80ba58>, <pelican.contents.Article object at 0x7fd9fa687c18>, <pelican.contents.Article object at 0x7fd9fa736710>, <pelican.contents.Article object at 0x7fd9fa6ae550>]">
+    <a href="https://www.vhcffh.com/tags/cyu-yan/index.html">
+        <i class="icon-tag icon-large"></i>C语言
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa672400>]">
+    <a href="https://www.vhcffh.com/tags/socket/index.html">
+        <i class="icon-tag icon-large"></i>socket
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa652748>, <pelican.contents.Article object at 0x7fd9fa6c24e0>]">
+    <a href="https://www.vhcffh.com/tags/math/index.html">
+        <i class="icon-tag icon-large"></i>math
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6c1080>]">
+    <a href="https://www.vhcffh.com/tags/vim/index.html">
+        <i class="icon-tag icon-large"></i>vim
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6f9be0>, <pelican.contents.Article object at 0x7fd9fa679470>]">
+    <a href="https://www.vhcffh.com/tags/git/index.html">
+        <i class="icon-tag icon-large"></i>git
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa60bfd0>, <pelican.contents.Article object at 0x7fd9fa696b38>, <pelican.contents.Article object at 0x7fd9fa66e5c0>, <pelican.contents.Article object at 0x7fd9fa6aef60>, <pelican.contents.Article object at 0x7fd9fa6f64a8>, <pelican.contents.Article object at 0x7fd9fa587278>, <pelican.contents.Article object at 0x7fd9fa6d24e0>, <pelican.contents.Article object at 0x7fd9fa50c748>]">
+    <a href="https://www.vhcffh.com/tags/python/index.html">
+        <i class="icon-tag icon-large"></i>python
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6795c0>]">
+    <a href="https://www.vhcffh.com/tags/hui-bian/index.html">
+        <i class="icon-tag icon-large"></i>汇编
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6795c0>]">
+    <a href="https://www.vhcffh.com/tags/x8086/index.html">
+        <i class="icon-tag icon-large"></i>x8086
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6c26a0>]">
+    <a href="https://www.vhcffh.com/tags/altium/index.html">
+        <i class="icon-tag icon-large"></i>Altium
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6aef60>]">
+    <a href="https://www.vhcffh.com/tags/libsvm/index.html">
+        <i class="icon-tag icon-large"></i>libsvm
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6f63c8>, <pelican.contents.Article object at 0x7fd9fa719e48>]">
+    <a href="https://www.vhcffh.com/tags/cyu-yan-suan-fa/index.html">
+        <i class="icon-tag icon-large"></i>C语言 算法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa80ba58>]">
+    <a href="https://www.vhcffh.com/tags/wen-jian/index.html">
+        <i class="icon-tag icon-large"></i>文件
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6c1518>]">
+    <a href="https://www.vhcffh.com/tags/sublime/index.html">
+        <i class="icon-tag icon-large"></i>sublime
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6aeef0>]">
+    <a href="https://www.vhcffh.com/tags/wen-jian-tou/index.html">
+        <i class="icon-tag icon-large"></i>文件头
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6aeef0>]">
+    <a href="https://www.vhcffh.com/tags/tu-pian/index.html">
+        <i class="icon-tag icon-large"></i>图片
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6f64a8>, <pelican.contents.Article object at 0x7fd9fa6cd240>, <pelican.contents.Article object at 0x7fd9fa649438>]">
+    <a href="https://www.vhcffh.com/tags/centos/index.html">
+        <i class="icon-tag icon-large"></i>centos
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa687c18>, <pelican.contents.Article object at 0x7fd9fa736710>, <pelican.contents.Article object at 0x7fd9fa7190f0>, <pelican.contents.Article object at 0x7fd9fa784390>]">
+    <a href="https://www.vhcffh.com/tags/tcp/index.html">
+        <i class="icon-tag icon-large"></i>TCP
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa687c18>]">
+    <a href="https://www.vhcffh.com/tags/tao-jie-zi/index.html">
+        <i class="icon-tag icon-large"></i>套接字
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa736710>, <pelican.contents.Article object at 0x7fd9fa7190f0>, <pelican.contents.Article object at 0x7fd9fa784390>]">
+    <a href="https://www.vhcffh.com/tags/liao-tian-shi/index.html">
+        <i class="icon-tag icon-large"></i>聊天室
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6ae550>]">
+    <a href="https://www.vhcffh.com/tags/duo-xian-cheng/index.html">
+        <i class="icon-tag icon-large"></i>多线程
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa72da90>, <pelican.contents.Article object at 0x7fd9fa57f128>, <pelican.contents.Article object at 0x7fd9fa6c1128>]">
+    <a href="https://www.vhcffh.com/tags/windwos/index.html">
+        <i class="icon-tag icon-large"></i>windwos
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa57f128>, <pelican.contents.Article object at 0x7fd9fa6c1128>]">
+    <a href="https://www.vhcffh.com/tags/powershell/index.html">
+        <i class="icon-tag icon-large"></i>powershell
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa77f3c8>, <pelican.contents.Article object at 0x7fd9fa722c50>]">
+    <a href="https://www.vhcffh.com/tags/android/index.html">
+        <i class="icon-tag icon-large"></i>android
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa77f3c8>, <pelican.contents.Article object at 0x7fd9fa722c50>]">
+    <a href="https://www.vhcffh.com/tags/xiang-ji/index.html">
+        <i class="icon-tag icon-large"></i>相机
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa7190f0>, <pelican.contents.Article object at 0x7fd9fa784390>, <pelican.contents.Article object at 0x7fd9fa59f588>]">
+    <a href="https://www.vhcffh.com/tags/java/index.html">
+        <i class="icon-tag icon-large"></i>java
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6d24e0>]">
+    <a href="https://www.vhcffh.com/tags/pyqt5/index.html">
+        <i class="icon-tag icon-large"></i>pyqt5
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6cd240>, <pelican.contents.Article object at 0x7fd9fa649438>]">
+    <a href="https://www.vhcffh.com/tags/ban-wa-gong/index.html">
+        <i class="icon-tag icon-large"></i>搬瓦工
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6cd240>]">
+    <a href="https://www.vhcffh.com/tags/apache/index.html">
+        <i class="icon-tag icon-large"></i>apache
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6cd240>]">
+    <a href="https://www.vhcffh.com/tags/php/index.html">
+        <i class="icon-tag icon-large"></i>php
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6cd240>]">
+    <a href="https://www.vhcffh.com/tags/mysql/index.html">
+        <i class="icon-tag icon-large"></i>mysql
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa6cd240>]">
+    <a href="https://www.vhcffh.com/tags/web/index.html">
+        <i class="icon-tag icon-large"></i>web
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa649438>]">
+    <a href="https://www.vhcffh.com/tags/shadowsocks/index.html">
+        <i class="icon-tag icon-large"></i>shadowsocks
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa59f588>]">
+    <a href="https://www.vhcffh.com/tags/md5/index.html">
+        <i class="icon-tag icon-large"></i>MD5
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa59f588>]">
+    <a href="https://www.vhcffh.com/tags/jia-mi/index.html">
+        <i class="icon-tag icon-large"></i>加密
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa698c50>]">
+    <a href="https://www.vhcffh.com/tags/an-zhuo-mo-ni-qi/index.html">
+        <i class="icon-tag icon-large"></i>安卓模拟器
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7fd9fa72d128>]">
+    <a href="https://www.vhcffh.com/tags/pi-chu-li/index.html">
+        <i class="icon-tag icon-large"></i>批处理
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-111205240-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://www.vhcffh.com/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="https://www.vhcffh.com/theme/js/bootstrap.min.js"></script>
+  </body>
 </html>

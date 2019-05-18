@@ -1,70 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - 汇编</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/hui-bian.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>DEBUG常用功能</title><link href="https://www.vhcffh.com/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
-&lt;p&gt;window 10中好像已经没有了Debug的调试工具，需要下载另外的软件&lt;/p&gt;
-&lt;p&gt;下载安装DOSBox.百度云下载地址：(DOSBOX)[https://pan.baidu.com/s/1cC3cuy]&lt;br&gt;
-下载后先安装DOSBox0.74-win32-installer.exe&lt;br&gt;
-然后找到文件dos-box0.74.conf(C:\Users\username\AppData\Local\DOSBox)&lt;br&gt;
-添加两行  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;MOUNT C E:\DEBUG                  # 将目录E:\DEBUG挂载为DOSBOX下的C:  
-&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;$PATH$;E:\DEBUG          # 将E:\DEBUG写入环境变量PATH中
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;并将下载的MASM.exe,LINK.exe,debug.exe三个文件放入目录E:\DEBUG&lt;br&gt;
-打开软件，输入&lt;code&gt;c:&lt;/code&gt;就可以使用debug命令了  &lt;/p&gt;
-&lt;h1&gt;2.常用命令:&lt;/h1&gt;
-&lt;p&gt;R命令：查看改变CPU寄存器的内容&lt;br&gt;
-D命令：查看内存中的内容&lt;br&gt;
-E命令：改写内存中的内容&lt;br&gt;
-U命令：将内存中的机器指令翻译成汇编指令&lt;br&gt;
-T命令：执行一条机器指令&lt;br&gt;
-A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
-Q命令：退出DEBUG调试  &lt;/p&gt;
-&lt;h1&gt;3.命令具体使用实例&lt;/h1&gt;
-&lt;h2&gt;3.1R命令:&lt;/h2&gt;
-&lt;p&gt;R命令：查看改变CPU寄存器的内容  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-r                          ;显示寄存器的值
--r reg                      ;改变寄存器reg的值
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img src="/images/2018/2_12_R命令.PNG"&gt;&lt;/p&gt;
-&lt;h1&gt;3.2D命令:&lt;/h1&gt;
-&lt;p&gt;D命令：查看内存中的内容&lt;br&gt;
-默认显示128字节的内容  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-d                          ;默认地址
--d 段地址:偏移地址            ;指定地址
--d 段地址:偏一偏二            ;两个地址间的内容
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img src="/images/2018/2_12_D命令.PNG"&gt;&lt;/p&gt;
-&lt;h1&gt;3.3E命令:&lt;/h1&gt;
-&lt;p&gt;E命令：改写内存中的内容  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-e 起始地址 数据 数据 ...   
--e 起始地址
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img src="/images/2018/2_12_E命令.PNG"&gt;&lt;/p&gt;
-&lt;h1&gt;3.4U命令:&lt;/h1&gt;
-&lt;p&gt;U命令：将内存中的机器指令翻译成汇编指令&lt;br&gt;
-与D命令有些类似&lt;br&gt;
-&lt;img src="/images/2018/2_12_U命令.PNG"&gt;&lt;/p&gt;
-&lt;h1&gt;3.5T命令:&lt;/h1&gt;
-&lt;p&gt;T命令：执行内存中的一条机器指令&lt;br&gt;
-指令位置由cs:ip确定&lt;br&gt;
-&lt;img src="/images/2018/2_12_T命令.PNG"&gt;&lt;/p&gt;
-&lt;h1&gt;3.6A命令:&lt;/h1&gt;
-&lt;p&gt;A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
-&lt;img src="/images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>简单了解汇编</title><link href="https://www.vhcffh.com/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - 汇编</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/hui-bian.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2018-09-09T12:00:00+08:00</updated><entry><title>简单了解汇编</title><link href="https://www.vhcffh.com/jian-dan-liao-jie-hui-bian.html" rel="alternate"></link><published>2018-01-11T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-11:/jian-dan-liao-jie-hui-bian.html</id><summary type="html">&lt;p&gt;一些汇编的基础知识&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.汇编是什么&lt;/h1&gt;
 &lt;p&gt;汇编语言的主体是汇编指令，汇编指令是由机器指令发展而来，例如：&lt;br&gt;
 操作：将寄存器bx的内容送到ax&lt;br&gt;
 机器指令：101100000000000000000011&lt;br&gt;
 记起来太过于复杂，从而有了替代它的&lt;br&gt;
 汇编指令：&lt;code&gt;mov ax,bx&lt;/code&gt;&lt;br&gt;
 方便记忆，也符合人们的逻辑思维&lt;br&gt;
-程序员们编写汇编指令，在通过编译器编译成机器指令，然后就可以在计算机中运行了（如今的大部分高级语言是通过编译器，将高级语言转换成汇编语言，在编译成机器语言在电脑中运行）&lt;br&gt;
+程序员们编写汇编指令，在通过编译器编译成机器指令，然后就可以在计算机中运行了（如今的大部分高级语言是通过编译器，将高级语言转换成汇编语言，在编译成机器语言在电脑中运行）
 不管什么语言，都要转换成机器语言在电脑中运行，汇编语言和高级语言都是人们为了简化程序制作过程而已  &lt;/p&gt;
 &lt;h1&gt;2.计算机的总线&lt;/h1&gt;
 &lt;p&gt;从逻辑上总线分为三类（8086）&lt;br&gt;
