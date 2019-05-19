@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.vhcffh.com/</loc>
-<lastmod>2019-05-18T23:02:52-00:00</lastmod>
+<lastmod>2019-05-19T12:24:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.vhcffh.com/archives.html</loc>
-<lastmod>2019-05-18T23:02:52-00:00</lastmod>
+<lastmod>2019-05-19T12:24:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -89,13 +89,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.vhcffh.com/jian-dan-liao-jie-hui-bian.html</loc>
-<lastmod>2018-09-09T12:00:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://www.vhcffh.com/altiumkuai-jie-jian.html</loc>
 <lastmod>2018-09-09T12:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -326,13 +319,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://www.vhcffh.com/categories/ruan-jian-shi-yong/index.html</loc>
-<lastmod>2018-09-09T12:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://www.vhcffh.com/categories/suan-fa-zong-jie/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -418,13 +404,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.vhcffh.com/tags/x8086/index.html</loc>
-<lastmod>2018-09-09T12:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://www.vhcffh.com/tags/altium/index.html</loc>
 <lastmod>2018-09-09T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

@@ -32,7 +32,102 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 添加远程仓库
 &lt;code&gt;git remote add origin git@github.com:name/reponame.git&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>CentOS自带python26升级到27</title><link href="https://www.vhcffh.com/centoszi-dai-python26sheng-ji-dao-27.html" rel="alternate"></link><published>2017-09-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-12:/centoszi-dai-python26sheng-ji-dao-27.html</id><summary type="html">&lt;p&gt;升级CentOS自带python26到27&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.下载安装&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>Git使用中的一些问题</title><link href="https://www.vhcffh.com/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
+&lt;p&gt;全局配置&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git config --list  查看当前用户信息
+$ git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名
+$ git config --global user.email emailname@example.com 配置邮箱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;项目配置(进入项目目录)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat .git/config  项目配置信息
+$ git config  user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名
+$ git config  user.email emailname@example.com 配置邮箱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;全局的配置就是加上--global&lt;br&gt;
+项目未设置的配置默认使用全局配置&lt;/p&gt;
+&lt;h1&gt;2.密钥问题&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/.ssh  查看是否存在密钥
+$ ssh-keygen -t rsa -C &lt;span class="s2"&gt;&amp;quot;emailname@example.com&amp;quot;&lt;/span&gt; 生成密钥
+$ ssh -T git@github.com  测试是否配置成功
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;生成密钥过程中回车三次，是密码为空，不然每次push都要输入密码&lt;br&gt;
+生成密钥后主要有两个文件&lt;br&gt;
+~/.ssh/id_rsa&lt;br&gt;
+私钥进行处理后的一些内容&lt;br&gt;
+~/.ssh/id_rsa.pub&lt;br&gt;
+公钥进行处理后的内容，提交到服务器(github或coding)的内容&lt;br&gt;
+~/.ssh/known_hosts&lt;br&gt;
+这个文件可能会有，是ssh对服务器的一些记录&lt;/p&gt;
+&lt;h1&gt;3.工作区、暂存区和版本库&lt;/h1&gt;
+&lt;p&gt;&lt;img src="../images/2019/5_19_git.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git add&lt;/code&gt;：暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt;：暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git reset HEAD&lt;/code&gt; ：暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git rm --cached &amp;lt;file&amp;gt;&lt;/code&gt;：直接从暂存区删除文件，工作区则不做出改变。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git checkout .&lt;/code&gt; 或者 &lt;code&gt;git checkout -- &amp;lt;file&amp;gt;&lt;/code&gt;：用暂存区全部或指定的文件替换工作区的文件。&lt;strong&gt;这个操作很危险，会清除工作区中未添加到暂存区的改动。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git checkout HEAD .&lt;/code&gt;或者 &lt;code&gt;git checkout HEAD &amp;lt;file&amp;gt;&lt;/code&gt;：用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。&lt;strong&gt;这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。&lt;/strong&gt;&lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html"&gt;https://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>sublime_Text3插入当前时间</title><link href="https://www.vhcffh.com/sublime_text3cha-ru-dang-qian-shi-jian.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-21:/sublime_text3cha-ru-dang-qian-shi-jian.html</id><summary type="html">&lt;p&gt;sublime_Text3插入当前时间&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.创建新snippet&lt;/h1&gt;
+&lt;p&gt;tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):&lt;br&gt;
+其内容:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;snippet&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;content&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;![CDATA[&lt;/span&gt;
+&lt;span class="cp"&gt;/**&lt;/span&gt;
+&lt;span class="cp"&gt; * ============================&lt;/span&gt;
+&lt;span class="cp"&gt; * @Author:   XX&lt;/span&gt;
+&lt;span class="cp"&gt; * @Version:  1.0 &lt;/span&gt;
+&lt;span class="cp"&gt; * @DateTime: ${1:alt+t}&lt;/span&gt;
+&lt;span class="cp"&gt; * ============================&lt;/span&gt;
+&lt;span class="cp"&gt; */&lt;/span&gt;
+&lt;span class="cp"&gt;]]&amp;gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/content&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;tabTrigger&amp;gt;&lt;/span&gt;author&lt;span class="nt"&gt;&amp;lt;/tabTrigger&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- Optional: Set a scope to limit where the snippet will trigger --&amp;gt;&lt;/span&gt;
+    &lt;span class="c"&gt;&amp;lt;!-- &amp;lt;scope&amp;gt;source.python&amp;lt;/scope&amp;gt; --&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/snippet&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;2.创建新插件&lt;/h1&gt;
+&lt;p&gt;Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:
+其内容为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sublime&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sublime_plugin&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AddCurrentTimeCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sublime_plugin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextCommand&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;edit&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run_command&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;insert_snippet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+            &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="s2"&gt;&amp;quot;contents&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt; %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;3.绑定快捷键&lt;/h1&gt;
+&lt;p&gt;Preference → Key Bindings → User.绑定快捷键:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[
+    {
+        &amp;quot;command&amp;quot;: &amp;quot;add_current_time&amp;quot;,
+        &amp;quot;keys&amp;quot;: [
+            &amp;quot;alt+t&amp;quot;
+        ]
+    }
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中绑定的命令的名字是由所创建的插件的类名而来&lt;br&gt;
+AddCurrentTimeCommand—&amp;gt;add_current_time&lt;br&gt;
+这应该是Sublime创建插件的规则  &lt;/p&gt;
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1,&lt;a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html"&gt;http://www.cnblogs.com/xiaomingzaixian/p/6984664.html&lt;/a&gt;
+2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>CentOS自带python26升级到27</title><link href="https://www.vhcffh.com/centoszi-dai-python26sheng-ji-dao-27.html" rel="alternate"></link><published>2017-09-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-09-12:/centoszi-dai-python26sheng-ji-dao-27.html</id><summary type="html">&lt;p&gt;升级CentOS自带python26到27&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.下载安装&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#下载&lt;/span&gt;
 wget http://python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
 &lt;span class="c1"&gt;#解压并更改目录   &lt;/span&gt;
