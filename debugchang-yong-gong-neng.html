@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>自己写一个Android照相机应用-2</title>
+    <title>DEBUG常用功能</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Frey">
@@ -64,7 +64,7 @@
           <div class="nav-collapse">
             <ul class="nav">
                           <li class="divider-vertical"></li>
-                  <li class="active">
+                  <li >
                     <a href="https://www.vhcffh.com/categories/android/index.html">
 						<i class="icon-folder-open icon-large"></i>Android
 					</a>
@@ -74,7 +74,7 @@
 						<i class="icon-folder-open icon-large"></i>C/C++
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="https://www.vhcffh.com/categories/hui-bian/index.html">
 						<i class="icon-folder-open icon-large"></i>汇编
 					</a>
@@ -135,8 +135,8 @@
                         <h1>
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to 自己写一个Android照相机应用-2">
-                                        自己写一个Android照相机应用-2
+                                        title="Permalink to DEBUG常用功能">
+                                        DEBUG常用功能
                                 </a>
                         </h1>
                 </header>
@@ -144,104 +144,78 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<span class="published" title="2017-08-19T10:01:00+08:00">
-        <i class="icon-calendar"></i>2017-08-19
+<span class="published" title="2018-02-12T10:01:00+08:00">
+        <i class="icon-calendar"></i>2018-02-12
 </span>
 <span class="label">By</span>
 <a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
 <span class="label">Category</span>
-<a href="https://www.vhcffh.com/categories/android/index.html"><i class="icon-folder-open"></i>Android</a>.
+<a href="https://www.vhcffh.com/categories/hui-bian/index.html"><i class="icon-folder-open"></i>汇编</a>.
 
 
 <span class="label">Tags</span>
-	<a href="https://www.vhcffh.com/tags/android/index.html"><i class="icon-tag"></i>android</a>
-	<a href="https://www.vhcffh.com/tags/xiang-ji/index.html"><i class="icon-tag"></i>相机</a>
+	<a href="https://www.vhcffh.com/tags/hui-bian/index.html"><i class="icon-tag"></i>汇编</a>
+	<a href="https://www.vhcffh.com/tags/debug/index.html"><i class="icon-tag"></i>DEBUG</a>
 </footer><!-- /.post-info -->                </div>
-                <p>首先是要创建camera的生命周期  </p>
-<div class="highlight"><pre><span></span><span class="n">getCamera</span><span class="o">();</span><span class="c1">//获取Camera对象</span>
-<span class="n">setStartPreview</span><span class="o">(</span><span class="n">Camera</span> <span class="n">camera</span><span class="o">,</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">);</span><span class="c1">//预览相机内容</span>
-<span class="n">releaseCamera</span><span class="o">();</span><span class="c1">//释放相机资源</span>
+                <h1>1.安装</h1>
+<p>window 10中好像已经没有了Debug的调试工具，需要下载另外的软件</p>
+<p>下载安装DOSBox.百度云下载地址：(DOSBOX)[https://pan.baidu.com/s/1cC3cuy]<br>
+下载后先安装DOSBox0.74-win32-installer.exe<br>
+然后找到文件dos-box0.74.conf(C:\Users\username\AppData\Local\DOSBox)<br>
+添加两行  </p>
+<div class="highlight"><pre><span></span>MOUNT C E:\DEBUG                  # 将目录E:\DEBUG挂载为DOSBOX下的C:  
+<span class="k">set</span> <span class="nv">PATH</span><span class="p">=</span>$PATH$;E:\DEBUG          # 将E:\DEBUG写入环境变量PATH中
 </pre></div>
 
 
-<p>activity生命周期与camera绑定  </p>
-<div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">mCamera</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mCamera</span> <span class="o">=</span> <span class="n">getCamera</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mHolder</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-    <span class="n">releaseCamera</span><span class="o">();</span>
-<span class="o">}</span>
+<p>并将下载的MASM.exe,LINK.exe,debug.exe三个文件放入目录E:\DEBUG<br>
+打开软件，输入<code>c:</code>就可以使用debug命令了  </p>
+<h1>2.常用命令:</h1>
+<p>R命令：查看改变CPU寄存器的内容<br>
+D命令：查看内存中的内容<br>
+E命令：改写内存中的内容<br>
+U命令：将内存中的机器指令翻译成汇编指令<br>
+T命令：执行一条机器指令<br>
+A命令：以汇编指令的格式在内存中写入一条机器指令<br>
+Q命令：退出DEBUG调试  </p>
+<h1>3.命令具体使用实例</h1>
+<h2>3.1R命令:</h2>
+<p>R命令：查看改变CPU寄存器的内容  </p>
+<div class="highlight"><pre><span></span>-r                          ;显示寄存器的值
+-r reg                      ;改变寄存器reg的值
 </pre></div>
 
 
-<p>camera与surfaceview绑定</p>
-<div class="highlight"><pre><span></span><span class="c1">//预览图像与camera绑定</span>
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceCreated</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceChanged</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">format</span><span class="o">,</span> <span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">mCamera</span><span class="o">.</span><span class="na">stopPreview</span><span class="o">();</span>
-    <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceDestroyed</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">releaseCamera</span><span class="o">();</span>
-<span class="o">}</span>
+<p><img src="../images/2018/2_12_R命令.PNG"></p>
+<h2>3.2D命令:</h2>
+<p>D命令：查看内存中的内容<br>
+默认显示128字节的内容  </p>
+<div class="highlight"><pre><span></span>-d                          ;默认地址
+-d 段地址:偏移地址            ;指定地址
+-d 段地址:偏一偏二            ;两个地址间的内容
 </pre></div>
 
 
-<p>声明相机使用权限  </p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.CAMERA&quot;</span><span class="err">&lt;/uses-permission</span><span class="nt">&gt;</span>
+<p><img src="../images/2018/2_12_D命令.PNG"></p>
+<h2>3.3E命令:</h2>
+<p>E命令：改写内存中的内容  </p>
+<div class="highlight"><pre><span></span>-e 起始地址 数据 数据 ...   
+-e 起始地址
 </pre></div>
 
 
-<p>实现照相，通过回调将照片数据保存到文件，并将文件路径传递到其它activity(ResultAty)</p>
-<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Camera</span><span class="o">.</span><span class="na">PictureCallback</span> <span class="n">mPictureCallback</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Camera</span><span class="o">.</span><span class="na">PictureCallback</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPictureTaken</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">camera</span><span class="o">)</span> <span class="o">{</span><span class="c1">//data中存储照片的全部信息</span>
-        <span class="n">File</span> <span class="n">tempFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;/sdacrd/temp.png&quot;</span><span class="o">);</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">tempFile</span><span class="o">);</span>
-            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
-            <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-            <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="o">(</span><span class="n">CustomCamera</span><span class="o">.</span><span class="na">this</span><span class="o">,</span><span class="n">ResultAty</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-            <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">&quot;picPath&quot;</span><span class="o">,</span><span class="n">tempFile</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">());</span>
-            <span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
-            <span class="n">CustomCamera</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">finish</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">capture</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">){</span>
-    <span class="n">Camera</span><span class="o">.</span><span class="na">Parameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">mCamera</span><span class="o">.</span><span class="na">getParameters</span><span class="o">();</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setPictureFormat</span><span class="o">(</span><span class="n">ImageFormat</span><span class="o">.</span><span class="na">JPEG</span><span class="o">);</span><span class="c1">//设置拍照格式jpg格式</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setPictureSize</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span><span class="c1">//设置照片大小</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setFocusMode</span><span class="o">(</span><span class="n">Camera</span><span class="o">.</span><span class="na">Parameters</span><span class="o">.</span><span class="na">FOCUS_MODE_AUTO</span><span class="o">);</span><span class="c1">//设置自动对焦</span>
-    <span class="n">mCamera</span><span class="o">.</span><span class="na">autoFocus</span><span class="o">(</span><span class="k">new</span> <span class="n">Camera</span><span class="o">.</span><span class="na">AutoFocusCallback</span><span class="o">()</span> <span class="o">{</span>  <span class="c1">//回调，对焦最清晰时拍照</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAutoFocus</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">camera</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">success</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mCamera</span><span class="o">.</span><span class="na">takePicture</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="n">mPictureCallback</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="o">});</span>
-
-<span class="o">}</span>
-</pre></div>
+<p><img src="../images/2018/2_12_E命令.PNG"></p>
+<h2>3.4U命令:</h2>
+<p>U命令：将内存中的机器指令翻译成汇编指令<br>
+与D命令有些类似<br>
+<img src="../images/2018/2_12_U命令.PNG"></p>
+<h2>3.5T命令:</h2>
+<p>T命令：执行内存中的一条机器指令<br>
+指令位置由cs:ip确定<br>
+<img src="../images/2018/2_12_T命令.PNG"></p>
+<h2>3.6A命令:</h2>
+<p>A命令：以汇编指令的格式在内存中写入一条机器指令<br>
+<img src="../images/2018/2_12_A命令.PNG"></p>
                 </div><!-- /.entry-content -->
         </article>
 </section>

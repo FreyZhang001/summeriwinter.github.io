@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/all.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/all.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>Linux常用命令</title><link href="https://www.vhcffh.com/linuxchang-yong-ming-ling.html" rel="alternate"></link><published>2019-05-21T05:22:00+08:00</published><updated>2019-05-21T05:22:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-21:/linuxchang-yong-ming-ling.html</id><summary type="html">&lt;p&gt;Linux中的一些常用命令,tar&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.tar解压打包相关&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -cvf log.tar log2019.log    &lt;span class="c1"&gt;#仅打包，不压缩&lt;/span&gt;
+tar -zcvf log.tar.gz log2019.log   &lt;span class="c1"&gt;#打包后，以 gzip 压缩&lt;/span&gt;
+tar -jcvf log.tar.bz2 log2019.log  &lt;span class="c1"&gt;#打包后，以 bzip2 压缩&lt;/span&gt;
+tar -ztvf log.tar.gz &lt;span class="c1"&gt;#gzip查阅&lt;/span&gt;
+tar -jtvf log.tar.gz &lt;span class="c1"&gt;#bzip2查阅&lt;/span&gt;
+tar -zxvf log.tar.gz &lt;span class="c1"&gt;#gzip解压&lt;/span&gt;
+tar -jxvf log.tar.gz &lt;span class="c1"&gt;#bzip2解压&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;2.wget设置代理&lt;/h1&gt;
+&lt;h2&gt;2.1环境变量中设置&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;http_proxy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://127.0.0.1:8087
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;2.2使用配置文件&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# cp /etc/wgetrc ~/.wgetrc&lt;/span&gt;
+&lt;span class="c1"&gt;# vim ~/.wgetrc&lt;/span&gt;
+&lt;span class="c1"&gt;# You can set the default proxies for Wget to use for http, https, and ftp.&lt;/span&gt;
+&lt;span class="c1"&gt;# They will override the value in the environment.&lt;/span&gt;
+&lt;span class="nv"&gt;https_proxy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; http://127.0.0.1:8087/
+&lt;span class="nv"&gt;http_proxy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; http://127.0.0.1:8087/
+&lt;span class="nv"&gt;ftp_proxy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; http://127.0.0.1:8087/
+
+&lt;span class="c1"&gt;# If you do not want to use proxy at all, set this to off.&lt;/span&gt;
+&lt;span class="nv"&gt;use_proxy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; on
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;参考资料&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://man.linuxde.net/tar"&gt;http://man.linuxde.net/tar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html"&gt;https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
 &lt;h2&gt;1.清除规则:&lt;/h2&gt;
 &lt;p&gt;清楚旧的规则
@@ -463,7 +496,65 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 另外python3中的reload()需要从imp包中导入
 2.关于python模块循环引入的问题？&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>Git使用中的一些问题</title><link href="https://www.vhcffh.com/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html"&gt;https://www.cnblogs.com/zhangxinqi/p/7905103.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>DEBUG常用功能</title><link href="https://www.vhcffh.com/debugchang-yong-gong-neng.html" rel="alternate"></link><published>2018-02-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-02-12:/debugchang-yong-gong-neng.html</id><summary type="html">&lt;p&gt;window 10中DEBUG的安装,以及DEBUG调试中一些常用的命令&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.安装&lt;/h1&gt;
+&lt;p&gt;window 10中好像已经没有了Debug的调试工具，需要下载另外的软件&lt;/p&gt;
+&lt;p&gt;下载安装DOSBox.百度云下载地址：(DOSBOX)[https://pan.baidu.com/s/1cC3cuy]&lt;br&gt;
+下载后先安装DOSBox0.74-win32-installer.exe&lt;br&gt;
+然后找到文件dos-box0.74.conf(C:\Users\username\AppData\Local\DOSBox)&lt;br&gt;
+添加两行  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;MOUNT C E:\DEBUG                  # 将目录E:\DEBUG挂载为DOSBOX下的C:  
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;$PATH$;E:\DEBUG          # 将E:\DEBUG写入环境变量PATH中
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;并将下载的MASM.exe,LINK.exe,debug.exe三个文件放入目录E:\DEBUG&lt;br&gt;
+打开软件，输入&lt;code&gt;c:&lt;/code&gt;就可以使用debug命令了  &lt;/p&gt;
+&lt;h1&gt;2.常用命令:&lt;/h1&gt;
+&lt;p&gt;R命令：查看改变CPU寄存器的内容&lt;br&gt;
+D命令：查看内存中的内容&lt;br&gt;
+E命令：改写内存中的内容&lt;br&gt;
+U命令：将内存中的机器指令翻译成汇编指令&lt;br&gt;
+T命令：执行一条机器指令&lt;br&gt;
+A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
+Q命令：退出DEBUG调试  &lt;/p&gt;
+&lt;h1&gt;3.命令具体使用实例&lt;/h1&gt;
+&lt;h2&gt;3.1R命令:&lt;/h2&gt;
+&lt;p&gt;R命令：查看改变CPU寄存器的内容  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-r                          ;显示寄存器的值
+-r reg                      ;改变寄存器reg的值
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="../images/2018/2_12_R命令.PNG"&gt;&lt;/p&gt;
+&lt;h2&gt;3.2D命令:&lt;/h2&gt;
+&lt;p&gt;D命令：查看内存中的内容&lt;br&gt;
+默认显示128字节的内容  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-d                          ;默认地址
+-d 段地址:偏移地址            ;指定地址
+-d 段地址:偏一偏二            ;两个地址间的内容
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="../images/2018/2_12_D命令.PNG"&gt;&lt;/p&gt;
+&lt;h2&gt;3.3E命令:&lt;/h2&gt;
+&lt;p&gt;E命令：改写内存中的内容  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-e 起始地址 数据 数据 ...   
+-e 起始地址
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="../images/2018/2_12_E命令.PNG"&gt;&lt;/p&gt;
+&lt;h2&gt;3.4U命令:&lt;/h2&gt;
+&lt;p&gt;U命令：将内存中的机器指令翻译成汇编指令&lt;br&gt;
+与D命令有些类似&lt;br&gt;
+&lt;img src="../images/2018/2_12_U命令.PNG"&gt;&lt;/p&gt;
+&lt;h2&gt;3.5T命令:&lt;/h2&gt;
+&lt;p&gt;T命令：执行内存中的一条机器指令&lt;br&gt;
+指令位置由cs:ip确定&lt;br&gt;
+&lt;img src="../images/2018/2_12_T命令.PNG"&gt;&lt;/p&gt;
+&lt;h2&gt;3.6A命令:&lt;/h2&gt;
+&lt;p&gt;A命令：以汇编指令的格式在内存中写入一条机器指令&lt;br&gt;
+&lt;img src="../images/2018/2_12_A命令.PNG"&gt;&lt;/p&gt;</content><category term="汇编"></category><category term="DEBUG"></category></entry><entry><title>Git使用中的一些问题</title><link href="https://www.vhcffh.com/gitshi-yong-zhong-de-yi-xie-wen-ti.html" rel="alternate"></link><published>2018-01-22T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-01-22:/gitshi-yong-zhong-de-yi-xie-wen-ti.html</id><summary type="html">&lt;p&gt;总结使用git的过程中遇到的问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.配置问题&lt;/h1&gt;
 &lt;p&gt;全局配置&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git config --list  查看当前用户信息
 $ git config --global user.name &lt;span class="s2"&gt;&amp;quot;username&amp;quot;&lt;/span&gt; 配置用户名

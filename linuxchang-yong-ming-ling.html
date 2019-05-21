@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>自己写一个Android照相机应用-2</title>
+    <title>Linux常用命令</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Frey">
@@ -64,7 +64,7 @@
           <div class="nav-collapse">
             <ul class="nav">
                           <li class="divider-vertical"></li>
-                  <li class="active">
+                  <li >
                     <a href="https://www.vhcffh.com/categories/android/index.html">
 						<i class="icon-folder-open icon-large"></i>Android
 					</a>
@@ -84,7 +84,7 @@
 						<i class="icon-folder-open icon-large"></i>Java
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="https://www.vhcffh.com/categories/linux/index.html">
 						<i class="icon-folder-open icon-large"></i>Linux
 					</a>
@@ -135,8 +135,8 @@
                         <h1>
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to 自己写一个Android照相机应用-2">
-                                        自己写一个Android照相机应用-2
+                                        title="Permalink to Linux常用命令">
+                                        Linux常用命令
                                 </a>
                         </h1>
                 </header>
@@ -144,104 +144,52 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<span class="published" title="2017-08-19T10:01:00+08:00">
-        <i class="icon-calendar"></i>2017-08-19
+<span class="published" title="2019-05-21T05:22:00+08:00">
+        <i class="icon-calendar"></i>2019-05-21
 </span>
 <span class="label">By</span>
 <a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
 <span class="label">Category</span>
-<a href="https://www.vhcffh.com/categories/android/index.html"><i class="icon-folder-open"></i>Android</a>.
+<a href="https://www.vhcffh.com/categories/linux/index.html"><i class="icon-folder-open"></i>Linux</a>.
 
 
 <span class="label">Tags</span>
-	<a href="https://www.vhcffh.com/tags/android/index.html"><i class="icon-tag"></i>android</a>
-	<a href="https://www.vhcffh.com/tags/xiang-ji/index.html"><i class="icon-tag"></i>相机</a>
+	<a href="https://www.vhcffh.com/tags/linux/index.html"><i class="icon-tag"></i>Linux</a>
 </footer><!-- /.post-info -->                </div>
-                <p>首先是要创建camera的生命周期  </p>
-<div class="highlight"><pre><span></span><span class="n">getCamera</span><span class="o">();</span><span class="c1">//获取Camera对象</span>
-<span class="n">setStartPreview</span><span class="o">(</span><span class="n">Camera</span> <span class="n">camera</span><span class="o">,</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">);</span><span class="c1">//预览相机内容</span>
-<span class="n">releaseCamera</span><span class="o">();</span><span class="c1">//释放相机资源</span>
+                <h1>1.tar解压打包相关</h1>
+<div class="highlight"><pre><span></span>tar -cvf log.tar log2019.log    <span class="c1">#仅打包，不压缩</span>
+tar -zcvf log.tar.gz log2019.log   <span class="c1">#打包后，以 gzip 压缩</span>
+tar -jcvf log.tar.bz2 log2019.log  <span class="c1">#打包后，以 bzip2 压缩</span>
+tar -ztvf log.tar.gz <span class="c1">#gzip查阅</span>
+tar -jtvf log.tar.gz <span class="c1">#bzip2查阅</span>
+tar -zxvf log.tar.gz <span class="c1">#gzip解压</span>
+tar -jxvf log.tar.gz <span class="c1">#bzip2解压</span>
 </pre></div>
 
 
-<p>activity生命周期与camera绑定  </p>
-<div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">mCamera</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mCamera</span> <span class="o">=</span> <span class="n">getCamera</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mHolder</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-    <span class="n">releaseCamera</span><span class="o">();</span>
-<span class="o">}</span>
+<h1>2.wget设置代理</h1>
+<h2>2.1环境变量中设置</h2>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://127.0.0.1:8087
 </pre></div>
 
 
-<p>camera与surfaceview绑定</p>
-<div class="highlight"><pre><span></span><span class="c1">//预览图像与camera绑定</span>
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceCreated</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-<span class="o">}</span>
+<h2>2.2使用配置文件</h2>
+<div class="highlight"><pre><span></span><span class="c1"># cp /etc/wgetrc ~/.wgetrc</span>
+<span class="c1"># vim ~/.wgetrc</span>
+<span class="c1"># You can set the default proxies for Wget to use for http, https, and ftp.</span>
+<span class="c1"># They will override the value in the environment.</span>
+<span class="nv">https_proxy</span> <span class="o">=</span> http://127.0.0.1:8087/
+<span class="nv">http_proxy</span> <span class="o">=</span> http://127.0.0.1:8087/
+<span class="nv">ftp_proxy</span> <span class="o">=</span> http://127.0.0.1:8087/
 
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceChanged</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">format</span><span class="o">,</span> <span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">mCamera</span><span class="o">.</span><span class="na">stopPreview</span><span class="o">();</span>
-    <span class="n">setStartPreview</span><span class="o">(</span><span class="n">mCamera</span><span class="o">,</span><span class="n">mHolder</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">surfaceDestroyed</span><span class="o">(</span><span class="n">SurfaceHolder</span> <span class="n">holder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">releaseCamera</span><span class="o">();</span>
-<span class="o">}</span>
+<span class="c1"># If you do not want to use proxy at all, set this to off.</span>
+<span class="nv">use_proxy</span> <span class="o">=</span> on
 </pre></div>
 
 
-<p>声明相机使用权限  </p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.CAMERA&quot;</span><span class="err">&lt;/uses-permission</span><span class="nt">&gt;</span>
-</pre></div>
-
-
-<p>实现照相，通过回调将照片数据保存到文件，并将文件路径传递到其它activity(ResultAty)</p>
-<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Camera</span><span class="o">.</span><span class="na">PictureCallback</span> <span class="n">mPictureCallback</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Camera</span><span class="o">.</span><span class="na">PictureCallback</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPictureTaken</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">camera</span><span class="o">)</span> <span class="o">{</span><span class="c1">//data中存储照片的全部信息</span>
-        <span class="n">File</span> <span class="n">tempFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;/sdacrd/temp.png&quot;</span><span class="o">);</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">tempFile</span><span class="o">);</span>
-            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
-            <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-            <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="o">(</span><span class="n">CustomCamera</span><span class="o">.</span><span class="na">this</span><span class="o">,</span><span class="n">ResultAty</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-            <span class="n">intent</span><span class="o">.</span><span class="na">putExtra</span><span class="o">(</span><span class="s">&quot;picPath&quot;</span><span class="o">,</span><span class="n">tempFile</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">());</span>
-            <span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
-            <span class="n">CustomCamera</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">finish</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">capture</span><span class="o">(</span><span class="n">View</span> <span class="n">view</span><span class="o">){</span>
-    <span class="n">Camera</span><span class="o">.</span><span class="na">Parameters</span> <span class="n">parameters</span> <span class="o">=</span> <span class="n">mCamera</span><span class="o">.</span><span class="na">getParameters</span><span class="o">();</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setPictureFormat</span><span class="o">(</span><span class="n">ImageFormat</span><span class="o">.</span><span class="na">JPEG</span><span class="o">);</span><span class="c1">//设置拍照格式jpg格式</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setPictureSize</span><span class="o">(</span><span class="mi">800</span><span class="o">,</span><span class="mi">400</span><span class="o">);</span><span class="c1">//设置照片大小</span>
-    <span class="n">parameters</span><span class="o">.</span><span class="na">setFocusMode</span><span class="o">(</span><span class="n">Camera</span><span class="o">.</span><span class="na">Parameters</span><span class="o">.</span><span class="na">FOCUS_MODE_AUTO</span><span class="o">);</span><span class="c1">//设置自动对焦</span>
-    <span class="n">mCamera</span><span class="o">.</span><span class="na">autoFocus</span><span class="o">(</span><span class="k">new</span> <span class="n">Camera</span><span class="o">.</span><span class="na">AutoFocusCallback</span><span class="o">()</span> <span class="o">{</span>  <span class="c1">//回调，对焦最清晰时拍照</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAutoFocus</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">,</span> <span class="n">Camera</span> <span class="n">camera</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">success</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mCamera</span><span class="o">.</span><span class="na">takePicture</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">,</span><span class="n">mPictureCallback</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="o">});</span>
-
-<span class="o">}</span>
-</pre></div>
+<h1>参考资料</h1>
+<p>1.<a href="http://man.linuxde.net/tar">http://man.linuxde.net/tar</a></p>
+<p>2.<a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html">https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html</a></p>
                 </div><!-- /.entry-content -->
         </article>
 </section>
