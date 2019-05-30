@@ -30,9 +30,74 @@ tar -jxvf log.tar.gz &lt;span class="c1"&gt;#bzip2解压&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h1&gt;3.ps相关命令&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ps -ef &lt;span class="c1"&gt;# 查看进程信息和执行的命令&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;4.用户文件管理相关&lt;/h1&gt;
+&lt;h2&gt;4.1Linux系统用户账号的管理&lt;/h2&gt;
+&lt;h3&gt;4.1.1添加新的用户账号&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;useradd &lt;span class="o"&gt;[&lt;/span&gt;-d dirname&lt;span class="o"&gt;]&lt;/span&gt; username
+&lt;span class="c1"&gt;# [-d dirname]指定用户主目录&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.1.2删除帐号&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;userdel &lt;span class="o"&gt;[&lt;/span&gt;-r&lt;span class="o"&gt;]&lt;/span&gt; username
+&lt;span class="c1"&gt;# [-R]把用户的主目录一起删除&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.1.3修改帐号&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;usermod &lt;span class="o"&gt;[]&lt;/span&gt; username
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.1.4用户密码管理&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;passwd &lt;span class="o"&gt;[&lt;/span&gt;-I&lt;span class="o"&gt;][&lt;/span&gt;-u&lt;span class="o"&gt;][&lt;/span&gt;-d&lt;span class="o"&gt;][&lt;/span&gt;-f&lt;span class="o"&gt;]&lt;/span&gt; username
+&lt;span class="c1"&gt;# [-I]锁定密码，即禁用账号。&lt;/span&gt;
+&lt;span class="c1"&gt;# [-u]密码解锁。&lt;/span&gt;
+&lt;span class="c1"&gt;# [-d]使账号无密码。&lt;/span&gt;
+&lt;span class="c1"&gt;# [-f]强迫用户下次登录时修改密码。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;4.2Linux系统用户组的管理&lt;/h2&gt;
+&lt;h3&gt;4.2.1增加一个新的用户组&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;groupadd &lt;span class="o"&gt;[&lt;/span&gt;-g GID&lt;span class="o"&gt;]&lt;/span&gt; username
+&lt;span class="c1"&gt;# [-g GID]指定新用户组的组标识号（GID）&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.2.2删除一个已有的用户组&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;groupdel groupname
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.2.3修改用户组的属性&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;groupmod &lt;span class="o"&gt;[&lt;/span&gt;-g GID&lt;span class="o"&gt;]&lt;/span&gt; groupname
+&lt;span class="c1"&gt;# [-g GID]指定新用户组的组标识号（GID）&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;4.2.4更改用户组&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;如果一个用户同时属于多个用户组，那么用户可以在用户组之间切换，以便具有其他用户组的权限。用户可以在登录后，使用命令newgrp切换到其他用户组，这个命令的参数就是目的用户组。&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;newgrp root
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;4.3Linux文件用户属性修改&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chown &lt;span class="o"&gt;[&lt;/span&gt;-R&lt;span class="o"&gt;]&lt;/span&gt; user_name filename_OR_dirname  &lt;span class="c1"&gt;# 更改文件或目录的所有者&lt;/span&gt;
+chgrp &lt;span class="o"&gt;[&lt;/span&gt;-R&lt;span class="o"&gt;]&lt;/span&gt; group_name filename_OR_dirname  &lt;span class="c1"&gt;# 更改文件或目录所在组&lt;/span&gt;
+&lt;span class="c1"&gt;# [-R]参数递归更改目录下所有文件的用户属性&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="http://man.linuxde.net/tar"&gt;http://man.linuxde.net/tar&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html"&gt;https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html"&gt;https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.&lt;a href="https://www.cnblogs.com/52php/p/5677628.html"&gt;https://www.cnblogs.com/52php/p/5677628.html&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
 &lt;h2&gt;1.清除规则:&lt;/h2&gt;
 &lt;p&gt;清楚旧的规则
