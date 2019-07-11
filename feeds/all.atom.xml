@@ -1,5 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/all.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>Linux常用命令</title><link href="https://www.vhcffh.com/linuxchang-yong-ming-ling.html" rel="alternate"></link><published>2019-05-21T05:22:00+08:00</published><updated>2019-05-21T05:22:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-21:/linuxchang-yong-ming-ling.html</id><summary type="html">&lt;p&gt;Linux中的一些常用命令,tar&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.tar解压打包相关&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/all.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-09-09T12:00:00+08:00</updated><entry><title>深度学习中Keras vs Pytorch</title><link href="https://www.vhcffh.com/shen-du-xue-xi-zhong-keras-vs-pytorch.html" rel="alternate"></link><published>2019-07-09T08:11:00+08:00</published><updated>2019-07-09T08:11:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-07-09:/shen-du-xue-xi-zhong-keras-vs-pytorch.html</id><summary type="html">&lt;p&gt;深度学习框架Keras与Pytorch的区别与优劣&lt;a href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d"&gt;翻译&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="img" src="../images/2019/7_11_pytorchvskears.png" title="Keras vs PyTorch"&gt;&lt;/p&gt;
+&lt;p&gt;对于许多科学家，工程师和开发人员来说，TensorFlow是他们的第一个深度学习框架。 TensorFlow 1.0于2017年2月发布;但它对用户来说不是很友好。&lt;/p&gt;
+&lt;p&gt;在过去几年中，两个主要的深度学习库已经获得了巨大的普及，主要是因为它们比TensorFlow更容易使用：&lt;strong&gt;Keras__和__Pytorch&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;本文将介绍Keras与Pytorch的4个不同点，以及为什么您可以选择一个库而不是另一个库。&lt;/p&gt;
+&lt;h2&gt;Keras&lt;/h2&gt;
+&lt;p&gt;Keras本身不是一个框架，但实际上是一个位于其他Deep Learning框架之上的高级API。目前它支持&lt;a href="https://www.tensorflow.org/"&gt;TensorFlow&lt;/a&gt;，&lt;a href="http://deeplearning.net/software/theano/"&gt;Theano&lt;/a&gt;和&lt;a href="https://github.com/microsoft/CNTK"&gt;CNTK&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Keras的优势在于它的易用性。它是迄今为止最容易去快速启动和运行的框架。定义神经网络非常直观，使用功能API允许人们将层定义为函数。&lt;/p&gt;
+&lt;h2&gt;Pytorch&lt;/h2&gt;
+&lt;p&gt;Pytorch是由Facebook的AI研究小组开发的深度学习框架（如TensorFlow）。像Keras一样，它也对深度网络编程中比较复杂的一大部分进行了抽象。&lt;/p&gt;
+&lt;p&gt;在高级和低级编码风格方面，Pytorch位于Keras和TensorFlow之间。你比Keras有更多的灵活性和控制力，但与此同时你不必做任何疯狂的声明性编程。&lt;/p&gt;
+&lt;p&gt;深度学习练习者整天都在争论应该使用哪个框架。一般来说，这取决于个人喜好。但是在选择时你应该记住Keras和Pytorch的一些特性。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="../images/2019/7_10_keras.jpeg" title="It's keras"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img" src="../images/2019/7_10_pytorch.jpeg" title="It's Pytorch!"&gt;&lt;/p&gt;
+&lt;h2&gt;(1)用于定义模型的 类(Pytorch) vs 函数(Keras)&lt;/h2&gt;
+&lt;p&gt;要定义深度学习模型，Keras提供Functional API。 使用Functional API，神经网络被定义为一组顺序函数，一个接一个地应用。 例如，第一层的输出是第二层的输入。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;img_input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;input_shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;img_input&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MaxPooling2D&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;strides&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在Pytorch中，您将网络设置为一个类，该类继承了Torch库中的torch.nn.Module。 与Keras类似，Pytorch为您提供了层作为构建块，但由于它们位于Python类中，因此它们在类的__init__()方法中引用，并由类的forward()方法执行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Net&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Module&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Net&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conv1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Conv2d&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conv2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Conv2d&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MaxPool2d&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;forward&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;F&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relu&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conv1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relu&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conv2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Net&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;因为Pytorch允许您访问所有Python的类功能而不是简单的函数调用，所以定义网络可以更清晰，更优雅地包含。 这真的没什么不好的，除非你觉得最重要的是尽可能快地编写代码，那么Keras会更容易使用。&lt;/p&gt;
+&lt;h2&gt;(2)张量和计算图(Pytorch) vs 标准阵列(Keras)&lt;/h2&gt;
+&lt;p&gt;Keras API对程序员隐藏了的许多复杂细节。定义网络层非常直观，默认设置通常足以让您入门。&lt;/p&gt;
+&lt;p&gt;只有当你需要实现一个相当尖端或“异国情调”的模型时，你才真正需要去了解底层的TensorFlow。&lt;/p&gt;
+&lt;p&gt;棘手的部分是，当你真正去了解底层的TensorFlow代码时，你将获得随之而来的所有非常具有挑战性的部分！ 您需要确保所有矩阵乘法都排成一行。 哦，甚至不要去考虑尝试打印出图层的一个输出，因为您只能在终端上打印出一个漂亮的Tensor定义。&lt;/p&gt;
+&lt;p&gt;Pytorch在这些方面倾向于更加方便。 您需要知道每个层的输入和输出大小，但这可以很快掌握。 您不必处理构建一个您无法在调试中看到的抽象计算图。&lt;/p&gt;
+&lt;p&gt;Pytorch的另一个好处是你可以在Torch Tensors和Numpy阵列之间来回滑动。 如果你需要实现自定义的东西，那么在TF张量和Numpy阵列之间来回转换可能会很麻烦，需要开发人员对TensorFlow的Session有充分的了解。&lt;/p&gt;
+&lt;p&gt;Pytorch的交互性比想象中要简单得多。 您只需要知道两个操作：一个将Torch Tensor（一个Variable对象）转变到Numpy，另一个是相反的转换。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;torch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tensor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;#tensor 变为numpy&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;torch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_numpy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c1"&gt;# numpy 变为tensor&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当然，如果你不需要实现任何花哨的东西，那么Keras会做得很好，因为你不会遇到任何TensorFlow障碍。 但如果你这样做，那么Pytorch可能会更顺畅。&lt;/p&gt;
+&lt;h2&gt;(3) Training models&lt;/h2&gt;
+&lt;p&gt;在Keras训练模型非常容易！ 只是一个简单的.fit()函数，你可以很轻松的进行训练。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;history&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;generator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;train_generator&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;epochs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;validation_data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;validation_generator&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在Pytorch中训练一些模型需要一些步骤&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每一批次的训练开始时初始化梯度&lt;/li&gt;
+&lt;li&gt;在模型中运行前向传播&lt;/li&gt;
+&lt;li&gt;运行后向传播&lt;/li&gt;
+&lt;li&gt;计算损失和更新权重&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，就训练模型来说，PyTorch 较为繁琐。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;epoch&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;  &lt;span class="c1"&gt;# loop over the dataset multiple times&lt;/span&gt;
+    &lt;span class="n"&gt;running_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;trainloader&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c1"&gt;# Get the inputs; data is a list of [inputs, labels]&lt;/span&gt;
+        &lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;
+        &lt;span class="c1"&gt;# (1) Initialise gradients&lt;/span&gt;
+        &lt;span class="n"&gt;optimizer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zero_grad&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="c1"&gt;# (2) Forward pass&lt;/span&gt;
+        &lt;span class="n"&gt;outputs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;criterion&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;outputs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;# (3) Backward&lt;/span&gt;
+        &lt;span class="n"&gt;loss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;backward&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="c1"&gt;# (4) Compute the loss and update the weights&lt;/span&gt;
+        &lt;span class="n"&gt;optimizer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;step&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;(4)控制 CPU vs GPU 模式&lt;/h2&gt;
+&lt;p&gt;如果你已经安装了 tensorflow-gpu，则在 Keras 中能够使用 GPU 并且会默认完成。然后，如果你想要将某些运算转移至 CPU，则可以以单行方式完成。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/cpu:0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;apply_non_max_suppression&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但对于 PyTorch 来说，你必须显式地为每个 torch 张量和 numpy 变量启动 GPU。这样代码会比较混乱。并且如果你想在 CPU 和 GPU 之间来回移动以执行不同运算，则很容易出错。&lt;/p&gt;
+&lt;p&gt;例如，为了将之前的模型转移到 GPU 上运行，则需要以下步骤：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Get the GPU device&lt;/span&gt;
+&lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;torch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cuda:0&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;torch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_available&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;cpu&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Transfer the network to GPU&lt;/span&gt;
+&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Transfer the inputs and labels to GPU&lt;/span&gt;
+&lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;因而，Keras 在简洁性和默认设置方面优于 PyTorch。&lt;/p&gt;
+&lt;h2&gt;选择 Keras 或 PyTorch 的一般性建议&lt;/h2&gt;
+&lt;p&gt;作者通常建议初学者从 Keras 开始。Keras 绝对是理解和使用起来最简单的框架，能够很快地上手运行。你完全不需要担心 GPU 设置、处理抽象代码以及其他任何复杂的事情。你甚至可以在不接触任何 TensorFlow 单行代码的情况下，实现自定义层和损失函数。&lt;/p&gt;
+&lt;p&gt;但如果你开始深度了解到深度网络的更细粒度层面或者正在实现一些非标准的事情，则 PyTorch 是你的首选库。使用 PyTorch 需要进行一些额外操作，但这不会减缓你的进程。你依然能够快速实现、训练和测试网络，并享受简单调试带来的额外益处。&lt;/p&gt;</content><category term="Keras"></category><category term="Pytorch"></category><category term="深度学习"></category></entry><entry><title>Python中遇到的问题</title><link href="https://www.vhcffh.com/pythonzhong-yu-dao-de-wen-ti.html" rel="alternate"></link><published>2019-05-31T08:35:00+08:00</published><updated>2019-05-31T08:35:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-31:/pythonzhong-yu-dao-de-wen-ti.html</id><summary type="html">&lt;p&gt;python中使用中遇到的各种问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.列表的初始化&lt;/h1&gt;
+&lt;p&gt;当初始化一个n×n的列表时不能使用如下方法，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="c1"&gt;#如此初始化会导致其它行仅是第一行的引用而不是copy&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="c1"&gt;#改变其中一行的某个元素&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="c1"&gt;#其他行跟着改变&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;正确的方法应该如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="c1"&gt;#或者l=[[0]*3 for _ in range(3)]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;2.a is b与a==b 的区别&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;#39;vhcffh.com&amp;#39;
+b=&amp;#39;vhcffh.com&amp;#39;
+a==b # True,a和b对应实例的内容是相同的
+a is b # False,a和b指向不同的实例
+b=a
+a is b # True,a和b指向同一个实例
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category></entry><entry><title>Python常用方法</title><link href="https://www.vhcffh.com/pythonchang-yong-fang-fa.html" rel="alternate"></link><published>2019-05-30T05:26:00+08:00</published><updated>2019-05-30T05:26:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-30:/pythonchang-yong-fang-fa.html</id><summary type="html">&lt;p&gt;python中常用的一些方法sorted()等&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.sorted排序&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iterable&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="nb"&gt;cmp&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;]]])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;参数说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iterable -- 可迭代对象。&lt;/li&gt;
+&lt;li&gt;cmp -- 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。&lt;/li&gt;
+&lt;li&gt;key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。&lt;/li&gt;
+&lt;li&gt;reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。&lt;/li&gt;
+&lt;/ul&gt;</content><category term="python"></category></entry><entry><title>Linux常用命令</title><link href="https://www.vhcffh.com/linuxchang-yong-ming-ling.html" rel="alternate"></link><published>2019-05-21T05:22:00+08:00</published><updated>2019-05-21T05:22:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-21:/linuxchang-yong-ming-ling.html</id><summary type="html">&lt;p&gt;Linux中的一些常用命令,tar&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.tar解压打包相关&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -cvf log.tar log2019.log    &lt;span class="c1"&gt;#仅打包，不压缩&lt;/span&gt;
 tar -zcvf log.tar.gz log2019.log   &lt;span class="c1"&gt;#打包后，以 gzip 压缩&lt;/span&gt;
 tar -jcvf log.tar.bz2 log2019.log  &lt;span class="c1"&gt;#打包后，以 bzip2 压缩&lt;/span&gt;
@@ -7,9 +155,22 @@ tar -ztvf log.tar.gz &lt;span class="c1"&gt;#gzip查阅&lt;/span&gt;
 tar -jtvf log.tar.gz &lt;span class="c1"&gt;#bzip2查阅&lt;/span&gt;
 tar -zxvf log.tar.gz &lt;span class="c1"&gt;#gzip解压&lt;/span&gt;
 tar -jxvf log.tar.gz &lt;span class="c1"&gt;#bzip2解压&lt;/span&gt;
+unzip log.zip -d dirname &lt;span class="c1"&gt;#zip解压到dirname目录&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;补充&lt;/p&gt;
+&lt;p&gt;c: 建立压缩档案 
+-x：解压 
+-t：查看内容 
+-r：向压缩归档文件末尾追加文件 
+-u：更新原压缩包中的文件&lt;/p&gt;
+&lt;p&gt;这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。&lt;/p&gt;
+&lt;p&gt;-z：有gzip属性的 
+-j：有bz2属性的 
+-Z：有compress属性的 
+-v：显示所有过程 
+-O：将文件解开到标准输出 &lt;/p&gt;
 &lt;h1&gt;2.wget设置代理&lt;/h1&gt;
 &lt;h2&gt;2.1环境变量中设置&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;http_proxy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://127.0.0.1:8087
@@ -97,7 +258,8 @@ chgrp &lt;span class="o"&gt;[&lt;/span&gt;-R&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="http://man.linuxde.net/tar"&gt;http://man.linuxde.net/tar&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2.&lt;a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html"&gt;https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;3.&lt;a href="https://www.cnblogs.com/52php/p/5677628.html"&gt;https://www.cnblogs.com/52php/p/5677628.html&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+&lt;p&gt;3.&lt;a href="https://www.cnblogs.com/52php/p/5677628.html"&gt;https://www.cnblogs.com/52php/p/5677628.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;a href="https://www.jb51.net/LINUXjishu/43356.html"&gt;https://www.jb51.net/LINUXjishu/43356.html&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
 &lt;h2&gt;1.清除规则:&lt;/h2&gt;
 &lt;p&gt;清楚旧的规则
@@ -408,7 +570,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 添加远程仓库
 &lt;code&gt;git remote add origin git@github.com:name/reponame.git&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="https://blog.csdn.net/csdn_blog_lcl/article/details/53172885"&gt;https://blog.csdn.net/csdn_blog_lcl/article/details/53172885&lt;/a&gt;&lt;/p&gt;</content><category term="git"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.self和__init__()&lt;/h1&gt;
 &lt;p&gt;self代表类的实例,如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;#类的属性&lt;/span&gt;
@@ -431,7 +593,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 
 &lt;p&gt;当实例和类有相同的属性时，如何通过实例访问类的属性呢？
 可以通过__class__访问&lt;/p&gt;
-&lt;h1&gt;2,__class__&lt;/h1&gt;
+&lt;h1&gt;2.__class__&lt;/h1&gt;
 &lt;p&gt;__class__是指实例所对应的类&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -478,7 +640,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 
 
 &lt;p&gt;每创建一个Test类的实例,Test.count都加1&lt;/p&gt;
-&lt;h1&gt;3,__dict__&lt;/h1&gt;
+&lt;h1&gt;3.__dict__&lt;/h1&gt;
 &lt;p&gt;__dict__是一个字典，键是属性名，值为属性值。
 类有自己的__dict__，类的实例也有自己的__dict__&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
@@ -490,7 +652,7 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -501,8 +663,11 @@ git config --global user.emil &lt;span class="s2"&gt;&amp;quot;useremil@xxx.com&
 
 
 &lt;p&gt;可见类Test有classa属性以及一些其他属性
-类Test的实例a只有selfb属性
-2018-05-23 14:54:58&lt;/p&gt;
+类Test的实例a只有self.b属性&lt;/p&gt;
+&lt;h1&gt;4.__len__(self)函数&lt;/h1&gt;
+&lt;p&gt;返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数&lt;/p&gt;
+&lt;h1&gt;5.__getitem__(self,key)&lt;/h1&gt;
+&lt;p&gt;实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://www.vhcffh.com/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="c1"&gt;#输出当前路径&lt;/span&gt;
@@ -817,67 +982,7 @@ AddCurrentTimeCommand—&amp;gt;add_current_time&lt;br&gt;
 这应该是Sublime创建插件的规则  &lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1,&lt;a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html"&gt;http://www.cnblogs.com/xiaomingzaixian/p/6984664.html&lt;/a&gt;
-2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>字符串匹配</title><link href="https://www.vhcffh.com/zi-fu-chuan-pi-pei.html" rel="alternate"></link><published>2017-12-21T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-21:/zi-fu-chuan-pi-pei.html</id><summary type="html">&lt;p&gt;字符串匹配算法&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.BM算法&lt;/h1&gt;
-&lt;p&gt;从左到右依次比较&lt;br&gt;
-s:主串&lt;br&gt;
-r:模式串  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;BM&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;slen&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="n"&gt;slen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]){&lt;/span&gt;
-            &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;2.KMP算法&lt;/h1&gt;
-&lt;p&gt;通过一个next数字&lt;br&gt;
-当每次发生不匹配的时候&lt;br&gt;
-模式串不必回到开头  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nf"&gt;getnext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="c1"&gt;//next数组求解&lt;/span&gt;
-    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-    &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;KMP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;slen&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;getnext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="n"&gt;slen&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]){&lt;/span&gt;
-            &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;rlen&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;参考文章&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html"&gt;字符串匹配的KMP算法&lt;/a&gt;&lt;/p&gt;</content><category term="C语言 算法"></category></entry><entry><title>图片头文件解析</title><link href="https://www.vhcffh.com/tu-pian-tou-wen-jian-jie-xi.html" rel="alternate"></link><published>2017-12-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-12:/tu-pian-tou-wen-jian-jie-xi.html</id><summary type="html">&lt;p&gt;各种类型的图片头文件解析&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.PNG图片文件头&lt;/h1&gt;
+2,&lt;a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551"&gt;http://blog.csdn.net/sshfl_csdn/article/details/46415551&lt;/a&gt;&lt;/p&gt;</content><category term="sublime"></category></entry><entry><title>图片头文件解析</title><link href="https://www.vhcffh.com/tu-pian-tou-wen-jian-jie-xi.html" rel="alternate"></link><published>2017-12-12T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2017-12-12:/tu-pian-tou-wen-jian-jie-xi.html</id><summary type="html">&lt;p&gt;各种类型的图片头文件解析&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.PNG图片文件头&lt;/h1&gt;
 &lt;h2&gt;1.1PNG文件结构&lt;/h2&gt;
 &lt;p&gt;PNG图像格式文件由一个8字节的PNG文件标识（file signature）域和3个以上的后续数据块（IHDR、IDAT、IEND等）组成。&lt;br&gt;
 PNG文件包括8字节文件署名（89 50 4E 47 0D 0A 1A 0A，十六进制），用来识别PNG格式。  &lt;/p&gt;

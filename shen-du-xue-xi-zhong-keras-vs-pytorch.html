@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>深度学习中Keras vs Pytorch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Frey">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="https://www.vhcffh.com/theme/css/bootstrap.dark.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="https://www.vhcffh.com/theme/css/bootstrap-responsive.dark.css" rel="stylesheet">
+        <link href="https://www.vhcffh.com/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="https://www.vhcffh.com/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://www.vhcffh.com/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.vhcffh.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.vhcffh.com/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.vhcffh.com/images/apple-touch-icon-114x114.png">
+
+    <link href="https://www.vhcffh.com/" type="application/atom+xml" rel="alternate" title="Frey's blog ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="https://www.vhcffh.com/index.html">Frey's blog </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/android/index.html">
+						<i class="icon-folder-open icon-large"></i>Android
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/cc/index.html">
+						<i class="icon-folder-open icon-large"></i>C/C++
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/hui-bian/index.html">
+						<i class="icon-folder-open icon-large"></i>汇编
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/java/index.html">
+						<i class="icon-folder-open icon-large"></i>Java
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/linux/index.html">
+						<i class="icon-folder-open icon-large"></i>Linux
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/mathematics/index.html">
+						<i class="icon-folder-open icon-large"></i>Mathematics
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/python/index.html">
+						<i class="icon-folder-open icon-large"></i>Python
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="https://www.vhcffh.com/categories/ren-gong-zhi-neng-ai/index.html">
+						<i class="icon-folder-open icon-large"></i>人工智能AI
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/wen-jian/index.html">
+						<i class="icon-folder-open icon-large"></i>文件
+					</a>
+                  </li>
+                  <li >
+                    <a href="https://www.vhcffh.com/categories/windows/index.html">
+						<i class="icon-folder-open icon-large"></i>Windows
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="https://www.vhcffh.com/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to 深度学习中Keras vs Pytorch">
+                                        深度学习中Keras vs Pytorch
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<span class="published" title="2019-07-09T08:11:00+08:00">
+        <i class="icon-calendar"></i>2019-07-09
+</span>
+<span class="label">By</span>
+<a href="https://www.vhcffh.com/author/frey.html"><i class="icon-user"></i>Frey</a>
+<span class="label">Category</span>
+<a href="https://www.vhcffh.com/categories/ren-gong-zhi-neng-ai/index.html"><i class="icon-folder-open"></i>人工智能AI</a>.
+
+
+<span class="label">Tags</span>
+	<a href="https://www.vhcffh.com/tags/keras/index.html"><i class="icon-tag"></i>Keras</a>
+	<a href="https://www.vhcffh.com/tags/pytorch/index.html"><i class="icon-tag"></i>Pytorch</a>
+	<a href="https://www.vhcffh.com/tags/shen-du-xue-xi/index.html"><i class="icon-tag"></i>深度学习</a>
+</footer><!-- /.post-info -->                </div>
+                <p><img alt="img" src="../images/2019/7_11_pytorchvskears.png" title="Keras vs PyTorch"></p>
+<p>对于许多科学家，工程师和开发人员来说，TensorFlow是他们的第一个深度学习框架。 TensorFlow 1.0于2017年2月发布;但它对用户来说不是很友好。</p>
+<p>在过去几年中，两个主要的深度学习库已经获得了巨大的普及，主要是因为它们比TensorFlow更容易使用：<strong>Keras__和__Pytorch</strong>。</p>
+<p>本文将介绍Keras与Pytorch的4个不同点，以及为什么您可以选择一个库而不是另一个库。</p>
+<h2>Keras</h2>
+<p>Keras本身不是一个框架，但实际上是一个位于其他Deep Learning框架之上的高级API。目前它支持<a href="https://www.tensorflow.org/">TensorFlow</a>，<a href="http://deeplearning.net/software/theano/">Theano</a>和<a href="https://github.com/microsoft/CNTK">CNTK</a>。</p>
+<p>Keras的优势在于它的易用性。它是迄今为止最容易去快速启动和运行的框架。定义神经网络非常直观，使用功能API允许人们将层定义为函数。</p>
+<h2>Pytorch</h2>
+<p>Pytorch是由Facebook的AI研究小组开发的深度学习框架（如TensorFlow）。像Keras一样，它也对深度网络编程中比较复杂的一大部分进行了抽象。</p>
+<p>在高级和低级编码风格方面，Pytorch位于Keras和TensorFlow之间。你比Keras有更多的灵活性和控制力，但与此同时你不必做任何疯狂的声明性编程。</p>
+<p>深度学习练习者整天都在争论应该使用哪个框架。一般来说，这取决于个人喜好。但是在选择时你应该记住Keras和Pytorch的一些特性。</p>
+<p><img alt="img" src="../images/2019/7_10_keras.jpeg" title="It's keras"></p>
+<p><img alt="img" src="../images/2019/7_10_pytorch.jpeg" title="It's Pytorch!"></p>
+<h2>(1)用于定义模型的 类(Pytorch) vs 函数(Keras)</h2>
+<p>要定义深度学习模型，Keras提供Functional API。 使用Functional API，神经网络被定义为一组顺序函数，一个接一个地应用。 例如，第一层的输出是第二层的输入。</p>
+<div class="highlight"><pre><span></span><span class="n">img_input</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">img_input</span><span class="p">)</span>    
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>    
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<p>在Pytorch中，您将网络设置为一个类，该类继承了Torch库中的torch.nn.Module。 与Keras类似，Pytorch为您提供了层作为构建块，但由于它们位于Python类中，因此它们在类的__init__()方法中引用，并由类的forward()方法执行。</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">x</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span>
+</pre></div>
+
+
+<p>因为Pytorch允许您访问所有Python的类功能而不是简单的函数调用，所以定义网络可以更清晰，更优雅地包含。 这真的没什么不好的，除非你觉得最重要的是尽可能快地编写代码，那么Keras会更容易使用。</p>
+<h2>(2)张量和计算图(Pytorch) vs 标准阵列(Keras)</h2>
+<p>Keras API对程序员隐藏了的许多复杂细节。定义网络层非常直观，默认设置通常足以让您入门。</p>
+<p>只有当你需要实现一个相当尖端或“异国情调”的模型时，你才真正需要去了解底层的TensorFlow。</p>
+<p>棘手的部分是，当你真正去了解底层的TensorFlow代码时，你将获得随之而来的所有非常具有挑战性的部分！ 您需要确保所有矩阵乘法都排成一行。 哦，甚至不要去考虑尝试打印出图层的一个输出，因为您只能在终端上打印出一个漂亮的Tensor定义。</p>
+<p>Pytorch在这些方面倾向于更加方便。 您需要知道每个层的输入和输出大小，但这可以很快掌握。 您不必处理构建一个您无法在调试中看到的抽象计算图。</p>
+<p>Pytorch的另一个好处是你可以在Torch Tensors和Numpy阵列之间来回滑动。 如果你需要实现自定义的东西，那么在TF张量和Numpy阵列之间来回转换可能会很麻烦，需要开发人员对TensorFlow的Session有充分的了解。</p>
+<p>Pytorch的交互性比想象中要简单得多。 您只需要知道两个操作：一个将Torch Tensor（一个Variable对象）转变到Numpy，另一个是相反的转换。</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1">#tensor 变为numpy</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># numpy 变为tensor</span>
+</pre></div>
+
+
+<p>当然，如果你不需要实现任何花哨的东西，那么Keras会做得很好，因为你不会遇到任何TensorFlow障碍。 但如果你这样做，那么Pytorch可能会更顺畅。</p>
+<h2>(3) Training models</h2>
+<p>在Keras训练模型非常容易！ 只是一个简单的.fit()函数，你可以很轻松的进行训练。</p>
+<div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_generator</span><span class="p">(</span>
+    <span class="n">generator</span><span class="o">=</span><span class="n">train_generator</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_generator</span><span class="p">)</span>
+</pre></div>
+
+
+<p>在Pytorch中训练一些模型需要一些步骤</p>
+<ul>
+<li>每一批次的训练开始时初始化梯度</li>
+<li>在模型中运行前向传播</li>
+<li>运行后向传播</li>
+<li>计算损失和更新权重</li>
+</ul>
+<p>所以，就训练模型来说，PyTorch 较为繁琐。</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times</span>
+    <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># Get the inputs; data is a list of [inputs, labels]</span>
+        <span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="c1"># (1) Initialise gradients</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="c1"># (2) Forward pass</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="c1"># (3) Backward</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="c1"># (4) Compute the loss and update the weights</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+
+
+<h2>(4)控制 CPU vs GPU 模式</h2>
+<p>如果你已经安装了 tensorflow-gpu，则在 Keras 中能够使用 GPU 并且会默认完成。然后，如果你想要将某些运算转移至 CPU，则可以以单行方式完成。</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;/cpu:0&#39;</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">apply_non_max_suppression</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<p>但对于 PyTorch 来说，你必须显式地为每个 torch 张量和 numpy 变量启动 GPU。这样代码会比较混乱。并且如果你想在 CPU 和 GPU 之间来回移动以执行不同运算，则很容易出错。</p>
+<p>例如，为了将之前的模型转移到 GPU 上运行，则需要以下步骤：</p>
+<div class="highlight"><pre><span></span><span class="c1"># Get the GPU device</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="c1"># Transfer the network to GPU</span>
+<span class="n">net</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="c1"># Transfer the inputs and labels to GPU</span>
+<span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+
+
+<p>因而，Keras 在简洁性和默认设置方面优于 PyTorch。</p>
+<h2>选择 Keras 或 PyTorch 的一般性建议</h2>
+<p>作者通常建议初学者从 Keras 开始。Keras 绝对是理解和使用起来最简单的框架，能够很快地上手运行。你完全不需要担心 GPU 设置、处理抽象代码以及其他任何复杂的事情。你甚至可以在不接触任何 TensorFlow 单行代码的情况下，实现自定义层和损失函数。</p>
+<p>但如果你开始深度了解到深度网络的更细粒度层面或者正在实现一些非标准的事情，则 PyTorch 是你的首选库。使用 PyTorch 需要进行一些额外操作，但这不会减缓你的进程。你依然能够快速实现、训练和测试网络，并享受简单调试带来的额外益处。</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="https://www.vhcffh.com/categories/android/index.html">
+    <i class="icon-folder-open icon-large"></i>Android
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/cc/index.html">
+    <i class="icon-folder-open icon-large"></i>C/C++
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/hui-bian/index.html">
+    <i class="icon-folder-open icon-large"></i>汇编
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/java/index.html">
+    <i class="icon-folder-open icon-large"></i>Java
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/linux/index.html">
+    <i class="icon-folder-open icon-large"></i>Linux
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/mathematics/index.html">
+    <i class="icon-folder-open icon-large"></i>Mathematics
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/python/index.html">
+    <i class="icon-folder-open icon-large"></i>Python
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/ren-gong-zhi-neng-ai/index.html">
+    <i class="icon-folder-open icon-large"></i>人工智能AI
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/wen-jian/index.html">
+    <i class="icon-folder-open icon-large"></i>文件
+</a>
+</li>
+<li>
+<a href="https://www.vhcffh.com/categories/windows/index.html">
+    <i class="icon-folder-open icon-large"></i>Windows
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda73cc0>]">
+    <a href="https://www.vhcffh.com/tags/keras/index.html">
+        <i class="icon-tag icon-large"></i>Keras
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda73cc0>]">
+    <a href="https://www.vhcffh.com/tags/pytorch/index.html">
+        <i class="icon-tag icon-large"></i>Pytorch
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda73cc0>]">
+    <a href="https://www.vhcffh.com/tags/shen-du-xue-xi/index.html">
+        <i class="icon-tag icon-large"></i>深度学习
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda739e8>, <pelican.contents.Article object at 0x7f1acda73fd0>, <pelican.contents.Article object at 0x7f1acda16e48>, <pelican.contents.Article object at 0x7f1acda7c4a8>, <pelican.contents.Article object at 0x7f1acda2f908>, <pelican.contents.Article object at 0x7f1acda6b080>, <pelican.contents.Article object at 0x7f1acda3de10>, <pelican.contents.Article object at 0x7f1acd93d278>, <pelican.contents.Article object at 0x7f1acda80fd0>, <pelican.contents.Article object at 0x7f1acd8c2710>]">
+    <a href="https://www.vhcffh.com/tags/python/index.html">
+        <i class="icon-tag icon-large"></i>python
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd9fa0b8>]">
+    <a href="https://www.vhcffh.com/tags/linux/index.html">
+        <i class="icon-tag icon-large"></i>linux
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd9fa1d0>, <pelican.contents.Article object at 0x7f1acdaa9f60>]">
+    <a href="https://www.vhcffh.com/tags/fu-wu-qi/index.html">
+        <i class="icon-tag icon-large"></i>服务器
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd9fa1d0>]">
+    <a href="https://www.vhcffh.com/tags/xi-tong/index.html">
+        <i class="icon-tag icon-large"></i>系统
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda329b0>, <pelican.contents.Article object at 0x7f1acdcb7358>, <pelican.contents.Article object at 0x7f1acda40400>, <pelican.contents.Article object at 0x7f1acdaed4e0>, <pelican.contents.Article object at 0x7f1acda66390>]">
+    <a href="https://www.vhcffh.com/tags/cyu-yan/index.html">
+        <i class="icon-tag icon-large"></i>C语言
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda329b0>]">
+    <a href="https://www.vhcffh.com/tags/socket/index.html">
+        <i class="icon-tag icon-large"></i>socket
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda80f98>, <pelican.contents.Article object at 0x7f1acda12128>]">
+    <a href="https://www.vhcffh.com/tags/math/index.html">
+        <i class="icon-tag icon-large"></i>math
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda289b0>]">
+    <a href="https://www.vhcffh.com/tags/vim/index.html">
+        <i class="icon-tag icon-large"></i>vim
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda1b7b8>, <pelican.contents.Article object at 0x7f1acda2f5f8>]">
+    <a href="https://www.vhcffh.com/tags/git/index.html">
+        <i class="icon-tag icon-large"></i>git
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda0b438>, <pelican.contents.Article object at 0x7f1acda37ba8>]">
+    <a href="https://www.vhcffh.com/tags/hui-bian/index.html">
+        <i class="icon-tag icon-large"></i>汇编
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda0b438>]">
+    <a href="https://www.vhcffh.com/tags/debug/index.html">
+        <i class="icon-tag icon-large"></i>DEBUG
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda37ba8>]">
+    <a href="https://www.vhcffh.com/tags/x8086/index.html">
+        <i class="icon-tag icon-large"></i>x8086
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda6b080>]">
+    <a href="https://www.vhcffh.com/tags/libsvm/index.html">
+        <i class="icon-tag icon-large"></i>libsvm
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda45438>]">
+    <a href="https://www.vhcffh.com/tags/cyu-yan-suan-fa/index.html">
+        <i class="icon-tag icon-large"></i>C语言 算法
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdcb7358>]">
+    <a href="https://www.vhcffh.com/tags/wen-jian/index.html">
+        <i class="icon-tag icon-large"></i>文件
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdbd2438>]">
+    <a href="https://www.vhcffh.com/tags/sublime/index.html">
+        <i class="icon-tag icon-large"></i>sublime
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda6b5f8>]">
+    <a href="https://www.vhcffh.com/tags/wen-jian-tou/index.html">
+        <i class="icon-tag icon-large"></i>文件头
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda6b5f8>]">
+    <a href="https://www.vhcffh.com/tags/tu-pian/index.html">
+        <i class="icon-tag icon-large"></i>图片
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda3de10>, <pelican.contents.Article object at 0x7f1acdaa9f60>, <pelican.contents.Article object at 0x7f1acda00278>]">
+    <a href="https://www.vhcffh.com/tags/centos/index.html">
+        <i class="icon-tag icon-large"></i>centos
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda40400>, <pelican.contents.Article object at 0x7f1acdaed4e0>, <pelican.contents.Article object at 0x7f1acdad0860>, <pelican.contents.Article object at 0x7f1ace4e2390>]">
+    <a href="https://www.vhcffh.com/tags/tcp/index.html">
+        <i class="icon-tag icon-large"></i>TCP
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda40400>]">
+    <a href="https://www.vhcffh.com/tags/tao-jie-zi/index.html">
+        <i class="icon-tag icon-large"></i>套接字
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaed4e0>, <pelican.contents.Article object at 0x7f1acdad0860>, <pelican.contents.Article object at 0x7f1ace4e2390>]">
+    <a href="https://www.vhcffh.com/tags/liao-tian-shi/index.html">
+        <i class="icon-tag icon-large"></i>聊天室
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda66390>]">
+    <a href="https://www.vhcffh.com/tags/duo-xian-cheng/index.html">
+        <i class="icon-tag icon-large"></i>多线程
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdae2860>, <pelican.contents.Article object at 0x7f1acd9360f0>, <pelican.contents.Article object at 0x7f1acda76630>]">
+    <a href="https://www.vhcffh.com/tags/windwos/index.html">
+        <i class="icon-tag icon-large"></i>windwos
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd9360f0>, <pelican.contents.Article object at 0x7f1acda76630>]">
+    <a href="https://www.vhcffh.com/tags/powershell/index.html">
+        <i class="icon-tag icon-large"></i>powershell
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1ace4df3c8>, <pelican.contents.Article object at 0x7f1acdad8be0>]">
+    <a href="https://www.vhcffh.com/tags/android/index.html">
+        <i class="icon-tag icon-large"></i>android
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1ace4df3c8>, <pelican.contents.Article object at 0x7f1acdad8be0>]">
+    <a href="https://www.vhcffh.com/tags/xiang-ji/index.html">
+        <i class="icon-tag icon-large"></i>相机
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdad0860>, <pelican.contents.Article object at 0x7f1ace4e2390>, <pelican.contents.Article object at 0x7f1acd957588>]">
+    <a href="https://www.vhcffh.com/tags/java/index.html">
+        <i class="icon-tag icon-large"></i>java
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda80fd0>]">
+    <a href="https://www.vhcffh.com/tags/pyqt5/index.html">
+        <i class="icon-tag icon-large"></i>pyqt5
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaa9f60>, <pelican.contents.Article object at 0x7f1acda00278>]">
+    <a href="https://www.vhcffh.com/tags/ban-wa-gong/index.html">
+        <i class="icon-tag icon-large"></i>搬瓦工
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaa9f60>]">
+    <a href="https://www.vhcffh.com/tags/apache/index.html">
+        <i class="icon-tag icon-large"></i>apache
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaa9f60>]">
+    <a href="https://www.vhcffh.com/tags/php/index.html">
+        <i class="icon-tag icon-large"></i>php
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaa9f60>]">
+    <a href="https://www.vhcffh.com/tags/mysql/index.html">
+        <i class="icon-tag icon-large"></i>mysql
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdaa9f60>]">
+    <a href="https://www.vhcffh.com/tags/web/index.html">
+        <i class="icon-tag icon-large"></i>web
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda00278>]">
+    <a href="https://www.vhcffh.com/tags/shadowsocks/index.html">
+        <i class="icon-tag icon-large"></i>shadowsocks
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd957588>]">
+    <a href="https://www.vhcffh.com/tags/md5/index.html">
+        <i class="icon-tag icon-large"></i>MD5
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acd957588>]">
+    <a href="https://www.vhcffh.com/tags/jia-mi/index.html">
+        <i class="icon-tag icon-large"></i>加密
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acda50a58>]">
+    <a href="https://www.vhcffh.com/tags/an-zhuo-mo-ni-qi/index.html">
+        <i class="icon-tag icon-large"></i>安卓模拟器
+    </a>
+</li>
+<li class="tag-[<pelican.contents.Article object at 0x7f1acdae2390>]">
+    <a href="https://www.vhcffh.com/tags/pi-chu-li/index.html">
+        <i class="icon-tag icon-large"></i>批处理
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is based on <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111205240-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111205240-3');
+    </script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://www.vhcffh.com/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="https://www.vhcffh.com/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

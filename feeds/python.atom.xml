@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Python</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/python.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2018-09-17T12:00:00+08:00</updated><entry><title>vim的使用</title><link href="https://www.vhcffh.com/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Frey's blog - Python</title><link href="https://www.vhcffh.com/" rel="alternate"></link><link href="https://www.vhcffh.com/feeds/python.atom.xml" rel="self"></link><id>https://www.vhcffh.com/</id><updated>2019-05-31T08:35:00+08:00</updated><entry><title>Python中遇到的问题</title><link href="https://www.vhcffh.com/pythonzhong-yu-dao-de-wen-ti.html" rel="alternate"></link><published>2019-05-31T08:35:00+08:00</published><updated>2019-05-31T08:35:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-31:/pythonzhong-yu-dao-de-wen-ti.html</id><summary type="html">&lt;p&gt;python中使用中遇到的各种问题&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.列表的初始化&lt;/h1&gt;
+&lt;p&gt;当初始化一个n×n的列表时不能使用如下方法，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="c1"&gt;#如此初始化会导致其它行仅是第一行的引用而不是copy&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="c1"&gt;#改变其中一行的某个元素&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="c1"&gt;#其他行跟着改变&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;正确的方法应该如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt; &lt;span class="c1"&gt;#或者l=[[0]*3 for _ in range(3)]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;2.a is b与a==b 的区别&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;#39;vhcffh.com&amp;#39;
+b=&amp;#39;vhcffh.com&amp;#39;
+a==b # True,a和b对应实例的内容是相同的
+a is b # False,a和b指向不同的实例
+b=a
+a is b # True,a和b指向同一个实例
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category></entry><entry><title>Python常用方法</title><link href="https://www.vhcffh.com/pythonchang-yong-fang-fa.html" rel="alternate"></link><published>2019-05-30T05:26:00+08:00</published><updated>2019-05-30T05:26:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2019-05-30:/pythonchang-yong-fang-fa.html</id><summary type="html">&lt;p&gt;python中常用的一些方法sorted()等&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.sorted排序&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iterable&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="nb"&gt;cmp&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;[,&lt;/span&gt; &lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="p"&gt;]]])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;参数说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iterable -- 可迭代对象。&lt;/li&gt;
+&lt;li&gt;cmp -- 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。&lt;/li&gt;
+&lt;li&gt;key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。&lt;/li&gt;
+&lt;li&gt;reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。&lt;/li&gt;
+&lt;/ul&gt;</content><category term="python"></category></entry><entry><title>vim的使用</title><link href="https://www.vhcffh.com/vimde-shi-yong.html" rel="alternate"></link><published>2018-06-23T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-06-23:/vimde-shi-yong.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;1.光标移动&lt;/h1&gt;
 &lt;p&gt;h,j,k,l(空格):向左，下，上，右移动光标&lt;/p&gt;
 &lt;p&gt;Ctrl+(f,b,d,u):屏幕向下移一页，向上移一页，向下移半页，向上移半页
 +-:下一行，上一行
@@ -11,7 +50,7 @@ n:向下移动n行&lt;/p&gt;
 ?word:向光标之上寻找word
 n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
-&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1,self和__init__()&lt;/h1&gt;
+&lt;p&gt;1.&lt;a href="http://www.runoob.com/linux/linux-vim.html"&gt;http://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;</content><category term="vim"></category></entry><entry><title>python类和实例的一些属性</title><link href="https://www.vhcffh.com/pythonlei-he-shi-li-de-yi-xie-shu-xing.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonlei-he-shi-li-de-yi-xie-shu-xing.html</id><summary type="html">&lt;p&gt;对于python中self,__name__,__init__()等的解释&lt;/p&gt;</summary><content type="html">&lt;h1&gt;1.self和__init__()&lt;/h1&gt;
 &lt;p&gt;self代表类的实例,如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;classb&amp;#39;&lt;/span&gt;&lt;span class="c1"&gt;#类的属性&lt;/span&gt;
@@ -34,7 +73,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 
 &lt;p&gt;当实例和类有相同的属性时，如何通过实例访问类的属性呢？
 可以通过__class__访问&lt;/p&gt;
-&lt;h1&gt;2,__class__&lt;/h1&gt;
+&lt;h1&gt;2.__class__&lt;/h1&gt;
 &lt;p&gt;__class__是指实例所对应的类&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -81,7 +120,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 
 
 &lt;p&gt;每创建一个Test类的实例,Test.count都加1&lt;/p&gt;
-&lt;h1&gt;3,__dict__&lt;/h1&gt;
+&lt;h1&gt;3.__dict__&lt;/h1&gt;
 &lt;p&gt;__dict__是一个字典，键是属性名，值为属性值。
 类有自己的__dict__，类的实例也有自己的__dict__&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
@@ -93,7 +132,7 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="vm"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -104,8 +143,11 @@ n,N:重复搜索（不变方向，改变方向）&lt;/p&gt;
 
 
 &lt;p&gt;可见类Test有classa属性以及一些其他属性
-类Test的实例a只有selfb属性
-2018-05-23 14:54:58&lt;/p&gt;
+类Test的实例a只有self.b属性&lt;/p&gt;
+&lt;h1&gt;4.__len__(self)函数&lt;/h1&gt;
+&lt;p&gt;返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数&lt;/p&gt;
+&lt;h1&gt;5.__getitem__(self,key)&lt;/h1&gt;
+&lt;p&gt;实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。&lt;/p&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1,&lt;a href="https://docs.python.org/"&gt;https://docs.python.org&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category></entry><entry><title>python中关于路径的知识</title><link href="https://www.vhcffh.com/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html" rel="alternate"></link><published>2018-05-17T10:01:00+08:00</published><updated>2018-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-05-17:/pythonzhong-guan-yu-lu-jing-de-zhi-shi.html</id><summary type="html">&lt;p&gt;总结一下python中关于路径的一些知识点&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="c1"&gt;#输出当前路径&lt;/span&gt;

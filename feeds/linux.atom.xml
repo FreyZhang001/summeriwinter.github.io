@@ -7,9 +7,22 @@ tar -ztvf log.tar.gz &lt;span class="c1"&gt;#gzip查阅&lt;/span&gt;
 tar -jtvf log.tar.gz &lt;span class="c1"&gt;#bzip2查阅&lt;/span&gt;
 tar -zxvf log.tar.gz &lt;span class="c1"&gt;#gzip解压&lt;/span&gt;
 tar -jxvf log.tar.gz &lt;span class="c1"&gt;#bzip2解压&lt;/span&gt;
+unzip log.zip -d dirname &lt;span class="c1"&gt;#zip解压到dirname目录&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;补充&lt;/p&gt;
+&lt;p&gt;c: 建立压缩档案 
+-x：解压 
+-t：查看内容 
+-r：向压缩归档文件末尾追加文件 
+-u：更新原压缩包中的文件&lt;/p&gt;
+&lt;p&gt;这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。&lt;/p&gt;
+&lt;p&gt;-z：有gzip属性的 
+-j：有bz2属性的 
+-Z：有compress属性的 
+-v：显示所有过程 
+-O：将文件解开到标准输出 &lt;/p&gt;
 &lt;h1&gt;2.wget设置代理&lt;/h1&gt;
 &lt;h2&gt;2.1环境变量中设置&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;http_proxy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://127.0.0.1:8087
@@ -97,7 +110,8 @@ chgrp &lt;span class="o"&gt;[&lt;/span&gt;-R&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;h1&gt;参考资料&lt;/h1&gt;
 &lt;p&gt;1.&lt;a href="http://man.linuxde.net/tar"&gt;http://man.linuxde.net/tar&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2.&lt;a href="https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html"&gt;https://www.cnblogs.com/cloud2rain/archive/2013/03/22/2976337.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;3.&lt;a href="https://www.cnblogs.com/52php/p/5677628.html"&gt;https://www.cnblogs.com/52php/p/5677628.html&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
+&lt;p&gt;3.&lt;a href="https://www.cnblogs.com/52php/p/5677628.html"&gt;https://www.cnblogs.com/52php/p/5677628.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;a href="https://www.jb51.net/LINUXjishu/43356.html"&gt;https://www.jb51.net/LINUXjishu/43356.html&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category></entry><entry><title>简单的iptables配置过程</title><link href="https://www.vhcffh.com/jian-dan-de-iptablespei-zhi-guo-cheng.html" rel="alternate"></link><published>2018-10-19T10:01:00+08:00</published><updated>2019-09-09T12:00:00+08:00</updated><author><name>Frey</name></author><id>tag:www.vhcffh.com,2018-10-19:/jian-dan-de-iptablespei-zhi-guo-cheng.html</id><summary type="html">&lt;p&gt;简单的记一下iptables的配置过程，以后用到了就不用再google了&lt;/p&gt;</summary><content type="html">&lt;p&gt;总的来说分为四步，清楚规则，预设规则，添加自定义规则，保存规则&lt;/p&gt;
 &lt;h1&gt;iptables配置过程&lt;/h1&gt;
 &lt;h2&gt;1.清除规则:&lt;/h2&gt;
 &lt;p&gt;清楚旧的规则
