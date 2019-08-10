@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.vhcffh.com/categories/index.html</loc>
+    
+    <lastmod>2019-08-10T14:53:39.220Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.vhcffh.com/tags/index.html</loc>
+    
+    <lastmod>2019-08-10T14:53:28.210Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.vhcffh.com/scaffolds/post.html</loc>
     
     <lastmod>2019-08-10T14:45:46.829Z</lastmod>
@@ -341,20 +355,6 @@
     <loc>https://www.vhcffh.com/about/index.html</loc>
     
     <lastmod>2019-08-07T16:40:23.091Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.vhcffh.com/tags/index.html</loc>
-    
-    <lastmod>2019-08-07T16:37:47.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.vhcffh.com/categories/index.html</loc>
-    
-    <lastmod>2019-08-07T16:37:37.562Z</lastmod>
     
   </url>
   
