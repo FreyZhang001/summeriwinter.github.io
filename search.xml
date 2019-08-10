@@ -4,50 +4,23 @@
   
     
     <entry>
-      <title>java注解的使用</title>
-      <link href="/2019/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-      <url>/2019/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <title>神经网络中的前向传播与后向传播</title>
+      <link href="/2019/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%8E%E5%90%8E%E5%90%91%E4%BC%A0%E6%92%AD/"/>
+      <url>/2019/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%8E%E5%90%8E%E5%90%91%E4%BC%A0%E6%92%AD/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-三种标准注解"><a href="#1-三种标准注解" class="headerlink" title="1.三种标准注解"></a>1.三种标准注解</h3><ul><li><p>@Override,表示当前的方法定义覆盖了父类中的方法。必须要有相同的方法签名即(方法名，参数类型，参数顺序，参数个数)都一样。否则在编译过程中发出错误提示。</p></li><li><p>@Deprecated,对不应该再使用的方法添加注解，当使用这个方法的时候，会在编译时候显示提示信息。</p></li><li><p>@SuppressWarnings,关闭不当的编译器报警信息</p></li></ul><h3 id="2-四种元注解："><a href="#2-四种元注解：" class="headerlink" title="2.四种元注解："></a>2.四种元注解：</h3><ul><li><p>@Target,表示该注解可以用什么地方。如CONSTRUCTOR,构造器声明；FIELD,域声明;METHOD,方法声明;TYPE，类，接口或enum声明</p></li><li><p>@Retention,表示需要在什么级别保存该注解信息。如SOURCE,注解将被编译器丢弃；CLASS,注解在class文件可用，但会被VM丢弃RUNTIME,VM将在运行期间也保留注解，可以使用反射机制读取注解信息</p></li><li><p>@Documented,将此注解包含到Javadoc中。</p></li><li><p>@Inherited,允许子类继承父类的注解。</p></li></ul><p>Java 7开始，额外添加了 3 个注解:</p><ul><li>@SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生</li><li><p>@FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。</p></li><li><p>@Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/2019/7_10_neu.png" alt="img"></p><p>$f(z)$为激励函数，关于激励函数(又称激活函数)的总结<br>隐藏层1输入</p><script type="math/tex; mode=display">z^{(1)}=W^{(1)}x^T+b^{(1)}\label{1}\tag{1}</script><p>隐藏层1输出</p><script type="math/tex; mode=display">n^{(1)}=f^{(1)}(z^{(1)})\label{2}\tag{2}</script><p>隐藏层2输入</p><script type="math/tex; mode=display">z^{(2)}=W^{(2)}n^{(1)}+b^{(2)}\label{3}\tag{3}</script><p>隐藏层2输出</p><script type="math/tex; mode=display">n^{(2)}=f^{(2)}(z^{(2)})\label{4}\tag{4}</script><p>隐藏层3输入</p><script type="math/tex; mode=display">z^{(3)}=W^{(3)}n^{(2)}+b^{(3)}\label{5}\tag{5}</script><p>隐藏层3输出即输出层</p><script type="math/tex; mode=display">\widehat y = n^{(3)}= f^{(3)}(z{(3)})\label{6}\tag{6}</script><p>损失函数</p><script type="math/tex; mode=display">L(y,\widehat y)\label{7}\tag{7}</script><p>即隐藏层k+1输入</p><script type="math/tex; mode=display">z^{(k+1)}=W^{(k+1)}n^{(k)}+b^{(k+1)}\label{8}\tag{8}</script><p>隐藏层k+1输出</p><script type="math/tex; mode=display">n^{(k+1)}= f^{(k+1)}(z{(k+1)})\label{9}\tag{9}</script><p>对损失函数进行总结<a href="https://blog.csdn.net/lien0906/article/details/78429768" target="_blank" rel="noopener">https://blog.csdn.net/lien0906/article/details/78429768</a><br>计算偏导数</p><script type="math/tex; mode=display">\frac {\partial z^{(k)}}{\partial b^{(k)}}=\begin{bmatrix}\frac{\partial (W^{(k)}_{[1,:]}*n^{(k-1)}+b_1)}{\partial b_1} & \ldots & \frac{\partial (W^{(k)}_{[1,:]}*n^{(k-1)}+b_1)}{\partial b_m}\\\vdots & \ddots & \vdots\\\frac{\partial (W^{(k)}_{[m,:]}*n^{(k-1)}+b_m)}{\partial b_1}  &\ldots & \frac{\partial (W^{(k)}_{[m,:]}*n^{(k-1)}+b_m)}{\partial b_m}\end{bmatrix}=diag(1,1, \ldots ,1)\label{10}\tag{10}</script><p>列向量对列向量求导参见矩阵中的求导</p><p>计算偏导数$\frac {\partial L(y,\widehat y)}{\partial z^{(k)}}​$ </p><p>偏导数$\frac {\partial L(y,\widehat y)}{\partial z^{(k)}}$ 又称误差项(error term,也称“灵敏度”),一般用$\delta$ 表示,用$\delta^{(k)}$ 表示第k层神经元的误差项,其值的大小代表了<strong>第k层神经元对最终总误差的影响大小</strong> </p><script type="math/tex; mode=display">\begin{align}\delta^{(k)} & = \frac {\partial L(y,\widehat y)}{\partial z^{(k)}}\\& =\frac {\partial n^{(k)}}{\partial z^{(k)}}*\frac {\partial z^{(k+1)}}{\partial n^{(k)}}*\frac {\partial L(y,\widehat y)}{\partial z^{(k+1)}}\\& = {f^{(k)}}^{'}(z^{(k)}) * (W^{(k+1)})^T * \delta^{(k+1)}\end{align}\label{11}\tag{11}</script><p>最终需要用的两个导数</p><script type="math/tex; mode=display">\frac {\partial L(y,\widehat y)}{\partial W^{(k)}}=\frac {\partial L(y,\widehat y)}{\partial z^{(k)}}*\frac {\partial z^{(k)}}{\partial W^{(k)}}=\delta^{(k)}*(n^{(k-1)})^T\label{12}\tag{12}</script><script type="math/tex; mode=display">\frac {\partial L(y,\widehat y)}{\partial b^{(k)}}=\frac {\partial L(y,\widehat y)}{\partial z^{(k)}}*\frac {\partial z^{(k)}}{\partial b^{(k)}}=\delta^{(k)}\label{13}\tag{13}</script><p>后向传播参数更新</p><script type="math/tex; mode=display">W^{(k)} = W^{(k)} - \alpha(\delta^{(k)}(n^{(k-1)})^T + W^{(k)})\label{14}\tag{14}\\</script><script type="math/tex; mode=display">b^{(k)} = b^{(k)}-\alpha\delta^{(k)}\label{15}\tag{15}</script><p>其中$\alpha$ 是学习率</p><p>后向传播中的正则化,L1正则化,L2正则化</p>]]></content>
       
       
       <categories>
           
-          <category> 编程 </category>
-          
-          <category> Java </category>
+          <category> 深度学习 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 注解 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数据可视化开源项目</title>
-      <link href="/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-      <url>/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-D3"><a href="#1-D3" class="headerlink" title="1.D3"></a>1.<a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></h3><p>github地址:<a href="https://github.com/d3/d3" target="_blank" rel="noopener">https://github.com/d3/d3</a></p><p><img src="/images/2019/8_10_d3.png" alt="d3"></p><h3 id="2-chartjs"><a href="#2-chartjs" class="headerlink" title="2.chartjs"></a>2.<a href="https://www.chartjs.org" target="_blank" rel="noopener">chartjs</a></h3><p>github地址:<a href="https://github.com/chartjs/Chart.js" target="_blank" rel="noopener">https://github.com/chartjs/Chart.js</a></p><p><img src="/images/2019/8_10_charts.png" alt="Screenshot_20190810_184821"></p><h3 id="3-leafletjs"><a href="#3-leafletjs" class="headerlink" title="3.leafletjs"></a>3.<a href="https://leafletjs.com/examples.html" target="_blank" rel="noopener">leafletjs</a></h3><p>github地址:<a href="https://github.com/Leaflet/Leaflet" target="_blank" rel="noopener">https://github.com/Leaflet/Leaflet</a></p><p>主要是移动到地图的支持</p><p><img src="/images/2019/8_10_leafletjs.png" alt="Screenshot_20190810_185124"></p><h3 id="4-echarts"><a href="#4-echarts" class="headerlink" title="4.echarts"></a>4.<a href="https://echarts.baidu.com/examples/#chart-type-line" target="_blank" rel="noopener">echarts</a></h3><p>百度家的</p><p>github地址:<a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">https://github.com/ecomfe/echarts</a></p><p><img src="/images/2019/8_10_echarts.png" alt="Screenshot_20190810_185457"></p><h3 id="5-Chartist-js"><a href="#5-Chartist-js" class="headerlink" title="5.Chartist-js"></a>5.<a href="https://gionkunz.github.io/chartist-js/examples.html" target="_blank" rel="noopener">Chartist-js</a></h3><h3 id="6-sigmajs"><a href="#6-sigmajs" class="headerlink" title="6.sigmajs"></a>6.<a href="http://sigmajs.org/" target="_blank" rel="noopener">sigmajs</a></h3><h3 id="7-metricsgraphicsjs"><a href="#7-metricsgraphicsjs" class="headerlink" title="7.metricsgraphicsjs"></a>7.<a href="https://metricsgraphicsjs.org/examples.htm" target="_blank" rel="noopener">metricsgraphicsjs</a></h3><h3 id="8-DC-js-开源-D3"><a href="#8-DC-js-开源-D3" class="headerlink" title="8.DC.js,开源(D3)"></a>8.<a href="https://dc-js.github.io/dc.js/" target="_blank" rel="noopener">DC.js,开源(D3)</a></h3><h3 id="9-阿里数据可视化"><a href="#9-阿里数据可视化" class="headerlink" title="9.阿里数据可视化"></a>9.<a href="https://antv.alipay.com/zh-cn/index.html" target="_blank" rel="noopener">阿里数据可视化</a></h3><p><a href="https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html" target="_blank" rel="noopener">G2</a>,<a href="https://antv.alipay.com/zh-cn/g6/2.x/demo/index.html" target="_blank" rel="noopener">G6</a>,<a href="https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html" target="_blank" rel="noopener">F2</a>,<a href="https://antv.alipay.com/zh-cn/l7/1.x/demo/index.html" target="_blank" rel="noopener">L7</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据可视化 </tag>
+            <tag> BP算法 </tag>
             
         </tags>
       
@@ -63,6 +36,49 @@
         <content type="html"><![CDATA[<p>深度学习框架Keras与Pytorch的区别与优劣<a href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d" target="_blank" rel="noopener">翻译</a><br><img src="/images/2019/7_11_pytorchvskears.png" alt="img" title="Keras vs PyTorch"></p><p>对于许多科学家，工程师和开发人员来说，TensorFlow是他们的第一个深度学习框架。 TensorFlow 1.0于2017年2月发布;但它对用户来说不是很友好。</p><p>在过去几年中，两个主要的深度学习库已经获得了巨大的普及，主要是因为它们比TensorFlow更容易使用：<strong>Keras</strong>和<strong>Pytorch</strong>。</p><p>本文将介绍Keras与Pytorch的4个不同点，以及为什么您可以选择一个库而不是另一个库。</p><h2 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h2><p>Keras本身不是一个框架，但实际上是一个位于其他Deep Learning框架之上的高级API。目前它支持<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>，<a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener">Theano</a>和<a href="https://github.com/microsoft/CNTK" target="_blank" rel="noopener">CNTK</a>。</p><p>Keras的优势在于它的易用性。它是迄今为止最容易去快速启动和运行的框架。定义神经网络非常直观，使用功能API允许人们将层定义为函数。</p><h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h2><p>Pytorch是由Facebook的AI研究小组开发的深度学习框架（如TensorFlow）。像Keras一样，它也对深度网络编程中比较复杂的一大部分进行了抽象。</p><p>在高级和低级编码风格方面，Pytorch位于Keras和TensorFlow之间。你比Keras有更多的灵活性和控制力，但与此同时你不必做任何疯狂的声明性编程。</p><p>深度学习练习者整天都在争论应该使用哪个框架。一般来说，这取决于个人喜好。但是在选择时你应该记住Keras和Pytorch的一些特性。</p><p><img src="/images/2019/7_10_keras.jpeg" alt="img" title="It&#39;s keras"></p><p><img src="/images/2019/7_10_pytorch.jpeg" alt="img" title="It&#39;s Pytorch!"></p><h2 id="1-用于定义模型的-类-Pytorch-vs-函数-Keras"><a href="#1-用于定义模型的-类-Pytorch-vs-函数-Keras" class="headerlink" title="(1)用于定义模型的 类(Pytorch) vs 函数(Keras)"></a>(1)用于定义模型的 类(Pytorch) vs 函数(Keras)</h2><p>要定义深度学习模型，Keras提供Functional API。 使用Functional API，神经网络被定义为一组顺序函数，一个接一个地应用。 例如，第一层的输出是第二层的输入。</p><pre><code class="lang-python">img_input = layers.Input(shape=input_shape)x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(img_input)    x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(x)    x = layers.MaxPooling2D((2, 2), strides=(2, 2))(x)</code></pre><p>在Pytorch中，您将网络设置为一个类，该类继承了Torch库中的torch.nn.Module。 与Keras类似，Pytorch为您提供了层作为构建块，但由于它们位于Python类中，因此它们在类的__init__()方法中引用，并由类的forward()方法执行。</p><pre><code class="lang-python">class Net(nn.Module):    def __init__(self):        super(Net, self).__init__()        self.conv1 = nn.Conv2d(3, 64, 3)        self.conv2 = nn.Conv2d(64, 64, 3)        self.pool = nn.MaxPool2d(2, 2)    def forward(self, x):        x = F.relu(self.conv1(x))        x = self.pool(F.relu(self.conv2(x)))        return xmodel = Net()</code></pre><p>因为Pytorch允许您访问所有Python的类功能而不是简单的函数调用，所以定义网络可以更清晰，更优雅地包含。 这真的没什么不好的，除非你觉得最重要的是尽可能快地编写代码，那么Keras会更容易使用。</p><h2 id="2-张量和计算图-Pytorch-vs-标准阵列-Keras"><a href="#2-张量和计算图-Pytorch-vs-标准阵列-Keras" class="headerlink" title="(2)张量和计算图(Pytorch) vs 标准阵列(Keras)"></a>(2)张量和计算图(Pytorch) vs 标准阵列(Keras)</h2><p>Keras API对程序员隐藏了的许多复杂细节。定义网络层非常直观，默认设置通常足以让您入门。</p><p>只有当你需要实现一个相当尖端或“异国情调”的模型时，你才真正需要去了解底层的TensorFlow。</p><p>棘手的部分是，当你真正去了解底层的TensorFlow代码时，你将获得随之而来的所有非常具有挑战性的部分！ 您需要确保所有矩阵乘法都排成一行。 哦，甚至不要去考虑尝试打印出图层的一个输出，因为您只能在终端上打印出一个漂亮的Tensor定义。</p><p>Pytorch在这些方面倾向于更加方便。 您需要知道每个层的输入和输出大小，但这可以很快掌握。 您不必处理构建一个您无法在调试中看到的抽象计算图。</p><p>Pytorch的另一个好处是你可以在Torch Tensors和Numpy阵列之间来回滑动。 如果你需要实现自定义的东西，那么在TF张量和Numpy阵列之间来回转换可能会很麻烦，需要开发人员对TensorFlow的Session有充分的了解。</p><p>Pytorch的交互性比想象中要简单得多。 您只需要知道两个操作：一个将Torch Tensor（一个Variable对象）转变到Numpy，另一个是相反的转换。</p><pre><code class="lang-python">a = torch.Tensor(2,2)print(a)b = a.numpy() #tensor 变为numpyprint(b)print(torch.from_numpy(b)) # numpy 变为tensor</code></pre><p>当然，如果你不需要实现任何花哨的东西，那么Keras会做得很好，因为你不会遇到任何TensorFlow障碍。 但如果你这样做，那么Pytorch可能会更顺畅。</p><h2 id="3-Training-models"><a href="#3-Training-models" class="headerlink" title="(3) Training models"></a>(3) Training models</h2><p>在Keras训练模型非常容易！ 只是一个简单的.fit()函数，你可以很轻松的进行训练。</p><pre><code class="lang-python">history = model.fit_generator(    generator=train_generator,    epochs=10,    validation_data=validation_generator)</code></pre><p>在Pytorch中训练一些模型需要一些步骤</p><ul><li>每一批次的训练开始时初始化梯度</li><li>在模型中运行前向传播</li><li>运行后向传播</li><li>计算损失和更新权重</li></ul><p>所以，就训练模型来说，PyTorch 较为繁琐。</p><pre><code class="lang-python">for epoch in range(2):  # loop over the dataset multiple times    running_loss = 0.0    for i, data in enumerate(trainloader, 0):        # Get the inputs; data is a list of [inputs, labels]        inputs, labels = data        # (1) Initialise gradients        optimizer.zero_grad()        # (2) Forward pass        outputs = net(inputs)        loss = criterion(outputs, labels)        # (3) Backward        loss.backward()        # (4) Compute the loss and update the weights        optimizer.step()</code></pre><h2 id="4-控制-CPU-vs-GPU-模式"><a href="#4-控制-CPU-vs-GPU-模式" class="headerlink" title="(4)控制 CPU vs GPU 模式"></a>(4)控制 CPU vs GPU 模式</h2><p>如果你已经安装了 tensorflow-gpu，则在 Keras 中能够使用 GPU 并且会默认完成。然后，如果你想要将某些运算转移至 CPU，则可以以单行方式完成。</p><pre><code class="lang-python">with tf.device(&#39;/cpu:0&#39;):    y = apply_non_max_suppression(x)</code></pre><p>但对于 PyTorch 来说，你必须显式地为每个 torch 张量和 numpy 变量启动 GPU。这样代码会比较混乱。并且如果你想在 CPU 和 GPU 之间来回移动以执行不同运算，则很容易出错。</p><p>例如，为了将之前的模型转移到 GPU 上运行，则需要以下步骤：</p><pre><code class="lang-python"># Get the GPU devicedevice = torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)# Transfer the network to GPUnet.to(device)# Transfer the inputs and labels to GPUinputs, labels = data[0].to(device), data[1].to(device)</code></pre><p>因而，Keras 在简洁性和默认设置方面优于 PyTorch。</p><h2 id="选择-Keras-或-PyTorch-的一般性建议"><a href="#选择-Keras-或-PyTorch-的一般性建议" class="headerlink" title="选择 Keras 或 PyTorch 的一般性建议"></a>选择 Keras 或 PyTorch 的一般性建议</h2><p>作者通常建议初学者从 Keras 开始。Keras 绝对是理解和使用起来最简单的框架，能够很快地上手运行。你完全不需要担心 GPU 设置、处理抽象代码以及其他任何复杂的事情。你甚至可以在不接触任何 TensorFlow 单行代码的情况下，实现自定义层和损失函数。</p><p>但如果你开始深度了解到深度网络的更细粒度层面或者正在实现一些非标准的事情，则 PyTorch 是你的首选库。使用 PyTorch 需要进行一些额外操作，但这不会减缓你的进程。你依然能够快速实现、训练和测试网络，并享受简单调试带来的额外益处。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Keras </tag>
+            
+            <tag> Pytorch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>优化算法总结</title>
+      <link href="/2019/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+      <url>/2019/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h3 id="AdaGrad-Adaptive-Gradient-自适应梯度"><a href="#AdaGrad-Adaptive-Gradient-自适应梯度" class="headerlink" title="AdaGrad(Adaptive Gradient)自适应梯度"></a>AdaGrad(Adaptive Gradient)自适应梯度</h3><script type="math/tex; mode=display">g_t = \nabla_\theta J(\theta_{t-1})</script><a id="more"></a><script type="math/tex; mode=display">\theta_{t+1} = \theta_t-\alpha\cdot g_t/\sqrt{\sum_{i=1}^tg_t^2} \ \ \ \ \ (\alpha=0.01)</script><p>随梯度的变化改变学习率</p><h3 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h3><script type="math/tex; mode=display">g_t = \nabla_\theta J(\theta_{t-1})</script><script type="math/tex; mode=display">v_t= \gamma(v_{t-1})+(1-\gamma)g_t^2 \ \ \ \ \ (\gamma=0.9)</script><script type="math/tex; mode=display">\theta_{t} = \theta_{t-1}-\alpha* g_t/(\sqrt v_t + \varepsilon) \ \ \ \ \ (\alpha=0.001,\varepsilon=10^{-8})</script><p>结合梯度平方的指数移动平均数来调节学习率的变化</p><p>克服AdaGrad梯度急剧减小的问题</p><h3 id="Adam优化器"><a href="#Adam优化器" class="headerlink" title="Adam优化器"></a>Adam优化器</h3><script type="math/tex; mode=display">g_t = \nabla_\theta J(\theta_{t-1})</script><script type="math/tex; mode=display">m_t = \beta_1m_{t-1}+(1-\beta_1)g_t \ \ \ \ \ (\beta_1=0.9,m_0=0)</script><script type="math/tex; mode=display">v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2 \ \ \ \ \ (\beta_2=0.999,v_0=0)</script><script type="math/tex; mode=display">\hat m_t = m_t/(1-\beta_1^t)</script><script type="math/tex; mode=display">\hat v_t = v_t/(1-\beta_2^t)</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1}-\alpha * \hat m_t/(\hat v_t + \varepsilon) \ \ \ \ \ (\alpha=0.001,\varepsilon=10^{-8})</script><p>对梯度的一阶矩估计（First Moment Estimation，即梯度的均值）和二阶矩估计（Second</p><p>Moment Estimation，即梯度的未中心化的方差）进行综合考虑，计算出更新步长。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AdaGrad </tag>
+            
+            <tag> RMSProp </tag>
+            
+            <tag> Adam </tag>
+            
+        </tags>
       
     </entry>
     
@@ -130,6 +146,110 @@
         <tags>
             
             <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>UML图介绍</title>
+      <link href="/2019/UML%E5%9B%BE%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2019/UML%E5%9B%BE%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-用例视图"><a href="#1-用例视图" class="headerlink" title="1.用例视图"></a>1.用例视图</h2><h2 id="1-1用例图"><a href="#1-1用例图" class="headerlink" title="1.1用例图"></a>1.1用例图</h2><p>描述角色以及角色与用例之间的连接关系。说明的是谁要使用系统，以及他们使用该系统可以做些什么。</p><h2 id="2设计视图"><a href="#2设计视图" class="headerlink" title="2设计视图"></a>2设计视图</h2><h3 id="2-1类图"><a href="#2-1类图" class="headerlink" title="2.1类图"></a>2.1类图</h3><p>根据用例图抽象成类，描述类的内部结构和类与类之间的关系，是一种静态结构图。 在UML类图中，常见的有以下几种关系: 泛化（Generalization）,  实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)。</p><p>类图是描述系统中的类，以及各个类之间的关系的静态视图。能够让我们在正确编写代码以前对系统有一个全面的认识。类图是一种模型类型，确切的说，是一种静态模型类型。</p><h3 id="2-2对象图"><a href="#2-2对象图" class="headerlink" title="2.2对象图"></a>2.2对象图</h3><p>描述的是参与交互的各个对象在交互过程中某一时刻的状态。对象图可以被看作是类图在某一时刻的实例。</p><p>与类图极为相似，它是类图的实例，对象图显示类的多个对象实例，而不是实际的类。它描述的不是类之间的关系，而是对象之间的关系。</p><h2 id="3-进程视图"><a href="#3-进程视图" class="headerlink" title="3.进程视图"></a>3.进程视图</h2><h3 id="3-1序列图（顺序图）"><a href="#3-1序列图（顺序图）" class="headerlink" title="3.1序列图（顺序图）"></a>3.1序列图（顺序图）</h3><p>交互图的一种，描述了对象之间消息发送的先后顺序，强调时间顺序。</p><p>序列图是用来显示你的参与者如何以一系列顺序的步骤与系统的对象交互的模型。顺序图可以用来展示对象之间是如何进行交互的。顺序图将显示的重点放在消息序列上，即强调消息是如何在对象之间被发送和接收的。</p><h3 id="3-2协作图"><a href="#3-2协作图" class="headerlink" title="3.2协作图"></a>3.2协作图</h3><p>交互图的一种，描述了收发消息的对象的组织关系，强调对象之间的合作关系。时序图按照时间顺序布图，而写作图按照空间结构布图</p><p>和序列图相似，显示对象间的动态合作关系。可以看成是类图和顺序图的交集，协作图建模对象或者角色，以及它们彼此之间是如何通信的。如果强调时间和顺序，则使用序列图；如果强调上下级关系，则选择协作图；这两种图合称为交互图。</p><h3 id="3-3状态图"><a href="#3-3状态图" class="headerlink" title="3.3状态图"></a>3.3状态图</h3><p>是一种由状态、变迁、事件和活动组成的状态机，用来描述类的对象所有可能的状态以及时间发生时状态的转移条件。</p><p>描述类的对象所有可能的状态，以及事件发生时状态的转移条件。可以捕获对象、子系统和系统的生命周期。他们可以告知一个对象可以拥有的状态，并且事件(如消息的接收、时间的流逝、错误、条件变为真等)会怎么随着时间的推移来影响这些状态。一个状态图应该连接到所有具有清晰的可标识状态和复杂行为的类；该图可以确定类的行为，以及该行为如何根据当前的状态变化，也可以展示哪些事件将会改变类的对象的状态。状态图是对类图的补充。</p><h3 id="3-4活动图"><a href="#3-4活动图" class="headerlink" title="3.4活动图"></a>3.4活动图</h3><p>是状态图的一种特殊情况，这些状态大都处于活动状态。本质是一种流程图，它描述了活动到活动的控制流。</p><p>描述用例要求所要进行的活动，以及活动间的约束关系，有利于识别并行活动。能够演示出系统中哪些地方存在功能</p><h2 id="4-实现视图"><a href="#4-实现视图" class="headerlink" title="4.实现视图"></a>4.实现视图</h2><h3 id="4-1构件图-（组件图）"><a href="#4-1构件图-（组件图）" class="headerlink" title="4.1构件图 （组件图）"></a>4.1构件图 （组件图）</h3><p>描述代码构件的物理结构以及各种构建之间的依赖关系。用来建模软件的组件及其相互之间的关系，这些图由构件标记符和构件之间的关系构成。在组件图中，构件时软件单个组成部分，它可以是一个文件，产品、可执行文件和脚本等。</p><h2 id="5-拓扑视图"><a href="#5-拓扑视图" class="headerlink" title="5.拓扑视图"></a>5.拓扑视图</h2><h3 id="5-1部署图"><a href="#5-1部署图" class="headerlink" title="5.1部署图"></a>5.1部署图</h3><p>是用来建模系统的物理部署。例如计算机和设备，以及它们之间是如何连接的。部署图的使用者是开发人员、系统集成人员和测试人员。</p><h2 id="6-软件设计及过程"><a href="#6-软件设计及过程" class="headerlink" title="6.软件设计及过程"></a>6.软件设计及过程</h2><p>在需求阶段：采用用例图来描述需求<br>在分析阶段：采用类图来描述静态结构<br>在设计阶段：采用类图、包图对类的接口进行设计<br>在实现阶段：将类用某个面向对象的语言实现<br>在集成与交付阶段：构件图、包图、部署图<br>在测试阶段：单元测试使用类图和类的规格说明书<br>                     集成测试阶段使用类图、包图、构件图和合作图<br>                     系统测试使用用例图来测试系统功能</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 知识介绍 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UML </tag>
+            
+            <tag> 软件设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>边缘计算系统中延迟敏感任务的成本有效调度</title>
+      <link href="/2019/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%BB%B6%E8%BF%9F%E6%95%8F%E6%84%9F%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%88%90%E6%9C%AC%E6%9C%89%E6%95%88%E8%B0%83%E5%BA%A6/"/>
+      <url>/2019/%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%BB%B6%E8%BF%9F%E6%95%8F%E6%84%9F%E4%BB%BB%E5%8A%A1%E7%9A%84%E6%88%90%E6%9C%AC%E6%9C%89%E6%95%88%E8%B0%83%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>边缘计算作为一种新兴的计算模型，可以将具有有限计算资源和能量的物联网（IoT）设备的延迟敏感计算任务卸载到边缘云。在边缘计算系统中，多个服务器放置在IoT设备附近的网络边缘上以处理卸载的任务。边缘计算系统的一个关键问题是如何在完成卸载任务的同时降低系统成本。在本文中，我们研究任务调度问题，以降低边缘计算系统的成本。我们将任务调度问题建模为优化问题，其目标是在满足所有任务的延迟要求的同时最小化系统成本。然后，我们证明了所提出的优化问题是NP难的。为了有效地解决这个优化问题，我们提出了一种任务调度算法，称为两阶段任务调度成本优化（TTSCO）。我们通过与最优解进行比较来验证算法的有效性。结果表明，对于我们使用的95％的数据集，近似比率小于1.2。性能评估表明，该算法能够有效降低边缘计算系统的成本，同时满足所有任务的延迟要求。索引术语 - 边缘计算;任务调度;延迟敏感的任务;成本效益;</p><h3 id="云计算与边缘计算的区别和边缘计算要解决的问题"><a href="#云计算与边缘计算的区别和边缘计算要解决的问题" class="headerlink" title="云计算与边缘计算的区别和边缘计算要解决的问题"></a>云计算与边缘计算的区别和边缘计算要解决的问题</h3><p>随着物联网技术的发展，延迟敏感应用（例如，健康监测[1]，基于位置的增强现实游戏）的数量正在迅速增加[2]。由于物联网设备的计算资源和能量有限，因此应将许多处理繁重的任务卸载到远程服务器进行处理。具有强大计算能力的云计算被认为是处理卸载任务的潜在方式。但是，由于传统云和物联网设备之间的距离较远，将大量任务发送到传统云进行处理会导致响应时间过长，网络拥塞严重。为了解决这个问题，最近提出边缘计算作为一种有前景的计算模型[3]，[4]。边缘计算提供附加的计算基础设施层，其由网络边缘处的一些服务器（即，基站）组成。对于从物联网设备卸载的计算任务，边缘计算提供计算服务并将结果返回给设备。这样，卸载任务的传输延迟和核心网的流量负载将大大降低。</p><h3 id="在边缘计算中的任务调度问题"><a href="#在边缘计算中的任务调度问题" class="headerlink" title="在边缘计算中的任务调度问题"></a>在边缘计算中的任务调度问题</h3><p>设备如何进行任务卸载决策<br>降低传输或计算任务所产生的系统成本<br>边缘计算系统中任务调度问题的成本优化<br>在边缘计算中，任务调度问题已成为研究的热门话题[9] - [18]。为了减少由任务计算引起的能耗，物联网设备会将计算任务卸载到边缘服务器。但是，卸载任务会消耗额外的能量来将任务传输到边缘服务器，卸载任务的完成时间也会增加。在这种情况下，一些工作研究了设备如何进行任务卸载决策[9] - [12]。另外，当计算任务被调度到不同的边缘服务器时，传输和计算的成本也不同。因此，一些工作旨在降低传输或计算任务所产生的系统成本[13] - [18]。但是，这些工作很少考虑边缘服务器生成的成本。在非高峰时间（例如，在夜间）降低由服务器引起的系统成本的问题在很大程度上未被探索[5]。</p><h3 id="本文研究的问题"><a href="#本文研究的问题" class="headerlink" title="本文研究的问题"></a>本文研究的问题</h3><p>边缘计算系统中任务调度问题的成本优化<br>在本文中，我们研究边缘计算系统中任务调度问题的成本优化。目标是在满足所有任务的QoS要求的同时最小化边缘计算系统的成本。我们为延迟敏感的输入任务开发了一个任务调度模型。然后，我们制定成本优化问题并证明该优化问题为NP-Hard。接下来，我们提出了一种近似算法来解决这个优化问题，称为两阶段任务调度成本优化（TTSCO），并对TTSCO算法进行分析。最后，仿真结果验证了算法的准确性和性能。</p><p>边缘计算作为一种新兴的计算模型，可以将具有有限计算资源和能量的物联网（IoT）设备的延迟敏感计算任务卸载到边缘云。在边缘计算系统中，多个服务器放置在IoT设备附近的网络边缘上以处理卸载的任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 边缘计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java注解的使用</title>
+      <link href="/2019/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-三种标准注解"><a href="#1-三种标准注解" class="headerlink" title="1.三种标准注解"></a>1.三种标准注解</h3><ul><li><p>@Override,表示当前的方法定义覆盖了父类中的方法。必须要有相同的方法签名即(方法名，参数类型，参数顺序，参数个数)都一样。否则在编译过程中发出错误提示。</p></li><li><p>@Deprecated,对不应该再使用的方法添加注解，当使用这个方法的时候，会在编译时候显示提示信息。</p></li><li><p>@SuppressWarnings,关闭不当的编译器报警信息</p></li></ul><h3 id="2-四种元注解："><a href="#2-四种元注解：" class="headerlink" title="2.四种元注解："></a>2.四种元注解：</h3><ul><li><p>@Target,表示该注解可以用什么地方。如CONSTRUCTOR,构造器声明；FIELD,域声明;METHOD,方法声明;TYPE，类，接口或enum声明</p></li><li><p>@Retention,表示需要在什么级别保存该注解信息。如SOURCE,注解将被编译器丢弃；CLASS,注解在class文件可用，但会被VM丢弃RUNTIME,VM将在运行期间也保留注解，可以使用反射机制读取注解信息</p></li><li><p>@Documented,将此注解包含到Javadoc中。</p></li><li><p>@Inherited,允许子类继承父类的注解。</p></li></ul><p>Java 7开始，额外添加了 3 个注解:</p><ul><li>@SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生</li><li><p>@FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。</p></li><li><p>@Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 注解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据可视化开源项目</title>
+      <link href="/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <url>/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-D3"><a href="#1-D3" class="headerlink" title="1.D3"></a>1.<a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></h3><p>github地址:<a href="https://github.com/d3/d3" target="_blank" rel="noopener">https://github.com/d3/d3</a></p><p><img src="/images/2019/8_10_d3.png" alt="d3"></p><h3 id="2-chartjs"><a href="#2-chartjs" class="headerlink" title="2.chartjs"></a>2.<a href="https://www.chartjs.org" target="_blank" rel="noopener">chartjs</a></h3><p>github地址:<a href="https://github.com/chartjs/Chart.js" target="_blank" rel="noopener">https://github.com/chartjs/Chart.js</a></p><p><img src="/images/2019/8_10_charts.png" alt="Screenshot_20190810_184821"></p><h3 id="3-leafletjs"><a href="#3-leafletjs" class="headerlink" title="3.leafletjs"></a>3.<a href="https://leafletjs.com/examples.html" target="_blank" rel="noopener">leafletjs</a></h3><p>github地址:<a href="https://github.com/Leaflet/Leaflet" target="_blank" rel="noopener">https://github.com/Leaflet/Leaflet</a></p><p>主要是移动到地图的支持</p><p><img src="/images/2019/8_10_leafletjs.png" alt="Screenshot_20190810_185124"></p><h3 id="4-echarts"><a href="#4-echarts" class="headerlink" title="4.echarts"></a>4.<a href="https://echarts.baidu.com/examples/#chart-type-line" target="_blank" rel="noopener">echarts</a></h3><p>百度家的</p><p>github地址:<a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">https://github.com/ecomfe/echarts</a></p><p><img src="/images/2019/8_10_echarts.png" alt="Screenshot_20190810_185457"></p><h3 id="5-Chartist-js"><a href="#5-Chartist-js" class="headerlink" title="5.Chartist-js"></a>5.<a href="https://gionkunz.github.io/chartist-js/examples.html" target="_blank" rel="noopener">Chartist-js</a></h3><h3 id="6-sigmajs"><a href="#6-sigmajs" class="headerlink" title="6.sigmajs"></a>6.<a href="http://sigmajs.org/" target="_blank" rel="noopener">sigmajs</a></h3><h3 id="7-metricsgraphicsjs"><a href="#7-metricsgraphicsjs" class="headerlink" title="7.metricsgraphicsjs"></a>7.<a href="https://metricsgraphicsjs.org/examples.htm" target="_blank" rel="noopener">metricsgraphicsjs</a></h3><h3 id="8-DC-js-开源-D3"><a href="#8-DC-js-开源-D3" class="headerlink" title="8.DC.js,开源(D3)"></a>8.<a href="https://dc-js.github.io/dc.js/" target="_blank" rel="noopener">DC.js,开源(D3)</a></h3><h3 id="9-阿里数据可视化"><a href="#9-阿里数据可视化" class="headerlink" title="9.阿里数据可视化"></a>9.<a href="https://antv.alipay.com/zh-cn/index.html" target="_blank" rel="noopener">阿里数据可视化</a></h3><p><a href="https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html" target="_blank" rel="noopener">G2</a>,<a href="https://antv.alipay.com/zh-cn/g6/2.x/demo/index.html" target="_blank" rel="noopener">G6</a>,<a href="https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html" target="_blank" rel="noopener">F2</a>,<a href="https://antv.alipay.com/zh-cn/l7/1.x/demo/index.html" target="_blank" rel="noopener">L7</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据可视化 </tag>
             
         </tags>
       
@@ -671,9 +791,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> TCP </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 聊天室 </tag>
             
@@ -994,8 +1114,6 @@
             
             <tag> 搬瓦工 </tag>
             
-            <tag> 服务器 </tag>
-            
             <tag> apache </tag>
             
             <tag> php </tag>
@@ -1003,6 +1121,8 @@
             <tag> mysql </tag>
             
             <tag> web </tag>
+            
+            <tag> 服务器 </tag>
             
         </tags>
       
