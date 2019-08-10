@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>数据可视化开源项目</title>
+      <link href="/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <url>/2019/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-D3"><a href="#1-D3" class="headerlink" title="1.D3"></a>1.<a href="https://d3js.org/" target="_blank" rel="noopener">D3</a></h3><p>github地址:<a href="https://github.com/d3/d3" target="_blank" rel="noopener">https://github.com/d3/d3</a></p><p><img src="/images/2019/8_10_d3.png" alt="d3"></p><h3 id="2-chartjs"><a href="#2-chartjs" class="headerlink" title="2.chartjs"></a>2.<a href="https://www.chartjs.org" target="_blank" rel="noopener">chartjs</a></h3><p>github地址:<a href="https://github.com/chartjs/Chart.js" target="_blank" rel="noopener">https://github.com/chartjs/Chart.js</a></p><p><img src="/images/2019/8_10_charts.png" alt="Screenshot_20190810_184821"></p><h3 id="3-leafletjs"><a href="#3-leafletjs" class="headerlink" title="3.leafletjs"></a>3.<a href="https://leafletjs.com/examples.html" target="_blank" rel="noopener">leafletjs</a></h3><p>github地址:<a href="https://github.com/Leaflet/Leaflet" target="_blank" rel="noopener">https://github.com/Leaflet/Leaflet</a></p><p>主要是移动到地图的支持</p><p><img src="/images/2019/8_10_leafletjs.png" alt="Screenshot_20190810_185124"></p><h3 id="4-echarts"><a href="#4-echarts" class="headerlink" title="4.echarts"></a>4.<a href="https://echarts.baidu.com/examples/#chart-type-line" target="_blank" rel="noopener">echarts</a></h3><p>百度家的</p><p>github地址:<a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">https://github.com/ecomfe/echarts</a></p><p><img src="/images/2019/8_10_echarts.png" alt="Screenshot_20190810_185457"></p><h3 id="5-Chartist-js"><a href="#5-Chartist-js" class="headerlink" title="5.Chartist-js"></a>5.<a href="https://gionkunz.github.io/chartist-js/examples.html" target="_blank" rel="noopener">Chartist-js</a></h3><h3 id="6-sigmajs"><a href="#6-sigmajs" class="headerlink" title="6.sigmajs"></a>6.<a href="http://sigmajs.org/" target="_blank" rel="noopener">sigmajs</a></h3><h3 id="7-metricsgraphicsjs"><a href="#7-metricsgraphicsjs" class="headerlink" title="7.metricsgraphicsjs"></a>7.<a href="https://metricsgraphicsjs.org/examples.htm" target="_blank" rel="noopener">metricsgraphicsjs</a></h3><h3 id="8-DC-js-开源-D3"><a href="#8-DC-js-开源-D3" class="headerlink" title="8.DC.js,开源(D3)"></a>8.<a href="https://dc-js.github.io/dc.js/" target="_blank" rel="noopener">DC.js,开源(D3)</a></h3><h3 id="9-阿里数据可视化"><a href="#9-阿里数据可视化" class="headerlink" title="9.阿里数据可视化"></a>9.<a href="https://antv.alipay.com/zh-cn/index.html" target="_blank" rel="noopener">阿里数据可视化</a></h3><p><a href="https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html" target="_blank" rel="noopener">G2</a>,<a href="https://antv.alipay.com/zh-cn/g6/2.x/demo/index.html" target="_blank" rel="noopener">G6</a>,<a href="https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html" target="_blank" rel="noopener">F2</a>,<a href="https://antv.alipay.com/zh-cn/l7/1.x/demo/index.html" target="_blank" rel="noopener">L7</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据可视化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度学习中Keras vs Pytorch</title>
       <link href="/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%ADKeras%20vs%20Pytorch/"/>
       <url>/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%ADKeras%20vs%20Pytorch/</url>
       
-        <content type="html"><![CDATA[<p>深度学习框架Keras与Pytorch的区别与优劣<a href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d" target="_blank" rel="noopener">翻译</a><br><a id="more"></a><br><img src="/images/2019/7_11_pytorchvskears.png" alt="img" title="Keras vs PyTorch"></p><p>对于许多科学家，工程师和开发人员来说，TensorFlow是他们的第一个深度学习框架。 TensorFlow 1.0于2017年2月发布;但它对用户来说不是很友好。</p><p>在过去几年中，两个主要的深度学习库已经获得了巨大的普及，主要是因为它们比TensorFlow更容易使用：<strong>Keras</strong>和<strong>Pytorch</strong>。</p><p>本文将介绍Keras与Pytorch的4个不同点，以及为什么您可以选择一个库而不是另一个库。</p><h2 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h2><p>Keras本身不是一个框架，但实际上是一个位于其他Deep Learning框架之上的高级API。目前它支持<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>，<a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener">Theano</a>和<a href="https://github.com/microsoft/CNTK" target="_blank" rel="noopener">CNTK</a>。</p><p>Keras的优势在于它的易用性。它是迄今为止最容易去快速启动和运行的框架。定义神经网络非常直观，使用功能API允许人们将层定义为函数。</p><h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h2><p>Pytorch是由Facebook的AI研究小组开发的深度学习框架（如TensorFlow）。像Keras一样，它也对深度网络编程中比较复杂的一大部分进行了抽象。</p><p>在高级和低级编码风格方面，Pytorch位于Keras和TensorFlow之间。你比Keras有更多的灵活性和控制力，但与此同时你不必做任何疯狂的声明性编程。</p><p>深度学习练习者整天都在争论应该使用哪个框架。一般来说，这取决于个人喜好。但是在选择时你应该记住Keras和Pytorch的一些特性。</p><p><img src="/images/2019/7_10_keras.jpeg" alt="img" title="It&#39;s keras"></p><p><img src="/images/2019/7_10_pytorch.jpeg" alt="img" title="It&#39;s Pytorch!"></p><h2 id="1-用于定义模型的-类-Pytorch-vs-函数-Keras"><a href="#1-用于定义模型的-类-Pytorch-vs-函数-Keras" class="headerlink" title="(1)用于定义模型的 类(Pytorch) vs 函数(Keras)"></a>(1)用于定义模型的 类(Pytorch) vs 函数(Keras)</h2><p>要定义深度学习模型，Keras提供Functional API。 使用Functional API，神经网络被定义为一组顺序函数，一个接一个地应用。 例如，第一层的输出是第二层的输入。</p><pre><code class="lang-python">img_input = layers.Input(shape=input_shape)x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(img_input)    x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(x)    x = layers.MaxPooling2D((2, 2), strides=(2, 2))(x)</code></pre><p>在Pytorch中，您将网络设置为一个类，该类继承了Torch库中的torch.nn.Module。 与Keras类似，Pytorch为您提供了层作为构建块，但由于它们位于Python类中，因此它们在类的__init__()方法中引用，并由类的forward()方法执行。</p><pre><code class="lang-python">class Net(nn.Module):    def __init__(self):        super(Net, self).__init__()        self.conv1 = nn.Conv2d(3, 64, 3)        self.conv2 = nn.Conv2d(64, 64, 3)        self.pool = nn.MaxPool2d(2, 2)    def forward(self, x):        x = F.relu(self.conv1(x))        x = self.pool(F.relu(self.conv2(x)))        return xmodel = Net()</code></pre><p>因为Pytorch允许您访问所有Python的类功能而不是简单的函数调用，所以定义网络可以更清晰，更优雅地包含。 这真的没什么不好的，除非你觉得最重要的是尽可能快地编写代码，那么Keras会更容易使用。</p><h2 id="2-张量和计算图-Pytorch-vs-标准阵列-Keras"><a href="#2-张量和计算图-Pytorch-vs-标准阵列-Keras" class="headerlink" title="(2)张量和计算图(Pytorch) vs 标准阵列(Keras)"></a>(2)张量和计算图(Pytorch) vs 标准阵列(Keras)</h2><p>Keras API对程序员隐藏了的许多复杂细节。定义网络层非常直观，默认设置通常足以让您入门。</p><p>只有当你需要实现一个相当尖端或“异国情调”的模型时，你才真正需要去了解底层的TensorFlow。</p><p>棘手的部分是，当你真正去了解底层的TensorFlow代码时，你将获得随之而来的所有非常具有挑战性的部分！ 您需要确保所有矩阵乘法都排成一行。 哦，甚至不要去考虑尝试打印出图层的一个输出，因为您只能在终端上打印出一个漂亮的Tensor定义。</p><p>Pytorch在这些方面倾向于更加方便。 您需要知道每个层的输入和输出大小，但这可以很快掌握。 您不必处理构建一个您无法在调试中看到的抽象计算图。</p><p>Pytorch的另一个好处是你可以在Torch Tensors和Numpy阵列之间来回滑动。 如果你需要实现自定义的东西，那么在TF张量和Numpy阵列之间来回转换可能会很麻烦，需要开发人员对TensorFlow的Session有充分的了解。</p><p>Pytorch的交互性比想象中要简单得多。 您只需要知道两个操作：一个将Torch Tensor（一个Variable对象）转变到Numpy，另一个是相反的转换。</p><pre><code class="lang-python">a = torch.Tensor(2,2)print(a)b = a.numpy() #tensor 变为numpyprint(b)print(torch.from_numpy(b)) # numpy 变为tensor</code></pre><p>当然，如果你不需要实现任何花哨的东西，那么Keras会做得很好，因为你不会遇到任何TensorFlow障碍。 但如果你这样做，那么Pytorch可能会更顺畅。</p><h2 id="3-Training-models"><a href="#3-Training-models" class="headerlink" title="(3) Training models"></a>(3) Training models</h2><p>在Keras训练模型非常容易！ 只是一个简单的.fit()函数，你可以很轻松的进行训练。</p><pre><code class="lang-python">history = model.fit_generator(    generator=train_generator,    epochs=10,    validation_data=validation_generator)</code></pre><p>在Pytorch中训练一些模型需要一些步骤</p><ul><li>每一批次的训练开始时初始化梯度</li><li>在模型中运行前向传播</li><li>运行后向传播</li><li>计算损失和更新权重</li></ul><p>所以，就训练模型来说，PyTorch 较为繁琐。</p><pre><code class="lang-python">for epoch in range(2):  # loop over the dataset multiple times    running_loss = 0.0    for i, data in enumerate(trainloader, 0):        # Get the inputs; data is a list of [inputs, labels]        inputs, labels = data        # (1) Initialise gradients        optimizer.zero_grad()        # (2) Forward pass        outputs = net(inputs)        loss = criterion(outputs, labels)        # (3) Backward        loss.backward()        # (4) Compute the loss and update the weights        optimizer.step()</code></pre><h2 id="4-控制-CPU-vs-GPU-模式"><a href="#4-控制-CPU-vs-GPU-模式" class="headerlink" title="(4)控制 CPU vs GPU 模式"></a>(4)控制 CPU vs GPU 模式</h2><p>如果你已经安装了 tensorflow-gpu，则在 Keras 中能够使用 GPU 并且会默认完成。然后，如果你想要将某些运算转移至 CPU，则可以以单行方式完成。</p><pre><code class="lang-python">with tf.device(&#39;/cpu:0&#39;):    y = apply_non_max_suppression(x)</code></pre><p>但对于 PyTorch 来说，你必须显式地为每个 torch 张量和 numpy 变量启动 GPU。这样代码会比较混乱。并且如果你想在 CPU 和 GPU 之间来回移动以执行不同运算，则很容易出错。</p><p>例如，为了将之前的模型转移到 GPU 上运行，则需要以下步骤：</p><pre><code class="lang-python"># Get the GPU devicedevice = torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)# Transfer the network to GPUnet.to(device)# Transfer the inputs and labels to GPUinputs, labels = data[0].to(device), data[1].to(device)</code></pre><p>因而，Keras 在简洁性和默认设置方面优于 PyTorch。</p><h2 id="选择-Keras-或-PyTorch-的一般性建议"><a href="#选择-Keras-或-PyTorch-的一般性建议" class="headerlink" title="选择 Keras 或 PyTorch 的一般性建议"></a>选择 Keras 或 PyTorch 的一般性建议</h2><p>作者通常建议初学者从 Keras 开始。Keras 绝对是理解和使用起来最简单的框架，能够很快地上手运行。你完全不需要担心 GPU 设置、处理抽象代码以及其他任何复杂的事情。你甚至可以在不接触任何 TensorFlow 单行代码的情况下，实现自定义层和损失函数。</p><p>但如果你开始深度了解到深度网络的更细粒度层面或者正在实现一些非标准的事情，则 PyTorch 是你的首选库。使用 PyTorch 需要进行一些额外操作，但这不会减缓你的进程。你依然能够快速实现、训练和测试网络，并享受简单调试带来的额外益处。</p>]]></content>
+        <content type="html"><![CDATA[<p>深度学习框架Keras与Pytorch的区别与优劣<a href="https://towardsdatascience.com/keras-vs-pytorch-for-deep-learning-a013cb63870d" target="_blank" rel="noopener">翻译</a><br><img src="/images/2019/7_11_pytorchvskears.png" alt="img" title="Keras vs PyTorch"></p><p>对于许多科学家，工程师和开发人员来说，TensorFlow是他们的第一个深度学习框架。 TensorFlow 1.0于2017年2月发布;但它对用户来说不是很友好。</p><p>在过去几年中，两个主要的深度学习库已经获得了巨大的普及，主要是因为它们比TensorFlow更容易使用：<strong>Keras</strong>和<strong>Pytorch</strong>。</p><p>本文将介绍Keras与Pytorch的4个不同点，以及为什么您可以选择一个库而不是另一个库。</p><h2 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h2><p>Keras本身不是一个框架，但实际上是一个位于其他Deep Learning框架之上的高级API。目前它支持<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>，<a href="http://deeplearning.net/software/theano/" target="_blank" rel="noopener">Theano</a>和<a href="https://github.com/microsoft/CNTK" target="_blank" rel="noopener">CNTK</a>。</p><p>Keras的优势在于它的易用性。它是迄今为止最容易去快速启动和运行的框架。定义神经网络非常直观，使用功能API允许人们将层定义为函数。</p><h2 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h2><p>Pytorch是由Facebook的AI研究小组开发的深度学习框架（如TensorFlow）。像Keras一样，它也对深度网络编程中比较复杂的一大部分进行了抽象。</p><p>在高级和低级编码风格方面，Pytorch位于Keras和TensorFlow之间。你比Keras有更多的灵活性和控制力，但与此同时你不必做任何疯狂的声明性编程。</p><p>深度学习练习者整天都在争论应该使用哪个框架。一般来说，这取决于个人喜好。但是在选择时你应该记住Keras和Pytorch的一些特性。</p><p><img src="/images/2019/7_10_keras.jpeg" alt="img" title="It&#39;s keras"></p><p><img src="/images/2019/7_10_pytorch.jpeg" alt="img" title="It&#39;s Pytorch!"></p><h2 id="1-用于定义模型的-类-Pytorch-vs-函数-Keras"><a href="#1-用于定义模型的-类-Pytorch-vs-函数-Keras" class="headerlink" title="(1)用于定义模型的 类(Pytorch) vs 函数(Keras)"></a>(1)用于定义模型的 类(Pytorch) vs 函数(Keras)</h2><p>要定义深度学习模型，Keras提供Functional API。 使用Functional API，神经网络被定义为一组顺序函数，一个接一个地应用。 例如，第一层的输出是第二层的输入。</p><pre><code class="lang-python">img_input = layers.Input(shape=input_shape)x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(img_input)    x = layers.Conv2D(64, (3, 3), activation=&#39;relu&#39;)(x)    x = layers.MaxPooling2D((2, 2), strides=(2, 2))(x)</code></pre><p>在Pytorch中，您将网络设置为一个类，该类继承了Torch库中的torch.nn.Module。 与Keras类似，Pytorch为您提供了层作为构建块，但由于它们位于Python类中，因此它们在类的__init__()方法中引用，并由类的forward()方法执行。</p><pre><code class="lang-python">class Net(nn.Module):    def __init__(self):        super(Net, self).__init__()        self.conv1 = nn.Conv2d(3, 64, 3)        self.conv2 = nn.Conv2d(64, 64, 3)        self.pool = nn.MaxPool2d(2, 2)    def forward(self, x):        x = F.relu(self.conv1(x))        x = self.pool(F.relu(self.conv2(x)))        return xmodel = Net()</code></pre><p>因为Pytorch允许您访问所有Python的类功能而不是简单的函数调用，所以定义网络可以更清晰，更优雅地包含。 这真的没什么不好的，除非你觉得最重要的是尽可能快地编写代码，那么Keras会更容易使用。</p><h2 id="2-张量和计算图-Pytorch-vs-标准阵列-Keras"><a href="#2-张量和计算图-Pytorch-vs-标准阵列-Keras" class="headerlink" title="(2)张量和计算图(Pytorch) vs 标准阵列(Keras)"></a>(2)张量和计算图(Pytorch) vs 标准阵列(Keras)</h2><p>Keras API对程序员隐藏了的许多复杂细节。定义网络层非常直观，默认设置通常足以让您入门。</p><p>只有当你需要实现一个相当尖端或“异国情调”的模型时，你才真正需要去了解底层的TensorFlow。</p><p>棘手的部分是，当你真正去了解底层的TensorFlow代码时，你将获得随之而来的所有非常具有挑战性的部分！ 您需要确保所有矩阵乘法都排成一行。 哦，甚至不要去考虑尝试打印出图层的一个输出，因为您只能在终端上打印出一个漂亮的Tensor定义。</p><p>Pytorch在这些方面倾向于更加方便。 您需要知道每个层的输入和输出大小，但这可以很快掌握。 您不必处理构建一个您无法在调试中看到的抽象计算图。</p><p>Pytorch的另一个好处是你可以在Torch Tensors和Numpy阵列之间来回滑动。 如果你需要实现自定义的东西，那么在TF张量和Numpy阵列之间来回转换可能会很麻烦，需要开发人员对TensorFlow的Session有充分的了解。</p><p>Pytorch的交互性比想象中要简单得多。 您只需要知道两个操作：一个将Torch Tensor（一个Variable对象）转变到Numpy，另一个是相反的转换。</p><pre><code class="lang-python">a = torch.Tensor(2,2)print(a)b = a.numpy() #tensor 变为numpyprint(b)print(torch.from_numpy(b)) # numpy 变为tensor</code></pre><p>当然，如果你不需要实现任何花哨的东西，那么Keras会做得很好，因为你不会遇到任何TensorFlow障碍。 但如果你这样做，那么Pytorch可能会更顺畅。</p><h2 id="3-Training-models"><a href="#3-Training-models" class="headerlink" title="(3) Training models"></a>(3) Training models</h2><p>在Keras训练模型非常容易！ 只是一个简单的.fit()函数，你可以很轻松的进行训练。</p><pre><code class="lang-python">history = model.fit_generator(    generator=train_generator,    epochs=10,    validation_data=validation_generator)</code></pre><p>在Pytorch中训练一些模型需要一些步骤</p><ul><li>每一批次的训练开始时初始化梯度</li><li>在模型中运行前向传播</li><li>运行后向传播</li><li>计算损失和更新权重</li></ul><p>所以，就训练模型来说，PyTorch 较为繁琐。</p><pre><code class="lang-python">for epoch in range(2):  # loop over the dataset multiple times    running_loss = 0.0    for i, data in enumerate(trainloader, 0):        # Get the inputs; data is a list of [inputs, labels]        inputs, labels = data        # (1) Initialise gradients        optimizer.zero_grad()        # (2) Forward pass        outputs = net(inputs)        loss = criterion(outputs, labels)        # (3) Backward        loss.backward()        # (4) Compute the loss and update the weights        optimizer.step()</code></pre><h2 id="4-控制-CPU-vs-GPU-模式"><a href="#4-控制-CPU-vs-GPU-模式" class="headerlink" title="(4)控制 CPU vs GPU 模式"></a>(4)控制 CPU vs GPU 模式</h2><p>如果你已经安装了 tensorflow-gpu，则在 Keras 中能够使用 GPU 并且会默认完成。然后，如果你想要将某些运算转移至 CPU，则可以以单行方式完成。</p><pre><code class="lang-python">with tf.device(&#39;/cpu:0&#39;):    y = apply_non_max_suppression(x)</code></pre><p>但对于 PyTorch 来说，你必须显式地为每个 torch 张量和 numpy 变量启动 GPU。这样代码会比较混乱。并且如果你想在 CPU 和 GPU 之间来回移动以执行不同运算，则很容易出错。</p><p>例如，为了将之前的模型转移到 GPU 上运行，则需要以下步骤：</p><pre><code class="lang-python"># Get the GPU devicedevice = torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)# Transfer the network to GPUnet.to(device)# Transfer the inputs and labels to GPUinputs, labels = data[0].to(device), data[1].to(device)</code></pre><p>因而，Keras 在简洁性和默认设置方面优于 PyTorch。</p><h2 id="选择-Keras-或-PyTorch-的一般性建议"><a href="#选择-Keras-或-PyTorch-的一般性建议" class="headerlink" title="选择 Keras 或 PyTorch 的一般性建议"></a>选择 Keras 或 PyTorch 的一般性建议</h2><p>作者通常建议初学者从 Keras 开始。Keras 绝对是理解和使用起来最简单的框架，能够很快地上手运行。你完全不需要担心 GPU 设置、处理抽象代码以及其他任何复杂的事情。你甚至可以在不接触任何 TensorFlow 单行代码的情况下，实现自定义层和损失函数。</p><p>但如果你开始深度了解到深度网络的更细粒度层面或者正在实现一些非标准的事情，则 PyTorch 是你的首选库。使用 PyTorch 需要进行一些额外操作，但这不会减缓你的进程。你依然能够快速实现、训练和测试网络，并享受简单调试带来的额外益处。</p>]]></content>
       
       
       
@@ -21,21 +46,17 @@
       <link href="/2019/python%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2019/python%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<p>python中使用中遇到的各种问题<br><a id="more"></a></p><h3 id="1-列表的初始化"><a href="#1-列表的初始化" class="headerlink" title="1.列表的初始化"></a>1.列表的初始化</h3><p>当初始化一个n×n的列表时不能使用如下方法，</p><pre><code class="lang-python">In [1]: l=[[0]*3]*3 #如此初始化会导致其它行仅是第一行的引用而不是copyIn [2]: lOut[2]: [[0, 0, 0], [0, 0, 0], [0, 0, 0]In [3]: l[0][0]=1 #改变其中一行的某个元素In [4]: lOut[4]: [[1, 0, 0], [1, 0, 0], [1, 0, 0]] #其他行跟着改变</code></pre><p>正确的方法应该如下</p><pre><code class="lang-python">In [5]: l=[[0 for _ in range(3)] for _ in range(3)] #或者l=[[0]*3 for _ in range(3)]In [6]: lOut[6]: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]In [7]: l[0][0]=1In [8]: lOut[8]: [[1, 0, 0], [0, 0, 0], [0, 0, 0]]</code></pre><h3 id="2-a-is-b与a-b-的区别"><a href="#2-a-is-b与a-b-的区别" class="headerlink" title="2.a is b与a==b 的区别"></a>2.a is b与a==b 的区别</h3><pre><code>a=&#39;vhcffh.com&#39;b=&#39;vhcffh.com&#39;a==b # True,a和b对应实例的内容是相同的a is b # False,a和b指向不同的实例b=aa is b # True,a和b指向同一个实例</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-列表的初始化"><a href="#1-列表的初始化" class="headerlink" title="1.列表的初始化"></a>1.列表的初始化</h3><p>当初始化一个n×n的列表时不能使用如下方法，</p><pre><code class="lang-python">In [1]: l=[[0]*3]*3 #如此初始化会导致其它行仅是第一行的引用而不是copyIn [2]: lOut[2]: [[0, 0, 0], [0, 0, 0], [0, 0, 0]In [3]: l[0][0]=1 #改变其中一行的某个元素In [4]: lOut[4]: [[1, 0, 0], [1, 0, 0], [1, 0, 0]] #其他行跟着改变</code></pre><p>正确的方法应该如下</p><pre><code class="lang-python">In [5]: l=[[0 for _ in range(3)] for _ in range(3)] #或者l=[[0]*3 for _ in range(3)]In [6]: lOut[6]: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]In [7]: l[0][0]=1In [8]: lOut[8]: [[1, 0, 0], [0, 0, 0], [0, 0, 0]]</code></pre><h3 id="2-a-is-b与a-b-的区别"><a href="#2-a-is-b与a-b-的区别" class="headerlink" title="2.a is b与a==b 的区别"></a>2.a is b与a==b 的区别</h3><pre><code>a=&#39;vhcffh.com&#39;b=&#39;vhcffh.com&#39;a==b # True,a和b对应实例的内容是相同的a is b # False,a和b指向不同的实例b=aa is b # True,a和b指向同一个实例</code></pre>]]></content>
       
       
       <categories>
+          
+          <category> 编程 </category>
           
           <category> Python </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
       
     </entry>
     
@@ -46,21 +67,17 @@
       <link href="/2019/python%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
       <url>/2019/python%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<p>python中常用的一些方法sorted()等<br><a id="more"></a></p><h3 id="1-sorted排序"><a href="#1-sorted排序" class="headerlink" title="1.sorted排序"></a>1.sorted排序</h3><pre><code class="lang-python">sorted(iterable[, cmp[, key[, reverse]]])</code></pre><p>参数说明：</p><ul><li>iterable — 可迭代对象。</li><li>cmp — 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。</li><li>key — 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。</li><li>reverse — 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-sorted排序"><a href="#1-sorted排序" class="headerlink" title="1.sorted排序"></a>1.sorted排序</h3><pre><code class="lang-python">sorted(iterable[, cmp[, key[, reverse]]])</code></pre><p>参数说明：</p><ul><li>iterable — 可迭代对象。</li><li>cmp — 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。</li><li>key — 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。</li><li>reverse — 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。</li></ul>]]></content>
       
       
       <categories>
+          
+          <category> 编程 </category>
           
           <category> Python </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
       
     </entry>
     
@@ -75,6 +92,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Linux </category>
           
@@ -100,6 +119,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Linux </category>
           
@@ -128,14 +149,14 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> C语言 </tag>
             
             <tag> socket </tag>
             
@@ -155,14 +176,16 @@
       
       <categories>
           
-          <category> Mathematics </category>
+          <category> 数学 </category>
+          
+          <category> 基础知识 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> math </tag>
+            <tag> 集合 </tag>
             
         </tags>
       
@@ -180,14 +203,20 @@
       
       <categories>
           
-          <category> Mathematics </category>
+          <category> 数学 </category>
+          
+          <category> 基础知识 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> math </tag>
+            <tag> 梯度 </tag>
+            
+            <tag> 旋度 </tag>
+            
+            <tag> 散度 </tag>
             
         </tags>
       
@@ -205,7 +234,7 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 软件使用 </category>
           
       </categories>
       
@@ -230,6 +259,8 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Python </category>
           
       </categories>
@@ -237,7 +268,7 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> 路径 </tag>
             
         </tags>
       
@@ -255,16 +286,12 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Python </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
       
     </entry>
     
@@ -280,6 +307,8 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Python </category>
           
       </categories>
@@ -287,7 +316,7 @@
       
         <tags>
             
-            <tag> python </tag>
+            <tag> 模块 </tag>
             
         </tags>
       
@@ -305,14 +334,14 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> 汇编 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> 汇编 </tag>
             
             <tag> DEBUG </tag>
             
@@ -331,6 +360,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Linux </category>
           
@@ -356,6 +387,8 @@
       
       
       <categories>
+          
+          <category> 编程 </category>
           
           <category> 汇编 </category>
           
@@ -384,14 +417,14 @@
       
       <categories>
           
+          <category> 软件使用 </category>
+          
           <category> Python </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> python </tag>
             
             <tag> libsvm </tag>
             
@@ -411,14 +444,14 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> C语言 </tag>
             
             <tag> 算法 </tag>
             
@@ -438,16 +471,16 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C语言 </tag>
-            
-            <tag> 文件 </tag>
+            <tag> 文件操作 </tag>
             
         </tags>
       
@@ -465,7 +498,7 @@
       
       <categories>
           
-          <category> Linux </category>
+          <category> 软件使用 </category>
           
       </categories>
       
@@ -490,14 +523,14 @@
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> C语言 </tag>
             
             <tag> 算法 </tag>
             
@@ -517,7 +550,7 @@
       
       <categories>
           
-          <category> 文件 </category>
+          <category> 文件解析 </category>
           
       </categories>
       
@@ -544,6 +577,8 @@
       
       <categories>
           
+          <category> 软件使用 </category>
+          
           <category> Linux </category>
           
       </categories>
@@ -552,8 +587,6 @@
         <tags>
             
             <tag> python </tag>
-            
-            <tag> centos </tag>
             
         </tags>
       
@@ -571,14 +604,16 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C语言 </tag>
+            <tag> 网络编程 </tag>
             
             <tag> TCP </tag>
             
@@ -600,7 +635,9 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
@@ -629,7 +666,9 @@
       
       <categories>
           
-          <category> C/C++ </category>
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
           
       </categories>
       
@@ -656,30 +695,7 @@
       
       <categories>
           
-          <category> Windows </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> windwos </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>powershell卸载自带应用</title>
-      <link href="/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/"/>
-      <url>/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/</url>
-      
-        <content type="html"><![CDATA[<p>通过powershell卸载windows自带应用</p><h3 id="1-卸载全部自带应用"><a href="#1-卸载全部自带应用" class="headerlink" title="1.卸载全部自带应用"></a>1.卸载全部自带应用</h3><p><code>Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage</code>  </p><h3 id="2-其他更多卸载"><a href="#2-其他更多卸载" class="headerlink" title="2.其他更多卸载"></a>2.其他更多卸载</h3><p>OneNote:<br><code>Get-AppxPackage OneNote | Remove-AppxPackage</code><br>3D:<br><code>Get-AppxPackage 3d | Remove-AppxPackage</code><br>Camera相机:<br><code>Get-AppxPackage camera | Remove-AppxPackage</code><br>邮件和日历:<br><code>Get-AppxPackage communi | Remove-AppxPackage</code><br>新闻订阅:<br><code>Get-AppxPackage bing | Remove-AppxPackage</code><br>Groove音乐电影与电视:<br><code>Get-AppxPackage zune | Remove-AppxPackage</code><br>人脉:<br><code>Get-AppxPackage people | Remove-AppxPackage</code><br>手机伴侣Phone Companion:<br><code>Get-AppxPackage phone | Remove-AppxPackage</code><br>照片:<br><code>Get-AppxPackage photo | Remove-AppxPackage</code><br>纸牌游戏(还敢要钱的那货):<br><code>Get-AppxPackage solit | Remove-AppxPackage</code><br>录音机:<br><code>Get-AppxPackage soundrec | Remove-AppxPackage</code><br>Xbox:<br><code>Get-AppxPackage xbox | Remove-AppxPackage</code>  </p>]]></content>
-      
-      
-      <categories>
+          <category> 软件使用 </category>
           
           <category> Windows </category>
           
@@ -688,9 +704,7 @@
       
         <tags>
             
-            <tag> windwos </tag>
-            
-            <tag> powershell </tag>
+            <tag> 系统瘦身 </tag>
             
         </tags>
       
@@ -726,6 +740,33 @@
     
     
     <entry>
+      <title>powershell卸载自带应用</title>
+      <link href="/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/"/>
+      <url>/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>通过powershell卸载windows自带应用</p><h3 id="1-卸载全部自带应用"><a href="#1-卸载全部自带应用" class="headerlink" title="1.卸载全部自带应用"></a>1.卸载全部自带应用</h3><p><code>Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage</code>  </p><h3 id="2-其他更多卸载"><a href="#2-其他更多卸载" class="headerlink" title="2.其他更多卸载"></a>2.其他更多卸载</h3><p>OneNote:<br><code>Get-AppxPackage OneNote | Remove-AppxPackage</code><br>3D:<br><code>Get-AppxPackage 3d | Remove-AppxPackage</code><br>Camera相机:<br><code>Get-AppxPackage camera | Remove-AppxPackage</code><br>邮件和日历:<br><code>Get-AppxPackage communi | Remove-AppxPackage</code><br>新闻订阅:<br><code>Get-AppxPackage bing | Remove-AppxPackage</code><br>Groove音乐电影与电视:<br><code>Get-AppxPackage zune | Remove-AppxPackage</code><br>人脉:<br><code>Get-AppxPackage people | Remove-AppxPackage</code><br>手机伴侣Phone Companion:<br><code>Get-AppxPackage phone | Remove-AppxPackage</code><br>照片:<br><code>Get-AppxPackage photo | Remove-AppxPackage</code><br>纸牌游戏(还敢要钱的那货):<br><code>Get-AppxPackage solit | Remove-AppxPackage</code><br>录音机:<br><code>Get-AppxPackage soundrec | Remove-AppxPackage</code><br>Xbox:<br><code>Get-AppxPackage xbox | Remove-AppxPackage</code>  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windwos </tag>
+            
+            <tag> powershell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>自己写一个Android照相机应用-2</title>
       <link href="/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-2/"/>
       <url>/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-2/</url>
@@ -734,6 +775,8 @@
       
       
       <categories>
+          
+          <category> 编程 </category>
           
           <category> Android </category>
           
@@ -762,6 +805,8 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Java </category>
           
       </categories>
@@ -769,9 +814,9 @@
       
         <tags>
             
-            <tag> TCP </tag>
+            <tag> 网络编程 </tag>
             
-            <tag> java </tag>
+            <tag> TCP </tag>
             
             <tag> 聊天室 </tag>
             
@@ -791,12 +836,16 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Java </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 网络编程 </tag>
             
             <tag> TCP </tag>
             
@@ -820,41 +869,18 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 数学 </category>
+          
+          <category> 数学工具 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> matlab </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>涉及PyQt5的一些命令</title>
-      <link href="/2017/%E6%B6%89%E5%8F%8APyQt5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
-      <url>/2017/%E6%B6%89%E5%8F%8APyQt5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<p>记录pyqt5中用到的几个命令<br>安装</p><pre><code class="lang-sh">pip install python-qt5</code></pre><p>把ui转py</p><pre><code class="lang-sh">python -m PyQt5.uic.pyuic &lt;arguments&gt;</code></pre><p>lineEdit输入隐藏，密码</p><pre><code class="lang-python">lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)</code></pre><p>py转exe</p><pre><code class="lang-sh">pip install pyinstallerpyinstaller demo.py</code></pre><div class="table-container"><table><thead><tr><th style="text-align:center">参数</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center">-F</td><td>指定打包后只生成一个exe格式的文件</td></tr><tr><td style="text-align:center">-D</td><td>–onedir创建一个目录,包含exe文件,但会依赖很多文件（默认选项）</td></tr><tr><td style="text-align:center">-c</td><td>–console,–nowindowed使用控制台,无界面(默认)</td></tr><tr><td style="text-align:center">-F</td><td>指定打包后只生成一个exe格式的文件</td></tr><tr><td style="text-align:center">-w</td><td>–windowed,–noconsole使用窗口,无控制台</td></tr><tr><td style="text-align:center">-p</td><td>添加搜索路径,让其找到对应的库。</td></tr><tr><td style="text-align:center">-i</td><td>改变生成程序的icon图标</td></tr></tbody></table></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> pyqt5 </tag>
+            <tag> 拉普拉斯变换 </tag>
             
         </tags>
       
@@ -871,6 +897,8 @@
       
       
       <categories>
+          
+          <category> 编程 </category>
           
           <category> Android </category>
           
@@ -890,6 +918,33 @@
     
     
     <entry>
+      <title>涉及PyQt5的一些命令</title>
+      <link href="/2017/%E6%B6%89%E5%8F%8APyQt5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
+      <url>/2017/%E6%B6%89%E5%8F%8APyQt5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<p>记录pyqt5中用到的几个命令<br>安装</p><pre><code class="lang-sh">pip install python-qt5</code></pre><p>把ui转py</p><pre><code class="lang-sh">python -m PyQt5.uic.pyuic &lt;arguments&gt;</code></pre><p>lineEdit输入隐藏，密码</p><pre><code class="lang-python">lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)</code></pre><p>py转exe</p><pre><code class="lang-sh">pip install pyinstallerpyinstaller demo.py</code></pre><div class="table-container"><table><thead><tr><th style="text-align:center">参数</th><th>含义</th></tr></thead><tbody><tr><td style="text-align:center">-F</td><td>指定打包后只生成一个exe格式的文件</td></tr><tr><td style="text-align:center">-D</td><td>–onedir创建一个目录,包含exe文件,但会依赖很多文件（默认选项）</td></tr><tr><td style="text-align:center">-c</td><td>–console,–nowindowed使用控制台,无界面(默认)</td></tr><tr><td style="text-align:center">-F</td><td>指定打包后只生成一个exe格式的文件</td></tr><tr><td style="text-align:center">-w</td><td>–windowed,–noconsole使用窗口,无控制台</td></tr><tr><td style="text-align:center">-p</td><td>添加搜索路径,让其找到对应的库。</td></tr><tr><td style="text-align:center">-i</td><td>改变生成程序的icon图标</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pyqt5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搬瓦工VPS搭建Web服务器</title>
       <link href="/2017/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>/2017/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
@@ -898,6 +953,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Linux </category>
           
@@ -936,7 +993,9 @@
       
       <categories>
           
-          <category> Python </category>
+          <category> 软件使用 </category>
+          
+          <category> Windows </category>
           
       </categories>
       
@@ -960,6 +1019,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Linux </category>
           
@@ -990,6 +1051,8 @@
       
       <categories>
           
+          <category> 编程 </category>
+          
           <category> Java </category>
           
       </categories>
@@ -997,7 +1060,7 @@
       
         <tags>
             
-            <tag> java </tag>
+            <tag> 算法 </tag>
             
             <tag> MD5 </tag>
             
@@ -1018,6 +1081,8 @@
       
       
       <categories>
+          
+          <category> 软件使用 </category>
           
           <category> Android </category>
           
@@ -1044,7 +1109,9 @@
       
       <categories>
           
-          <category> Windows </category>
+          <category> 编程 </category>
+          
+          <category> bat </category>
           
       </categories>
       
