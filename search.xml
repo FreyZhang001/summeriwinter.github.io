@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>信息论的一些基本概念</title>
+      <link href="/2019/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+      <url>/2019/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+      
+        <content type="html"><![CDATA[<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><script type="math/tex; mode=display">H(X)=E[I(X)]=E[-ln(P(X))]</script><p>其中$P$ 为$X$的概率质量函数,$E$为期望函数,而$I(x)$是$X$ 的信息量(又称自信息).</p><script type="math/tex; mode=display">H(X)=\sum_iP(x_i)I(x_i)=-\sum_iP(x_i)\log_bP(x_i)</script><script type="math/tex; mode=display">\begin{matrix}b & 熵的单位\\2 & bit\\e & nat\\10 & Hart\end{matrix}</script><h3 id="条件熵-Conditional-Entropy"><a href="#条件熵-Conditional-Entropy" class="headerlink" title="条件熵(Conditional Entropy)"></a>条件熵(Conditional Entropy)</h3><p>特征$x$ 固定为$x_i$时:$H(c|x_i)$ </p><p>特征$x$ 整体分布已知时:$H(x|X)$ </p><h3 id="信息增益-Information-Gain"><a href="#信息增益-Information-Gain" class="headerlink" title="信息增益(Information Gain)"></a>信息增益(Information Gain)</h3><script type="math/tex; mode=display">IG(X) = H(c)-H(c|X)</script><h3 id="基尼系数-基尼不纯度Gini-impurity"><a href="#基尼系数-基尼不纯度Gini-impurity" class="headerlink" title="基尼系数(基尼不纯度Gini impurity)"></a>基尼系数(基尼不纯度Gini impurity)</h3><script type="math/tex; mode=display">Gini(D)=1-\sum_i^np_i^2</script><script type="math/tex; mode=display">Gini(D|A)=\sum_i^n\frac {D_i}{D}</script><h3 id="信息增益比率-Information-Gain-Ratio-与分裂信息-Split-information"><a href="#信息增益比率-Information-Gain-Ratio-与分裂信息-Split-information" class="headerlink" title="信息增益比率(Information Gain Ratio)与分裂信息(Split information)"></a>信息增益比率(Information Gain Ratio)与分裂信息(Split information)</h3><script type="math/tex; mode=display">GR(D|A)=\frac {IG(D|A)}{SI(D|A)}</script><script type="math/tex; mode=display">SI(D|A)=-\sum_i^n\frac {N_i}{N}\log_2\frac{N_i}{N}</script><h3 id="边界熵-boundary-entropy"><a href="#边界熵-boundary-entropy" class="headerlink" title="边界熵(boundary entropy)"></a>边界熵(boundary entropy)</h3><script type="math/tex; mode=display">BE(w_1w_2\cdots w_k) = -\sum_{w \in C}p(w\vert w_1w_2\cdots w_k)\log p(w\vert w_1w_2\cdots w_k)</script><p>$w$是邻接于$w_1w_2\cdots w_k$ 的字符.</p><h3 id="边界多样性-Accessor-veriety-AV"><a href="#边界多样性-Accessor-veriety-AV" class="headerlink" title="边界多样性(Accessor veriety,AV)"></a>边界多样性(Accessor veriety,AV)</h3><script type="math/tex; mode=display">AV(w_1w_2\cdots w_k)=\log RL_{av}(w_1w_2\cdots w_k)</script><p>$RL_{av}$ 表示邻接于字符串$w_1w_2\cdots w_k$的不同字符个数.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+          <category> 基础知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 信息论 </tag>
+            
+            <tag> 熵 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mathjax配置问题</title>
       <link href="/2019/mathjax%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
       <url>/2019/mathjax%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</url>
@@ -864,9 +893,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> TCP </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 聊天室 </tag>
             
