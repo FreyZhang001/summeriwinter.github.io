@@ -4,9 +4,90 @@
   
     
     <entry>
+      <title>神经图灵机</title>
+      <link href="/2019/%E7%A5%9E%E7%BB%8F%E5%9B%BE%E7%81%B5%E6%9C%BA/"/>
+      <url>/2019/%E7%A5%9E%E7%BB%8F%E5%9B%BE%E7%81%B5%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Neural-Turing-Machines-原文"><a href="#Neural-Turing-Machines-原文" class="headerlink" title="Neural Turing Machines[原文]"></a>Neural Turing Machines[<a href="https://arxiv.org/abs/1410.5401" target="_blank" rel="noopener">原文</a>]</h3><ul><li><p>读记忆(Read Heads)</p><p>把时刻$t$的记忆看作是一个$N \times M$的矩阵$M_t$,读的过成首先生成长度为$N$的定位权重向量$w_t$,表示$N$个记忆位置的权值大小,读出的记忆向量为$r_t$:</p><script type="math/tex; mode=display">r_t=\sum_i^Nw_t(i)M_t(i) \ \ \ 其中 \sum_iw_t(i)=1</script><p>对$N$条记忆进行加权求和</p></li><li><p>写记忆(Write Heads)</p><p>类似LSTM:擦除向量$e_t$,增加向量$a_t$</p><ul><li><p>擦除操作:</p><script type="math/tex; mode=display">M_t'(i)=M_{t-1}(1-w_t(i)e_t(i))</script></li><li><p>增加操作:</p><script type="math/tex; mode=display">M_t(i)=M_t'(i)+w_t(i)a_t(i)</script></li></ul><p>神经图灵机的关键是定位向量$w_t$,其它的是由控制器(LSTM,MLP)输出</p></li><li><p>定位机制(Addressing Mechanism)</p><p>结合了基于内容和基于位置的两种方法</p><ul><li><p>基于内容(Content-based Addressing)</p><script type="math/tex; mode=display">w_t^c(i)=\frac {\exp(\beta_tK[k_t,M_t(i)])}{\sum_j\exp(\beta_tK[k_t,M_t(j)])}</script><p>$K[.,.]$是余弦相似度计算:</p><script type="math/tex; mode=display">K[u,v]=\frac{u \cdot v}{\Vert u\Vert \cdot \Vert v\Vert}</script><p>$\beta_t$是控制器输出</p></li><li><p>基于位置(Location-based Addressing)</p><ul><li><p>插值(Interpolation)</p><script type="math/tex; mode=display">w_t^g=g_tw_t^c+(1-g_t)w_{t-1}</script><p>$g_t$有控制器生成</p></li><li><p>偏移(shift)</p><script type="math/tex; mode=display">\tilde w_t(i)=\sum_{j=0}^{N-1}w_t^g(j)s_t(i-j)</script><p>每一个$\tilde w_t(i)$都与相邻元素有关</p></li><li><p>重塑(Sharping)</p><script type="math/tex; mode=display">w_t(i)=\frac{\tilde w_t(i)^{\gamma_t}}{\sum_j\tilde w_t(j)^{\gamma_t}}</script></li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图灵机 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>运用自注意力机制检测相关语境进行多论对话</title>
+      <link href="/2019/%E8%BF%90%E7%94%A8%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E6%A3%80%E6%B5%8B%E7%9B%B8%E5%85%B3%E8%AF%AD%E5%A2%83%E8%BF%9B%E8%A1%8C%E5%A4%9A%E8%AE%BA%E5%AF%B9%E8%AF%9D/"/>
+      <url>/2019/%E8%BF%90%E7%94%A8%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E6%A3%80%E6%B5%8B%E7%9B%B8%E5%85%B3%E8%AF%AD%E5%A2%83%E8%BF%9B%E8%A1%8C%E5%A4%9A%E8%AE%BA%E5%AF%B9%E8%AF%9D/</url>
+      
+        <content type="html"><![CDATA[<h3 id="ReCoSa-Detecting-the-Relevant-Contexts-with-Self-Attention-forMulti-turn-Dialogue-Generation-原文"><a href="#ReCoSa-Detecting-the-Relevant-Contexts-with-Self-Attention-forMulti-turn-Dialogue-Generation-原文" class="headerlink" title="ReCoSa: Detecting the Relevant Contexts with Self-Attention forMulti-turn Dialogue Generation[原文]"></a>ReCoSa: Detecting the Relevant Contexts with Self-Attention forMulti-turn Dialogue Generation[<a href="https://arxiv.org/abs/1907.05339" target="_blank" rel="noopener">原文</a>]</h3><p>模型</p><h4 id="Word-level-Encoder"><a href="#Word-level-Encoder" class="headerlink" title="Word-level Encoder"></a>Word-level Encoder</h4><ul><li>文本集</li></ul><script type="math/tex; mode=display">C = \{s_1,\dots,s_N\}</script><ul><li>句子</li></ul><script type="math/tex; mode=display">s_i=\{x_1,\dots,x_M\}</script><ul><li><p>输入句子$s_i$,编码输出$h_M$</p><script type="math/tex; mode=display">i_k=\sigma(W_i[h_{k-1},w_k]),\ \ f_k=\sigma(W_f[h_{k-1},w_k]), \\o_k=\sigma(W_o[h_{k-1},w_k]),\ \ l_k= tanh (W_l[h_{k-1},w_k]), \\c_k=f_kc_{k-1}+i_kl_k,\ \ h_i=o_ktanh(c_k)</script><ul><li>$i_k$:输入,$f_k$:记忆,$o_k$:输出.</li><li>$w_k$是$x_k$的词嵌入</li><li>$W_i,W_f,W_o,W_l$是模型参数</li><li>用$h_M$代表一个句子,得到句子表示集$\{h^{s_1},\dots,h^{s_N}\}$</li></ul></li><li><p>定义位置嵌入向量$P_i \in \mathbb R^d,i=1,\dots,N$</p><p>得到句子表示$\{(h^{s_1},P_1),\dots,(h^{s_N},P_N)\}$</p></li></ul><h4 id="注意力计算-参见论文attention-is-all-you-need"><a href="#注意力计算-参见论文attention-is-all-you-need" class="headerlink" title="注意力计算(参见论文attention-is-all-you-need)"></a>注意力计算(参见论文<a href="./7181-attention-is-all-you-need.pdf">attention-is-all-you-need</a>)</h4><ul><li><p>定义注意力分数</p><script type="math/tex; mode=display">Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt d}V)</script><p>其中$Q\in\mathbb R^{n \times d},K\in\mathbb R^{n\times d},V\in \mathbb R^{n\times d}$</p><p>$d$是隐藏单元</p></li><li><p><font color="red">multi-head attention</font>(多层scaled dot-product attention)</p><script type="math/tex; mode=display">M_i=Attention(QW_i^Q,KW_i^K,VW_i^V) \\M=Concat(M_1,\dots,M_H) \\O=MW</script><p>其中$W_i^Q\in\mathbb R^{n \times d/H},W_i^K\in\mathbb R^{n\times d/H},W_i^V\in \mathbb R^{n\times d/H}$,$M\in\mathbb R^{n\times d},W\in \mathbb R^{d\times d}$</p><p>$\{(h^{s_1},P_1),\dots,(h^{s_N},P_N)\}$-&gt;$O_s$-&gt;<font color="red">feed-forward network</font>-&gt;$O_s^f$</p><p>是否可以将语境检测运用到机器翻译中?</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 多论对话 </tag>
+            
+            <tag> Self-Attention </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小样本学习的边缘标签图神经网络</title>
+      <link href="/2019/%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%BE%B9%E7%BC%98%E6%A0%87%E7%AD%BE%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+      <url>/2019/%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%BE%B9%E7%BC%98%E6%A0%87%E7%AD%BE%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Edge-Labeling-Graph-Neural-Network-for-Few-shot-Learning-原文"><a href="#Edge-Labeling-Graph-Neural-Network-for-Few-shot-Learning-原文" class="headerlink" title="Edge-Labeling Graph Neural Network for Few-shot Learning[原文]"></a>Edge-Labeling Graph Neural Network for Few-shot Learning[<a href="https://arxiv.org/abs/1905.01436" target="_blank" rel="noopener">原文</a>]</h3><p>小样本学习的边缘标签图神经网络</p><p>将样本映射到图中的节点,边表示节点之间的相似度,通过已知样本预测未知样本</p><h4 id="Graph-Neural-Network"><a href="#Graph-Neural-Network" class="headerlink" title="Graph Neural Network"></a>Graph Neural Network</h4><p>主要利用邻域聚合框架(通过对相邻节点特征的递归聚合和转换,计算出节点特征)进行表征学习</p><h4 id="Edge-Labeling-Graph"><a href="#Edge-Labeling-Graph" class="headerlink" title="Edge-Labeling Graph"></a>Edge-Labeling Graph</h4><p><strong>Correlation clustering</strong></p><p>相关性聚类分析:一个通过同时最大化簇内相似性和簇间差异性来实现边标注推理的图分割算法</p><ul><li>通过结构化向量机实现名词短语聚类和新闻文章聚类</li></ul><h4 id="Few-Shot-Learning"><a href="#Few-Shot-Learning" class="headerlink" title="Few-Shot Learning"></a>Few-Shot Learning</h4><p>C-way K-shot:一个meta-task,包括support set随机抽取C个类别,每个类别K个样本(共CK个数据);和batch set从这C各类别种抽取一批样本.</p><font color="red">Mode Based, Metric Based,Optimization Based</font><h4 id="Problem-definition-Few-shot-classification"><a href="#Problem-definition-Few-shot-classification" class="headerlink" title="Problem definition: Few-shot classification"></a>Problem definition: Few-shot classification</h4><ul><li>在每个类只有很少样本的情况下学习一个分类器</li><li>每一个few-shot分类任务$\mathcal T$包括support set $\mathcal S$和query set$\mathcal Q$</li><li>episodic training：在training task中抽样，模拟少样本测试时的场景<ul><li>$\mathcal T=\mathcal S\cup\mathcal U, \mathcal S=\{(x_i,y_i)\}_{i=1}^{N\times{K}} \text{ and }\mathcal{Q}=\{(x_{i},y_{i})\}_{i=N\times{K}+1}^{N\times{K}+T}$</li><li>$x_i,y_i\in\{C_1,…,C_N\}=\mathcal C_{\mathcal T}\subset\mathcal C$同时$\mathcal C_{train}\cap\mathcal C_{test} = \empty$</li></ul></li></ul><h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><ol><li><p>通过卷积神经网络提取样本特征,$\theta_{emb}$是卷积网络的参数</p><script type="math/tex; mode=display">\mathbf v_i^0=f_{emb}(x_i;\theta_{emb})</script></li><li><p>图构建:$\mathcal g=(\mathcal V,\mathcal E;\mathcal T)$每一个节点代表一个样本，全连接图，每一条边代表一种关系种类</p><p>其中$\mathcal V :=\{V_i\}_{i=1,\dots,|\mathcal T|}$,$\mathcal E :=\{E_{ij}\}_{i,j=1,\dots,|\mathcal T|}$,</p><ol><li>ground truth: edge-label</li></ol><script type="math/tex; mode=display">y_{ij}=\begin{cases}1,\text{if }y_i=y_j,\\0,\text{otherwise.}\end{cases}</script><ol><li>边特征$\mathbf e_{ij}=\{e_{ijd}\}^2_{d=1} \in [0,1]^2$是一个二维矩阵,表示两个之节点间的簇内关系和簇间关系的强弱,||表示连接</li></ol><script type="math/tex; mode=display">\mathbf e_{ij}^0=\begin{cases}\ \ \ [1||0],\ \ \ \ if \ y_{ij}=1\ \ and\ \ i,j\le N \times K, \\\ \ \ [0||1],\ \ \ \ if \ y_{ij}=0\ \ and\ \ i,j\le N \times K, \\[0.5||0.5],\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ otherwise,\end{cases}</script></li></ol><ol><li><p>传播:设从$\ell -1 $层得到的特征为$\mathbf v_i^{\ell-1}$ 和$\mathbf e_{ij}^{\ell-1}$</p><ol><li><p>更新节点特征</p><script type="math/tex; mode=display">\mathbf v_i^\ell=f_v^\ell([\sum_j\tilde e_{ij1}^{\ell-1}\mathbf v_j^{\ell-1}||\sum_j\tilde e_{ij2}^{\ell-1}\mathbf v_j^{\ell-1}];\theta_v^\ell)</script><p>其中$\tilde e_{ij1}^{\ell-1}=\frac {e_{ijd}}{\sum_ke_{ikd}}$,$f_v^\ell(\theta)$是节点特征的转变网络(MLP).</p></li><li><p>更新边特征</p><script type="math/tex; mode=display">\begin{align}\bar e_{ij1}^\ell \ &=\  \frac {f_e^\ell(\mathbf v_j^\ell,\mathbf v_j^\ell;\theta_e^\ell)e_{ij1}^{\ell-1}}{\sum_kf_e^\ell(\mathbf v_j^\ell,\mathbf v_j^\ell;\theta_e^\ell)e_{ij1}^{\ell-1}/(\sum_ke_{ik1}^{\ell-1})},\\\bar e_{ij2}^\ell \ &=\  \frac {(1-f_e^\ell(\mathbf v_j^\ell,\mathbf v_j^\ell;\theta_e^\ell))e_{ij2}^{\ell-1}}{\sum_k(1-f_e^\ell(\mathbf v_j^\ell,\mathbf v_j^\ell;\theta_e^\ell))e_{ij2}^{\ell-1}/(\sum_ke_{ik2}^{\ell-1})},\\\mathbf e_{ij}^\ell \ &=\ \bar {\mathbf e}_{ij}^\ell/\Vert \bar {\mathbf e}_{ij}^\ell \Vert_1\end{align}</script><p>其中 $f_e^\ell$是<font color="red">metric network</font>计算节点相似度</p></li></ol></li><li><p>输出结果:节点属于某个集合的分布$P(y_i=\mathcal C_k|\mathcal T)=p_i^{(k)}$</p><script type="math/tex; mode=display">p_i^{(k)}=softmax(\sum_{\{j:j\neq i\land(\mathbf x_j,y_j)\in \mathcal S\}}\hat y_{ij}\delta(y_j=\mathcal C_k))</script><script type="math/tex; mode=display">\hat y_{ij}=e_{ij}^L \in [0,1]</script></li></ol><h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p>其中模型参数有$\theta_{emb} \cup\{\theta_v^\ell,\theta_e^\ell\}_{\ell=1}^L$,对于M个训练任务$\{\mathcal T_m^{train}\}_{m=1}^M$,损失函数:</p><script type="math/tex; mode=display">\mathcal L=\sum_{\ell=1}^L\sum_{m=1}^M\lambda_\ell\mathcal L(Y_{m,e},\hat Y_{m,e}^\ell)</script><p>其中$Y_{m,e}$和$\hat Y_{m,e}^\ell$是m个任务,e条边的真实值和预测值(第$\mathcal L$层的),$\mathcal L$是交叉熵损失函数</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> 图网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记一次GRUB引导修复</title>
-      <link href="/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/"/>
-      <url>/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/</url>
+      <link href="/2019/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/"/>
+      <url>/2019/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/</url>
       
         <content type="html"><![CDATA[<p>使用Arch Linux已经2年多了，基本上已经习惯了，可前段时间英雄联盟也出了“自走棋”，想要体验一把。<br>于是就在硬盘剩余的60多个G上装了Windows 10，用了一两个月没有问题，最后再一次Windows 10更新后，蓝屏了。又手惨的点了Windows 的修复功能。等了半天，结果是修复，重启，蓝屏无限循环。而且Arch Linux的引导全都没了，感激应该是Windows的修复动了efi分区。<br>无奈只能新修复引导，各种方法尝试了好多边都是卡在了<code>GRUB _</code>一直闪这个状态，最终在官网wiki找到了办法<br><a href="https://wiki.archlinux.org/index.php/GRUB_#Default/fallback_boot_path" target="_blank" rel="noopener">缺省/后备启动路径</a><br>grub 安装时添加<code>--removable</code>参数</p><pre><code class="lang-sh">grub-install --target=x86_64-efi --efi-directory=esp --removable</code></pre><p>或者手动移动</p><pre><code class="lang-sh">mv esp/EFI/grub esp/EFI/BOOTmv esp/EFI/BOOT/grubx64.efi esp/EFI/BOOT/BOOTX64.EFI</code></pre><p>grub出现bug的原因应该会千奇百怪，不要尽可能多的尝试网上的各种修改方法。</p>]]></content>
       
@@ -35,7 +116,7 @@
       <link href="/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
       <url>/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<p>得到字向量-&gt;通过窗口方法得到字与上下文有关的向量(矩阵)-&gt;通过两个线性层和一个非线性激活函数-&gt;字的标注得分(窗口方法)-&gt;一个句子的评分矩阵$f<em>\theta (c</em>{[1:n]})$ (句子中的第$i$ 个子为标签$t$ 的得分)-&gt;定义转换分数$A_{ij}$,得到tag path 得分</p><script type="math/tex; mode=display">s(c_{[1:N]},t_{[1:N]},\theta)=\sum_{i=1}^n(A_{t_{i-1}t_i}+f_\theta (t_i\vert i))</script><p>-&gt;最大化得分,得到最优tag path</p><p>log likelihood</p><script type="math/tex; mode=display">\sum_{\forall(c,t)\in R}\log p(t\vert c,\theta)</script><p>将目标函数转换为条件概率</p><script type="math/tex; mode=display">p(t\vert c,\theta)=\frac {e^{s(c,t,\theta)}}{\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}}</script><p>取对数</p><script type="math/tex; mode=display">\log p(t\vert c,\theta) = s(c,t,\theta)-log\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}</script><p>维特比算法(viterbi)</p><p>一种动态规划算法(穷举法,A*算法,beam search,Viterbi算法)</p><font color="red" face="微软雅黑">A\*算法和Viterbi算法的区别?</font><p>新的训练方法</p><p>将维特比算法在当前参数下得出的最优路径结果与正确结果进行比较对比,定义出损失函数对$A<em>{t</em>{i-1}t<em>i}$ 和$f</em>\theta (t_i|i)$ 的偏导数,通过后向传播更新参数</p><p>收敛性的证明:Discriminative training methods for hidden Markov models</p>]]></content>
+        <content type="html"><![CDATA[<p>得到字向量-&gt;通过窗口方法得到字与上下文有关的向量(矩阵)-&gt;通过两个线性层和一个非线性激活函数-&gt;字的标注得分(窗口方法)-&gt;一个句子的评分矩阵$f_\theta (c_{[1:n]})$ (句子中的第$i$ 个子为标签$t$ 的得分)-&gt;定义转换分数$A_{ij}$,得到tag path 得分</p><script type="math/tex; mode=display">s(c_{[1:N]},t_{[1:N]},\theta)=\sum_{i=1}^n(A_{t_{i-1}t_i}+f_\theta (t_i\vert i))</script><p>-&gt;最大化得分,得到最优tag path</p><p>log likelihood</p><script type="math/tex; mode=display">\sum_{\forall(c,t)\in R}\log p(t\vert c,\theta)</script><p>将目标函数转换为条件概率</p><script type="math/tex; mode=display">p(t\vert c,\theta)=\frac {e^{s(c,t,\theta)}}{\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}}</script><p>取对数</p><script type="math/tex; mode=display">\log p(t\vert c,\theta) = s(c,t,\theta)-log\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}</script><p>维特比算法(viterbi)</p><p>一种动态规划算法(穷举法,A*算法,beam search,Viterbi算法)</p><font color="red" face="微软雅黑">A\*算法和Viterbi算法的区别?</font><p>新的训练方法</p><p>将维特比算法在当前参数下得出的最优路径结果与正确结果进行比较对比,定义出损失函数对$A_{t_{i-1}t_i}$ 和$f_\theta (t_i|i)$ 的偏导数,通过后向传播更新参数</p><p>收敛性的证明:Discriminative training methods for hidden Markov models</p>]]></content>
       
       
       <categories>
@@ -93,7 +174,7 @@
       <link href="/2019/sklearn%E4%B8%AD%E7%9A%84%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"/>
       <url>/2019/sklearn%E4%B8%AD%E7%9A%84%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</url>
       
-        <content type="html"><![CDATA[<p>模型的通用公式</p><script type="math/tex; mode=display">\hat y(w,x)=w_0+w_1x_1+\dots+w_px_p</script><p>其中$w=(w<em>1,\dots,w_p)$ 作为coef\</em>;$w<em>0​$作为intercepr\</em></p><h3 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h3><script type="math/tex; mode=display">w=\min_w{\Vert Xw-y\Vert_2}^2</script><p>LinearRegression</p><h3 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h3><script type="math/tex; mode=display">w=\min_w{\Vert Xw-y\Vert_2}^2+\alpha {\Vert w \Vert_2}^2</script><p>$\alpha$ 是控制系数收缩量的复杂性参数:$\alpha$ 的值越大，收缩量越大，模型对共线性的鲁棒性也更强。</p><p>共线性:线性回归模型中的解释变量之间由于存在精确相关关系或高度相关关系而使模型估计失真</p><p>Ridge,RigdeCV:广义交叉验证(GCV),默认留一验证(LOO-CV)</p><h2 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h2><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert Xw-y \Vert_2^2 + \alpha \Vert w \Vert_1</script><p>$\alpha$ 是常数,$\Vert w \Vert<em>1$ 是参数向量的$l</em>{1-norm}$范数</p><p>Lasso,lasso_path:通过搜索所有可能的路径上的值来计算系数</p><p>LassoCV,LassoLarsCV,LassoLarsIC</p><h2 id="多任务Lasso"><a href="#多任务Lasso" class="headerlink" title="多任务Lasso"></a>多任务Lasso</h2><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert XW-Y\Vert_{Fro}^2+\alpha\Vert W \Vert_{21}</script><script type="math/tex; mode=display">\Vert A \Vert_{Fro}=\sqrt{\sum_{ij}a_{ij}^2}</script><script type="math/tex; mode=display">\Vert A \Vert_{21}= \sum_i\sqrt{\sum_j a_{ij}^2}</script><p>MultiTaskLasso</p><h3 id="弹性网络"><a href="#弹性网络" class="headerlink" title="弹性网络"></a>弹性网络</h3><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert Xw-Y\Vert_2^2+\alpha\rho\Vert w \Vert_{1}+\frac{\alpha(1-\rho)}{2}\Vert w\Vert_2^2</script><p>ElasticNetCV通过交叉验证来设置参数<code>alpha</code>($\alpha$)和<code>l1_rati0</code>($\rho$)</p><h3 id="多任务弹性网络"><a href="#多任务弹性网络" class="headerlink" title="多任务弹性网络"></a>多任务弹性网络</h3><script type="math/tex; mode=display">W = \min_W\frac{1}{2n_{samples}}\Vert XW-Y\Vert_{Fro}^2+\alpha\rho\Vert W \Vert_{21}+\frac{\alpha(1-\rho)}{2}\Vert w\Vert_{Fro}^2</script><p>MultiTaskElasticNet</p>]]></content>
+        <content type="html"><![CDATA[<p>模型的通用公式</p><script type="math/tex; mode=display">\hat y(w,x)=w_0+w_1x_1+\dots+w_px_p</script><p>其中$w=(w_1,\dots,w_p)$ 作为coef_;$w_0​$作为intercepr_</p><h3 id="普通最小二乘法"><a href="#普通最小二乘法" class="headerlink" title="普通最小二乘法"></a>普通最小二乘法</h3><script type="math/tex; mode=display">w=\min_w{\Vert Xw-y\Vert_2}^2</script><p>LinearRegression</p><h3 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h3><script type="math/tex; mode=display">w=\min_w{\Vert Xw-y\Vert_2}^2+\alpha {\Vert w \Vert_2}^2</script><p>$\alpha$ 是控制系数收缩量的复杂性参数:$\alpha$ 的值越大，收缩量越大，模型对共线性的鲁棒性也更强。</p><p>共线性:线性回归模型中的解释变量之间由于存在精确相关关系或高度相关关系而使模型估计失真</p><p>Ridge,RigdeCV:广义交叉验证(GCV),默认留一验证(LOO-CV)</p><h2 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h2><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert Xw-y \Vert_2^2 + \alpha \Vert w \Vert_1</script><p>$\alpha$ 是常数,$\Vert w \Vert_1$ 是参数向量的$l_{1-norm}$范数</p><p>Lasso,lasso_path:通过搜索所有可能的路径上的值来计算系数</p><p>LassoCV,LassoLarsCV,LassoLarsIC</p><h2 id="多任务Lasso"><a href="#多任务Lasso" class="headerlink" title="多任务Lasso"></a>多任务Lasso</h2><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert XW-Y\Vert_{Fro}^2+\alpha\Vert W \Vert_{21}</script><script type="math/tex; mode=display">\Vert A \Vert_{Fro}=\sqrt{\sum_{ij}a_{ij}^2}</script><script type="math/tex; mode=display">\Vert A \Vert_{21}= \sum_i\sqrt{\sum_j a_{ij}^2}</script><p>MultiTaskLasso</p><h3 id="弹性网络"><a href="#弹性网络" class="headerlink" title="弹性网络"></a>弹性网络</h3><script type="math/tex; mode=display">w = \min_w\frac{1}{2n_{samples}}\Vert Xw-Y\Vert_2^2+\alpha\rho\Vert w \Vert_{1}+\frac{\alpha(1-\rho)}{2}\Vert w\Vert_2^2</script><p>ElasticNetCV通过交叉验证来设置参数<code>alpha</code>($\alpha$)和<code>l1_rati0</code>($\rho$)</p><h3 id="多任务弹性网络"><a href="#多任务弹性网络" class="headerlink" title="多任务弹性网络"></a>多任务弹性网络</h3><script type="math/tex; mode=display">W = \min_W\frac{1}{2n_{samples}}\Vert XW-Y\Vert_{Fro}^2+\alpha\rho\Vert W \Vert_{21}+\frac{\alpha(1-\rho)}{2}\Vert w\Vert_{Fro}^2</script><p>MultiTaskElasticNet</p>]]></content>
       
       
       <categories>
@@ -203,7 +284,7 @@
       <link href="/2019/pytorch%E4%BD%BF%E7%94%A8%E5%92%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
       <url>/2019/pytorch%E4%BD%BF%E7%94%A8%E5%92%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<h2 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h2><pre><code class="lang-python">#激活函数x=np.arange(-12.5,12.5,0.05)tanh = (np.power(np.e,x)-np.power(np.e,-x))/(np.power(np.e,x)+np.power(np.e,-x))relu = np.maximum(0.0,x)sigmoid = 1.0/(1.0+np.power(np.e,-x))</code></pre><pre><code class="lang-python">torch.nn.Sigmoid()</code></pre><script type="math/tex; mode=display">Sigmoid(x)=\frac {1}{1+e^{-x}}</script><script type="math/tex; mode=display">\frac {1}{1+e^{-x}}-\frac{1}{2}=\frac{1-e^{-x}}{2(1+e^{-x})}=-\frac{1-e^x}{2(1+e^x)}</script><pre><code class="lang-python">torch.nn.Tanh</code></pre><script type="math/tex; mode=display">Tanh(x)=tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}</script><script type="math/tex; mode=display">\frac{e^x-e^{-x}}{e^x+e^{-x}}=\frac{1-e^{-2x}}{1+e^{-2x}}=\frac{2}{1+e^{-2x}}-1=2Sigmoid(2x)-1</script><p>BatchNorm2d</p><p>对每一个特征进行正则</p><script type="math/tex; mode=display">y=\frac {x-E[x]} {\sqrt{Var[x]+\varepsilon}}*\gamma+\beta \ \ \ \ \ (\varepsilon=10^{-5})</script><p>pytorch中的正则化函数</p><pre><code class="lang-python">torch.nn.functional.normalize(input, p=2, dim=1, eps=1e-12, out=None)</code></pre><script type="math/tex; mode=display">v=\frac {v}{max(\lVert v \rVert_p,\varepsilon)}</script><pre><code class="lang-python">torch.norm(input, p=&#39;fro&#39;, dim=None, keepdim=False, out=None, dtype=None)# 对维度dim求p范数</code></pre><pre><code class="lang-python">torch.Tensor.squeeze()-&gt;Tensor#维度压缩torch.cat(tensors, dim=0, out=None)-&gt;Tensor #维度拼接torch.stack(tensors,dim=0,out=None)-&gt;Tensor #张量拼接# cat是把多张纸拼成一张纸,stack是把纸摞起来torch.Tensor.repeat()-&gt;Tensor #矩阵扩展torch.Tensor.transpose()-&gt;Tensor #矩阵转置torch.eq() #张量比较torch.chunk() #张量分块torch.split(tensor, split_size_or_sections, dim=0) #张量分块</code></pre><h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="L1Loss"><a href="#L1Loss" class="headerlink" title="L1Loss"></a>L1Loss</h3><pre><code class="lang-python">torch.nn.L1Loss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = \left| x_n - y_n \right|,</script><script type="math/tex; mode=display">        \ell(x, y) =        \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MSELoss"><a href="#MSELoss" class="headerlink" title="MSELoss"></a>MSELoss</h3><pre><code class="lang-python">torch.nn.MSELoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = \left( x_n - y_n \right)^2,</script><script type="math/tex; mode=display">\ell(x, y) =        \begin{cases}            \operatorname{mean}(L), &  \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  &  \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="CrossEntropyLoss"><a href="#CrossEntropyLoss" class="headerlink" title="CrossEntropyLoss"></a>CrossEntropyLoss</h3><p>交叉熵损失函数,多分类</p><pre><code class="lang-python">torch.nn.CrossEntropyLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}\right)                       = -x[class] + \log\left(\sum_j \exp(x[j])\right)</script><script type="math/tex; mode=display">        \text{loss}(x, class) = weight[class] \left(-x[class] + \log\left(\sum_j \exp(x[j])\right)\right)</script><pre><code class="lang-python">torch.nn.CTCLoss(blank=0, reduction=&#39;mean&#39;, zero_infinity=False)</code></pre><h3 id="NLLLoss"><a href="#NLLLoss" class="headerlink" title="NLLLoss"></a>NLLLoss</h3><p>负对数似然损失函数(Negative Loss Likelihood),多分类</p><pre><code class="lang-python">torch.nn.NLLLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_{y_n} x_{n,y_n}, \quad        w_{c} = \text{weight}[c] \cdot \mathbb{1}\{c \not= \text{ignore_index}\},</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \sum_{n=1}^N \frac{1}{\sum_{n=1}^N w_{y_n}} l_n, &            \text{if reduction} = \text{'mean';}\\            \sum_{n=1}^N l_n,  &            \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="PoissonNLLLoss"><a href="#PoissonNLLLoss" class="headerlink" title="PoissonNLLLoss"></a>PoissonNLLLoss</h3><pre><code class="lang-python">torch.nn.PoissonNLLLoss(log_input=True, full=False, size_average=None, eps=1e-08, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{target} \sim \mathrm{Poisson}(\text{input})        \text{loss}(\text{input}, \text{target}) = \text{input} - \text{target} * \log(\text{input})                                    + \log(\text{target!})</script><h3 id="KLDivLoss"><a href="#KLDivLoss" class="headerlink" title="KLDivLoss"></a>KLDivLoss</h3><p>KL散度,又叫相对熵,计算两个分布之间的距离,越相近越接近零</p><pre><code class="lang-python">torch.nn.KLDivLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        l(x,y) = L = \{ l_1,\dots,l_N \}, \quad        l_n = y_n \cdot \left( \log y_n - x_n \right)</script><script type="math/tex; mode=display">\ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';} \\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="BCELoss"><a href="#BCELoss" class="headerlink" title="BCELoss"></a>BCELoss</h3><p>二分类用的交叉熵</p><pre><code class="lang-python">torch.nn.BCELoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        \ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_n \left[ y_n \cdot \log x_n + (1 - y_n) \cdot \log (1 - x_n) \right],</script><script type="math/tex; mode=display">\ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="BCEWithLogitsLoss"><a href="#BCEWithLogitsLoss" class="headerlink" title="BCEWithLogitsLoss"></a>BCEWithLogitsLoss</h3><p>增加了一个Sigmoid层</p><pre><code class="lang-python">torch.nn.BCEWithLogitsLoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;, pos_weight=None)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_n \left[ y_n \cdot \log \sigma(x_n)        + (1 - y_n) \cdot \log (1 - \sigma(x_n)) \right],</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MarginRankingLoss"><a href="#MarginRankingLoss" class="headerlink" title="MarginRankingLoss"></a>MarginRankingLoss</h3><p>评价相似度的损失</p><pre><code class="lang-python">torch.nn.MarginRankingLoss(margin=0.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \max(0, -y * (x1 - x2) + \text{margin})</script><h3 id="HingeEmbeddingLoss"><a href="#HingeEmbeddingLoss" class="headerlink" title="HingeEmbeddingLoss"></a>HingeEmbeddingLoss</h3><p>用于学习非线性嵌入或半监督学习</p><pre><code class="lang-python">torch.nn.HingeEmbeddingLoss(margin=1.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">L = \{l_1,\dots,l_N\}^\top, \quadl_n = \begin{cases}            x_n, & \text{if}\; y_n = 1,\\            \max \{0, \Delta - x_n\}, & \text{if}\; y_n = -1,        \end{cases}</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MultiLabelMarginLoss"><a href="#MultiLabelMarginLoss" class="headerlink" title="MultiLabelMarginLoss"></a>MultiLabelMarginLoss</h3><p>多类别多分类的Hinge损失</p><pre><code class="lang-python">torch.nn.MultiLabelMarginLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \sum_{ij}\frac{\max(0, 1 - (x[y[j]] - x[i]))}{\text{x.size}(0)}</script><p>其中$x \in \left{0, \; \cdots , \; \text{x.size}(0) - 1\right}$,$y \in \left{0, \; \cdots , \; \text{y.size}(0) - 1\right}$,$0 \leq y[j] \leq \text{x.size}(0)-1$,$i \neq y[j]$</p><h3 id="SmoothL1Loss"><a href="#SmoothL1Loss" class="headerlink" title="SmoothL1Loss"></a>SmoothL1Loss</h3><p>也叫Huber Loss,误差在(-1,1)上是平方损失,其他情况是L1损失</p><pre><code class="lang-python">torch.nn.SmoothL1Loss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{1}{n} \sum_{i} z_{i}</script><script type="math/tex; mode=display">z_{i} =        \begin{cases}        0.5 (x_i - y_i)^2, & \text{if } |x_i - y_i| < 1 \\        |x_i - y_i| - 0.5, & \text{otherwise }        \end{cases}</script><h3 id="SoftMarginLoss"><a href="#SoftMarginLoss" class="headerlink" title="SoftMarginLoss"></a>SoftMarginLoss</h3><p>多标签二分类问题</p><pre><code class="lang-python">torch.nn.SoftMarginLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \sum_i \frac{\log(1 + \exp(-y[i]*x[i]))}{\text{x.nelement}()}</script><h3 id="MultiLabelSoftMarginLoss"><a href="#MultiLabelSoftMarginLoss" class="headerlink" title="MultiLabelSoftMarginLoss"></a>MultiLabelSoftMarginLoss</h3><p>多标签多分类</p><pre><code class="lang-python">torch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        loss(x, y) = - \frac{1}{C} * \sum_i y[i] * \log((1 + \exp(-x[i]))^{-1})                         + (1-y[i]) * \log\left(\frac{\exp(-x[i])}{(1 + \exp(-x[i]))}\right)</script><p>其中$i \in \left{0, \; \cdots , \; \text{x.nElement}() - 1\right}$,$y[i] \in \left{0, \; 1\right}$</p><h3 id="CosineEmbeddingLoss"><a href="#CosineEmbeddingLoss" class="headerlink" title="CosineEmbeddingLoss"></a>CosineEmbeddingLoss</h3><p>余玄相似度损失</p><pre><code class="lang-python">torch.nn.CosineEmbeddingLoss(margin=0.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        \text{loss}(x, y) =        \begin{cases}        1 - \cos(x_1, x_2), & \text{if } y = 1 \\        \max(0, \cos(x_1, x_2) - \text{margin}), & \text{if } y = -1        \end{cases}</script><h3 id="MultiMarginLoss"><a href="#MultiMarginLoss" class="headerlink" title="MultiMarginLoss"></a>MultiMarginLoss</h3><p>多分类的Hinge损失</p><pre><code>torch.nn.MultiMarginLoss(p=1, margin=1.0, weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{\sum_i \max(0, (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><p>其中$x \in \left{0, \; \cdots , \; \text{x.size}(0) - 1\right}$,$i \neq y$</p><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{\sum_i \max(0, w[y] * (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><h3 id="TripletMarginLoss"><a href="#TripletMarginLoss" class="headerlink" title="TripletMarginLoss"></a>TripletMarginLoss</h3><pre><code class="lang-python">torch.nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">L(a, p, n) = \max \{d(a_i, p_i) - d(a_i, n_i) + {\rm margin}, 0\}</script><script type="math/tex; mode=display">d(x_i, y_i) = \left\lVert {\bf x}_i - {\bf y}_i \right\rVert_p</script>]]></content>
+        <content type="html"><![CDATA[<h2 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h2><pre><code class="lang-python">#激活函数x=np.arange(-12.5,12.5,0.05)tanh = (np.power(np.e,x)-np.power(np.e,-x))/(np.power(np.e,x)+np.power(np.e,-x))relu = np.maximum(0.0,x)sigmoid = 1.0/(1.0+np.power(np.e,-x))</code></pre><pre><code class="lang-python">torch.nn.Sigmoid()</code></pre><script type="math/tex; mode=display">Sigmoid(x)=\frac {1}{1+e^{-x}}</script><script type="math/tex; mode=display">\frac {1}{1+e^{-x}}-\frac{1}{2}=\frac{1-e^{-x}}{2(1+e^{-x})}=-\frac{1-e^x}{2(1+e^x)}</script><pre><code class="lang-python">torch.nn.Tanh</code></pre><script type="math/tex; mode=display">Tanh(x)=tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}</script><script type="math/tex; mode=display">\frac{e^x-e^{-x}}{e^x+e^{-x}}=\frac{1-e^{-2x}}{1+e^{-2x}}=\frac{2}{1+e^{-2x}}-1=2Sigmoid(2x)-1</script><p>BatchNorm2d</p><p>对每一个特征进行正则</p><script type="math/tex; mode=display">y=\frac {x-E[x]} {\sqrt{Var[x]+\varepsilon}}*\gamma+\beta \ \ \ \ \ (\varepsilon=10^{-5})</script><p>pytorch中的正则化函数</p><pre><code class="lang-python">torch.nn.functional.normalize(input, p=2, dim=1, eps=1e-12, out=None)</code></pre><script type="math/tex; mode=display">v=\frac {v}{max(\lVert v \rVert_p,\varepsilon)}</script><pre><code class="lang-python">torch.norm(input, p=&#39;fro&#39;, dim=None, keepdim=False, out=None, dtype=None)# 对维度dim求p范数</code></pre><pre><code class="lang-python">torch.Tensor.squeeze()-&gt;Tensor#维度压缩torch.cat(tensors, dim=0, out=None)-&gt;Tensor #维度拼接torch.stack(tensors,dim=0,out=None)-&gt;Tensor #张量拼接# cat是把多张纸拼成一张纸,stack是把纸摞起来torch.Tensor.repeat()-&gt;Tensor #矩阵扩展torch.Tensor.transpose()-&gt;Tensor #矩阵转置torch.eq() #张量比较torch.chunk() #张量分块torch.split(tensor, split_size_or_sections, dim=0) #张量分块</code></pre><h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="L1Loss"><a href="#L1Loss" class="headerlink" title="L1Loss"></a>L1Loss</h3><pre><code class="lang-python">torch.nn.L1Loss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = \left| x_n - y_n \right|,</script><script type="math/tex; mode=display">        \ell(x, y) =        \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MSELoss"><a href="#MSELoss" class="headerlink" title="MSELoss"></a>MSELoss</h3><pre><code class="lang-python">torch.nn.MSELoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = \left( x_n - y_n \right)^2,</script><script type="math/tex; mode=display">\ell(x, y) =        \begin{cases}            \operatorname{mean}(L), &  \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  &  \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="CrossEntropyLoss"><a href="#CrossEntropyLoss" class="headerlink" title="CrossEntropyLoss"></a>CrossEntropyLoss</h3><p>交叉熵损失函数,多分类</p><pre><code class="lang-python">torch.nn.CrossEntropyLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}\right)                       = -x[class] + \log\left(\sum_j \exp(x[j])\right)</script><script type="math/tex; mode=display">        \text{loss}(x, class) = weight[class] \left(-x[class] + \log\left(\sum_j \exp(x[j])\right)\right)</script><pre><code class="lang-python">torch.nn.CTCLoss(blank=0, reduction=&#39;mean&#39;, zero_infinity=False)</code></pre><h3 id="NLLLoss"><a href="#NLLLoss" class="headerlink" title="NLLLoss"></a>NLLLoss</h3><p>负对数似然损失函数(Negative Loss Likelihood),多分类</p><pre><code class="lang-python">torch.nn.NLLLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_{y_n} x_{n,y_n}, \quad        w_{c} = \text{weight}[c] \cdot \mathbb{1}\{c \not= \text{ignore_index}\},</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \sum_{n=1}^N \frac{1}{\sum_{n=1}^N w_{y_n}} l_n, &            \text{if reduction} = \text{'mean';}\\            \sum_{n=1}^N l_n,  &            \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="PoissonNLLLoss"><a href="#PoissonNLLLoss" class="headerlink" title="PoissonNLLLoss"></a>PoissonNLLLoss</h3><pre><code class="lang-python">torch.nn.PoissonNLLLoss(log_input=True, full=False, size_average=None, eps=1e-08, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{target} \sim \mathrm{Poisson}(\text{input})        \text{loss}(\text{input}, \text{target}) = \text{input} - \text{target} * \log(\text{input})                                    + \log(\text{target!})</script><h3 id="KLDivLoss"><a href="#KLDivLoss" class="headerlink" title="KLDivLoss"></a>KLDivLoss</h3><p>KL散度,又叫相对熵,计算两个分布之间的距离,越相近越接近零</p><pre><code class="lang-python">torch.nn.KLDivLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        l(x,y) = L = \{ l_1,\dots,l_N \}, \quad        l_n = y_n \cdot \left( \log y_n - x_n \right)</script><script type="math/tex; mode=display">\ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';} \\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="BCELoss"><a href="#BCELoss" class="headerlink" title="BCELoss"></a>BCELoss</h3><p>二分类用的交叉熵</p><pre><code class="lang-python">torch.nn.BCELoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        \ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_n \left[ y_n \cdot \log x_n + (1 - y_n) \cdot \log (1 - x_n) \right],</script><script type="math/tex; mode=display">\ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="BCEWithLogitsLoss"><a href="#BCEWithLogitsLoss" class="headerlink" title="BCEWithLogitsLoss"></a>BCEWithLogitsLoss</h3><p>增加了一个Sigmoid层</p><pre><code class="lang-python">torch.nn.BCEWithLogitsLoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;, pos_weight=None)</code></pre><script type="math/tex; mode=display">\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad        l_n = - w_n \left[ y_n \cdot \log \sigma(x_n)        + (1 - y_n) \cdot \log (1 - \sigma(x_n)) \right],</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MarginRankingLoss"><a href="#MarginRankingLoss" class="headerlink" title="MarginRankingLoss"></a>MarginRankingLoss</h3><p>评价相似度的损失</p><pre><code class="lang-python">torch.nn.MarginRankingLoss(margin=0.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \max(0, -y * (x1 - x2) + \text{margin})</script><h3 id="HingeEmbeddingLoss"><a href="#HingeEmbeddingLoss" class="headerlink" title="HingeEmbeddingLoss"></a>HingeEmbeddingLoss</h3><p>用于学习非线性嵌入或半监督学习</p><pre><code class="lang-python">torch.nn.HingeEmbeddingLoss(margin=1.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">L = \{l_1,\dots,l_N\}^\top, \quadl_n = \begin{cases}            x_n, & \text{if}\; y_n = 1,\\            \max \{0, \Delta - x_n\}, & \text{if}\; y_n = -1,        \end{cases}</script><script type="math/tex; mode=display">        \ell(x, y) = \begin{cases}            \operatorname{mean}(L), & \text{if reduction} = \text{'mean';}\\            \operatorname{sum}(L),  & \text{if reduction} = \text{'sum'.}        \end{cases}</script><h3 id="MultiLabelMarginLoss"><a href="#MultiLabelMarginLoss" class="headerlink" title="MultiLabelMarginLoss"></a>MultiLabelMarginLoss</h3><p>多类别多分类的Hinge损失</p><pre><code class="lang-python">torch.nn.MultiLabelMarginLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \sum_{ij}\frac{\max(0, 1 - (x[y[j]] - x[i]))}{\text{x.size}(0)}</script><p>其中$x \in \left\{0, \; \cdots , \; \text{x.size}(0) - 1\right\}$,$y \in \left\{0, \; \cdots , \; \text{y.size}(0) - 1\right\}$,$0 \leq y[j] \leq \text{x.size}(0)-1$,$i \neq y[j]$</p><h3 id="SmoothL1Loss"><a href="#SmoothL1Loss" class="headerlink" title="SmoothL1Loss"></a>SmoothL1Loss</h3><p>也叫Huber Loss,误差在(-1,1)上是平方损失,其他情况是L1损失</p><pre><code class="lang-python">torch.nn.SmoothL1Loss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{1}{n} \sum_{i} z_{i}</script><script type="math/tex; mode=display">z_{i} =        \begin{cases}        0.5 (x_i - y_i)^2, & \text{if } |x_i - y_i| < 1 \\        |x_i - y_i| - 0.5, & \text{otherwise }        \end{cases}</script><h3 id="SoftMarginLoss"><a href="#SoftMarginLoss" class="headerlink" title="SoftMarginLoss"></a>SoftMarginLoss</h3><p>多标签二分类问题</p><pre><code class="lang-python">torch.nn.SoftMarginLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \sum_i \frac{\log(1 + \exp(-y[i]*x[i]))}{\text{x.nelement}()}</script><h3 id="MultiLabelSoftMarginLoss"><a href="#MultiLabelSoftMarginLoss" class="headerlink" title="MultiLabelSoftMarginLoss"></a>MultiLabelSoftMarginLoss</h3><p>多标签多分类</p><pre><code class="lang-python">torch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        loss(x, y) = - \frac{1}{C} * \sum_i y[i] * \log((1 + \exp(-x[i]))^{-1})                         + (1-y[i]) * \log\left(\frac{\exp(-x[i])}{(1 + \exp(-x[i]))}\right)</script><p>其中$i \in \left\{0, \; \cdots , \; \text{x.nElement}() - 1\right\}$,$y[i] \in \left\{0, \; 1\right\}$</p><h3 id="CosineEmbeddingLoss"><a href="#CosineEmbeddingLoss" class="headerlink" title="CosineEmbeddingLoss"></a>CosineEmbeddingLoss</h3><p>余玄相似度损失</p><pre><code class="lang-python">torch.nn.CosineEmbeddingLoss(margin=0.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">        \text{loss}(x, y) =        \begin{cases}        1 - \cos(x_1, x_2), & \text{if } y = 1 \\        \max(0, \cos(x_1, x_2) - \text{margin}), & \text{if } y = -1        \end{cases}</script><h3 id="MultiMarginLoss"><a href="#MultiMarginLoss" class="headerlink" title="MultiMarginLoss"></a>MultiMarginLoss</h3><p>多分类的Hinge损失</p><pre><code>torch.nn.MultiMarginLoss(p=1, margin=1.0, weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{\sum_i \max(0, (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><p>其中$x \in \left\{0, \; \cdots , \; \text{x.size}(0) - 1\right\}$,$i \neq y$</p><script type="math/tex; mode=display">\text{loss}(x, y) = \frac{\sum_i \max(0, w[y] * (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><h3 id="TripletMarginLoss"><a href="#TripletMarginLoss" class="headerlink" title="TripletMarginLoss"></a>TripletMarginLoss</h3><pre><code class="lang-python">torch.nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction=&#39;mean&#39;)</code></pre><script type="math/tex; mode=display">L(a, p, n) = \max \{d(a_i, p_i) - d(a_i, n_i) + {\rm margin}, 0\}</script><script type="math/tex; mode=display">d(x_i, y_i) = \left\lVert {\bf x}_i - {\bf y}_i \right\rVert_p</script>]]></content>
       
       
       <categories>
@@ -561,7 +642,7 @@
       <link href="/2018/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
       <url>/2018/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
       
-        <content type="html"><![CDATA[<p>形式语言与自动机这门课需要有离散数学的基础，但本科通信工程里没有学过这门课，总结一些这门课中需要的基础知识</p><h2 id="1-集合及其运算"><a href="#1-集合及其运算" class="headerlink" title="1.集合及其运算"></a>1.集合及其运算</h2><h3 id="1-1子集和真子集"><a href="#1-1子集和真子集" class="headerlink" title="1.1子集和真子集"></a>1.1子集和真子集</h3><p>$A$子集：$A \subseteq B​$或$B \subseteq A​$<br>$A​$是$B​$的真子集：$A \subset B​$或$B \subset A​$<br>$x​$是$A​$的一个元素：$x \in A​$<br>$x​$不是$A​$的一个元素：$x \notin A​$</p><h3 id="1-2集合的交并差补"><a href="#1-2集合的交并差补" class="headerlink" title="1.2集合的交并差补"></a>1.2集合的交并差补</h3><p>$A$和$B$的并集：$A\cup B={x|x\in A或x\in B}$<br>$A$和$B$的交集：$A\cap B={x|x\in A且x\in B}$<br>$A$和$B$的差集：$A - B={x|x\in A且x\notin B}$<br>若$B\subseteq A$我们也称$A−B$为$B$的（关于$A$）补,记作：$\overline B(A)​$</p><h3 id="1-3集合的并的推广"><a href="#1-3集合的并的推广" class="headerlink" title="1.3集合的并的推广"></a>1.3集合的并的推广</h3><p>设$I​$是某些标号的集合我们将$\displaystyle \bigcup_{i\in I}A_i={x|存在i\in I,使得x\in A_i}​$</p><h3 id="1-4A的幂集"><a href="#1-4A的幂集" class="headerlink" title="1.4A的幂集"></a>1.4A的幂集</h3><p>$A$的所有子集的集合，记作$2^A={B|B\subseteq A}​$</p><h3 id="1-5笛卡尔乘积"><a href="#1-5笛卡尔乘积" class="headerlink" title="1.5笛卡尔乘积"></a>1.5笛卡尔乘积</h3><p>$A\times B={(a,b)|a\in A且b\in B}$</p><h3 id="1-6集合之间的关系"><a href="#1-6集合之间的关系" class="headerlink" title="1.6集合之间的关系"></a>1.6集合之间的关系</h3><p>由$A$到$B$的关系是$A×B$的任何子集。若$A=B$，则称为$A$上的关系。若$R$为$A$到$B$的关系，当$(a,b)$在$R$内时，可写成$aRb​$</p><h3 id="1-7集合关系的性质"><a href="#1-7集合关系的性质" class="headerlink" title="1.7集合关系的性质"></a>1.7集合关系的性质</h3><p>设$R$是集合$A$上的关系，则有<br>（1）若对$A$中的任一元素$a$，都有$aRa$，则称$R$是<strong>自反的</strong>；<br>（2）若对$A$中的任何元素$a,b$，从$aRb$能够推到出$bRa$，则称$R$是<strong>对称的</strong>；<br>（3）若$a,b,c$是$A$中的元素，从$aRb$和$bRc$能够推出$aRc$，则称$R$是<strong>传递的</strong>；<br>若关系$R​$同时是自反的，对称的和传递的，则称之为<strong>等价关系</strong>。<br>2018-09-22 15:28:12</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.《形式语言与自动机》陈有祺编著</p>]]></content>
+        <content type="html"><![CDATA[<p>形式语言与自动机这门课需要有离散数学的基础，但本科通信工程里没有学过这门课，总结一些这门课中需要的基础知识</p><h2 id="1-集合及其运算"><a href="#1-集合及其运算" class="headerlink" title="1.集合及其运算"></a>1.集合及其运算</h2><h3 id="1-1子集和真子集"><a href="#1-1子集和真子集" class="headerlink" title="1.1子集和真子集"></a>1.1子集和真子集</h3><p>$A$子集：$A \subseteq B​$或$B \subseteq A​$<br>$A​$是$B​$的真子集：$A \subset B​$或$B \subset A​$<br>$x​$是$A​$的一个元素：$x \in A​$<br>$x​$不是$A​$的一个元素：$x \notin A​$</p><h3 id="1-2集合的交并差补"><a href="#1-2集合的交并差补" class="headerlink" title="1.2集合的交并差补"></a>1.2集合的交并差补</h3><p>$A$和$B$的并集：$A\cup B=\{x|x\in A或x\in B\}$<br>$A$和$B$的交集：$A\cap B=\{x|x\in A且x\in B\}$<br>$A$和$B$的差集：$A - B=\{x|x\in A且x\notin B\}$<br>若$B\subseteq A$我们也称$A−B$为$B$的（关于$A$）补,记作：$\overline B(A)​$</p><h3 id="1-3集合的并的推广"><a href="#1-3集合的并的推广" class="headerlink" title="1.3集合的并的推广"></a>1.3集合的并的推广</h3><p>设$I​$是某些标号的集合我们将$\displaystyle \bigcup_{i\in I}A_i=\{x|存在i\in I,使得x\in A_i\}​$</p><h3 id="1-4A的幂集"><a href="#1-4A的幂集" class="headerlink" title="1.4A的幂集"></a>1.4A的幂集</h3><p>$A$的所有子集的集合，记作$2^A=\{B|B\subseteq A\}​$</p><h3 id="1-5笛卡尔乘积"><a href="#1-5笛卡尔乘积" class="headerlink" title="1.5笛卡尔乘积"></a>1.5笛卡尔乘积</h3><p>$A\times B=\{(a,b)|a\in A且b\in B\}$</p><h3 id="1-6集合之间的关系"><a href="#1-6集合之间的关系" class="headerlink" title="1.6集合之间的关系"></a>1.6集合之间的关系</h3><p>由$A$到$B$的关系是$A×B$的任何子集。若$A=B$，则称为$A$上的关系。若$R$为$A$到$B$的关系，当$(a,b)$在$R$内时，可写成$aRb​$</p><h3 id="1-7集合关系的性质"><a href="#1-7集合关系的性质" class="headerlink" title="1.7集合关系的性质"></a>1.7集合关系的性质</h3><p>设$R$是集合$A$上的关系，则有<br>（1）若对$A$中的任一元素$a$，都有$aRa$，则称$R$是<strong>自反的</strong>；<br>（2）若对$A$中的任何元素$a,b$，从$aRb$能够推到出$bRa$，则称$R$是<strong>对称的</strong>；<br>（3）若$a,b,c$是$A$中的元素，从$aRb$和$bRc$能够推出$aRc$，则称$R$是<strong>传递的</strong>；<br>若关系$R​$同时是自反的，对称的和传递的，则称之为<strong>等价关系</strong>。<br>2018-09-22 15:28:12</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.《形式语言与自动机》陈有祺编著</p>]]></content>
       
       
       <categories>
@@ -640,6 +721,27 @@
     
     
     <entry>
+      <title>python类和实例的一些属性</title>
+      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
+      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python中关于路径的知识</title>
       <link href="/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/"/>
       <url>/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/</url>
@@ -661,27 +763,6 @@
             <tag> 路径 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>python类和实例的一些属性</title>
-      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
-      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> Python </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -798,33 +879,6 @@
     
     
     <entry>
-      <title>位运算的妙用之二进制1的个数</title>
-      <link href="/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
-      <url>/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p>求出一个正整数转换成二进制形式中数字”1”的个数<br>题目：求出一个正整数转换成二进制形式中数字”1”的个数<br>如：<br>int 型数值为 80<br>转化成二进制形式：80 = 00000000 00000000 00000000 01010000<br>因此 1 的个数为 2  </p><h3 id="0-普通解法"><a href="#0-普通解法" class="headerlink" title="0.普通解法"></a>0.普通解法</h3><p>一位一位判断</p><pre><code class="lang-c">int bitCount1(int n) {    int count = 0;    while (n != 0) {        if (n &amp; 0x01 == 1)            count++;        n = n &gt;&gt; 1;    }    return count;}</code></pre><h3 id="2-大神的解法"><a href="#2-大神的解法" class="headerlink" title="2.大神的解法"></a>2.大神的解法</h3><pre><code class="lang-c">int bitCount2(int n) {    n = n - ((n &gt;&gt; 1) &amp; 0x55555555);//n = (n &amp; 0x55555555) + ((n &gt;&gt; 1) &amp; 0x55555555);    n = (n &amp; 0x33333333) + ((n &gt;&gt; 2) &amp; 0x33333333);    n = (n &amp; 0x0f0f0f0f) + ((n &gt;&gt; 4) &amp; 0x0f0f0f0f);    n = n + (n &gt;&gt; 8);               //n = (n &amp; 0x00ff00ff) + ((n &gt;&gt; 8) &amp; 0x00ff00ff);    n = n + (n &gt;&gt; 16);              //n = (n &amp; 0x0000ffff) + ((n &gt;&gt; 16) &amp; 0x0000ffff);    return n &amp; 0x0000003f;          //return n;}</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="https://www.jianshu.com/p/25c75149e7a2" target="_blank" rel="noopener">https://www.jianshu.com/p/25c75149e7a2</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> C语言 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>python遇到的错误</title>
       <link href="/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/"/>
       <url>/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/</url>
@@ -852,11 +906,11 @@
     
     
     <entry>
-      <title>C语言文件读写</title>
-      <link href="/2017/C%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
-      <url>/2017/C%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</url>
+      <title>位运算的妙用之二进制1的个数</title>
+      <link href="/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
+      <url>/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
       
-        <content type="html"><![CDATA[<p>C语言文件操作笔记</p><pre><code class="lang-c">FILE *fopen(char *filename,char *type); //打开文件int fclose(FILE *stream); //关闭文件int fgetc(FILE *stream); //读一个字符指针后移int getc(FILE *stream);int fputc(int ch,FILE *stream); //写一个字符指针后移int putc(int ch,FILE *stream);</code></pre><p>filename指明文件路径<br>type可取的至如下<br>“r” :打开一个已有的文本文，允许读取文件<br>“w” :打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容<br>“a” :打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。<br>“r+”:打开一个文本文件，允许读写文件<br>“w+”:打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件<br>“a+”:打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式<br>如果处理的是二进制文件，则需使用下面的访问模式来取代上面的访问模式:<br><code>&quot;rb&quot;, &quot;wb&quot;, &quot;ab&quot;, &quot;rb+&quot;, &quot;r+b&quot;, &quot;wb+&quot;, &quot;w+b&quot;, &quot;ab+&quot;, &quot;a+b&quot;</code></p>]]></content>
+        <content type="html"><![CDATA[<p>求出一个正整数转换成二进制形式中数字”1”的个数<br>题目：求出一个正整数转换成二进制形式中数字”1”的个数<br>如：<br>int 型数值为 80<br>转化成二进制形式：80 = 00000000 00000000 00000000 01010000<br>因此 1 的个数为 2  </p><h3 id="0-普通解法"><a href="#0-普通解法" class="headerlink" title="0.普通解法"></a>0.普通解法</h3><p>一位一位判断</p><pre><code class="lang-c">int bitCount1(int n) {    int count = 0;    while (n != 0) {        if (n &amp; 0x01 == 1)            count++;        n = n &gt;&gt; 1;    }    return count;}</code></pre><h3 id="2-大神的解法"><a href="#2-大神的解法" class="headerlink" title="2.大神的解法"></a>2.大神的解法</h3><pre><code class="lang-c">int bitCount2(int n) {    n = n - ((n &gt;&gt; 1) &amp; 0x55555555);//n = (n &amp; 0x55555555) + ((n &gt;&gt; 1) &amp; 0x55555555);    n = (n &amp; 0x33333333) + ((n &gt;&gt; 2) &amp; 0x33333333);    n = (n &amp; 0x0f0f0f0f) + ((n &gt;&gt; 4) &amp; 0x0f0f0f0f);    n = n + (n &gt;&gt; 8);               //n = (n &amp; 0x00ff00ff) + ((n &gt;&gt; 8) &amp; 0x00ff00ff);    n = n + (n &gt;&gt; 16);              //n = (n &amp; 0x0000ffff) + ((n &gt;&gt; 16) &amp; 0x0000ffff);    return n &amp; 0x0000003f;          //return n;}</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="https://www.jianshu.com/p/25c75149e7a2" target="_blank" rel="noopener">https://www.jianshu.com/p/25c75149e7a2</a></p>]]></content>
       
       
       <categories>
@@ -870,7 +924,7 @@
       
         <tags>
             
-            <tag> 文件操作 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -896,6 +950,33 @@
         <tags>
             
             <tag> sublime </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C语言文件读写</title>
+      <link href="/2017/C%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+      <url>/2017/C%E8%AF%AD%E8%A8%80%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</url>
+      
+        <content type="html"><![CDATA[<p>C语言文件操作笔记</p><pre><code class="lang-c">FILE *fopen(char *filename,char *type); //打开文件int fclose(FILE *stream); //关闭文件int fgetc(FILE *stream); //读一个字符指针后移int getc(FILE *stream);int fputc(int ch,FILE *stream); //写一个字符指针后移int putc(int ch,FILE *stream);</code></pre><p>filename指明文件路径<br>type可取的至如下<br>“r” :打开一个已有的文本文，允许读取文件<br>“w” :打开一个文本文件，允许写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会从文件的开头写入内容<br>“a” :打开一个文本文件，以追加模式写入文件。如果文件不存在，则会创建一个新文件。在这里，您的程序会在已有的文件内容中追加内容。<br>“r+”:打开一个文本文件，允许读写文件<br>“w+”:打开一个文本文件，允许读写文件。如果文件已存在，则文件会被截断为零长度，如果文件不存在，则会创建一个新文件<br>“a+”:打开一个文本文件，允许读写文件。如果文件不存在，则会创建一个新文件。读取会从文件的开头开始，写入则只能是追加模式<br>如果处理的是二进制文件，则需使用下面的访问模式来取代上面的访问模式:<br><code>&quot;rb&quot;, &quot;wb&quot;, &quot;ab&quot;, &quot;rb+&quot;, &quot;r+b&quot;, &quot;wb+&quot;, &quot;w+b&quot;, &quot;ab+&quot;, &quot;a+b&quot;</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文件操作 </tag>
             
         </tags>
       
@@ -1034,11 +1115,11 @@
       
         <tags>
             
+            <tag> C语言 </tag>
+            
             <tag> TCP </tag>
             
             <tag> 聊天室 </tag>
-            
-            <tag> C语言 </tag>
             
         </tags>
       
@@ -1250,6 +1331,35 @@
     
     
     <entry>
+      <title>自己写一个Android照相机应用-1</title>
+      <link href="/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-1/"/>
+      <url>/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-1/</url>
+      
+        <content type="html"><![CDATA[<p>Android相机的相关知识</p><h1 id="Android-Camera相关知识"><a href="#Android-Camera相关知识" class="headerlink" title="Android Camera相关知识"></a>Android Camera相关知识</h1><p>调用系统相机</p><pre><code class="lang-java">Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//使用action启动系统相机//startActivity(intent);    //仅调用相机拍照，不返回数据//startActivityForResult(intent,REQ_1);//调用相机并通过onActivityResult函数data返回数据；Uri photoUri = Uri.fromFile(new File(mFilePath));//图片保存路径intent.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);startActivityForResult(intent,REQ_2);//从文件中读取数据</code></pre><p>路径获取</p><pre><code class="lang-java">mFilePath = Environment.getExternalStorageDirectory().getPath();mFilePath = mFilePath + &quot;/&quot; + &quot;tmp.png&quot;;</code></pre><p>读取内存卡权限</p><pre><code class="lang-xml">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&gt;&lt;/uses-permission&gt;</code></pre><p>onActivityResult函数</p><pre><code class="lang-java">protected void onActivityResult(int requestCode, int resultCode, Intent data) {    super.onActivityResult(requestCode, resultCode, data);    if(resultCode == RESULT_OK){        if (requestCode == REQ_1) {//从data获取照片            Bundle bundle = data.getExtras();            Bitmap bitmap = (Bitmap)bundle.get(&quot;data&quot;);            mImageView.setImageBitmap(bitmap);        } else if (requestCode == REQ_2) {//从文件获取照片            FileInputStream fis = null;            try {                fis = new FileInputStream(mFilePath);                Bitmap bitmap = BitmapFactory.decodeStream(fis);                mImageView.setImageBitmap(bitmap);            } catch (FileNotFoundException e) {                e.printStackTrace();            } finally {                try {                    fis.close();                } catch (IOException e) {                    e.printStackTrace();                }            }        }    }}</code></pre><p>注册action，实现照相功能</p><pre><code class="lang-xml">&lt;intent-filter&gt;        &lt;action android:name=&quot;android.media.action.IMAGE_CAPTURE&quot;/&gt;        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;&lt;/intent-filter&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> 相机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Matlab函数freqs和freqz</title>
       <link href="/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/"/>
       <url>/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/</url>
@@ -1306,35 +1416,6 @@
     
     
     <entry>
-      <title>自己写一个Android照相机应用-1</title>
-      <link href="/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-1/"/>
-      <url>/2017/%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AAAndroid%E7%85%A7%E7%9B%B8%E6%9C%BA%E5%BA%94%E7%94%A8-1/</url>
-      
-        <content type="html"><![CDATA[<p>Android相机的相关知识</p><h1 id="Android-Camera相关知识"><a href="#Android-Camera相关知识" class="headerlink" title="Android Camera相关知识"></a>Android Camera相关知识</h1><p>调用系统相机</p><pre><code class="lang-java">Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//使用action启动系统相机//startActivity(intent);    //仅调用相机拍照，不返回数据//startActivityForResult(intent,REQ_1);//调用相机并通过onActivityResult函数data返回数据；Uri photoUri = Uri.fromFile(new File(mFilePath));//图片保存路径intent.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);startActivityForResult(intent,REQ_2);//从文件中读取数据</code></pre><p>路径获取</p><pre><code class="lang-java">mFilePath = Environment.getExternalStorageDirectory().getPath();mFilePath = mFilePath + &quot;/&quot; + &quot;tmp.png&quot;;</code></pre><p>读取内存卡权限</p><pre><code class="lang-xml">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&gt;&lt;/uses-permission&gt;</code></pre><p>onActivityResult函数</p><pre><code class="lang-java">protected void onActivityResult(int requestCode, int resultCode, Intent data) {    super.onActivityResult(requestCode, resultCode, data);    if(resultCode == RESULT_OK){        if (requestCode == REQ_1) {//从data获取照片            Bundle bundle = data.getExtras();            Bitmap bitmap = (Bitmap)bundle.get(&quot;data&quot;);            mImageView.setImageBitmap(bitmap);        } else if (requestCode == REQ_2) {//从文件获取照片            FileInputStream fis = null;            try {                fis = new FileInputStream(mFilePath);                Bitmap bitmap = BitmapFactory.decodeStream(fis);                mImageView.setImageBitmap(bitmap);            } catch (FileNotFoundException e) {                e.printStackTrace();            } finally {                try {                    fis.close();                } catch (IOException e) {                    e.printStackTrace();                }            }        }    }}</code></pre><p>注册action，实现照相功能</p><pre><code class="lang-xml">&lt;intent-filter&gt;        &lt;action android:name=&quot;android.media.action.IMAGE_CAPTURE&quot;/&gt;        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;&lt;/intent-filter&gt;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> Android </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> android </tag>
-            
-            <tag> 相机 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搬瓦工VPS搭建Web服务器</title>
       <link href="/2017/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>/2017/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
@@ -1374,33 +1455,6 @@
     
     
     <entry>
-      <title>Python2与Python3共存</title>
-      <link href="/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/"/>
-      <url>/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/</url>
-      
-        <content type="html"><![CDATA[<p>在windows下安装多个版本的python</p><h3 id="1-安装两个版本的Python"><a href="#1-安装两个版本的Python" class="headerlink" title="1.安装两个版本的Python"></a>1.安装两个版本的Python</h3><p>选择想要安装的版本下载例如:<br>python2下载地址:<a href="https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi" target="_blank" rel="noopener">https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi</a><br>python3下载地址:<a href="https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe</a></p><p>进行安装(安装顺序随便)<br>尽量安装到同一目录下的两个文件夹例如:<br>python2安装在”D:\program\python27\”下<br>python3安装在”D:\program\python36\”下  </p><h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h3><p>Path中要有一下四个路径</p><pre><code>D:\program\python\Python36\Scripts\D:\program\python\Python36\D:\program\python\python27\ScriptsD:\program\python\python27\</code></pre><h3 id="3-更改python-exe名字"><a href="#3-更改python-exe名字" class="headerlink" title="3.更改python.exe名字"></a>3.更改python.exe名字</h3><p>找到找到两个python的安装目录<br><code>D:\program\python\Python36\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python3.exe</code><br><code>D:\program\python\Python27\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python2.exe</code><br>此时两个版本的python已经共同存在<br>但还要对pip进行修改</p><h3 id="4-更改pip名称"><a href="#4-更改pip名称" class="headerlink" title="4.更改pip名称"></a>4.更改pip名称</h3><p>重装python2和python3的pip  </p><pre><code class="lang-sh">python2 -m pip install --upgrade pip --force-reinstallpython3 -m pip install --upgrade pip --force-reinstall</code></pre><p>重装成功后进行如下测试<br>test.PNG…<br>可见python2和python3已经共存<br>pip的问题也解决了<br>但直接调用pip是还能执行并且是后安装的pip的版本<br>python命令已经不存在<br>直接运行py结尾的文件时会出现问题<br>python自带的编辑器出现了两个  </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-          <category> Windows </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搬瓦工安装ss并加速</title>
       <link href="/2017/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%AE%89%E8%A3%85ss%E5%B9%B6%E5%8A%A0%E9%80%9F/"/>
       <url>/2017/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%AE%89%E8%A3%85ss%E5%B9%B6%E5%8A%A0%E9%80%9F/</url>
@@ -1424,6 +1478,33 @@
             <tag> 搬瓦工 </tag>
             
             <tag> shadowsocks </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python2与Python3共存</title>
+      <link href="/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/"/>
+      <url>/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/</url>
+      
+        <content type="html"><![CDATA[<p>在windows下安装多个版本的python</p><h3 id="1-安装两个版本的Python"><a href="#1-安装两个版本的Python" class="headerlink" title="1.安装两个版本的Python"></a>1.安装两个版本的Python</h3><p>选择想要安装的版本下载例如:<br>python2下载地址:<a href="https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi" target="_blank" rel="noopener">https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi</a><br>python3下载地址:<a href="https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe</a></p><p>进行安装(安装顺序随便)<br>尽量安装到同一目录下的两个文件夹例如:<br>python2安装在”D:\program\python27\”下<br>python3安装在”D:\program\python36\”下  </p><h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h3><p>Path中要有一下四个路径</p><pre><code>D:\program\python\Python36\Scripts\D:\program\python\Python36\D:\program\python\python27\ScriptsD:\program\python\python27\</code></pre><h3 id="3-更改python-exe名字"><a href="#3-更改python-exe名字" class="headerlink" title="3.更改python.exe名字"></a>3.更改python.exe名字</h3><p>找到找到两个python的安装目录<br><code>D:\program\python\Python36\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python3.exe</code><br><code>D:\program\python\Python27\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python2.exe</code><br>此时两个版本的python已经共同存在<br>但还要对pip进行修改</p><h3 id="4-更改pip名称"><a href="#4-更改pip名称" class="headerlink" title="4.更改pip名称"></a>4.更改pip名称</h3><p>重装python2和python3的pip  </p><pre><code class="lang-sh">python2 -m pip install --upgrade pip --force-reinstallpython3 -m pip install --upgrade pip --force-reinstall</code></pre><p>重装成功后进行如下测试<br>test.PNG…<br>可见python2和python3已经共存<br>pip的问题也解决了<br>但直接调用pip是还能执行并且是后安装的pip的版本<br>python命令已经不存在<br>直接运行py结尾的文件时会出现问题<br>python自带的编辑器出现了两个  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -1467,7 +1548,7 @@
       <link href="/2017/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%90%E8%A1%8C%E5%AE%89%E5%8D%93apk/"/>
       <url>/2017/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%90%E8%A1%8C%E5%AE%89%E5%8D%93apk/</url>
       
-        <content type="html"><![CDATA[<p>使用谷歌浏览器的插件ARChon实现安卓APK在电脑上运行 </p><p>用谷歌插件在电脑上运行安卓APK</p><p>1，直接谷歌应用商店下载出现错误<br>程序包无效：“CRX_SIGNATURE_VERIFICATION_FAILED”。</p><p>2，直接下载crx包参考百度经验</p><p>3，出现错误：Cannot load extension with file or directory name <em>metadata. Filenames starting with “</em>” are reserved for use by the system.<br>更改解压后文件夹_metadata为metadata</p><p>4，出现错误：’import’ extension is not installed.<br>打开文件manifest.json去掉import一句</p><pre><code>&quot;import&quot;:[{&quot;id&quot;:&quot;mfaihdlpglflfgpfjcifdjdjcckigekc&quot;}],</code></pre><p>继续谷歌去掉这句话不对<br>看这篇CSDN文章<br>说要下载插件ARChon<br>(以下废话，直接看5）</p><p>4.1，安装成功，但启用后一直白屏</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-a275f201f7fdead8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>怀疑是不是去掉import一句出问题了</p><p>4.2，网上看到开启Native Client<br>谷歌浏览器地址栏输入chrome://flags/开启Native Client<br>无用</p><p>4.3，发现另一个谷歌商店的应用twerk这个应用是把 APK 文件转换成 Chrome App用的</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-2372cf692c93b5a9.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>5ARChon是谷歌插件要在扩展程序，打钩开发者模式，点击加载已解压扩展程序，选择解压文件夹<br>加载ARChon时有警告，可忽略<br>先加载ARC Welder出现4的错误后<br>再加载ARChon，然后ARC Welder就好了，不好的话重新加载就好了<br>安装好了就是APK运行不了</p><p>4.3安装的twerk可以把 APK 文件转换一个文件夹<br>然后ARC Welder运行<br>谷歌浏览器如何运行APK博客CSDN可以试一试</p><h2 id="又遇到的问题"><a href="#又遇到的问题" class="headerlink" title="又遇到的问题"></a>又遇到的问题</h2><p>Chrome加载Android应用，提示“There is no “message” element for key extName”错误，如：</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-0c0702ed3e06b504.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>找到该Crx文件夹下的”_locales\en”目录下的”messages.json”文件，在”extName”节点下，添加”message”字段标签，值对应应用的包名：</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-c5a40ac2756b5a87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>WebGL 不受支持<br>知乎有教程<br>浏览器快捷方式属性增加—ignore-gpu-blacklist<br>开启硬件加速<br>试了一下掌阅</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-f4ed0ddb2b2d06e1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>试了一下简书<br>可以运行</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-ed37c301d49d7485.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>]]></content>
+        <content type="html"><![CDATA[<p>使用谷歌浏览器的插件ARChon实现安卓APK在电脑上运行 </p><p>用谷歌插件在电脑上运行安卓APK</p><p>1，直接谷歌应用商店下载出现错误<br>程序包无效：“CRX_SIGNATURE_VERIFICATION_FAILED”。</p><p>2，直接下载crx包参考百度经验</p><p>3，出现错误：Cannot load extension with file or directory name _metadata. Filenames starting with “_” are reserved for use by the system.<br>更改解压后文件夹_metadata为metadata</p><p>4，出现错误：’import’ extension is not installed.<br>打开文件manifest.json去掉import一句</p><pre><code>&quot;import&quot;:[{&quot;id&quot;:&quot;mfaihdlpglflfgpfjcifdjdjcckigekc&quot;}],</code></pre><p>继续谷歌去掉这句话不对<br>看这篇CSDN文章<br>说要下载插件ARChon<br>(以下废话，直接看5）</p><p>4.1，安装成功，但启用后一直白屏</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-a275f201f7fdead8.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>怀疑是不是去掉import一句出问题了</p><p>4.2，网上看到开启Native Client<br>谷歌浏览器地址栏输入chrome://flags/开启Native Client<br>无用</p><p>4.3，发现另一个谷歌商店的应用twerk这个应用是把 APK 文件转换成 Chrome App用的</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-2372cf692c93b5a9.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>5ARChon是谷歌插件要在扩展程序，打钩开发者模式，点击加载已解压扩展程序，选择解压文件夹<br>加载ARChon时有警告，可忽略<br>先加载ARC Welder出现4的错误后<br>再加载ARChon，然后ARC Welder就好了，不好的话重新加载就好了<br>安装好了就是APK运行不了</p><p>4.3安装的twerk可以把 APK 文件转换一个文件夹<br>然后ARC Welder运行<br>谷歌浏览器如何运行APK博客CSDN可以试一试</p><h2 id="又遇到的问题"><a href="#又遇到的问题" class="headerlink" title="又遇到的问题"></a>又遇到的问题</h2><p>Chrome加载Android应用，提示“There is no “message” element for key extName”错误，如：</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-0c0702ed3e06b504.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>找到该Crx文件夹下的”_locales\en”目录下的”messages.json”文件，在”extName”节点下，添加”message”字段标签，值对应应用的包名：</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-c5a40ac2756b5a87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>WebGL 不受支持<br>知乎有教程<br>浏览器快捷方式属性增加—ignore-gpu-blacklist<br>开启硬件加速<br>试了一下掌阅</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-f4ed0ddb2b2d06e1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>试了一下简书<br>可以运行</p><p><img src="http://upload-images.jianshu.io/upload_images/2950376-ed37c301d49d7485.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>]]></content>
       
       
       <categories>
