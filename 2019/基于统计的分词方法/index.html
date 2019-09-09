@@ -19,7 +19,7 @@ P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-1})</script></li>
 P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-2}w_{i-1})</script></li>
 </ul>
 <h2 id="2-基于HMM的分词"><a href="#2-基于HMM的分词" class="headerlink" title="2.基于HMM的分词"></a>2.基于HMM的分词</h2><p><strong>HMM的参数</strong></p>
-<p>观测序列(输出状态序列),状态序列(隐藏状态序列),初始概率,转移概率(转移概率矩阵),发射概率(发射概率矩阵)<br><img src="./images/2019/9_8_ma.png"><br><strong>数学定义</strong></p>
+<p>观测序列(输出状态序列),状态序列(隐藏状态序列),初始概率,转移概率(转移概率矩阵),发射概率(发射概率矩阵)<br><img src="/images/2019/9_8_ma.png"><br><strong>数学定义</strong></p>
 <p>状态值集合(隐藏状态):$Q=\{q_1,q_2,\cdots,q_N\}$,$N$为可能的状态数,对应状态序列$I$</p>
 <p>观测值集合(输出状态):$V=\{v_1,v_2,\cdots,v_M\}$,$M$为可能的观测数,对应观测序列$O$</p>
 <p>转移概率矩阵:$A=[a_{ij}];i,j\in\{1,2,\cdots,N\}$,从$i$状态到$j$状态的转换概率($\sum_{j=1}^Na_{ij}=1$)</p>
@@ -28,13 +28,9 @@ P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-2}w_{i-1})</script></li>
 <p>模型:$\lambda=(A,B,\lambda)$,状态序列$I$,观测序列$O$</p>
 <p><strong>HMM中的三个问题:</strong></p>
 <ul>
-<li><p>概率计算问题:已知模型,求观测序列$O$出现的概率;前向后向算法</p>
-<script type="math/tex; mode=display">
-\begin{CD}
-初始状态分布   @>{\operatorname{转移概率}}>>  隐藏状态@>{\operatorname{转移概率}}>>隐藏状态&\;&\; &\cdots\\
-{}         @VV{\operatorname{发射概率}}V        @VV{\operatorname{发射概率}}V&\;        &\cdots\\
-&\;     &\;                          输出状态         &\;&\;                输出状态&\;&\; &\cdots
-\end{CD}</script></li>
+<li>概率计算问题:已知模型,求观测序列$O$出现的概率;前向后向算法<br><img src="/images/2019/9_8_ma.png"></li>
+</ul>
+<ul>
 <li><p>学习问题:已知观测序列,求模型参数,最大化$P(O|\lambda)$;鲍姆-韦尔奇(Baum-Welch)算法</p>
 <ul>
 <li><p>已知隐藏序列和观测序列(通过频数估计)</p>
@@ -70,7 +66,7 @@ B=[b_j(k)];b_j(k)=\frac{B_{jk}}{\sum_{s=1}^MB_{js}}</script><p>$C(i)$为所有�
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html" target="_blank" rel="noopener">https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html</a></p>
 <p>2.<a href="http://www.52nlp.cn/hmm-learn-best-practices-one-introduction" target="_blank" rel="noopener">http://www.52nlp.cn/hmm-learn-best-practices-one-introduction</a></p>
 <p>3.<a href="https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral</a></p>
-</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">Frey</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2019/基于统计的分词方法/">https://www.vhcffh.com/2019/基于统计的分词方法/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="https://www.vhcffh.com">Frey的博客</a>！</span></div></blockquote></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tags"></i><a href="/tags/分词/">分词</a><a href="/tags/统计学/">统计学</a></span></div></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="next" href="/2019/神经图灵机/">神经图灵机 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
+</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">Frey</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2019/基于统计的分词方法/">https://www.vhcffh.com/2019/基于统计的分词方法/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="https://www.vhcffh.com">Frey的博客</a>！</span></div></blockquote></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tags"></i><a href="/tags/分词/">分词</a><a href="/tags/统计学/">统计学</a></span></div></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2019/nvidia显卡驱动错误/">&lt; nvidia显卡驱动错误</a><a class="next" href="/2019/神经图灵机/">神经图灵机 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
 .v a { color: #0F9FB4; }
 .v a:hover { color: #216C73; }
 .v li { list-style: inherit; }

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.vhcffh.com/"/>
-  <updated>2019-09-08T10:44:55.023Z</updated>
+  <updated>2019-09-09T12:01:03.496Z</updated>
   <id>https://www.vhcffh.com/</id>
   
   <author>
@@ -17,13 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>nvidia显卡驱动错误</title>
+    <link href="https://www.vhcffh.com/2019/nvidia%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E9%94%99%E8%AF%AF/"/>
+    <id>https://www.vhcffh.com/2019/nvidia显卡驱动错误/</id>
+    <published>2019-09-09T11:40:03.000Z</published>
+    <updated>2019-09-09T12:01:03.496Z</updated>
+    
+    <content type="html"><![CDATA[<p>系统使用<code>bumblebee</code>实现双显卡(N卡和集成显卡)切换，<br>同时有N卡的开源驱动nouveau和专有显卡驱动nvidia</p><p>使用命令</p><pre><code class="lang-sh">optirun glxspheres64# 或者optirun glxspher</code></pre><p>出现错误<code>[XORG] (EE) Failed to load module &quot;nouveau&quot;</code><br>通过命令<code>lsmod |grep nouveau</code><br>显示模块已经加载</p><p>通过<code>/etc/modprobe.d/blacklist.conf</code>文件禁用<code>nouveau</code>(需要重建内核<code>mkinitcpio -P</code>并重启),但<code>nouveau</code>驱动仍然加载了，<code>nvidia</code>未加载</p><p>解决方法修改文件<code>/etc/bumblebee/xorg.conf.nouveau</code><br>去掉<code>BusID &quot;PCI:01:00:0&quot;</code>的注释<br><code>PCI:01:00:0</code>通过命令<code>lspci | egrep (3D|VGA)</code></p><p>重启后<code>nvidia</code>驱动加载成功,<code>nouveau</code>没有加载</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;系统使用&lt;code&gt;bumblebee&lt;/code&gt;实现双显卡(N卡和集成显卡)切换，&lt;br&gt;同时有N卡的开源驱动nouveau和专有显卡驱动nvidia&lt;/p&gt;
+&lt;p&gt;使用命令&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sh&quot;&gt;optirun glxspher
+      
+    
+    </summary>
+    
+      <category term="软件使用" scheme="https://www.vhcffh.com/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="Linux" scheme="https://www.vhcffh.com/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Linux/"/>
+    
+    
+      <category term="nvidia" scheme="https://www.vhcffh.com/tags/nvidia/"/>
+    
+      <category term="nouveau" scheme="https://www.vhcffh.com/tags/nouveau/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于统计的分词方法</title>
     <link href="https://www.vhcffh.com/2019/%E5%9F%BA%E4%BA%8E%E7%BB%9F%E8%AE%A1%E7%9A%84%E5%88%86%E8%AF%8D%E6%96%B9%E6%B3%95/"/>
     <id>https://www.vhcffh.com/2019/基于统计的分词方法/</id>
     <published>2019-09-08T10:26:38.000Z</published>
-    <updated>2019-09-08T10:44:55.023Z</updated>
+    <updated>2019-09-09T12:11:11.937Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1n元语言模型-n-gram"><a href="#1n元语言模型-n-gram" class="headerlink" title="1n元语言模型(n-gram)"></a>1n元语言模型(n-gram)</h2><p>假设$S$表示长度为$i$，由$(w_1,w_2,\dots,w_m)$字序列组成的句子，则代表$S$的概率为：</p><script type="math/tex; mode=display">P(S) = P(w_1,w_2,\dots,w_m) = P(w_1)*P(w_2|w_1)*P(w_3|w_2,w_1)\cdots P(w_i|w_1,w_2,\dots,w_{m-1})</script><ul><li><p>$n=1$,uni-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i)</script></li><li><p>$n=2$,bi-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-1})</script></li><li><p>$n=3$,tri-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-2}w_{i-1})</script></li></ul><h2 id="2-基于HMM的分词"><a href="#2-基于HMM的分词" class="headerlink" title="2.基于HMM的分词"></a>2.基于HMM的分词</h2><p><strong>HMM的参数</strong></p><p>观测序列(输出状态序列),状态序列(隐藏状态序列),初始概率,转移概率(转移概率矩阵),发射概率(发射概率矩阵)<br><img src="./images/2019/9_8_ma.png"><br><strong>数学定义</strong></p><p>状态值集合(隐藏状态):$Q=\{q_1,q_2,\cdots,q_N\}$,$N$为可能的状态数,对应状态序列$I$</p><p>观测值集合(输出状态):$V=\{v_1,v_2,\cdots,v_M\}$,$M$为可能的观测数,对应观测序列$O$</p><p>转移概率矩阵:$A=[a_{ij}];i,j\in\{1,2,\cdots,N\}$,从$i$状态到$j$状态的转换概率($\sum_{j=1}^Na_{ij}=1$)</p><p>发射概率矩阵(观测概率矩阵):$B=[b_j(k)];j\in\{1,2,\cdots,N\},k\in\{1,2,\cdots,M\}$,从状态$j$生成观测$k$的概率</p><p>初始状态分布:$\pi$</p><p>模型:$\lambda=(A,B,\lambda)$,状态序列$I$,观测序列$O$</p><p><strong>HMM中的三个问题:</strong></p><ul><li><p>概率计算问题:已知模型,求观测序列$O$出现的概率;前向后向算法</p><script type="math/tex; mode=display">\begin{CD}初始状态分布   @>{\operatorname{转移概率}}>>  隐藏状态@>{\operatorname{转移概率}}>>隐藏状态&\;&\; &\cdots\\{}         @VV{\operatorname{发射概率}}V        @VV{\operatorname{发射概率}}V&\;        &\cdots\\&\;     &\;                          输出状态         &\;&\;                输出状态&\;&\; &\cdots\end{CD}</script></li><li><p>学习问题:已知观测序列,求模型参数,最大化$P(O|\lambda)$;鲍姆-韦尔奇(Baum-Welch)算法</p><ul><li><p>已知隐藏序列和观测序列(通过频数估计)</p><p>$A_{ij}$表示隐藏状态$q_i$转移到$q_j$的频率计数</p><script type="math/tex; mode=display">A=[a_{ij}];a_{ij}=\frac{A_{ij}}{\sum_{s=1}^NA_{is}}</script><p>$B_{jk}$表示隐藏状态$q_j$转移到观测状态$v_k$的频率计数</p><script type="math/tex; mode=display">B=[b_j(k)];b_j(k)=\frac{B_{jk}}{\sum_{s=1}^MB_{js}}</script><p>$C(i)$为所有样本中初始隐藏状态$q_j$的频率计数</p><script type="math/tex; mode=display">\Pi = \pi(i)=\frac{C(i)}{\sum_{s=1}^NC(s)}</script></li><li><p>仅知观测序列(鲍姆-韦尔奇算法,EM算法)</p><p>EM算法:最大似然估计用于没有隐变量的概率模型,EM算法可以用于有隐变量的算法模型</p><p>模型参数:</p><script type="math/tex; mode=display">\overline{\lambda} = arg\;\max_{\lambda}\sum\limits_{I}P(I|O,\overline{\lambda})logP(O,I|\lambda)</script></li></ul></li></ul><ul><li>解码问题:已知模型$\lambda$与观测序列$O$,求状态序列$I$最大化$P(I|O)$;维特比(Viterbi)算法</li></ul><p>HMM是一种序列模型,不仅可以用到自然语言处理这个领域,其他领域的应用也很常见:<a href="http://tecdat.cn/%e7%94%a8%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e8%af%86%e5%88%ab%e4%b8%8d%e6%96%ad%e5%8f%98%e5%8c%96%e7%9a%84%e8%82%a1%e5%b8%82%e7%8a%b6%e5%86%b5-%e9%9a%90%e9%a9%ac%e5%b0%94%e7%a7%91%e5%a4%ab/" target="_blank" rel="noopener">股指预测</a>,<a href="https://www.jianshu.com/p/16fc3712fdf6" target="_blank" rel="noopener">语音识别</a>,<a href="http://www.c-a-m.org.cn/CN/abstract/abstract4637.shtml" target="_blank" rel="noopener">网络安全</a>,<a href="https://arxiv.org/abs/1901.06286" target="_blank" rel="noopener">基因序列</a>等方面</p><p>在自然语言处理中,HMM可以应用在分词,词性标注,命名实体识别等各个方面.</p><p>在分词方面可以这样理解HMM</p><p>观测序列(输出状态序列)—-序列构成的句子或短文</p><p>状态序列(隐藏状态序列)—-标注</p><p>初始概率—-统计的第一个字序的概率</p><p>转移概率(转移概率矩阵)—-第$i$个字序到第$i+1$个自序的标注变换概率</p><p>发射概率(发射概率矩阵)—-从隐藏状态到输出状态的转换概率</p><font color="red">如果把观测序列看作标注,状态序列看作句子,从解码问题转变成学习问题会怎样</font><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html" target="_blank" rel="noopener">https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html</a></p><p>2.<a href="http://www.52nlp.cn/hmm-learn-best-practices-one-introduction" target="_blank" rel="noopener">http://www.52nlp.cn/hmm-learn-best-practices-one-introduction</a></p><p>3.<a href="https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1n元语言模型-n-gram"><a href="#1n元语言模型-n-gram" class="headerlink" title="1n元语言模型(n-gram)"></a>1n元语言模型(n-gram)</h2><p>假设$S$表示长度为$i$，由$(w_1,w_2,\dots,w_m)$字序列组成的句子，则代表$S$的概率为：</p><script type="math/tex; mode=display">P(S) = P(w_1,w_2,\dots,w_m) = P(w_1)*P(w_2|w_1)*P(w_3|w_2,w_1)\cdots P(w_i|w_1,w_2,\dots,w_{m-1})</script><ul><li><p>$n=1$,uni-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i)</script></li><li><p>$n=2$,bi-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-1})</script></li><li><p>$n=3$,tri-gram</p><script type="math/tex; mode=display">P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-2}w_{i-1})</script></li></ul><h2 id="2-基于HMM的分词"><a href="#2-基于HMM的分词" class="headerlink" title="2.基于HMM的分词"></a>2.基于HMM的分词</h2><p><strong>HMM的参数</strong></p><p>观测序列(输出状态序列),状态序列(隐藏状态序列),初始概率,转移概率(转移概率矩阵),发射概率(发射概率矩阵)<br><img src="/images/2019/9_8_ma.png"><br><strong>数学定义</strong></p><p>状态值集合(隐藏状态):$Q=\{q_1,q_2,\cdots,q_N\}$,$N$为可能的状态数,对应状态序列$I$</p><p>观测值集合(输出状态):$V=\{v_1,v_2,\cdots,v_M\}$,$M$为可能的观测数,对应观测序列$O$</p><p>转移概率矩阵:$A=[a_{ij}];i,j\in\{1,2,\cdots,N\}$,从$i$状态到$j$状态的转换概率($\sum_{j=1}^Na_{ij}=1$)</p><p>发射概率矩阵(观测概率矩阵):$B=[b_j(k)];j\in\{1,2,\cdots,N\},k\in\{1,2,\cdots,M\}$,从状态$j$生成观测$k$的概率</p><p>初始状态分布:$\pi$</p><p>模型:$\lambda=(A,B,\lambda)$,状态序列$I$,观测序列$O$</p><p><strong>HMM中的三个问题:</strong></p><ul><li>概率计算问题:已知模型,求观测序列$O$出现的概率;前向后向算法<br><img src="/images/2019/9_8_ma.png"></li></ul><ul><li><p>学习问题:已知观测序列,求模型参数,最大化$P(O|\lambda)$;鲍姆-韦尔奇(Baum-Welch)算法</p><ul><li><p>已知隐藏序列和观测序列(通过频数估计)</p><p>$A_{ij}$表示隐藏状态$q_i$转移到$q_j$的频率计数</p><script type="math/tex; mode=display">A=[a_{ij}];a_{ij}=\frac{A_{ij}}{\sum_{s=1}^NA_{is}}</script><p>$B_{jk}$表示隐藏状态$q_j$转移到观测状态$v_k$的频率计数</p><script type="math/tex; mode=display">B=[b_j(k)];b_j(k)=\frac{B_{jk}}{\sum_{s=1}^MB_{js}}</script><p>$C(i)$为所有样本中初始隐藏状态$q_j$的频率计数</p><script type="math/tex; mode=display">\Pi = \pi(i)=\frac{C(i)}{\sum_{s=1}^NC(s)}</script></li><li><p>仅知观测序列(鲍姆-韦尔奇算法,EM算法)</p><p>EM算法:最大似然估计用于没有隐变量的概率模型,EM算法可以用于有隐变量的算法模型</p><p>模型参数:</p><script type="math/tex; mode=display">\overline{\lambda} = arg\;\max_{\lambda}\sum\limits_{I}P(I|O,\overline{\lambda})logP(O,I|\lambda)</script></li></ul></li></ul><ul><li>解码问题:已知模型$\lambda$与观测序列$O$,求状态序列$I$最大化$P(I|O)$;维特比(Viterbi)算法</li></ul><p>HMM是一种序列模型,不仅可以用到自然语言处理这个领域,其他领域的应用也很常见:<a href="http://tecdat.cn/%e7%94%a8%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e8%af%86%e5%88%ab%e4%b8%8d%e6%96%ad%e5%8f%98%e5%8c%96%e7%9a%84%e8%82%a1%e5%b8%82%e7%8a%b6%e5%86%b5-%e9%9a%90%e9%a9%ac%e5%b0%94%e7%a7%91%e5%a4%ab/" target="_blank" rel="noopener">股指预测</a>,<a href="https://www.jianshu.com/p/16fc3712fdf6" target="_blank" rel="noopener">语音识别</a>,<a href="http://www.c-a-m.org.cn/CN/abstract/abstract4637.shtml" target="_blank" rel="noopener">网络安全</a>,<a href="https://arxiv.org/abs/1901.06286" target="_blank" rel="noopener">基因序列</a>等方面</p><p>在自然语言处理中,HMM可以应用在分词,词性标注,命名实体识别等各个方面.</p><p>在分词方面可以这样理解HMM</p><p>观测序列(输出状态序列)—-序列构成的句子或短文</p><p>状态序列(隐藏状态序列)—-标注</p><p>初始概率—-统计的第一个字序的概率</p><p>转移概率(转移概率矩阵)—-第$i$个字序到第$i+1$个自序的标注变换概率</p><p>发射概率(发射概率矩阵)—-从隐藏状态到输出状态的转换概率</p><font color="red">如果把观测序列看作标注,状态序列看作句子,从解码问题转变成学习问题会怎样</font><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1.<a href="https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html" target="_blank" rel="noopener">https://www.cnblogs.com/hiyoung/archive/2018/09/25/9703976.html</a></p><p>2.<a href="http://www.52nlp.cn/hmm-learn-best-practices-one-introduction" target="_blank" rel="noopener">http://www.52nlp.cn/hmm-learn-best-practices-one-introduction</a></p><p>3.<a href="https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/en-heng/p/6164145.html?utm_source=debugrun&amp;utm_medium=referral</a></p>]]></content>
     
     <summary type="html">
     
@@ -532,33 +563,6 @@ g_t = \nabla_\theta J(\theta_{t-1})&lt;/script&gt;
     
     
       <category term="linux" scheme="https://www.vhcffh.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UML图介绍</title>
-    <link href="https://www.vhcffh.com/2019/UML%E5%9B%BE%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://www.vhcffh.com/2019/UML图介绍/</id>
-    <published>2019-04-21T13:02:47.000Z</published>
-    <updated>2019-08-20T10:17:04.444Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-用例视图"><a href="#1-用例视图" class="headerlink" title="1.用例视图"></a>1.用例视图</h2><h2 id="1-1用例图"><a href="#1-1用例图" class="headerlink" title="1.1用例图"></a>1.1用例图</h2><p>描述角色以及角色与用例之间的连接关系。说明的是谁要使用系统，以及他们使用该系统可以做些什么。</p><h2 id="2设计视图"><a href="#2设计视图" class="headerlink" title="2设计视图"></a>2设计视图</h2><h3 id="2-1类图"><a href="#2-1类图" class="headerlink" title="2.1类图"></a>2.1类图</h3><p>根据用例图抽象成类，描述类的内部结构和类与类之间的关系，是一种静态结构图。 在UML类图中，常见的有以下几种关系: 泛化（Generalization）,  实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)。</p><p>类图是描述系统中的类，以及各个类之间的关系的静态视图。能够让我们在正确编写代码以前对系统有一个全面的认识。类图是一种模型类型，确切的说，是一种静态模型类型。</p><h3 id="2-2对象图"><a href="#2-2对象图" class="headerlink" title="2.2对象图"></a>2.2对象图</h3><p>描述的是参与交互的各个对象在交互过程中某一时刻的状态。对象图可以被看作是类图在某一时刻的实例。</p><p>与类图极为相似，它是类图的实例，对象图显示类的多个对象实例，而不是实际的类。它描述的不是类之间的关系，而是对象之间的关系。</p><h2 id="3-进程视图"><a href="#3-进程视图" class="headerlink" title="3.进程视图"></a>3.进程视图</h2><h3 id="3-1序列图（顺序图）"><a href="#3-1序列图（顺序图）" class="headerlink" title="3.1序列图（顺序图）"></a>3.1序列图（顺序图）</h3><p>交互图的一种，描述了对象之间消息发送的先后顺序，强调时间顺序。</p><p>序列图是用来显示你的参与者如何以一系列顺序的步骤与系统的对象交互的模型。顺序图可以用来展示对象之间是如何进行交互的。顺序图将显示的重点放在消息序列上，即强调消息是如何在对象之间被发送和接收的。</p><h3 id="3-2协作图"><a href="#3-2协作图" class="headerlink" title="3.2协作图"></a>3.2协作图</h3><p>交互图的一种，描述了收发消息的对象的组织关系，强调对象之间的合作关系。时序图按照时间顺序布图，而写作图按照空间结构布图</p><p>和序列图相似，显示对象间的动态合作关系。可以看成是类图和顺序图的交集，协作图建模对象或者角色，以及它们彼此之间是如何通信的。如果强调时间和顺序，则使用序列图；如果强调上下级关系，则选择协作图；这两种图合称为交互图。</p><h3 id="3-3状态图"><a href="#3-3状态图" class="headerlink" title="3.3状态图"></a>3.3状态图</h3><p>是一种由状态、变迁、事件和活动组成的状态机，用来描述类的对象所有可能的状态以及时间发生时状态的转移条件。</p><p>描述类的对象所有可能的状态，以及事件发生时状态的转移条件。可以捕获对象、子系统和系统的生命周期。他们可以告知一个对象可以拥有的状态，并且事件(如消息的接收、时间的流逝、错误、条件变为真等)会怎么随着时间的推移来影响这些状态。一个状态图应该连接到所有具有清晰的可标识状态和复杂行为的类；该图可以确定类的行为，以及该行为如何根据当前的状态变化，也可以展示哪些事件将会改变类的对象的状态。状态图是对类图的补充。</p><h3 id="3-4活动图"><a href="#3-4活动图" class="headerlink" title="3.4活动图"></a>3.4活动图</h3><p>是状态图的一种特殊情况，这些状态大都处于活动状态。本质是一种流程图，它描述了活动到活动的控制流。</p><p>描述用例要求所要进行的活动，以及活动间的约束关系，有利于识别并行活动。能够演示出系统中哪些地方存在功能</p><h2 id="4-实现视图"><a href="#4-实现视图" class="headerlink" title="4.实现视图"></a>4.实现视图</h2><h3 id="4-1构件图-（组件图）"><a href="#4-1构件图-（组件图）" class="headerlink" title="4.1构件图 （组件图）"></a>4.1构件图 （组件图）</h3><p>描述代码构件的物理结构以及各种构建之间的依赖关系。用来建模软件的组件及其相互之间的关系，这些图由构件标记符和构件之间的关系构成。在组件图中，构件时软件单个组成部分，它可以是一个文件，产品、可执行文件和脚本等。</p><h2 id="5-拓扑视图"><a href="#5-拓扑视图" class="headerlink" title="5.拓扑视图"></a>5.拓扑视图</h2><h3 id="5-1部署图"><a href="#5-1部署图" class="headerlink" title="5.1部署图"></a>5.1部署图</h3><p>是用来建模系统的物理部署。例如计算机和设备，以及它们之间是如何连接的。部署图的使用者是开发人员、系统集成人员和测试人员。</p><h2 id="6-软件设计及过程"><a href="#6-软件设计及过程" class="headerlink" title="6.软件设计及过程"></a>6.软件设计及过程</h2><p>在需求阶段：采用用例图来描述需求<br>在分析阶段：采用类图来描述静态结构<br>在设计阶段：采用类图、包图对类的接口进行设计<br>在实现阶段：将类用某个面向对象的语言实现<br>在集成与交付阶段：构件图、包图、部署图<br>在测试阶段：单元测试使用类图和类的规格说明书<br>                     集成测试阶段使用类图、包图、构件图和合作图<br>                     系统测试使用用例图来测试系统功能</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-用例视图&quot;&gt;&lt;a href=&quot;#1-用例视图&quot; class=&quot;headerlink&quot; title=&quot;1.用例视图&quot;&gt;&lt;/a&gt;1.用例视图&lt;/h2&gt;&lt;h2 id=&quot;1-1用例图&quot;&gt;&lt;a href=&quot;#1-1用例图&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="知识" scheme="https://www.vhcffh.com/categories/%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="UML" scheme="https://www.vhcffh.com/tags/UML/"/>
-    
-      <category term="软件设计" scheme="https://www.vhcffh.com/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
