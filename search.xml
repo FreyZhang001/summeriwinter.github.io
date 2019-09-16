@@ -141,33 +141,6 @@
     
     
     <entry>
-      <title>记一次GRUB引导修复</title>
-      <link href="/2019/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/"/>
-      <url>/2019/%E8%AE%B0%E4%B8%80%E6%AC%A1GRUB%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D/</url>
-      
-        <content type="html"><![CDATA[<p>使用Arch Linux已经2年多了，基本上已经习惯了，可前段时间英雄联盟也出了“自走棋”，想要体验一把。<br>于是就在硬盘剩余的60多个G上装了Windows 10，用了一两个月没有问题，最后再一次Windows 10更新后，蓝屏了。又手惨的点了Windows 的修复功能。等了半天，结果是修复，重启，蓝屏无限循环。而且Arch Linux的引导全都没了，感激应该是Windows的修复动了efi分区。<br>无奈只能新修复引导，各种方法尝试了好多边都是卡在了<code>GRUB _</code>一直闪这个状态，最终在官网wiki找到了办法<br><a href="https://wiki.archlinux.org/index.php/GRUB_#Default/fallback_boot_path" target="_blank" rel="noopener">缺省/后备启动路径</a><br>grub 安装时添加<code>--removable</code>参数</p><pre><code class="lang-sh">grub-install --target=x86_64-efi --efi-directory=esp --removable</code></pre><p>或者手动移动</p><pre><code class="lang-sh">mv esp/EFI/grub esp/EFI/BOOTmv esp/EFI/BOOT/grubx64.efi esp/EFI/BOOT/BOOTX64.EFI</code></pre><p>grub出现bug的原因应该会千奇百怪，不要尽可能多的尝试网上的各种修改方法。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> grub </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>深度学习在中文分词和词性标注中的应用</title>
       <link href="/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
       <url>/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
@@ -777,27 +750,6 @@
     
     
     <entry>
-      <title>python类和实例的一些属性</title>
-      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
-      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>python中关于路径的知识</title>
       <link href="/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/"/>
       <url>/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/</url>
@@ -819,6 +771,27 @@
             <tag> 路径 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python类和实例的一些属性</title>
+      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
+      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
       
     </entry>
     
@@ -935,33 +908,6 @@
     
     
     <entry>
-      <title>python遇到的错误</title>
-      <link href="/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/"/>
-      <url>/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/</url>
-      
-        <content type="html"><![CDATA[<p>python使用在中遇到的错误</p><h3 id="1-DLL-load-failed"><a href="#1-DLL-load-failed" class="headerlink" title="1.DLL load failed"></a>1.DLL load failed</h3><p><font color="red">python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序</font><br>解决方法：去下载与你所安装的Python版本对应的pywin32并安装<br>下载链接：<a href="https://sourceforge.net/projects/pywin32/files/pywin32/" target="_blank" rel="noopener">https://sourceforge.net/projects/pywin32/files/pywin32/</a><br>对应版本和位数<br>Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 bit (Intel)] on win32<br>Type “help”, “copyright”, “credits” or “license” for more information.<br>还有一种可能是导入的模块是64位的，而你的python是32位的  </p><h3 id="2-使用libsvm-for-python时出错-1"><a href="#2-使用libsvm-for-python时出错-1" class="headerlink" title="2.使用libsvm for python时出错[1]"></a>2.使用libsvm for python时出错[1]</h3><pre><code class="lang-shell">Traceback (most recent call last):  File &quot;C:\Python36\lib\libsvm\python\svm.py&quot;, line 28, in &lt;module&gt;    libsvm = CDLL(path.join(dirname, r&#39;..\windows\libsvm.dll&#39;))  File &quot;C:\Python36\lib\ctypes\__init__.py&quot;, line 348, in __init__    self._handle = _dlopen(self._name, mode)OSError: [WinError 126] 找不到指定的模块。During handling of the above exception, another exception occurred:Traceback (most recent call last):  File &quot;train.py&quot;, line 3, in &lt;module&gt;    from libsvm.python.svmutil import *  File &quot;C:\Python36\lib\libsvm\python\svmutil.py&quot;, line 5, in &lt;module&gt;    from svm import *  File &quot;C:\Python36\lib\libsvm\python\svm.py&quot;, line 38, in &lt;module&gt;    raise Exception(&#39;LIBSVM library not found.&#39;)Exception: LIBSVM library not found.</code></pre><p>出错原因：在github上下载的libsvm中的libsvm.lib是win64版本的，而自己的python版本是32位的<br>解决方案：<br>方法1.更换python版本（太麻烦了，还要重新下载好多库）<br>方法2.去<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">万能宝库</a>上下载对应版本的.whl文件，（不用安装）直接解压后找到<a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl" target="_blank" rel="noopener">libsvm.lib</a>更换即可<br>2018-09-07 22:11:58</p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1.<a href="https://blog.csdn.net/rena521/article/details/51187981" target="_blank" rel="noopener">https://blog.csdn.net/rena521/article/details/51187981</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> libsvm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>位运算的妙用之二进制1的个数</title>
       <link href="/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
       <url>/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
@@ -981,6 +927,33 @@
         <tags>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python遇到的错误</title>
+      <link href="/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/"/>
+      <url>/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/</url>
+      
+        <content type="html"><![CDATA[<p>python使用在中遇到的错误</p><h3 id="1-DLL-load-failed"><a href="#1-DLL-load-failed" class="headerlink" title="1.DLL load failed"></a>1.DLL load failed</h3><p><font color="red">python ImportError: DLL load failed: %1 不是有效的 Win32 应用程序</font><br>解决方法：去下载与你所安装的Python版本对应的pywin32并安装<br>下载链接：<a href="https://sourceforge.net/projects/pywin32/files/pywin32/" target="_blank" rel="noopener">https://sourceforge.net/projects/pywin32/files/pywin32/</a><br>对应版本和位数<br>Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 bit (Intel)] on win32<br>Type “help”, “copyright”, “credits” or “license” for more information.<br>还有一种可能是导入的模块是64位的，而你的python是32位的  </p><h3 id="2-使用libsvm-for-python时出错-1"><a href="#2-使用libsvm-for-python时出错-1" class="headerlink" title="2.使用libsvm for python时出错[1]"></a>2.使用libsvm for python时出错[1]</h3><pre><code class="lang-shell">Traceback (most recent call last):  File &quot;C:\Python36\lib\libsvm\python\svm.py&quot;, line 28, in &lt;module&gt;    libsvm = CDLL(path.join(dirname, r&#39;..\windows\libsvm.dll&#39;))  File &quot;C:\Python36\lib\ctypes\__init__.py&quot;, line 348, in __init__    self._handle = _dlopen(self._name, mode)OSError: [WinError 126] 找不到指定的模块。During handling of the above exception, another exception occurred:Traceback (most recent call last):  File &quot;train.py&quot;, line 3, in &lt;module&gt;    from libsvm.python.svmutil import *  File &quot;C:\Python36\lib\libsvm\python\svmutil.py&quot;, line 5, in &lt;module&gt;    from svm import *  File &quot;C:\Python36\lib\libsvm\python\svm.py&quot;, line 38, in &lt;module&gt;    raise Exception(&#39;LIBSVM library not found.&#39;)Exception: LIBSVM library not found.</code></pre><p>出错原因：在github上下载的libsvm中的libsvm.lib是win64版本的，而自己的python版本是32位的<br>解决方案：<br>方法1.更换python版本（太麻烦了，还要重新下载好多库）<br>方法2.去<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">万能宝库</a>上下载对应版本的.whl文件，（不用安装）直接解压后找到<a href="https://download.lfd.uci.edu/pythonlibs/o4uhg4xd/libsvm-3.22-cp27-cp27m-win32.whl" target="_blank" rel="noopener">libsvm.lib</a>更换即可<br>2018-09-07 22:11:58</p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1.<a href="https://blog.csdn.net/rena521/article/details/51187981" target="_blank" rel="noopener">https://blog.csdn.net/rena521/article/details/51187981</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> libsvm </tag>
             
         </tags>
       
@@ -1016,31 +989,6 @@
     
     
     <entry>
-      <title>sublime_Text3插入当前时间</title>
-      <link href="/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/"/>
-      <url>/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/</url>
-      
-        <content type="html"><![CDATA[<p>sublime_Text3插入当前时间</p><h3 id="1-创建新snippet"><a href="#1-创建新snippet" class="headerlink" title="1.创建新snippet"></a>1.创建新snippet</h3><p>tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):<br>其内容:  </p><pre><code class="lang-xml">&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[/** * ============================ * @Author:   XX * @Version:  1.0  * @DateTime: ${1:alt+t} * ============================ */]]&gt;&lt;/content&gt;    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;    &lt;tabTrigger&gt;author&lt;/tabTrigger&gt;    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;&lt;/snippet&gt;</code></pre><h3 id="2-创建新插件"><a href="#2-创建新插件" class="headerlink" title="2.创建新插件"></a>2.创建新插件</h3><p>Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:<br>其内容为:  </p><pre><code class="lang-python">import sublime, sublime_pluginimport datetimeclass AddCurrentTimeCommand(sublime_plugin.TextCommand):    def run(self, edit):        self.view.run_command(&quot;insert_snippet&quot;,             {                &quot;contents&quot;: &quot;%s&quot; % datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)             }        )</code></pre><h3 id="3-绑定快捷键"><a href="#3-绑定快捷键" class="headerlink" title="3.绑定快捷键"></a>3.绑定快捷键</h3><p>Preference → Key Bindings → User.绑定快捷键:  </p><pre><code>[    {        &quot;command&quot;: &quot;add_current_time&quot;,        &quot;keys&quot;: [            &quot;alt+t&quot;        ]    }]</code></pre><p>其中绑定的命令的名字是由所创建的插件的类名而来<br>AddCurrentTimeCommand—&gt;add_current_time<br>这应该是Sublime创建插件的规则  </p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1,<a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaomingzaixian/p/6984664.html</a><br>2,<a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551" target="_blank" rel="noopener">http://blog.csdn.net/sshfl_csdn/article/details/46415551</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> sublime </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>字符串匹配</title>
       <link href="/2017/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/"/>
       <url>/2017/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</url>
@@ -1060,6 +1008,31 @@
         <tags>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sublime_Text3插入当前时间</title>
+      <link href="/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/"/>
+      <url>/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<p>sublime_Text3插入当前时间</p><h3 id="1-创建新snippet"><a href="#1-创建新snippet" class="headerlink" title="1.创建新snippet"></a>1.创建新snippet</h3><p>tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):<br>其内容:  </p><pre><code class="lang-xml">&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[/** * ============================ * @Author:   XX * @Version:  1.0  * @DateTime: ${1:alt+t} * ============================ */]]&gt;&lt;/content&gt;    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;    &lt;tabTrigger&gt;author&lt;/tabTrigger&gt;    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;&lt;/snippet&gt;</code></pre><h3 id="2-创建新插件"><a href="#2-创建新插件" class="headerlink" title="2.创建新插件"></a>2.创建新插件</h3><p>Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:<br>其内容为:  </p><pre><code class="lang-python">import sublime, sublime_pluginimport datetimeclass AddCurrentTimeCommand(sublime_plugin.TextCommand):    def run(self, edit):        self.view.run_command(&quot;insert_snippet&quot;,             {                &quot;contents&quot;: &quot;%s&quot; % datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)             }        )</code></pre><h3 id="3-绑定快捷键"><a href="#3-绑定快捷键" class="headerlink" title="3.绑定快捷键"></a>3.绑定快捷键</h3><p>Preference → Key Bindings → User.绑定快捷键:  </p><pre><code>[    {        &quot;command&quot;: &quot;add_current_time&quot;,        &quot;keys&quot;: [            &quot;alt+t&quot;        ]    }]</code></pre><p>其中绑定的命令的名字是由所创建的插件的类名而来<br>AddCurrentTimeCommand—&gt;add_current_time<br>这应该是Sublime创建插件的规则  </p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1,<a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaomingzaixian/p/6984664.html</a><br>2,<a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551" target="_blank" rel="noopener">http://blog.csdn.net/sshfl_csdn/article/details/46415551</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sublime </tag>
             
         </tags>
       
@@ -1122,37 +1095,6 @@
     
     
     <entry>
-      <title>VC6聊天室程序设计</title>
-      <link href="/2017/VC6%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-      <url>/2017/VC6%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
-      
-        <content type="html"><![CDATA[<p>了解了C语言多线程的实例和简单的TCP通信，来编写一个简单的聊天室<br>曾经java实现的聊天室程序在这里</p><h3 id="1-客户端程序"><a href="#1-客户端程序" class="headerlink" title="1.客户端程序"></a>1.客户端程序</h3><p>客户端需要两个线程，主线程接受用户输入并发送到服务器<br>另一个线程监听服务器发来的消息，显示在屏幕上  </p><pre><code class="lang-c">#include &quot;winsock2.h&quot;#include &quot;stdio.h&quot;#define SERVER_IP   &quot;10.80.167.248&quot;#define SERVER_PORP 8884//blog:vhcffh.com//author:FreyDWORD WINAPI ThreadFun(LPVOID pM)  {       SOCKET sockClient=*(SOCKET *)pM;    char recvInfo[100];    while(1)    {        if(recv(sockClient,recvInfo,100,0)&gt;0)        {            printf(&quot;%s&quot;,recvInfo);        }    }    return 0;}void main(){    //加载套接字库    WORD wVersionRequested;    WSADATA wsaData;    int err;    wVersionRequested = MAKEWORD( 1, 1 ); //版本好为1.1    err = WSAStartup( wVersionRequested, &amp;wsaData );    if ( err != 0 ) {        return;    }    if ( LOBYTE( wsaData.wVersion ) != 1 ||    HIBYTE( wsaData.wVersion ) != 1 ) {        WSACleanup( );        return;    }    SOCKET sockClient=socket(AF_INET,SOCK_STREAM,0); //SOCK_STREAM参数设置为TCP连接    SOCKADDR_IN addrServer; //服务器地址结构    addrServer.sin_addr.S_un.S_addr=inet_addr(SERVER_IP); //服务器地址    addrServer.sin_port=htons(SERVER_PORP); //服务器端口号    addrServer.sin_family=AF_INET;    //与服务器端建立连接，进行通信    char name[100];    printf(&quot;请输入姓名:&quot;);    scanf(&quot;%s&quot;,name);    int connReult=connect(sockClient,(SOCKADDR*)&amp;addrServer,sizeof(SOCKADDR));    if(connReult!=WSAEADDRNOTAVAIL) //访问成功    {        CreateThread(NULL, 0, ThreadFun, (void *)&amp;sockClient, 0, NULL);         printf(&quot;连接成功\n&quot;);        //成功建立连接后向服务器端发送数据，结果将显示在服务器端上        char sendInfo[100];        sprintf(sendInfo,name);        send(sockClient,sendInfo,strlen(sendInfo)+1,0);        //接收来自服务器端发送来的信息        //char recvInfo[100];        //recv(sockClient,recvInfo,100,0);        //printf(&quot;%s\n&quot;,recvInfo);        while(1)        {            scanf(&quot;%s&quot;,sendInfo);            send(sockClient,sendInfo,strlen(sendInfo)+1,0);        }    }    else    {        int errCode=WSAGetLastError();        printf(&quot;the errcode is:%d\n&quot;,errCode);    }    closesocket(sockClient);    WSACleanup();}</code></pre><h3 id="2-服务器程序"><a href="#2-服务器程序" class="headerlink" title="2.服务器程序"></a>2.服务器程序</h3><p>用一个链表来存储用户的套接字和姓名<br>主线程监听用户的连接，每当有新用户连接，将其信息加入链表，并传入第二个线程<br>第二个线程接受客户端发来的信息，并将信息传入第三个线程<br>第三个线程从链表中读取用户套接字，将接到的信息转发给所有在线用户  </p><pre><code class="lang-c">#include &quot;winsock2.h&quot;#include &quot;stdio.h&quot;#include &lt;windows.h&gt;//blog:zfblog.xyz//author:Frey#define SERVER_PORP 8884struct client_info{    SOCKET sockConn;    char name[100];    client_info *next;};//存放每一个用户的信息client_info * C_info_head;DWORD WINAPI Threadmes(LPVOID pM){    char sendInfo[100];    sprintf(sendInfo,(char *)pM);    for(int i=0;i&lt;=c_info_num;i++){        SOCKET sockConn=C_info[i].sockConn;        //if(C_info[i].num!=-1){        send(sockConn,sendInfo,strlen(sendInfo)+1,0);        //}    }    return 0;}//将某条消息群发给所有客户端void sendmessage(char *message){    CreateThread(NULL, 0, Threadmes, (void *)message, 0, NULL);}//接收每个用户的信息DWORD WINAPI ThreadFun(LPVOID pM)  {       client_info c_info = *(client_info *)pM;    SOCKET sockConn=c_info.sockConn;    char sendInfo[100];    //inet_ntoa将结构转换为十进制的IP地址字符串    //sprintf(sendInfo,&quot;welcome %s to this Server!&quot;,inet_ntoa(addrClient.sin_addr));    //成功建立连接后向客户端发送数据，结果将显示在客户端上    //send(sockConn,sendInfo,strlen(sendInfo)+1,0);    //从客户端接收数据，结果显示在服务器上    char recvInfo[100];    recv(sockConn,recvInfo,100,0);    sprintf(c_info.name,recvInfo);    printf(&quot;欢迎%s进入聊天室\n&quot;,recvInfo);    sprintf(sendInfo,&quot;欢迎%s进入聊天室\n&quot;,recvInfo);    sendmessage(sendInfo);    while(1)    {           if(recv(sockConn,recvInfo,100,0)&lt;0)            break;        printf(&quot;[%s]:%s\n&quot;,c_info.name,recvInfo);        sprintf(sendInfo,&quot;[%s]:%s\n&quot;,c_info.name,recvInfo);        sendmessage(sendInfo);    }    //将本次建立连接中得到套接字关闭    closesocket(sockConn);    return 0;}void main(){    //加载套接字（winsock）库，加载这段代码拷贝于MSDN中WSAStartup的介绍    WORD wVersionRequested;    WSADATA wsaData;    int err;    wVersionRequested = MAKEWORD( 1, 1 ); //版本号为1.1    err = WSAStartup( wVersionRequested, &amp;wsaData );    if ( err != 0 ) {        return;    }    if ( LOBYTE( wsaData.wVersion ) != 1 ||    HIBYTE( wsaData.wVersion ) != 1 ) {        WSACleanup( );        return;    }    //消息存储及发送    //----------------------------------------------------    //创建套接字    SOCKET sockServer=socket(AF_INET,SOCK_STREAM,0); //SOCK_STREAM参数设置为TCP连接    SOCKADDR_IN addrServer; //设置服务器端套接字的相关属性    addrServer.sin_addr.S_un.S_addr=htonl(INADDR_ANY); //设置IP    addrServer.sin_family=AF_INET;    addrServer.sin_port=htons(SERVER_PORP); //设置端口号    //将套接字绑定到本地地址和指定端口上    bind(sockServer,(SOCKADDR*)&amp;addrServer,sizeof(SOCKADDR));    //将套接字设置为监听模式，并将最大请求连接数设置成5，超过此数的请求全部作废    listen(sockServer,5);    SOCKADDR_IN addrClient; //用来接收客户端的设置，包括IP和端口    int len=sizeof(SOCKADDR);    while(1) //不断监听    {        //得到创建连接后的一个新的套接字，用来和客户端进行沟通，原套接字继续监听客户的连接请求        SOCKET sockConn=accept(sockServer,(SOCKADDR*)&amp;addrClient,&amp;len);        if(sockConn!=INVALID_SOCKET) //创建成功        {               c_info_num++;            C_info[c_info_num].num=c_info_num;            C_info[c_info_num].sockConn=sockConn;            CreateThread(NULL, 0, ThreadFun, (void *)&amp;C_info[c_info_num], 0, NULL);         }        else        {            int errCode=WSAGetLastError();            printf(&quot;the errcode is:%d\n&quot;,errCode);        }    }    //如果本程序不是死循环，那么在此处还应添加以下代码：    closesocket(sockServer); //对一直处于监听状态的套接字进行关闭    WSACleanup(); //终止对winsocket库的使用}</code></pre><p><font color="red">未完成的问题</font><br>用户离线时出现bug<br>全部代码:<a href="https://github.com/summerIwinter/Chatroom" target="_blank" rel="noopener">https://github.com/summerIwinter/Chatroom</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> C语言 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C语言 </tag>
-            
-            <tag> TCP </tag>
-            
-            <tag> 聊天室 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>C实现简单TCP通信</title>
       <link href="/2017/C%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95TCP%E9%80%9A%E4%BF%A1/"/>
       <url>/2017/C%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95TCP%E9%80%9A%E4%BF%A1/</url>
@@ -1176,6 +1118,37 @@
             <tag> TCP </tag>
             
             <tag> 套接字 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VC6聊天室程序设计</title>
+      <link href="/2017/VC6%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <url>/2017/VC6%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<p>了解了C语言多线程的实例和简单的TCP通信，来编写一个简单的聊天室<br>曾经java实现的聊天室程序在这里</p><h3 id="1-客户端程序"><a href="#1-客户端程序" class="headerlink" title="1.客户端程序"></a>1.客户端程序</h3><p>客户端需要两个线程，主线程接受用户输入并发送到服务器<br>另一个线程监听服务器发来的消息，显示在屏幕上  </p><pre><code class="lang-c">#include &quot;winsock2.h&quot;#include &quot;stdio.h&quot;#define SERVER_IP   &quot;10.80.167.248&quot;#define SERVER_PORP 8884//blog:vhcffh.com//author:FreyDWORD WINAPI ThreadFun(LPVOID pM)  {       SOCKET sockClient=*(SOCKET *)pM;    char recvInfo[100];    while(1)    {        if(recv(sockClient,recvInfo,100,0)&gt;0)        {            printf(&quot;%s&quot;,recvInfo);        }    }    return 0;}void main(){    //加载套接字库    WORD wVersionRequested;    WSADATA wsaData;    int err;    wVersionRequested = MAKEWORD( 1, 1 ); //版本好为1.1    err = WSAStartup( wVersionRequested, &amp;wsaData );    if ( err != 0 ) {        return;    }    if ( LOBYTE( wsaData.wVersion ) != 1 ||    HIBYTE( wsaData.wVersion ) != 1 ) {        WSACleanup( );        return;    }    SOCKET sockClient=socket(AF_INET,SOCK_STREAM,0); //SOCK_STREAM参数设置为TCP连接    SOCKADDR_IN addrServer; //服务器地址结构    addrServer.sin_addr.S_un.S_addr=inet_addr(SERVER_IP); //服务器地址    addrServer.sin_port=htons(SERVER_PORP); //服务器端口号    addrServer.sin_family=AF_INET;    //与服务器端建立连接，进行通信    char name[100];    printf(&quot;请输入姓名:&quot;);    scanf(&quot;%s&quot;,name);    int connReult=connect(sockClient,(SOCKADDR*)&amp;addrServer,sizeof(SOCKADDR));    if(connReult!=WSAEADDRNOTAVAIL) //访问成功    {        CreateThread(NULL, 0, ThreadFun, (void *)&amp;sockClient, 0, NULL);         printf(&quot;连接成功\n&quot;);        //成功建立连接后向服务器端发送数据，结果将显示在服务器端上        char sendInfo[100];        sprintf(sendInfo,name);        send(sockClient,sendInfo,strlen(sendInfo)+1,0);        //接收来自服务器端发送来的信息        //char recvInfo[100];        //recv(sockClient,recvInfo,100,0);        //printf(&quot;%s\n&quot;,recvInfo);        while(1)        {            scanf(&quot;%s&quot;,sendInfo);            send(sockClient,sendInfo,strlen(sendInfo)+1,0);        }    }    else    {        int errCode=WSAGetLastError();        printf(&quot;the errcode is:%d\n&quot;,errCode);    }    closesocket(sockClient);    WSACleanup();}</code></pre><h3 id="2-服务器程序"><a href="#2-服务器程序" class="headerlink" title="2.服务器程序"></a>2.服务器程序</h3><p>用一个链表来存储用户的套接字和姓名<br>主线程监听用户的连接，每当有新用户连接，将其信息加入链表，并传入第二个线程<br>第二个线程接受客户端发来的信息，并将信息传入第三个线程<br>第三个线程从链表中读取用户套接字，将接到的信息转发给所有在线用户  </p><pre><code class="lang-c">#include &quot;winsock2.h&quot;#include &quot;stdio.h&quot;#include &lt;windows.h&gt;//blog:zfblog.xyz//author:Frey#define SERVER_PORP 8884struct client_info{    SOCKET sockConn;    char name[100];    client_info *next;};//存放每一个用户的信息client_info * C_info_head;DWORD WINAPI Threadmes(LPVOID pM){    char sendInfo[100];    sprintf(sendInfo,(char *)pM);    for(int i=0;i&lt;=c_info_num;i++){        SOCKET sockConn=C_info[i].sockConn;        //if(C_info[i].num!=-1){        send(sockConn,sendInfo,strlen(sendInfo)+1,0);        //}    }    return 0;}//将某条消息群发给所有客户端void sendmessage(char *message){    CreateThread(NULL, 0, Threadmes, (void *)message, 0, NULL);}//接收每个用户的信息DWORD WINAPI ThreadFun(LPVOID pM)  {       client_info c_info = *(client_info *)pM;    SOCKET sockConn=c_info.sockConn;    char sendInfo[100];    //inet_ntoa将结构转换为十进制的IP地址字符串    //sprintf(sendInfo,&quot;welcome %s to this Server!&quot;,inet_ntoa(addrClient.sin_addr));    //成功建立连接后向客户端发送数据，结果将显示在客户端上    //send(sockConn,sendInfo,strlen(sendInfo)+1,0);    //从客户端接收数据，结果显示在服务器上    char recvInfo[100];    recv(sockConn,recvInfo,100,0);    sprintf(c_info.name,recvInfo);    printf(&quot;欢迎%s进入聊天室\n&quot;,recvInfo);    sprintf(sendInfo,&quot;欢迎%s进入聊天室\n&quot;,recvInfo);    sendmessage(sendInfo);    while(1)    {           if(recv(sockConn,recvInfo,100,0)&lt;0)            break;        printf(&quot;[%s]:%s\n&quot;,c_info.name,recvInfo);        sprintf(sendInfo,&quot;[%s]:%s\n&quot;,c_info.name,recvInfo);        sendmessage(sendInfo);    }    //将本次建立连接中得到套接字关闭    closesocket(sockConn);    return 0;}void main(){    //加载套接字（winsock）库，加载这段代码拷贝于MSDN中WSAStartup的介绍    WORD wVersionRequested;    WSADATA wsaData;    int err;    wVersionRequested = MAKEWORD( 1, 1 ); //版本号为1.1    err = WSAStartup( wVersionRequested, &amp;wsaData );    if ( err != 0 ) {        return;    }    if ( LOBYTE( wsaData.wVersion ) != 1 ||    HIBYTE( wsaData.wVersion ) != 1 ) {        WSACleanup( );        return;    }    //消息存储及发送    //----------------------------------------------------    //创建套接字    SOCKET sockServer=socket(AF_INET,SOCK_STREAM,0); //SOCK_STREAM参数设置为TCP连接    SOCKADDR_IN addrServer; //设置服务器端套接字的相关属性    addrServer.sin_addr.S_un.S_addr=htonl(INADDR_ANY); //设置IP    addrServer.sin_family=AF_INET;    addrServer.sin_port=htons(SERVER_PORP); //设置端口号    //将套接字绑定到本地地址和指定端口上    bind(sockServer,(SOCKADDR*)&amp;addrServer,sizeof(SOCKADDR));    //将套接字设置为监听模式，并将最大请求连接数设置成5，超过此数的请求全部作废    listen(sockServer,5);    SOCKADDR_IN addrClient; //用来接收客户端的设置，包括IP和端口    int len=sizeof(SOCKADDR);    while(1) //不断监听    {        //得到创建连接后的一个新的套接字，用来和客户端进行沟通，原套接字继续监听客户的连接请求        SOCKET sockConn=accept(sockServer,(SOCKADDR*)&amp;addrClient,&amp;len);        if(sockConn!=INVALID_SOCKET) //创建成功        {               c_info_num++;            C_info[c_info_num].num=c_info_num;            C_info[c_info_num].sockConn=sockConn;            CreateThread(NULL, 0, ThreadFun, (void *)&amp;C_info[c_info_num], 0, NULL);         }        else        {            int errCode=WSAGetLastError();            printf(&quot;the errcode is:%d\n&quot;,errCode);        }    }    //如果本程序不是死循环，那么在此处还应添加以下代码：    closesocket(sockServer); //对一直处于监听状态的套接字进行关闭    WSACleanup(); //终止对winsocket库的使用}</code></pre><p><font color="red">未完成的问题</font><br>用户离线时出现bug<br>全部代码:<a href="https://github.com/summerIwinter/Chatroom" target="_blank" rel="noopener">https://github.com/summerIwinter/Chatroom</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+            <tag> TCP </tag>
+            
+            <tag> 聊天室 </tag>
             
         </tags>
       
@@ -1410,35 +1383,6 @@
     
     
     <entry>
-      <title>Matlab函数freqs和freqz</title>
-      <link href="/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/"/>
-      <url>/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/</url>
-      
-        <content type="html"><![CDATA[<p>matlab中的freqs和freqz函数</p><h3 id="1-freqs"><a href="#1-freqs" class="headerlink" title="1.freqs"></a>1.freqs</h3><p>模拟滤波器的频率响应<br>语法：</p><pre><code class="lang-matlab">h = freqs(b,a,w)[h,w] = freqs(b,a)[h,w] = freqs(b,a,f)freqs(b,a)</code></pre><h4 id="1-1描述："><a href="#1-1描述：" class="headerlink" title="1.1描述："></a>1.1描述：</h4><p>freqs 返回一个模拟滤波器的H(jw)的复频域响应(拉普拉斯格式)</p><script type="math/tex; mode=display">H\left(s\right)=\frac{B\left(s\right)}{A\left(s\right)}=\frac{b\left(1\right)s^n+b\left(2\right)s^{n-1}+\dots+b\left(n+1\right)}{a\left(1\right)s^m+a\left(2\right)s^{m-1}+\dots+a\left(m+1\right)}</script><p>h = freqs(b, a, w) 根据系数向量计算返回模拟滤波器的复频域响应<br>freqs 计算在复平面虚轴上的频率响应h，角频率w确定了输入的实向量，因此必须包含至少一个频率点。<br>[h, w] = freqs(b, a) 自动挑选200个频率点来计算频率响应h<br>[h, w] = freqs(b, a, f) 挑选f个频率点来计算频率响应h  </p><h4 id="1-2例子："><a href="#1-2例子：" class="headerlink" title="1.2例子："></a>1.2例子：</h4><p>找到并画出下面传递函数的频率响应</p><script type="math/tex; mode=display">H\left(s\right)=\frac{0.2s^2+0.3s+1}{s^2+0.4s+1}</script><p>Matlab代码：</p><pre><code class="lang-matlab">a = [1 0.4 1];b = [0.2 0.3 1];w = logspace(-1, 1);freqs(b, a, w);</code></pre><p>logspace 功能：生成从10的a次方到10的b次方之间按对数等分的n个元素的行向量<br>n如果省略，则默认值为50。  </p><pre><code class="lang-matlab">h=freqs(b,a,w);mag = abs(h);phase = angle(h);subplot(2,1,1), loglog(w,mag);subplot(2,1,2), semilogx(w,phase);f = w/(2*pi);mag = 20*log10(mag);phase = phase*180/pi;</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/2950376-b264b55b452e2e05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  </p><h4 id="2-freqz"><a href="#2-freqz" class="headerlink" title="2.freqz"></a>2.freqz</h4><p>MATLAB提供了专门用于求离散系统频响特性的函数freqz()<br>调用freqz()的格式有以下两种：  </p><h3 id="2-1-H-w-freqz-B-A-N"><a href="#2-1-H-w-freqz-B-A-N" class="headerlink" title="2.1[H,w]=freqz(B,A,N)"></a>2.1[H,w]=freqz(B,A,N)</h3><script type="math/tex; mode=display">H\left(e^{jw}\right)=\frac{B\left(e^{jw}\right)}{A\left(e^{jw}\right)}=\frac{b\left(1\right)+b\left(2\right)e^{-jw}+b\left(2\right)e^{-j2w}+\dots+b\left(M\right)e^{-j\left(M-1\right)w}}{a\left(1\right)+a\left(2\right)e^{-jw}+a\left(2\right)e^{-j2w}+\dots+b\left(N\right)e^{-j\left(N-1\right)w}}</script><p>B和A分别为离散系统的系统函数分子、分母多项式的系数向量，N为正整数，返回量H则包含了离散系统频响 在 0——pi范围内N个频率等分点的值，向量w则包含范围内N个频率等分点。调用中若N默认，默认值为512。  </p><h4 id="2-2-H-w-freqz-B-A-N-’whole’"><a href="#2-2-H-w-freqz-B-A-N-’whole’" class="headerlink" title="2.2[H,w]=freqz(B,A,N,’whole’)"></a>2.2[H,w]=freqz(B,A,N,’whole’)</h4><p>该调用格式将计算离散系统在0—pi范内的N个频率等分店的频率响应的值。因此，可以先调用freqz()函数计算系统的频率响应，然后利用abs()和angle()函数及plot()函数，即可绘制出系统在 或 范围内的频响曲线。<br>例：绘制如下系统的频响曲线<br>H(z)=(z-0.5)/z<br>MATLAB命令如下：  </p><pre><code class="lang-matlab">B=[1 -0.5];A =[1 0];[H,w]=freqz(B,A,400,&#39;whole&#39;);</code></pre><p>H是频率响应的幅度，w是0—pi内的400个点  </p><pre><code class="lang-matlab">Hf=abs(H);Hx=angle(H);clffigure(1)plot(w,Hf)title(&#39;离散系统幅频特性曲线&#39;)figure(2)plot(w,Hx)title(&#39;离散系统相频特性曲线&#39;)</code></pre><p>幅频特性:<br><img src="http://upload-images.jianshu.io/upload_images/2950376-6cf701c431d25ecf.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>相频特性:<br><img src="http://upload-images.jianshu.io/upload_images/2950376-2b3df07daa4591a4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>这样画出来的是线性的，要想获得db格式的幅度，需要转换 20*log10（Hf）<br>之后再画就是db格式的<br>也可以直接用freqz(b,a,w)这样就会画出幅频响应和相频响应，幅频响应直接是db格式的幅度。  </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数学 </category>
-          
-          <category> 数学工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> matlab </tag>
-            
-            <tag> 拉普拉斯变换 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>JAVA套接字之TCP简单实用</title>
       <link href="/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/"/>
       <url>/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/</url>
@@ -1464,6 +1408,35 @@
             <tag> java </tag>
             
             <tag> 聊天室 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Matlab函数freqs和freqz</title>
+      <link href="/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/"/>
+      <url>/2017/Matlab%E5%87%BD%E6%95%B0freqs%E5%92%8Cfreqz/</url>
+      
+        <content type="html"><![CDATA[<p>matlab中的freqs和freqz函数</p><h3 id="1-freqs"><a href="#1-freqs" class="headerlink" title="1.freqs"></a>1.freqs</h3><p>模拟滤波器的频率响应<br>语法：</p><pre><code class="lang-matlab">h = freqs(b,a,w)[h,w] = freqs(b,a)[h,w] = freqs(b,a,f)freqs(b,a)</code></pre><h4 id="1-1描述："><a href="#1-1描述：" class="headerlink" title="1.1描述："></a>1.1描述：</h4><p>freqs 返回一个模拟滤波器的H(jw)的复频域响应(拉普拉斯格式)</p><script type="math/tex; mode=display">H\left(s\right)=\frac{B\left(s\right)}{A\left(s\right)}=\frac{b\left(1\right)s^n+b\left(2\right)s^{n-1}+\dots+b\left(n+1\right)}{a\left(1\right)s^m+a\left(2\right)s^{m-1}+\dots+a\left(m+1\right)}</script><p>h = freqs(b, a, w) 根据系数向量计算返回模拟滤波器的复频域响应<br>freqs 计算在复平面虚轴上的频率响应h，角频率w确定了输入的实向量，因此必须包含至少一个频率点。<br>[h, w] = freqs(b, a) 自动挑选200个频率点来计算频率响应h<br>[h, w] = freqs(b, a, f) 挑选f个频率点来计算频率响应h  </p><h4 id="1-2例子："><a href="#1-2例子：" class="headerlink" title="1.2例子："></a>1.2例子：</h4><p>找到并画出下面传递函数的频率响应</p><script type="math/tex; mode=display">H\left(s\right)=\frac{0.2s^2+0.3s+1}{s^2+0.4s+1}</script><p>Matlab代码：</p><pre><code class="lang-matlab">a = [1 0.4 1];b = [0.2 0.3 1];w = logspace(-1, 1);freqs(b, a, w);</code></pre><p>logspace 功能：生成从10的a次方到10的b次方之间按对数等分的n个元素的行向量<br>n如果省略，则默认值为50。  </p><pre><code class="lang-matlab">h=freqs(b,a,w);mag = abs(h);phase = angle(h);subplot(2,1,1), loglog(w,mag);subplot(2,1,2), semilogx(w,phase);f = w/(2*pi);mag = 20*log10(mag);phase = phase*180/pi;</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/2950376-b264b55b452e2e05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">  </p><h4 id="2-freqz"><a href="#2-freqz" class="headerlink" title="2.freqz"></a>2.freqz</h4><p>MATLAB提供了专门用于求离散系统频响特性的函数freqz()<br>调用freqz()的格式有以下两种：  </p><h3 id="2-1-H-w-freqz-B-A-N"><a href="#2-1-H-w-freqz-B-A-N" class="headerlink" title="2.1[H,w]=freqz(B,A,N)"></a>2.1[H,w]=freqz(B,A,N)</h3><script type="math/tex; mode=display">H\left(e^{jw}\right)=\frac{B\left(e^{jw}\right)}{A\left(e^{jw}\right)}=\frac{b\left(1\right)+b\left(2\right)e^{-jw}+b\left(2\right)e^{-j2w}+\dots+b\left(M\right)e^{-j\left(M-1\right)w}}{a\left(1\right)+a\left(2\right)e^{-jw}+a\left(2\right)e^{-j2w}+\dots+b\left(N\right)e^{-j\left(N-1\right)w}}</script><p>B和A分别为离散系统的系统函数分子、分母多项式的系数向量，N为正整数，返回量H则包含了离散系统频响 在 0——pi范围内N个频率等分点的值，向量w则包含范围内N个频率等分点。调用中若N默认，默认值为512。  </p><h4 id="2-2-H-w-freqz-B-A-N-’whole’"><a href="#2-2-H-w-freqz-B-A-N-’whole’" class="headerlink" title="2.2[H,w]=freqz(B,A,N,’whole’)"></a>2.2[H,w]=freqz(B,A,N,’whole’)</h4><p>该调用格式将计算离散系统在0—pi范内的N个频率等分店的频率响应的值。因此，可以先调用freqz()函数计算系统的频率响应，然后利用abs()和angle()函数及plot()函数，即可绘制出系统在 或 范围内的频响曲线。<br>例：绘制如下系统的频响曲线<br>H(z)=(z-0.5)/z<br>MATLAB命令如下：  </p><pre><code class="lang-matlab">B=[1 -0.5];A =[1 0];[H,w]=freqz(B,A,400,&#39;whole&#39;);</code></pre><p>H是频率响应的幅度，w是0—pi内的400个点  </p><pre><code class="lang-matlab">Hf=abs(H);Hx=angle(H);clffigure(1)plot(w,Hf)title(&#39;离散系统幅频特性曲线&#39;)figure(2)plot(w,Hx)title(&#39;离散系统相频特性曲线&#39;)</code></pre><p>幅频特性:<br><img src="http://upload-images.jianshu.io/upload_images/2950376-6cf701c431d25ecf.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>相频特性:<br><img src="http://upload-images.jianshu.io/upload_images/2950376-2b3df07daa4591a4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br>这样画出来的是线性的，要想获得db格式的幅度，需要转换 20*log10（Hf）<br>之后再画就是db格式的<br>也可以直接用freqz(b,a,w)这样就会画出幅频响应和相频响应，幅频响应直接是db格式的幅度。  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+          <category> 数学工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> matlab </tag>
+            
+            <tag> 拉普拉斯变换 </tag>
             
         </tags>
       
@@ -1511,33 +1484,6 @@
     
     
     <entry>
-      <title>Python2与Python3共存</title>
-      <link href="/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/"/>
-      <url>/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/</url>
-      
-        <content type="html"><![CDATA[<p>在windows下安装多个版本的python</p><h3 id="1-安装两个版本的Python"><a href="#1-安装两个版本的Python" class="headerlink" title="1.安装两个版本的Python"></a>1.安装两个版本的Python</h3><p>选择想要安装的版本下载例如:<br>python2下载地址:<a href="https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi" target="_blank" rel="noopener">https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi</a><br>python3下载地址:<a href="https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe</a></p><p>进行安装(安装顺序随便)<br>尽量安装到同一目录下的两个文件夹例如:<br>python2安装在”D:\program\python27\”下<br>python3安装在”D:\program\python36\”下  </p><h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h3><p>Path中要有一下四个路径</p><pre><code>D:\program\python\Python36\Scripts\D:\program\python\Python36\D:\program\python\python27\ScriptsD:\program\python\python27\</code></pre><h3 id="3-更改python-exe名字"><a href="#3-更改python-exe名字" class="headerlink" title="3.更改python.exe名字"></a>3.更改python.exe名字</h3><p>找到找到两个python的安装目录<br><code>D:\program\python\Python36\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python3.exe</code><br><code>D:\program\python\Python27\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python2.exe</code><br>此时两个版本的python已经共同存在<br>但还要对pip进行修改</p><h3 id="4-更改pip名称"><a href="#4-更改pip名称" class="headerlink" title="4.更改pip名称"></a>4.更改pip名称</h3><p>重装python2和python3的pip  </p><pre><code class="lang-sh">python2 -m pip install --upgrade pip --force-reinstallpython3 -m pip install --upgrade pip --force-reinstall</code></pre><p>重装成功后进行如下测试<br>test.PNG…<br>可见python2和python3已经共存<br>pip的问题也解决了<br>但直接调用pip是还能执行并且是后安装的pip的版本<br>python命令已经不存在<br>直接运行py结尾的文件时会出现问题<br>python自带的编辑器出现了两个  </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-          <category> Windows </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搬瓦工安装ss并加速</title>
       <link href="/2017/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%AE%89%E8%A3%85ss%E5%B9%B6%E5%8A%A0%E9%80%9F/"/>
       <url>/2017/%E6%90%AC%E7%93%A6%E5%B7%A5%E5%AE%89%E8%A3%85ss%E5%B9%B6%E5%8A%A0%E9%80%9F/</url>
@@ -1561,6 +1507,33 @@
             <tag> 搬瓦工 </tag>
             
             <tag> shadowsocks </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python2与Python3共存</title>
+      <link href="/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/"/>
+      <url>/2017/Python2%E4%B8%8EPython3%E5%85%B1%E5%AD%98/</url>
+      
+        <content type="html"><![CDATA[<p>在windows下安装多个版本的python</p><h3 id="1-安装两个版本的Python"><a href="#1-安装两个版本的Python" class="headerlink" title="1.安装两个版本的Python"></a>1.安装两个版本的Python</h3><p>选择想要安装的版本下载例如:<br>python2下载地址:<a href="https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi" target="_blank" rel="noopener">https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi</a><br>python3下载地址:<a href="https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe</a></p><p>进行安装(安装顺序随便)<br>尽量安装到同一目录下的两个文件夹例如:<br>python2安装在”D:\program\python27\”下<br>python3安装在”D:\program\python36\”下  </p><h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2.添加环境变量"></a>2.添加环境变量</h3><p>Path中要有一下四个路径</p><pre><code>D:\program\python\Python36\Scripts\D:\program\python\Python36\D:\program\python\python27\ScriptsD:\program\python\python27\</code></pre><h3 id="3-更改python-exe名字"><a href="#3-更改python-exe名字" class="headerlink" title="3.更改python.exe名字"></a>3.更改python.exe名字</h3><p>找到找到两个python的安装目录<br><code>D:\program\python\Python36\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python3.exe</code><br><code>D:\program\python\Python27\python.exe</code><br>更改为<br><code>D:\program\python\Python36\python2.exe</code><br>此时两个版本的python已经共同存在<br>但还要对pip进行修改</p><h3 id="4-更改pip名称"><a href="#4-更改pip名称" class="headerlink" title="4.更改pip名称"></a>4.更改pip名称</h3><p>重装python2和python3的pip  </p><pre><code class="lang-sh">python2 -m pip install --upgrade pip --force-reinstallpython3 -m pip install --upgrade pip --force-reinstall</code></pre><p>重装成功后进行如下测试<br>test.PNG…<br>可见python2和python3已经共存<br>pip的问题也解决了<br>但直接调用pip是还能执行并且是后安装的pip的版本<br>python命令已经不存在<br>直接运行py结尾的文件时会出现问题<br>python自带的编辑器出现了两个  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
             
         </tags>
       
