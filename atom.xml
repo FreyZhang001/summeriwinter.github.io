@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.vhcffh.com/"/>
-  <updated>2019-10-02T14:23:25.561Z</updated>
+  <updated>2019-10-03T13:47:31.292Z</updated>
   <id>https://www.vhcffh.com/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="https://www.vhcffh.com/2019/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%B1%82%E5%AF%BC/"/>
     <id>https://www.vhcffh.com/2019/矩阵中的求导/</id>
     <published>2019-10-02T12:46:12.000Z</published>
-    <updated>2019-10-02T14:23:25.561Z</updated>
+    <updated>2019-10-03T13:47:31.292Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="标量对向量求导"><a href="#标量对向量求导" class="headerlink" title="标量对向量求导"></a>标量对向量求导</h3><script type="math/tex; mode=display">y = f(x_1,\cdots,x_i,\cdots,x_n) \\X = [x_1,\cdots,x_i,\cdots,x_n]</script><script type="math/tex; mode=display">\frac {\partial y}{\partial X} = [\frac {\partial f}{\partial x_1},\cdots,\frac {\partial f}{\partial x_i},\cdots,\frac {\partial f}{\partial x_n}]</script><h3 id="向量对向量求导"><a href="#向量对向量求导" class="headerlink" title="向量对向量求导"></a>向量对向量求导</h3><script type="math/tex; mode=display">Y = [f_1(x_1,\cdots,x_i,\cdots,x_n),\cdots,f_i(x_1,\cdots,x_i,\cdots,x_n),\cdots,f_m(x_1,\cdots,x_i,\cdots,x_n)]</script><script type="math/tex; mode=display">X = [x_1,\cdots,x_i,\cdots,x_n]</script><script type="math/tex; mode=display">\frac {\partial Y}{\partial X} = \begin{bmatrix}\frac {\partial f_1}{\partial x_1} & \frac {\partial f_2}{\partial x_1} & \cdots & \frac {\partial f_m}{\partial x_1}\\\frac {\partial f_1}{\partial x_2} & \frac {\partial f_2}{\partial x_2} & \cdots & \frac {\partial f_m}{\partial x_1}\\\vdots & \vdots & \ddots & \vdots\\\frac {\partial f_1}{\partial x_n} & \cdots & \cdots & \frac {\partial f_m}{\partial x_n}\\\end{bmatrix}</script><p>这是一个n行m列的矩阵,有时也会写成m行n列,都是一样的,区别在于加不加转置</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="标量对向量求导"><a href="#标量对向量求导" class="headerlink" title="标量对向量求导"></a>标量对向量求导</h3><script type="math/tex; mode=display">y = f(x_1,\cdots,x_i,\cdots,x_n) \\X = [x_1,\cdots,x_i,\cdots,x_n]</script><script type="math/tex; mode=display">\frac {\partial y}{\partial X} = [\frac {\partial f}{\partial x_1},\cdots,\frac {\partial f}{\partial x_i},\cdots,\frac {\partial f}{\partial x_n}]</script><a id="more"></a><h3 id="向量对向量求导"><a href="#向量对向量求导" class="headerlink" title="向量对向量求导"></a>向量对向量求导</h3><script type="math/tex; mode=display">Y = [f_1(x_1,\cdots,x_i,\cdots,x_n),\cdots,f_i(x_1,\cdots,x_i,\cdots,x_n),\cdots,f_m(x_1,\cdots,x_i,\cdots,x_n)]</script><script type="math/tex; mode=display">X = [x_1,\cdots,x_i,\cdots,x_n]</script><script type="math/tex; mode=display">\frac {\partial Y}{\partial X} = \begin{bmatrix}\frac {\partial f_1}{\partial x_1} & \frac {\partial f_2}{\partial x_1} & \cdots & \frac {\partial f_m}{\partial x_1}\\\frac {\partial f_1}{\partial x_2} & \frac {\partial f_2}{\partial x_2} & \cdots & \frac {\partial f_m}{\partial x_1}\\\vdots & \vdots & \ddots & \vdots\\\frac {\partial f_1}{\partial x_n} & \cdots & \cdots & \frac {\partial f_m}{\partial x_n}\\\end{bmatrix}</script><p>这是一个n行m列的矩阵,有时也会写成m行n列,都是一样的,区别在于加不加转置</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;标量对向量求导&quot;&gt;&lt;a href=&quot;#标量对向量求导&quot; class=&quot;headerlink&quot; title=&quot;标量对向量求导&quot;&gt;&lt;/a&gt;标量对向量求导&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
-y = f(x_1,\cdo
-      
+      &lt;h3 id=&quot;标量对向量求导&quot;&gt;&lt;a href=&quot;#标量对向量求导&quot; class=&quot;headerlink&quot; title=&quot;标量对向量求导&quot;&gt;&lt;/a&gt;标量对向量求导&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+y = f(x_1,\cdots,x_i,\cdots,x_n) \\
+X = [x_1,\cdots,x_i,\cdots,x_n]&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\frac {\partial y}{\partial X} = [\frac {\partial f}{\partial x_1},\cdots,\frac {\partial f}{\partial x_i},\cdots,\frac {\partial f}{\partial x_n}]&lt;/script&gt;
     
     </summary>
     
@@ -78,7 +77,7 @@ y = f(x_1,\cdo
     <link href="https://www.vhcffh.com/2019/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0-1/"/>
     <id>https://www.vhcffh.com/2019/日常笔记-1/</id>
     <published>2019-09-24T09:37:41.000Z</published>
-    <updated>2019-10-02T14:53:35.751Z</updated>
+    <updated>2019-10-03T13:43:19.921Z</updated>
     
     <content type="html"><![CDATA[<h3 id="pickle序列化与反序列化"><a href="#pickle序列化与反序列化" class="headerlink" title="pickle序列化与反序列化"></a>pickle序列化与反序列化</h3><pre><code class="lang-python">import pickle as plkplk.dump(obj,file) # 将序列化后的二进制写入文件plk.dumps(obj) # 返回一个二进制序列plk.load(file) # 读文件对象中的二进制,转化成对象返回plk.loads(bytes_object) # 将二进制序列转化成对象obj1=dict(),obj2=dict()plk.dump(obj1,file)plk.dump(obj2,file)obj1=plk.load(file)obj2=plk.load(file)plk.load(file) # EOFError: Ran out of input</code></pre><h3 id="文本分类与关键词排名"><a href="#文本分类与关键词排名" class="headerlink" title="文本分类与关键词排名"></a>文本分类与关键词排名</h3><p>文本分类(Text Categorization, TC)</p><p>特征-倒文本频率(Term-Inverse Document Frequency, TF-IDF)</p><p>信息增益(Information Gain, IG)</p><p>互信息(Multi-Information, MI)</p><p>卡方统计 (Chi-square, CHI)</p><p>期 望 交 叉 熵(Expected Cross Entropy, ECE )</p><p>文本证据权( Weight of Evidence for Text, WET)</p><p>TextRank(与PageRank的原理相同)</p><p>HITS(Hyperlink-Induced Topic Search)</p><h4 id="卡方统计模型-CHI"><a href="#卡方统计模型-CHI" class="headerlink" title="卡方统计模型(CHI)"></a>卡方统计模型(CHI)</h4><p>卡方分布</p><script type="math/tex; mode=display">X = \sum_{i=1}^kZ_i^2</script><p>其中$Z_i  \sim N(0,1)$(标准正太分布)</p><p>则$X$被称为服从自由度为$k$的卡方分布,记作:</p><script type="math/tex; mode=display">X\ \sim \ \chi ^{2}(k)\,</script><p>卡方分布的概率密度函数:</p><script type="math/tex; mode=display">f_{k}(x)={\frac { {\frac {1}{2}}^{\frac {k}{2}} } {\Gamma ({ \frac {k}{2} })} }x^{ {\frac {k}{2} }-1}e^{\frac {-x}{2} }</script><p>期望和方差:</p><script type="math/tex; mode=display">E(X) = k \\Var(X) = 2k</script><p>模型通过观察值和理论值的偏差来确定理论是否正确</p><p>基于词袋模型(文档由词组成,不考虑词的顺序)</p><p>通过考虑词语与类别的相关度把由词语组成的文档归为某一类别</p><h4 id="HITS"><a href="#HITS" class="headerlink" title="HITS"></a>HITS</h4><ul><li>一个高质量的权威页面会被很多高质量的枢纽页面所指向。</li><li>一个高质量的枢纽页面会指向很多高质量的权威页面。</li></ul><p>由PageRank算法演变而来,将当前页面出链也做为考虑当前页面的重要性的一个因素</p><p>参考</p><p><a href="https://github.com/wangjiang0624/Note/blob/master/MachineLearning/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB.md" target="_blank" rel="noopener">https://github.com/wangjiang0624/Note/blob/master/MachineLearning/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB.md</a></p><p><a href="http://blog.zhengyi.one/PageRank-HITS.html" target="_blank" rel="noopener">http://blog.zhengyi.one/PageRank-HITS.html</a></p>]]></content>
     
