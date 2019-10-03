@@ -23,11 +23,11 @@ c_k=f_kc_{k-1}+i_kl_k,\ \ h_i=o_ktanh(c_k)</script><ul>
 <li>$i_k$:输入,$f_k$:记忆,$o_k$:输出.</li>
 <li>$w_k$是$x_k$的词嵌入</li>
 <li>$W_i,W_f,W_o,W_l$是模型参数</li>
-<li>用$h_M$代表一个句子,得到句子表示集${h^{s_1},\dots,h^{s_N}}$</li>
+<li>用$h_M$代表一个句子,得到句子表示集$\{h^{s_1},\dots,h^{s_N}\}$</li>
 </ul>
 </li>
 <li><p>定义位置嵌入向量$P_i \in \mathbb R^d,i=1,\dots,N$</p>
-<p>得到句子表示${(h^{s_1},P_1),\dots,(h^{s_N},P_N)}$</p>
+<p>得到句子表示$\{(h^{s_1},P_1),\dots,(h^{s_N},P_N)\}$</p>
 </li>
 </ul>
 <h4 id="注意力计算-参见论文attention-is-all-you-need"><a href="#注意力计算-参见论文attention-is-all-you-need" class="headerlink" title="注意力计算(参见论文attention-is-all-you-need)"></a>注意力计算(参见论文<a href="./7181-attention-is-all-you-need.pdf">attention-is-all-you-need</a>)</h4><ul>
@@ -41,7 +41,7 @@ Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt d}V)</script><p>其中$Q\in\mathbb R
 M_i=Attention(QW_i^Q,KW_i^K,VW_i^V) \\
 M=Concat(M_1,\dots,M_H) \\
 O=MW</script><p>其中$W_i^Q\in\mathbb R^{n \times d/H},W_i^K\in\mathbb R^{n\times d/H},W_i^V\in \mathbb R^{n\times d/H}$,$M\in\mathbb R^{n\times d},W\in \mathbb R^{d\times d}$</p>
-<p>${(h^{s_1},P_1),\dots,(h^{s_N},P_N)}$-&gt;$O_s$-&gt;<font color="red">feed-forward network</font>-&gt;$O_s^f$</p>
+<p>$\{(h^{s_1},P_1),\dots,(h^{s_N},P_N)\}$-&gt;$O_s$-&gt;<font color="red">feed-forward network</font>-&gt;$O_s^f$</p>
 <p>是否可以将语境检测运用到机器翻译中?</p>
 </li>
 </ul>

@@ -20,10 +20,10 @@ P(w_1,w_2,\dots,w_m) =\prod_{i=1}^mP(w_i|w_{i-2}w_{i-1})</script></li>
 </ul>
 <h2 id="2-基于HMM的分词"><a href="#2-基于HMM的分词" class="headerlink" title="2.基于HMM的分词"></a>2.基于HMM的分词</h2><p><strong>HMM的参数</strong></p>
 <p>观测序列(输出状态序列),状态序列(隐藏状态序列),初始概率,转移概率(转移概率矩阵),发射概率(发射概率矩阵)<br><img src="/images/2019/9_8_ma.png"><br><strong>数学定义</strong></p>
-<p>状态值集合(隐藏状态):$Q={q_1,q_2,\cdots,q_N}$,$N$为可能的状态数,对应状态序列$I​$</p>
-<p>观测值集合(输出状态):$V={v_1,v_2,\cdots,v_M}$,$M$为可能的观测数,对应观测序列$O$</p>
-<p>转移概率矩阵:$A=[a<em>{ij}];i,j\in{1,2,\cdots,N}$,从$i$状态到$j$状态的转换概率($\sum</em>{j=1}^Na_{ij}=1$)</p>
-<p>发射概率矩阵(观测概率矩阵):$B=[b_j(k)];j\in{1,2,\cdots,N},k\in{1,2,\cdots,M}$,从状态$j$生成观测$k$的概率</p>
+<p>状态值集合(隐藏状态):$Q=\{q_1,q_2,\cdots,q_N\}$,$N$为可能的状态数,对应状态序列$I​$</p>
+<p>观测值集合(输出状态):$V=\{v_1,v_2,\cdots,v_M\}$,$M$为可能的观测数,对应观测序列$O$</p>
+<p>转移概率矩阵:$A=[a_{ij}];i,j\in\{1,2,\cdots,N\}$,从$i$状态到$j$状态的转换概率($\sum_{j=1}^Na_{ij}=1$)</p>
+<p>发射概率矩阵(观测概率矩阵):$B=[b_j(k)];j\in\{1,2,\cdots,N\},k\in\{1,2,\cdots,M\}$,从状态$j$生成观测$k$的概率</p>
 <p>初始状态分布:$\pi$</p>
 <p>模型:$\lambda=(A,B,\lambda)$,状态序列$I$,观测序列$O$</p>
 <p><strong>HMM中的三个问题:</strong></p>

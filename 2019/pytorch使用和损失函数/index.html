@@ -131,7 +131,7 @@ l_n = \begin{cases}
 <pre><code class="lang-python">torch.nn.MultiLabelMarginLoss(size_average=None, reduce=None, reduction=&#39;mean&#39;)
 </code></pre>
 <script type="math/tex; mode=display">
-\text{loss}(x, y) = \sum_{ij}\frac{\max(0, 1 - (x[y[j]] - x[i]))}{\text{x.size}(0)}</script><p>其中$x \in \left{0, \; \cdots , \; \text{x.size}(0) - 1\right}$,$y \in \left{0, \; \cdots , \; \text{y.size}(0) - 1\right}$,$0 \leq y[j] \leq \text{x.size}(0)-1$,$i \neq y[j]$</p>
+\text{loss}(x, y) = \sum_{ij}\frac{\max(0, 1 - (x[y[j]] - x[i]))}{\text{x.size}(0)}</script><p>其中$x \in \left\{0, \; \cdots , \; \text{x.size}(0) - 1\right\}$,$y \in \left\{0, \; \cdots , \; \text{y.size}(0) - 1\right\}$,$0 \leq y[j] \leq \text{x.size}(0)-1$,$i \neq y[j]$</p>
 <h3 id="SmoothL1Loss"><a href="#SmoothL1Loss" class="headerlink" title="SmoothL1Loss"></a>SmoothL1Loss</h3><p>也叫Huber Loss,误差在(-1,1)上是平方损失,其他情况是L1损失</p>
 <pre><code class="lang-python">torch.nn.SmoothL1Loss(size_average=None, reduce=None, reduction=&#39;mean&#39;)
 </code></pre>
@@ -150,7 +150,7 @@ z_{i} =
 </code></pre>
 <script type="math/tex; mode=display">
         loss(x, y) = - \frac{1}{C} * \sum_i y[i] * \log((1 + \exp(-x[i]))^{-1})
-                         + (1-y[i]) * \log\left(\frac{\exp(-x[i])}{(1 + \exp(-x[i]))}\right)</script><p>其中$i \in \left{0, \; \cdots , \; \text{x.nElement}() - 1\right}$,$y[i] \in \left{0, \; 1\right}$</p>
+                         + (1-y[i]) * \log\left(\frac{\exp(-x[i])}{(1 + \exp(-x[i]))}\right)</script><p>其中$i \in \left\{0, \; \cdots , \; \text{x.nElement}() - 1\right\}$,$y[i] \in \left\{0, \; 1\right\}$</p>
 <h3 id="CosineEmbeddingLoss"><a href="#CosineEmbeddingLoss" class="headerlink" title="CosineEmbeddingLoss"></a>CosineEmbeddingLoss</h3><p>余玄相似度损失</p>
 <pre><code class="lang-python">torch.nn.CosineEmbeddingLoss(margin=0.0, size_average=None, reduce=None, reduction=&#39;mean&#39;)
 </code></pre>
@@ -162,7 +162,7 @@ z_{i} =
         \end{cases}</script><h3 id="MultiMarginLoss"><a href="#MultiMarginLoss" class="headerlink" title="MultiMarginLoss"></a>MultiMarginLoss</h3><p>多分类的Hinge损失</p>
 <pre><code>torch.nn.MultiMarginLoss(p=1, margin=1.0, weight=None, size_average=None, reduce=None, reduction=&#39;mean&#39;)
 </code></pre><script type="math/tex; mode=display">
-\text{loss}(x, y) = \frac{\sum_i \max(0, (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><p>其中$x \in \left{0, \; \cdots , \; \text{x.size}(0) - 1\right}$,$i \neq y$</p>
+\text{loss}(x, y) = \frac{\sum_i \max(0, (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><p>其中$x \in \left\{0, \; \cdots , \; \text{x.size}(0) - 1\right\}$,$i \neq y$</p>
 <script type="math/tex; mode=display">
 \text{loss}(x, y) = \frac{\sum_i \max(0, w[y] * (\text{margin} - x[y] + x[i])^p)}{\text{x.size}(0)}</script><h3 id="TripletMarginLoss"><a href="#TripletMarginLoss" class="headerlink" title="TripletMarginLoss"></a>TripletMarginLoss</h3><pre><code class="lang-python">torch.nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction=&#39;mean&#39;)
 </code></pre>
