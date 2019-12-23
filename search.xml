@@ -4,6 +4,79 @@
   
     
     <entry>
+      <title>Transformers</title>
+      <link href="/2019/Transformers/"/>
+      <url>/2019/Transformers/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">transformers</a>（与<em>pytorch-transformers</em>和<em>pytorch-pretrained-bert</em>相似）是python的一个库，它提供了用于自然语言理解(NLU)和自然语言生成(NLG)的多种预训练模型（BERT，GPT-2，RoBERTa，XLM，DistilBert，XLNet…..），为100多种语言提供了超过32种的预训练模型，并实现Tensorflow 2.0和Pytorch的深度互操作。</p><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>与pytorch-transformers一样容易使用</li><li>如Keras一样强大简洁</li><li>在NLU和NLG任务上有很好的表现</li><li>容易学习</li></ul><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><ol><li><a href="https://github.com/google-research/bert" target="_blank" rel="noopener">BERT</a> (from Google) released with the paper <a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a> by Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova.</li><li><a href="https://github.com/openai/finetune-transformer-lm" target="_blank" rel="noopener">GPT</a> (from OpenAI) released with the paper <a href="https://blog.openai.com/language-unsupervised" target="_blank" rel="noopener">Improving Language Understanding by Generative Pre-Training</a> by Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever.</li><li><a href="https://blog.openai.com/better-language-models" target="_blank" rel="noopener">GPT-2</a> (from OpenAI) released with the paper <a href="https://blog.openai.com/better-language-models" target="_blank" rel="noopener">Language Models are Unsupervised Multitask Learners</a> by Alec Radford<em>, Jeffrey Wu</em>, Rewon Child, David Luan, Dario Amodei<strong> and Ilya Sutskever</strong>.</li><li><a href="https://github.com/kimiyoung/transformer-xl" target="_blank" rel="noopener">Transformer-XL</a> (from Google/CMU) released with the paper <a href="https://arxiv.org/abs/1901.02860" target="_blank" rel="noopener">Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context</a> by Zihang Dai<em>, Zhilin Yang</em>, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov.</li><li><a href="https://github.com/zihangdai/xlnet" target="_blank" rel="noopener">XLNet</a> (from Google/CMU) released with the paper <a href="https://arxiv.org/abs/1906.08237" target="_blank" rel="noopener">XLNet: Generalized Autoregressive Pretraining for Language Understanding</a> by Zhilin Yang<em>, Zihang Dai</em>, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.</li><li><a href="https://github.com/facebookresearch/XLM" target="_blank" rel="noopener">XLM</a> (from Facebook) released together with the paper <a href="https://arxiv.org/abs/1901.07291" target="_blank" rel="noopener">Cross-lingual Language Model Pretraining</a> by Guillaume Lample and Alexis Conneau.</li><li><a href="https://github.com/pytorch/fairseq/tree/master/examples/roberta" target="_blank" rel="noopener">RoBERTa</a> (from Facebook), released together with the paper a <a href="https://arxiv.org/abs/1907.11692" target="_blank" rel="noopener">Robustly Optimized BERT Pretraining Approach</a> by Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.</li><li><a href="https://huggingface.co/transformers/model_doc/distilbert.html" target="_blank" rel="noopener">DistilBERT</a> (from HuggingFace) released together with the paper <a href="https://arxiv.org/abs/1910.01108" target="_blank" rel="noopener">DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter</a> by Victor Sanh, Lysandre Debut and Thomas Wolf. The same method has been applied to compress GPT2 into <a href="https://github.com/huggingface/transformers/tree/master/examples/distillation" target="_blank" rel="noopener">DistilGPT2</a>.</li><li><a href="https://github.com/pytorch/fairseq/tree/master/examples/ctrl" target="_blank" rel="noopener">CTRL</a> (from Salesforce), released together with the paper <a href="https://www.github.com/salesforce/ctrl" target="_blank" rel="noopener">CTRL: A Conditional Transformer Language Model for Controllable Generation</a> by Nitish Shirish Keskar<em>, Bryan McCann</em>, Lav R. Varshney, Caiming Xiong and Richard Socher.</li><li><a href="https://huggingface.co/transformers/model_doc/camembert.html" target="_blank" rel="noopener">CamemBERT</a> (from FAIR, Inria, Sorbonne Université) released together with the paper <a href="https://arxiv.org/abs/1911.03894" target="_blank" rel="noopener">CamemBERT: a Tasty French Language Model</a> by Louis Martin, Benjamin Muller, Pedro Javier Ortiz Suarez, Yoann Dupont, Laurent Romary, Eric Villemonte de la Clergerie, Djame Seddah, and Benoît Sagot.</li><li><a href="https://github.com/google-research/ALBERT" target="_blank" rel="noopener">ALBERT</a> (from Google Research), released together with the paper a <a href="https://arxiv.org/abs/1909.11942" target="_blank" rel="noopener">ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</a> by Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.</li><li><a href="https://github.com/pytorch/fairseq/tree/master/examples/xlmr" target="_blank" rel="noopener">XLM-RoBERTa</a> (from Facebook AI), released together with the paper <a href="https://arxiv.org/abs/1911.02116" target="_blank" rel="noopener">Unsupervised Cross-lingual Representation Learning at Scale</a> by Alexis Conneau<em>, Kartikay Khandelwal</em>, Naman Goyal, Vishrav Chaudhary, Guillaume Wenzek, Francisco Guzmán, Edouard Grave, Myle Ott, Luke Zettlemoyer and Veselin Stoyanov.</li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>对于每个模型，这个库主要涉及3个类</p><ul><li>model classes：提供模型的结构，如：<code>BertModel</code></li><li>configuration classes：存储构建模型的所有参数，如<code>BertConfig</code></li><li>tokenizer classes：提供模型的词汇表和用于对字符串解码/编码的方法，如<code>BertTokenizer</code></li></ul><p>所有的实例可以通过<code>from_pretrained()</code>加载预训练模型，通过<code>save_pretrained()</code>保存模型</p><h3 id="BERT-example"><a href="#BERT-example" class="headerlink" title="BERT example"></a>BERT example</h3><p>从字符串获得输入向量</p><pre><code class="lang-python">import torchfrom transformers import BertTokenizer, BertModel, BertForMaskedLM# OPTIONAL: if you want to have more information on what&#39;s happening under the hood, activate the logger as followsimport logginglogging.basicConfig(level=logging.INFO)# Load pre-trained model tokenizer (vocabulary)tokenizer = BertTokenizer.from_pretrained(&#39;bert-base-uncased&#39;)# 中文bert模型&#39;bert-base-chinese&#39;# bert 特殊的符号# &#39;[MASK]&#39; 用于mask language model# &#39;[CLS]&#39; 开头，用于分类的标记# &#39;[PAD]&#39; # &#39;[SEP]&#39; 结尾，句子分隔符# &#39;[UNK]&#39;# Tokenize inputtext = &quot;[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]&quot;tokenized_text = tokenizer.tokenize(text)# Mask a token that we will try to predict back with `BertForMaskedLM`masked_index = 8tokenized_text[masked_index] = &#39;[MASK]&#39;assert tokenized_text == [&#39;[CLS]&#39;, &#39;who&#39;, &#39;was&#39;, &#39;jim&#39;, &#39;henson&#39;, &#39;?&#39;, &#39;[SEP]&#39;, &#39;jim&#39;, &#39;[MASK]&#39;, &#39;was&#39;, &#39;a&#39;, &#39;puppet&#39;, &#39;##eer&#39;, &#39;[SEP]&#39;]# Convert token to vocabulary indicesindexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)# Define sentence A and B indices associated to 1st and 2nd sentences (see paper)segments_ids = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]# Convert inputs to PyTorch tensorstokens_tensor = torch.tensor([indexed_tokens])segments_tensors = torch.tensor([segments_ids])</code></pre><p>对输入进行编码</p><pre><code class="lang-python"># Load pre-trained model (weights)model = BertModel.from_pretrained(&#39;bert-base-uncased&#39;)# Set the model in evaluation mode to deactivate the DropOut modules# This is IMPORTANT to have reproducible results during evaluation!model.eval()# If you have a GPU, put everything on cudatokens_tensor = tokens_tensor.to(&#39;cuda&#39;)segments_tensors = segments_tensors.to(&#39;cuda&#39;)model.to(&#39;cuda&#39;)# Predict hidden states features for each layerwith torch.no_grad():    # See the models docstrings for the detail of the inputs    outputs = model(tokens_tensor, token_type_ids=segments_tensors)    # Transformers models always output tuples.    # See the models docstrings for the detail of all the outputs    # In our case, the first element is the hidden state of the last layer of the Bert model    encoded_layers = outputs[0]# We have encoded our input sequence in a FloatTensor of shape (batch size, sequence length, model hidden dimension)assert tuple(encoded_layers.shape) == (1, len(indexed_tokens), model.config.hidden_size)</code></pre><p>使用<code>BertForMaskedLM</code>预测masked token</p><pre><code class="lang-python"># Load pre-trained model (weights)model = BertForMaskedLM.from_pretrained(&#39;bert-base-uncased&#39;)model.eval()# If you have a GPU, put everything on cudatokens_tensor = tokens_tensor.to(&#39;cuda&#39;)segments_tensors = segments_tensors.to(&#39;cuda&#39;)model.to(&#39;cuda&#39;)# Predict all tokenswith torch.no_grad():    outputs = model(tokens_tensor, token_type_ids=segments_tensors)    predictions = outputs[0]# confirm we were able to predict &#39;henson&#39;predicted_index = torch.argmax(predictions[0, masked_index]).item()predicted_token = tokenizer.convert_ids_to_tokens([predicted_index])[0]assert predicted_token == &#39;henson&#39;</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>1.<a href="https://huggingface.co/transformers/index.html" target="_blank" rel="noopener">https://huggingface.co/transformers/index.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> NLP </tag>
+            
+            <tag> transformer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习笔记</title>
+      <link href="/2019/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%9C%AF%E8%AF%AD/"/>
+      <url>/2019/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%9C%AF%E8%AF%AD/</url>
+      
+        <content type="html"><![CDATA[<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>准确率:所有样本中预测正确的占比</p><script type="math/tex; mode=display">accuracy =\frac {TP+TN}{TP+TN+FP+FN} = \frac {T}{T+F}</script><p>精确率:<strong>预测为正的样本</strong>中真正的正样本占比</p><script type="math/tex; mode=display">precision = \frac {TP}{TP+FP} = \frac {TP}{P'}</script><p>召回率:<strong>正样本</strong>中预测为正的占比</p><script type="math/tex; mode=display">recall = \frac{TP}{TP+FN} = \frac{TP}{P}</script><p>F1:精确率和召回率的<strong>调和均值</strong></p><script type="math/tex; mode=display">\begin{align*}\frac{2}{F_1} & = \frac{1}{precision} + \frac{1}{recall}\\F_1 & = \frac{2\cdot precision \cdot recall}{precision+recall}\\F_1 & = \frac{2TP}{2TP + FP + FN} \\F_1 & = \frac{2TP}{P' + P} \\\end{align*}</script><p>F-score:</p><script type="math/tex; mode=display">F_{score}=(1+\beta^2)\cdot \frac{precision \cdot recall}{\beta^2\cdot precision + recall}</script><div class="table-container"><table><thead><tr><th style="text-align:center"></th><th style="text-align:center">P</th><th style="text-align:center">N</th></tr></thead><tbody><tr><td style="text-align:center">P’</td><td style="text-align:center">TP</td><td style="text-align:center">FP</td></tr><tr><td style="text-align:center">N’</td><td style="text-align:center">FN</td><td style="text-align:center">TN</td></tr></tbody></table></div><h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><h3 id="BLEU-Bilingual-Evaluation-understudy"><a href="#BLEU-Bilingual-Evaluation-understudy" class="headerlink" title="BLEU(Bilingual Evaluation understudy)"></a>BLEU(Bilingual Evaluation understudy)</h3><script type="math/tex; mode=display">CP_n(C,S)=\frac {\sum_i\sum_k\min(h_k(c_i),max_{j \in m}h_k(s_{ij}))}{\sum_i\sum_kh_k(c_j)}</script><p><strong>惩罚因子BP(Brevity Penalty)</strong></p><script type="math/tex; mode=display">b(C,S)=\begin{cases}1,                        &l_c \lt l_s \\e^{1-\frac{l_s}{l_c}},    &l_c \geq l_s\end{cases}</script><script type="math/tex; mode=display">BLEU_N(C,S)=b(C,S)\exp(\sum_{n=1}^N\omega_n\log CP_n(C,S))</script><p>机器翻译</p><h3 id="ROUGE-Recall-Oriented-Understudy-for-Gisting-Evaluation"><a href="#ROUGE-Recall-Oriented-Understudy-for-Gisting-Evaluation" class="headerlink" title="ROUGE(Recall-Oriented Understudy for Gisting Evaluation)"></a>ROUGE(Recall-Oriented Understudy for Gisting Evaluation)</h3><div class="table-container"><table><thead><tr><th style="text-align:center">ROUGE-N</th><th style="text-align:left">基于N-gram公现性统计</th></tr></thead><tbody><tr><td style="text-align:center">ROUGE-L</td><td style="text-align:left">基于最长公有子句共现性精确度和召回率Fmeasure统计</td></tr><tr><td style="text-align:center">ROUGE-W</td><td style="text-align:left">代权重的最长公有子句共现性精确度和召回率Fmeasure统计</td></tr><tr><td style="text-align:center">ROUGE-S</td><td style="text-align:left">不连续二元组共现性精确度和召回率Fmeasure统计</td></tr></tbody></table></div><p><strong>ROUGE-N</strong></p><script type="math/tex; mode=display">ROUGE-N=\frac {\sum_{S \in ReferencesSummaries}\sum_{gram_n\in S}Count_{match}(gram_n)}{\sum_{S \in ReferencesSummaries}\sum_{gram_n\in S}Count(gram_n)}</script><p><strong>ROUGE-L</strong></p><p>最长公共子句longest common subsequence(LCS)</p><script type="math/tex; mode=display">R_{lcs}=\frac {LCS(X,Y)}{m} ,m=len(X)</script><script type="math/tex; mode=display">P_{lcs}=\frac {LCS(X,Y)}{n} ,n=len(Y)</script><script type="math/tex; mode=display">F_{lcs}=\frac{(1+\beta^2)R_{lcs}P_{lcs}}{R_{lcs}+\beta^2P_{lcs}}</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 边缘计算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RNN的前向传播与反向传播</title>
+      <link href="/2019/RNN%E7%9A%84%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/"/>
+      <url>/2019/RNN%E7%9A%84%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h2><p>pytorch 中RNN的<a href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/rnn.html#RNN" target="_blank" rel="noopener">数学公式</a></p><script type="math/tex; mode=display">h_t = \text{tanh}(W_{ih} x_t + b_{ih} + W_{hh} h_{(t-1)} + b_{hh})</script><h2 id="后向传播"><a href="#后向传播" class="headerlink" title="后向传播"></a>后向传播</h2><p>需要更新的参数有</p><script type="math/tex; mode=display">W_{ih}, \ \ \ \ b_{ih}, \ \ \ \ W_{hh}, \ \ \ \  b_{hh}</script><p>在这式子中要用到的偏导数</p><script type="math/tex; mode=display">\frac {\partial h_t} {\partial W_{ih}}, \ \ \ \\frac {\partial h_t} {\partial b_{ih}}, \ \ \ \\frac {\partial h_t} {\partial W_{hh}}, \ \ \ \\frac {\partial h_t} {\partial b_{hh}} \ \ \ \</script><script type="math/tex; mode=display">\begin{align}\frac {\partial h_t} {\partial W_{ih}} &= x_t + \frac {\partial h_{t-1}}{\partial W_{ih}} \\&= \sum_{i=1}^tx_i\end{align}</script><script type="math/tex; mode=display">\frac {\partial h_t} {\partial b_{ih}} = \sum_{i=0}^tW_{hh}^i</script><script type="math/tex; mode=display">\begin{align}\frac {\partial h_t} {\partial W_{hh}}&= h_{t-1} + \frac {\partial h_{t-1}}{\partial W_{hh}}\\&= \sum_{i=0}^th_i\end{align}</script><script type="math/tex; mode=display">\frac {\partial h_t} {\partial b_{hh}} = \sum_{i=0}^tW_{hh}^i</script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> RNN </tag>
+            
+            <tag> 反向传播 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>矩阵中的求导</title>
       <link href="/2019/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%B1%82%E5%AF%BC/"/>
       <url>/2019/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%B1%82%E5%AF%BC/</url>
@@ -47,9 +120,9 @@
       
         <tags>
             
-            <tag> 交叉熵损失 </tag>
-            
             <tag> 反向传播 </tag>
+            
+            <tag> 交叉熵损失 </tag>
             
             <tag> Softmax </tag>
             
@@ -253,7 +326,7 @@
       <link href="/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
       <url>/2019/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%92%8C%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<p>得到字向量-&gt;通过窗口方法得到字与上下文有关的向量(矩阵)-&gt;通过两个线性层和一个非线性激活函数-&gt;字的标注得分(窗口方法)-&gt;一个句子的评分矩阵$f_\theta (c_{[1:n]})$ (句子中的第$i$ 个子为标签$t$ 的得分)-&gt;定义转换分数$A_{ij}$,得到tag path 得分</p><script type="math/tex; mode=display">s(c_{[1:N]},t_{[1:N]},\theta)=\sum_{i=1}^n(A_{t_{i-1}t_i}+f_\theta (t_i\vert i))</script><p>-&gt;最大化得分,得到最优tag path</p><p>log likelihood</p><script type="math/tex; mode=display">\sum_{\forall(c,t)\in R}\log p(t\vert c,\theta)</script><p>将目标函数转换为条件概率</p><script type="math/tex; mode=display">p(t\vert c,\theta)=\frac {e^{s(c,t,\theta)}}{\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}}</script><p>取对数</p><script type="math/tex; mode=display">\log p(t\vert c,\theta) = s(c,t,\theta)-log\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}</script><p>维特比算法(viterbi)</p><p>一种动态规划算法(穷举法,A*算法,beam search,Viterbi算法)</p><font color="red" face="微软雅黑">A\*算法和Viterbi算法的区别?</font><p>新的训练方法</p><p>将维特比算法在当前参数下得出的最优路径结果与正确结果进行比较对比,定义出损失函数对$A_{t_{i-1}t_i}$ 和$f_\theta (t_i|i)$ 的偏导数,通过后向传播更新参数</p><p>收敛性的证明:Discriminative training methods for hidden Markov models</p>]]></content>
+        <content type="html"><![CDATA[<p>得到字向量-&gt;通过窗口方法得到字与上下文有关的向量(矩阵)-&gt;通过两个线性层和一个非线性激活函数-&gt;字的标注得分(窗口方法)-&gt;一个句子的评分矩阵$f_\theta (c_{[1:n]})​$ (句子中的第$i​$ 个子为标签$t​$ 的得分)-&gt;定义转换分数$A_{ij}​$,得到tag path 得分</p><script type="math/tex; mode=display">s(c_{[1:N]},t_{[1:N]},\theta)=\sum_{i=1}^n(A_{t_{i-1}t_i}+f_\theta (t_i\vert i))</script><p>-&gt;最大化得分,得到最优tag path</p><p>log likelihood</p><script type="math/tex; mode=display">\sum_{\forall(c,t)\in R}\log p(t\vert c,\theta)</script><p>将目标函数转换为条件概率</p><script type="math/tex; mode=display">p(t\vert c,\theta)=\frac {e^{s(c,t,\theta)}}{\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}}</script><p>取对数</p><script type="math/tex; mode=display">\log p(t\vert c,\theta) = s(c,t,\theta)-log\sum_{\tilde t}{e^{s(c,\tilde t,\theta)}}</script><p>维特比算法(viterbi)</p><p>一种动态规划算法(穷举法,A*算法,beam search,Viterbi算法)</p><font color="red" face="微软雅黑">A\*算法和Viterbi算法的区别?</font><p>新的训练方法</p><p>将维特比算法在当前参数下得出的最优路径结果与正确结果进行比较对比,定义出损失函数对$A_{t_{i-1}t_i}$ 和$f_\theta (t_i|i)$ 的偏导数,通过后向传播更新参数</p><p>收敛性的证明:Discriminative training methods for hidden Markov models</p>]]></content>
       
       
       <categories>
@@ -265,9 +338,9 @@
       
         <tags>
             
-            <tag> 分词 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 分词 </tag>
             
             <tag> 词性标注 </tag>
             
@@ -858,6 +931,27 @@
     
     
     <entry>
+      <title>python类和实例的一些属性</title>
+      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
+      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python中关于路径的知识</title>
       <link href="/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/"/>
       <url>/2018/python%E4%B8%AD%E5%85%B3%E4%BA%8E%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9F%A5%E8%AF%86/</url>
@@ -879,27 +973,6 @@
             <tag> 路径 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>python类和实例的一些属性</title>
-      <link href="/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/"/>
-      <url>/2018/python%E7%B1%BB%E5%92%8C%E5%AE%9E%E4%BE%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-self和-init"><a href="#1-self和-init" class="headerlink" title="1.self和__init__()"></a>1.self和__init__()</h2><p>self代表类的实例,如下：</p><pre><code class="lang-python">class Test:    a,b=&#39;classa&#39;,&#39;classb&#39;#类的属性    def __init__(self):        self.b=&#39;selfb&#39;#实例的属性        self.c=&#39;selfc&#39;print(Test.a)print(Test.b)#-output:classa classb-访问类的属性a=Test()print(a.a)#-output:classa-通过实例访问类的属性print(a.b)#-output:selfb-当实例和类都具有某属性时,输出实例属性print(a.c)print(Test.c)#output</code></pre><p>当实例和类有相同的属性时，如何通过实例访问类的属性呢？<br>可以通过__class__访问</p><h2 id="2-class"><a href="#2-class" class="headerlink" title="2.__class__"></a>2.__class__</h2><p>__class__是指实例所对应的类</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test:    a=&#39;classa&#39;    print(count)    def __init__(self):        self.a=&#39;selfa&#39;        print(self)        #-output:&lt;__main__.Test object at 0x055A1270&gt;        print(self.__class__)        #-output:&lt;class &#39;__main__.Test&#39;&gt;a=Test()print(&#39;实例a&#39;,a)#-output:&lt;__main__.Test object at 0x055A1270&gt;print(&#39;类Test&#39;,Test)#-output:&lt;class &#39;__main__.Test&#39;&gt;print(a.a,a.__class__.a)#-output:selfa classa</code></pre><p>通过__init__()可以实现对类的实例的统计</p><pre><code># -*- coding: utf-8 -*-class Test(object):    count=0    def __init__(self):        super(Test, self).__init__()        self.__class__.count+=1if __name__==&quot;__main__&quot;:    a=Test()    print(Test.count)    b=Test()    print(Test.count)    Test()    print(Test.count)</code></pre><p>输出为</p><pre><code>123</code></pre><p>每创建一个Test类的实例,Test.count都加1</p><h2 id="3-dict"><a href="#3-dict" class="headerlink" title="3.__dict__"></a>3.__dict__</h2><p>__dict__是一个字典，键是属性名，值为属性值。<br>类有自己的__dict__，类的实例也有自己的__dict__</p><pre><code class="lang-python"># -*- coding: utf-8 -*-class Test(object):    classa=&#39;classa&#39;    def __init__(self):        super(Test, self).__init__()        self.selfb=&#39;selfb&#39;if __name__==&quot;__main__&quot;:    print(Test.__dict__)    a=Test()    print(a.__dict__)</code></pre><p>输出为</p><pre><code class="lang-shell">{&#39;__module__&#39;: &#39;__main__&#39;, &#39;classa&#39;: &#39;classa&#39;, &#39;__init__&#39;: &lt;function Test.__init__ at 0x04D03468&gt;, &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;Test&#39; objects&gt;, &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;Test&#39; objects&gt;, &#39;__doc__&#39;: None}{&#39;selfb&#39;: &#39;selfb&#39;}</code></pre><p>可见类Test有classa属性以及一些其他属性<br>类Test的实例a只有self.b属性</p><h2 id="4-len-self-函数"><a href="#4-len-self-函数" class="headerlink" title="4.__len__(self)函数"></a>4.__len__(self)函数</h2><p>返回元素个数，实现len()方法。即类实现了__len__()函数就可以使用len()函数</p><h2 id="5-getitem-self-key"><a href="#5-getitem-self-key" class="headerlink" title="5.__getitem__(self,key)"></a>5.__getitem__(self,key)</h2><p>实现字典一样的功能，当类的实例对象（假设为P）调用P[key]时，调用此函数返回。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1,<a href="https://docs.python.org/" target="_blank" rel="noopener">https://docs.python.org</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> Python </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -1016,33 +1089,6 @@
     
     
     <entry>
-      <title>位运算的妙用之二进制1的个数</title>
-      <link href="/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
-      <url>/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p>求出一个正整数转换成二进制形式中数字”1”的个数<br>题目：求出一个正整数转换成二进制形式中数字”1”的个数<br>如：<br>int 型数值为 80<br>转化成二进制形式：80 = 00000000 00000000 00000000 01010000<br>因此 1 的个数为 2  </p><h3 id="0-普通解法"><a href="#0-普通解法" class="headerlink" title="0.普通解法"></a>0.普通解法</h3><p>一位一位判断</p><pre><code class="lang-c">int bitCount1(int n) {    int count = 0;    while (n != 0) {        if (n &amp; 0x01 == 1)            count++;        n = n &gt;&gt; 1;    }    return count;}</code></pre><h3 id="2-大神的解法"><a href="#2-大神的解法" class="headerlink" title="2.大神的解法"></a>2.大神的解法</h3><pre><code class="lang-c">int bitCount2(int n) {    n = n - ((n &gt;&gt; 1) &amp; 0x55555555);//n = (n &amp; 0x55555555) + ((n &gt;&gt; 1) &amp; 0x55555555);    n = (n &amp; 0x33333333) + ((n &gt;&gt; 2) &amp; 0x33333333);    n = (n &amp; 0x0f0f0f0f) + ((n &gt;&gt; 4) &amp; 0x0f0f0f0f);    n = n + (n &gt;&gt; 8);               //n = (n &amp; 0x00ff00ff) + ((n &gt;&gt; 8) &amp; 0x00ff00ff);    n = n + (n &gt;&gt; 16);              //n = (n &amp; 0x0000ffff) + ((n &gt;&gt; 16) &amp; 0x0000ffff);    return n &amp; 0x0000003f;          //return n;}</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="https://www.jianshu.com/p/25c75149e7a2" target="_blank" rel="noopener">https://www.jianshu.com/p/25c75149e7a2</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> C语言 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>python遇到的错误</title>
       <link href="/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/"/>
       <url>/2017/python%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/</url>
@@ -1062,6 +1108,33 @@
         <tags>
             
             <tag> libsvm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>位运算的妙用之二进制1的个数</title>
+      <link href="/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
+      <url>/2017/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B9%8B%E4%BA%8C%E8%BF%9B%E5%88%B61%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>求出一个正整数转换成二进制形式中数字”1”的个数<br>题目：求出一个正整数转换成二进制形式中数字”1”的个数<br>如：<br>int 型数值为 80<br>转化成二进制形式：80 = 00000000 00000000 00000000 01010000<br>因此 1 的个数为 2  </p><h3 id="0-普通解法"><a href="#0-普通解法" class="headerlink" title="0.普通解法"></a>0.普通解法</h3><p>一位一位判断</p><pre><code class="lang-c">int bitCount1(int n) {    int count = 0;    while (n != 0) {        if (n &amp; 0x01 == 1)            count++;        n = n &gt;&gt; 1;    }    return count;}</code></pre><h3 id="2-大神的解法"><a href="#2-大神的解法" class="headerlink" title="2.大神的解法"></a>2.大神的解法</h3><pre><code class="lang-c">int bitCount2(int n) {    n = n - ((n &gt;&gt; 1) &amp; 0x55555555);//n = (n &amp; 0x55555555) + ((n &gt;&gt; 1) &amp; 0x55555555);    n = (n &amp; 0x33333333) + ((n &gt;&gt; 2) &amp; 0x33333333);    n = (n &amp; 0x0f0f0f0f) + ((n &gt;&gt; 4) &amp; 0x0f0f0f0f);    n = n + (n &gt;&gt; 8);               //n = (n &amp; 0x00ff00ff) + ((n &gt;&gt; 8) &amp; 0x00ff00ff);    n = n + (n &gt;&gt; 16);              //n = (n &amp; 0x0000ffff) + ((n &gt;&gt; 16) &amp; 0x0000ffff);    return n &amp; 0x0000003f;          //return n;}</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="https://www.jianshu.com/p/25c75149e7a2" target="_blank" rel="noopener">https://www.jianshu.com/p/25c75149e7a2</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -1097,6 +1170,31 @@
     
     
     <entry>
+      <title>sublime_Text3插入当前时间</title>
+      <link href="/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/"/>
+      <url>/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<p>sublime_Text3插入当前时间</p><h3 id="1-创建新snippet"><a href="#1-创建新snippet" class="headerlink" title="1.创建新snippet"></a>1.创建新snippet</h3><p>tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):<br>其内容:  </p><pre><code class="lang-xml">&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[/** * ============================ * @Author:   XX * @Version:  1.0  * @DateTime: ${1:alt+t} * ============================ */]]&gt;&lt;/content&gt;    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;    &lt;tabTrigger&gt;author&lt;/tabTrigger&gt;    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;&lt;/snippet&gt;</code></pre><h3 id="2-创建新插件"><a href="#2-创建新插件" class="headerlink" title="2.创建新插件"></a>2.创建新插件</h3><p>Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:<br>其内容为:  </p><pre><code class="lang-python">import sublime, sublime_pluginimport datetimeclass AddCurrentTimeCommand(sublime_plugin.TextCommand):    def run(self, edit):        self.view.run_command(&quot;insert_snippet&quot;,             {                &quot;contents&quot;: &quot;%s&quot; % datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)             }        )</code></pre><h3 id="3-绑定快捷键"><a href="#3-绑定快捷键" class="headerlink" title="3.绑定快捷键"></a>3.绑定快捷键</h3><p>Preference → Key Bindings → User.绑定快捷键:  </p><pre><code>[    {        &quot;command&quot;: &quot;add_current_time&quot;,        &quot;keys&quot;: [            &quot;alt+t&quot;        ]    }]</code></pre><p>其中绑定的命令的名字是由所创建的插件的类名而来<br>AddCurrentTimeCommand—&gt;add_current_time<br>这应该是Sublime创建插件的规则  </p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1,<a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaomingzaixian/p/6984664.html</a><br>2,<a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551" target="_blank" rel="noopener">http://blog.csdn.net/sshfl_csdn/article/details/46415551</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sublime </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>字符串匹配</title>
       <link href="/2017/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/"/>
       <url>/2017/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/</url>
@@ -1116,31 +1214,6 @@
         <tags>
             
             <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>sublime_Text3插入当前时间</title>
-      <link href="/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/"/>
-      <url>/2017/sublime_Text3%E6%8F%92%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4/</url>
-      
-        <content type="html"><![CDATA[<p>sublime_Text3插入当前时间</p><h3 id="1-创建新snippet"><a href="#1-创建新snippet" class="headerlink" title="1.创建新snippet"></a>1.创建新snippet</h3><p>tool → new snippet 创建一个新的snippet,并保存为”author.sublime-snippet”(最好在该目录(User)下再创建一个MySnippet目录):<br>其内容:  </p><pre><code class="lang-xml">&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[/** * ============================ * @Author:   XX * @Version:  1.0  * @DateTime: ${1:alt+t} * ============================ */]]&gt;&lt;/content&gt;    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;    &lt;tabTrigger&gt;author&lt;/tabTrigger&gt;    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;&lt;/snippet&gt;</code></pre><h3 id="2-创建新插件"><a href="#2-创建新插件" class="headerlink" title="2.创建新插件"></a>2.创建新插件</h3><p>Tools → New Plugin. 创建时间插件,保存在User目录,命名为addCurrentTime.py:<br>其内容为:  </p><pre><code class="lang-python">import sublime, sublime_pluginimport datetimeclass AddCurrentTimeCommand(sublime_plugin.TextCommand):    def run(self, edit):        self.view.run_command(&quot;insert_snippet&quot;,             {                &quot;contents&quot;: &quot;%s&quot; % datetime.datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)             }        )</code></pre><h3 id="3-绑定快捷键"><a href="#3-绑定快捷键" class="headerlink" title="3.绑定快捷键"></a>3.绑定快捷键</h3><p>Preference → Key Bindings → User.绑定快捷键:  </p><pre><code>[    {        &quot;command&quot;: &quot;add_current_time&quot;,        &quot;keys&quot;: [            &quot;alt+t&quot;        ]    }]</code></pre><p>其中绑定的命令的名字是由所创建的插件的类名而来<br>AddCurrentTimeCommand—&gt;add_current_time<br>这应该是Sublime创建插件的规则  </p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1,<a href="http://www.cnblogs.com/xiaomingzaixian/p/6984664.html" target="_blank" rel="noopener">http://www.cnblogs.com/xiaomingzaixian/p/6984664.html</a><br>2,<a href="http://blog.csdn.net/sshfl_csdn/article/details/46415551" target="_blank" rel="noopener">http://blog.csdn.net/sshfl_csdn/article/details/46415551</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件使用 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> sublime </tag>
             
         </tags>
       
@@ -1252,9 +1325,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> TCP </tag>
+            
+            <tag> C语言 </tag>
             
             <tag> 聊天室 </tag>
             
@@ -1321,11 +1394,11 @@
     
     
     <entry>
-      <title>powershell卸载自带应用</title>
-      <link href="/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/"/>
-      <url>/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/</url>
+      <title>powershell脚本遍历目录</title>
+      <link href="/2017/powershell%E8%84%9A%E6%9C%AC%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/"/>
+      <url>/2017/powershell%E8%84%9A%E6%9C%AC%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<p>通过powershell卸载windows自带应用</p><h3 id="1-卸载全部自带应用"><a href="#1-卸载全部自带应用" class="headerlink" title="1.卸载全部自带应用"></a>1.卸载全部自带应用</h3><p><code>Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage</code>  </p><h3 id="2-其他更多卸载"><a href="#2-其他更多卸载" class="headerlink" title="2.其他更多卸载"></a>2.其他更多卸载</h3><p>OneNote:<br><code>Get-AppxPackage OneNote | Remove-AppxPackage</code><br>3D:<br><code>Get-AppxPackage 3d | Remove-AppxPackage</code><br>Camera相机:<br><code>Get-AppxPackage camera | Remove-AppxPackage</code><br>邮件和日历:<br><code>Get-AppxPackage communi | Remove-AppxPackage</code><br>新闻订阅:<br><code>Get-AppxPackage bing | Remove-AppxPackage</code><br>Groove音乐电影与电视:<br><code>Get-AppxPackage zune | Remove-AppxPackage</code><br>人脉:<br><code>Get-AppxPackage people | Remove-AppxPackage</code><br>手机伴侣Phone Companion:<br><code>Get-AppxPackage phone | Remove-AppxPackage</code><br>照片:<br><code>Get-AppxPackage photo | Remove-AppxPackage</code><br>纸牌游戏(还敢要钱的那货):<br><code>Get-AppxPackage solit | Remove-AppxPackage</code><br>录音机:<br><code>Get-AppxPackage soundrec | Remove-AppxPackage</code><br>Xbox:<br><code>Get-AppxPackage xbox | Remove-AppxPackage</code>  </p>]]></content>
+        <content type="html"><![CDATA[<p>powershell脚本遍历目录</p><h3 id="1-遍历目录及子目录-显示目录大小"><a href="#1-遍历目录及子目录-显示目录大小" class="headerlink" title="1.遍历目录及子目录,显示目录大小"></a>1.遍历目录及子目录,显示目录大小</h3><pre><code class="lang-sh">function filesize ([string]$filepath) {    if ($filepath -eq $null) {        throw &quot;路径不能为空&quot;    }    dir -Path $filepath | ForEach-Object -Process {        if ($_.psiscontainer -eq $true) {            $length = 0            dir -Path $_.fullname -Recurse | ForEach-Object {                $length += $_.Length            }            $l = $length / 1KB            $_.name + &quot;文件夹的大小为: {0:n1} KB&quot; -f $l        }    }}filesize -filepath &quot;D:\&quot;</code></pre><h3 id="2-运行示例"><a href="#2-运行示例" class="headerlink" title="2.运行示例:"></a>2.运行示例:</h3><pre><code>PS F:\python&gt; function filesize ([string]$filepath) {&gt;&gt; if ($filepath -eq $null) {&gt;&gt; throw &quot;路径不能为空&quot;&gt;&gt; }&gt;&gt; dir -Path $filepath | ForEach-Object -Process {&gt;&gt; if ($_.psiscontainer -eq $true) {&gt;&gt; $length = 0&gt;&gt; dir -Path $_.fullname -Recurse | ForEach-Object {&gt;&gt; $length += $_.Length&gt;&gt; }&gt;&gt; $l = $length / 1KB&gt;&gt; $_.name + &quot;文件夹的大小为: {0:n1} KB&quot; -f $l&gt;&gt; }&gt;&gt; }&gt;&gt; }PS F:\python&gt; filesize -filepath &quot;f:\python&quot;ipluyou文件夹的大小为: 82,196.5 KBloginip_jlu文件夹的大小为: 16.8 KB嗅事百科文件夹的大小为: 4.3 KB小说文件夹的大小为: 31,043.6 KB笑料文件夹的大小为: 1,578,575.8 KBPS F:\python&gt;</code></pre>]]></content>
       
       
       <categories>
@@ -1348,11 +1421,11 @@
     
     
     <entry>
-      <title>powershell脚本遍历目录</title>
-      <link href="/2017/powershell%E8%84%9A%E6%9C%AC%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/"/>
-      <url>/2017/powershell%E8%84%9A%E6%9C%AC%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/</url>
+      <title>powershell卸载自带应用</title>
+      <link href="/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/"/>
+      <url>/2017/powershell%E5%8D%B8%E8%BD%BD%E8%87%AA%E5%B8%A6%E5%BA%94%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<p>powershell脚本遍历目录</p><h3 id="1-遍历目录及子目录-显示目录大小"><a href="#1-遍历目录及子目录-显示目录大小" class="headerlink" title="1.遍历目录及子目录,显示目录大小"></a>1.遍历目录及子目录,显示目录大小</h3><pre><code class="lang-sh">function filesize ([string]$filepath) {    if ($filepath -eq $null) {        throw &quot;路径不能为空&quot;    }    dir -Path $filepath | ForEach-Object -Process {        if ($_.psiscontainer -eq $true) {            $length = 0            dir -Path $_.fullname -Recurse | ForEach-Object {                $length += $_.Length            }            $l = $length / 1KB            $_.name + &quot;文件夹的大小为: {0:n1} KB&quot; -f $l        }    }}filesize -filepath &quot;D:\&quot;</code></pre><h3 id="2-运行示例"><a href="#2-运行示例" class="headerlink" title="2.运行示例:"></a>2.运行示例:</h3><pre><code>PS F:\python&gt; function filesize ([string]$filepath) {&gt;&gt; if ($filepath -eq $null) {&gt;&gt; throw &quot;路径不能为空&quot;&gt;&gt; }&gt;&gt; dir -Path $filepath | ForEach-Object -Process {&gt;&gt; if ($_.psiscontainer -eq $true) {&gt;&gt; $length = 0&gt;&gt; dir -Path $_.fullname -Recurse | ForEach-Object {&gt;&gt; $length += $_.Length&gt;&gt; }&gt;&gt; $l = $length / 1KB&gt;&gt; $_.name + &quot;文件夹的大小为: {0:n1} KB&quot; -f $l&gt;&gt; }&gt;&gt; }&gt;&gt; }PS F:\python&gt; filesize -filepath &quot;f:\python&quot;ipluyou文件夹的大小为: 82,196.5 KBloginip_jlu文件夹的大小为: 16.8 KB嗅事百科文件夹的大小为: 4.3 KB小说文件夹的大小为: 31,043.6 KB笑料文件夹的大小为: 1,578,575.8 KBPS F:\python&gt;</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>通过powershell卸载windows自带应用</p><h3 id="1-卸载全部自带应用"><a href="#1-卸载全部自带应用" class="headerlink" title="1.卸载全部自带应用"></a>1.卸载全部自带应用</h3><p><code>Get-AppxPackage -User $env:USERNAME | Remove-AppxPackage</code>  </p><h3 id="2-其他更多卸载"><a href="#2-其他更多卸载" class="headerlink" title="2.其他更多卸载"></a>2.其他更多卸载</h3><p>OneNote:<br><code>Get-AppxPackage OneNote | Remove-AppxPackage</code><br>3D:<br><code>Get-AppxPackage 3d | Remove-AppxPackage</code><br>Camera相机:<br><code>Get-AppxPackage camera | Remove-AppxPackage</code><br>邮件和日历:<br><code>Get-AppxPackage communi | Remove-AppxPackage</code><br>新闻订阅:<br><code>Get-AppxPackage bing | Remove-AppxPackage</code><br>Groove音乐电影与电视:<br><code>Get-AppxPackage zune | Remove-AppxPackage</code><br>人脉:<br><code>Get-AppxPackage people | Remove-AppxPackage</code><br>手机伴侣Phone Companion:<br><code>Get-AppxPackage phone | Remove-AppxPackage</code><br>照片:<br><code>Get-AppxPackage photo | Remove-AppxPackage</code><br>纸牌游戏(还敢要钱的那货):<br><code>Get-AppxPackage solit | Remove-AppxPackage</code><br>录音机:<br><code>Get-AppxPackage soundrec | Remove-AppxPackage</code><br>Xbox:<br><code>Get-AppxPackage xbox | Remove-AppxPackage</code>  </p>]]></content>
       
       
       <categories>
@@ -1425,39 +1498,6 @@
             <tag> 网络编程 </tag>
             
             <tag> TCP </tag>
-            
-            <tag> 聊天室 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JAVA套接字之TCP简单实用</title>
-      <link href="/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/"/>
-      <url>/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/</url>
-      
-        <content type="html"><![CDATA[<p>java套接字之TCP</p><h3 id="1-单客户端排队与服务器建立连接"><a href="#1-单客户端排队与服务器建立连接" class="headerlink" title="1.单客户端排队与服务器建立连接"></a>1.单客户端排队与服务器建立连接</h3><p><font color="red">客户端程序</font>  </p><pre><code class="lang-java">import java.net.*;import java.io.*;public class Client{    static Socket server;    public static void main(String[] args)throws Exception{        //客户端请求与本机在5678端口建立TCP连接        server=new Socket(InetAddress.getLocalHost(),5678);        BufferedReader in=            new BufferedReader(new InputStreamReader(server.getInputStream()));        //获取Socket的输入流，用来接收从服务端发送过来的数据        PrintWriter out=new PrintWriter(server.getOutputStream());        //获取Socket的输出流，用来发送数据到服务端        BufferedReader wt=new BufferedReader(new InputStreamReader(System.in));        //从键盘输入的数据流        while(true){            String str=wt.readLine();//读取键盘输入字符串            out.println(str);//发送数据到服务端            out.flush();            if(str.equals(&quot;end&quot;)){                break;            }            System.out.println(in.readLine());//打印服务器返回的字符串        }        server.close();//关闭连接    }}</code></pre><p><font color="blue">服务器程序1</font></p><pre><code class="lang-java">import java.io.*;import java.net.*;public class Server {    public static void main(String[] args) throws IOException{        ServerSocket server=new ServerSocket(5678);//通信端口        while(true){//一个客户端断开连接后，等待与另一个客户端建立连接            Socket client=server.accept();//accept用于产生&quot;阻塞&quot;，直到接受到一个连接，并且返回一个客户端的Socket对象实例。            BufferedReader in=                new BufferedReader(new InputStreamReader(client.getInputStream()));            PrintWriter out=new PrintWriter(client.getOutputStream());            while(true){//直到客户端发送end退出循环                String str=in.readLine();                System.out.println(str);                out.println(&quot;has receive....&quot;);                out.flush();                if(str.equals(&quot;end&quot;))                    break;               }               client.close();//关闭通信        }    }   }</code></pre><h3 id="2-多个客户端同时与服务器建立连接"><a href="#2-多个客户端同时与服务器建立连接" class="headerlink" title="2.多个客户端同时与服务器建立连接"></a>2.多个客户端同时与服务器建立连接</h3><p>客户端程序不变,服务器端阻塞等待客户端连接,并给每个链接分配一个线程  </p><p><font color="blue">服务器程序2</font></p><pre><code class="lang-java">import java.io.*;import java.net.*;public class Server extends Thread {//继承Thread类    private Socket client;    public Server(Socket c){//类初始化，接受参数为客户端的请求        this.client = c;    }    public void run(){//重写run函数        try{            BufferedReader in=                new BufferedReader(new InputStreamReader(client.getInputStream()));            PrintWriter out=new PrintWriter(client.getOutputStream());            while(true){                String str=in.readLine();                System.out.println(str);                out.println(&quot;has receive....&quot;);                out.flush();                if(str.equals(&quot;end&quot;))                    break;               }               client.close();        }catch(IOException ex){        }finally{        }    }    public static void main(String[] args) throws IOException{        ServerSocket server=new ServerSocket(5678);        while(true){            Server mu=new Server(server.accept());//每当有客户端请求就新建一个Server类与之通信            mu.start();//启动进程        }    }   }</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 网络编程 </tag>
-            
-            <tag> TCP </tag>
-            
-            <tag> java </tag>
             
             <tag> 聊天室 </tag>
             
@@ -1545,6 +1585,39 @@
             <tag> android </tag>
             
             <tag> 相机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JAVA套接字之TCP简单实用</title>
+      <link href="/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/"/>
+      <url>/2017/JAVA%E5%A5%97%E6%8E%A5%E5%AD%97%E4%B9%8BTCP%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>java套接字之TCP</p><h3 id="1-单客户端排队与服务器建立连接"><a href="#1-单客户端排队与服务器建立连接" class="headerlink" title="1.单客户端排队与服务器建立连接"></a>1.单客户端排队与服务器建立连接</h3><p><font color="red">客户端程序</font>  </p><pre><code class="lang-java">import java.net.*;import java.io.*;public class Client{    static Socket server;    public static void main(String[] args)throws Exception{        //客户端请求与本机在5678端口建立TCP连接        server=new Socket(InetAddress.getLocalHost(),5678);        BufferedReader in=            new BufferedReader(new InputStreamReader(server.getInputStream()));        //获取Socket的输入流，用来接收从服务端发送过来的数据        PrintWriter out=new PrintWriter(server.getOutputStream());        //获取Socket的输出流，用来发送数据到服务端        BufferedReader wt=new BufferedReader(new InputStreamReader(System.in));        //从键盘输入的数据流        while(true){            String str=wt.readLine();//读取键盘输入字符串            out.println(str);//发送数据到服务端            out.flush();            if(str.equals(&quot;end&quot;)){                break;            }            System.out.println(in.readLine());//打印服务器返回的字符串        }        server.close();//关闭连接    }}</code></pre><p><font color="blue">服务器程序1</font></p><pre><code class="lang-java">import java.io.*;import java.net.*;public class Server {    public static void main(String[] args) throws IOException{        ServerSocket server=new ServerSocket(5678);//通信端口        while(true){//一个客户端断开连接后，等待与另一个客户端建立连接            Socket client=server.accept();//accept用于产生&quot;阻塞&quot;，直到接受到一个连接，并且返回一个客户端的Socket对象实例。            BufferedReader in=                new BufferedReader(new InputStreamReader(client.getInputStream()));            PrintWriter out=new PrintWriter(client.getOutputStream());            while(true){//直到客户端发送end退出循环                String str=in.readLine();                System.out.println(str);                out.println(&quot;has receive....&quot;);                out.flush();                if(str.equals(&quot;end&quot;))                    break;               }               client.close();//关闭通信        }    }   }</code></pre><h3 id="2-多个客户端同时与服务器建立连接"><a href="#2-多个客户端同时与服务器建立连接" class="headerlink" title="2.多个客户端同时与服务器建立连接"></a>2.多个客户端同时与服务器建立连接</h3><p>客户端程序不变,服务器端阻塞等待客户端连接,并给每个链接分配一个线程  </p><p><font color="blue">服务器程序2</font></p><pre><code class="lang-java">import java.io.*;import java.net.*;public class Server extends Thread {//继承Thread类    private Socket client;    public Server(Socket c){//类初始化，接受参数为客户端的请求        this.client = c;    }    public void run(){//重写run函数        try{            BufferedReader in=                new BufferedReader(new InputStreamReader(client.getInputStream()));            PrintWriter out=new PrintWriter(client.getOutputStream());            while(true){                String str=in.readLine();                System.out.println(str);                out.println(&quot;has receive....&quot;);                out.flush();                if(str.equals(&quot;end&quot;))                    break;               }               client.close();        }catch(IOException ex){        }finally{        }    }    public static void main(String[] args) throws IOException{        ServerSocket server=new ServerSocket(5678);        while(true){            Server mu=new Server(server.accept());//每当有客户端请求就新建一个Server类与之通信            mu.start();//启动进程        }    }   }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络编程 </tag>
+            
+            <tag> TCP </tag>
+            
+            <tag> java </tag>
+            
+            <tag> 聊天室 </tag>
             
         </tags>
       
