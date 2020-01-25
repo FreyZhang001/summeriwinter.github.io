@@ -20,8 +20,8 @@ gtag('config', 'UA-111205240-3');
 <li>在每个类只有很少样本的情况下学习一个分类器</li>
 <li>每一个few-shot分类任务$\mathcal T$包括support set $\mathcal S$和query set$\mathcal Q$</li>
 <li>episodic training：在training task中抽样，模拟少样本测试时的场景<ul>
-<li>$\mathcal T=\mathcal S\cup\mathcal U, \mathcal S=\{(x_i,y_i)\}_{i=1}^{N\times{K}} \text{ and }\mathcal{Q}=\{(x_{i},y_{i})\}_{i=N\times{K}+1}^{N\times{K}+T}$</li>
-<li>$x_i,y_i\in\{C_1,…,C_N\}=\mathcal C_{\mathcal T}\subset\mathcal C$同时$\mathcal C_{train}\cap\mathcal C_{test} = \empty$</li>
+<li>$\mathcal T=\mathcal S\cup\mathcal U, \mathcal S={(x<em>i,y_i)}</em>{i=1}^{N\times{K}} \text{ and }\mathcal{Q}={(x<em>{i},y</em>{i})}_{i=N\times{K}+1}^{N\times{K}+T}$</li>
+<li>$x<em>i,y_i\in{C_1,…,C_N}=\mathcal C</em>{\mathcal T}\subset\mathcal C$同时$\mathcal C<em>{train}\cap\mathcal C</em>{test} = \empty$</li>
 </ul>
 </li>
 </ul>
@@ -30,7 +30,7 @@ gtag('config', 'UA-111205240-3');
 <script type="math/tex; mode=display">
 \mathbf v_i^0=f_{emb}(x_i;\theta_{emb})</script></li>
 <li><p>图构建:$\mathcal g=(\mathcal V,\mathcal E;\mathcal T)$每一个节点代表一个样本，全连接图，每一条边代表一种关系种类</p>
-<p>其中$\mathcal V :=\{V_i\}_{i=1,\dots,|\mathcal T|}$,$\mathcal E :=\{E_{ij}\}_{i,j=1,\dots,|\mathcal T|}$,</p>
+<p>其中$\mathcal V :={V<em>i}</em>{i=1,\dots,|\mathcal T|}$,$\mathcal E :={E<em>{ij}}</em>{i,j=1,\dots,|\mathcal T|}$,</p>
 <ol>
 <li>ground truth: edge-label</li>
 </ol>
@@ -40,7 +40,7 @@ y_{ij}=
 1,\text{if }y_i=y_j,\\
 0,\text{otherwise.}
 \end{cases}</script><ol>
-<li>边特征$\mathbf e_{ij}=\{e_{ijd}\}^2_{d=1} \in [0,1]^2$是一个二维矩阵,表示两个之节点间的簇内关系和簇间关系的强弱,||表示连接</li>
+<li>边特征$\mathbf e<em>{ij}={e</em>{ijd}}^2_{d=1} \in [0,1]^2$是一个二维矩阵,表示两个之节点间的簇内关系和簇间关系的强弱,||表示连接</li>
 </ol>
 <script type="math/tex; mode=display">
 \mathbf e_{ij}^0=
@@ -51,11 +51,11 @@ y_{ij}=
 \end{cases}</script></li>
 </ol>
 <ol>
-<li><p>传播:设从$\ell -1 $层得到的特征为$\mathbf v_i^{\ell-1}$ 和$\mathbf e_{ij}^{\ell-1}$</p>
+<li><p>传播:设从$\ell -1 $层得到的特征为$\mathbf v<em>i^{\ell-1}$ 和$\mathbf e</em>{ij}^{\ell-1}$</p>
 <ol>
 <li><p>更新节点特征</p>
 <script type="math/tex; mode=display">
-\mathbf v_i^\ell=f_v^\ell([\sum_j\tilde e_{ij1}^{\ell-1}\mathbf v_j^{\ell-1}||\sum_j\tilde e_{ij2}^{\ell-1}\mathbf v_j^{\ell-1}];\theta_v^\ell)</script><p>其中$\tilde e_{ij1}^{\ell-1}=\frac {e_{ijd}}{\sum_ke_{ikd}}$,$f_v^\ell(\theta)$是节点特征的转变网络(MLP).</p>
+\mathbf v_i^\ell=f_v^\ell([\sum_j\tilde e_{ij1}^{\ell-1}\mathbf v_j^{\ell-1}||\sum_j\tilde e_{ij2}^{\ell-1}\mathbf v_j^{\ell-1}];\theta_v^\ell)</script><p>其中$\tilde e<em>{ij1}^{\ell-1}=\frac {e</em>{ijd}}{\sum<em>ke</em>{ikd}}$,$f_v^\ell(\theta)$是节点特征的转变网络(MLP).</p>
 </li>
 <li><p>更新边特征</p>
 <script type="math/tex; mode=display">
@@ -78,9 +78,9 @@ y_{ij}=
 p_i^{(k)}=softmax(\sum_{\{j:j\neq i\land(\mathbf x_j,y_j)\in \mathcal S\}}\hat y_{ij}\delta(y_j=\mathcal C_k))</script><script type="math/tex; mode=display">
 \hat y_{ij}=e_{ij}^L \in [0,1]</script></li>
 </ol>
-<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p>其中模型参数有$\theta_{emb} \cup\{\theta_v^\ell,\theta_e^\ell\}_{\ell=1}^L$,对于M个训练任务$\{\mathcal T_m^{train}\}_{m=1}^M$,损失函数:</p>
+<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p>其中模型参数有$\theta<em>{emb} \cup{\theta_v^\ell,\theta_e^\ell}</em>{\ell=1}^L$,对于M个训练任务${\mathcal T<em>m^{train}}</em>{m=1}^M$,损失函数:</p>
 <script type="math/tex; mode=display">
-\mathcal L=\sum_{\ell=1}^L\sum_{m=1}^M\lambda_\ell\mathcal L(Y_{m,e},\hat Y_{m,e}^\ell)</script><p>其中$Y_{m,e}$和$\hat Y_{m,e}^\ell$是m个任务,e条边的真实值和预测值(第$\mathcal L$层的),$\mathcal L$是交叉熵损失函数</p>
+\mathcal L=\sum_{\ell=1}^L\sum_{m=1}^M\lambda_\ell\mathcal L(Y_{m,e},\hat Y_{m,e}^\ell)</script><p>其中$Y<em>{m,e}$和$\hat Y</em>{m,e}^\ell$是m个任务,e条边的真实值和预测值(第$\mathcal L$层的),$\mathcal L$是交叉熵损失函数</p>
 </div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">Frey</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2019/小样本学习的边缘标签图神经网络/">https://www.vhcffh.com/2019/小样本学习的边缘标签图神经网络/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="https://www.vhcffh.com">Frey的博客</a>！</span></div></blockquote></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tags"></i><a href="/tags/深度学习/">深度学习</a><a href="/tags/图网络/">图网络</a></span></div></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="prev" href="/2019/运用自注意力机制检测相关语境进行多论对话/">&lt; 运用自注意力机制检测相关语境进行多论对话</a><a class="next" href="/2019/记一次GRUB引导修复/">记一次GRUB引导修复 &gt;</a></div><div id="valine-comment"><style type="text/css">.v * { color: #CECECE; }
 .v a { color: #0F9FB4; }
 .v a:hover { color: #216C73; }
@@ -110,7 +110,7 @@ window.valine = new Valine({
   avatar:'',
   guest_info:guest_info,
   pageSize:'10'
-})</script></div></section><footer><p>Copyright © 2016 - 2019 <a href="/." rel="nofollow">Frey's blog</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+})</script></div></section><footer><p>Copyright © 2016 - 2020 <a href="/." rel="nofollow">Frey's blog</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/plugins/prettify/prettify.js"></script><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
 if (search_path.length == 0) {
     search_path = 'search.xml';
 }
