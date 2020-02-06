@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.vhcffh.com/"/>
-  <updated>2020-01-25T09:57:45.826Z</updated>
+  <updated>2020-02-06T10:02:03.067Z</updated>
   <id>https://www.vhcffh.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数列求解总结</title>
+    <link href="https://www.vhcffh.com/%E6%95%B0%E5%88%97%E6%B1%82%E8%A7%A3%E6%80%BB%E7%BB%93/"/>
+    <id>https://www.vhcffh.com/数列求解总结/</id>
+    <published>2020-02-06T09:56:00.000Z</published>
+    <updated>2020-02-06T10:02:03.067Z</updated>
+    
+    <content type="html"><![CDATA[<iframe src="https://www.desmos.com/calculator/eh5hjtawf5?embed" width="100%" height="900px" frameborder="0"></iframe>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;iframe src=&quot;https://www.desmos.com/calculator/eh5hjtawf5?embed&quot; width=&quot;100%&quot; height=&quot;900px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+      
+    
+    </summary>
+    
+      <category term="基础知识" scheme="https://www.vhcffh.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="数列" scheme="https://www.vhcffh.com/tags/%E6%95%B0%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Transformers</title>
@@ -533,30 +558,6 @@ x=np.arange(-12.5,12.5,0.05)
       <category term="损失函数" scheme="https://www.vhcffh.com/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
     
       <category term="tensor变换" scheme="https://www.vhcffh.com/tags/tensor%E5%8F%98%E6%8D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见损失函数</title>
-    <link href="https://www.vhcffh.com/2019/%E5%B8%B8%E8%A7%81%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
-    <id>https://www.vhcffh.com/2019/常见损失函数/</id>
-    <published>2019-07-21T08:58:19.000Z</published>
-    <updated>2019-10-02T12:47:01.575Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-损失函数"><a href="#1-损失函数" class="headerlink" title="1.损失函数"></a>1.损失函数</h3><blockquote><p><strong>损失函数</strong>是指一种将一个事件（在一个<a href="https://wiki.mbalib.com/wiki/%E6%A0%B7%E6%9C%AC" target="_blank" rel="noopener">样本</a>空间中的一个元素）映射到一个表达与其事件<a href="https://wiki.mbalib.com/wiki/%E7%9B%B8%E5%85%B3" target="_blank" rel="noopener">相关</a>的<a href="https://wiki.mbalib.com/wiki/%E7%BB%8F%E6%B5%8E%E6%88%90%E6%9C%AC" target="_blank" rel="noopener">经济成本</a>或<a href="https://wiki.mbalib.com/wiki/%E6%9C%BA%E4%BC%9A%E6%88%90%E6%9C%AC" target="_blank" rel="noopener">机会成本</a>的实数上的一种函数,较常运用在<a href="https://wiki.mbalib.com/wiki/%E7%BB%9F%E8%AE%A1%E5%AD%A6" target="_blank" rel="noopener">统计学</a>，<a href="https://wiki.mbalib.com/wiki/%E7%BB%9F%E8%AE%A1%E5%86%B3%E7%AD%96%E7%90%86%E8%AE%BA" target="_blank" rel="noopener">统计决策理论</a>和<a href="https://wiki.mbalib.com/wiki/%E7%BB%8F%E6%B5%8E%E5%AD%A6" target="_blank" rel="noopener">经济学</a>中。损失函数参数的真值为（θ），<a href="https://wiki.mbalib.com/wiki/%E5%86%B3%E7%AD%96" target="_blank" rel="noopener">决策</a>的结果为<em>d</em> ，两者的不一致会带来一定的损失，这种损失是一个<a href="https://wiki.mbalib.com/wiki/%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F" target="_blank" rel="noopener">随机变量</a>，用<em>L</em>(θ,<em>d</em>)表示。</p></blockquote><h4 id="1-1-0-1损失函数-0-1-loss-function"><a href="#1-1-0-1损失函数-0-1-loss-function" class="headerlink" title="1.1 0-1损失函数(0-1 loss function)"></a>1.1 0-1损失函数(0-1 loss function)</h4><script type="math/tex; mode=display">L(Y,f(X))=\begin{cases}1,Y \neq f(X)\\0,Y = f(X)\end{cases}</script><h4 id="1-2平方损失函数-quadratic-loss-function"><a href="#1-2平方损失函数-quadratic-loss-function" class="headerlink" title="1.2平方损失函数(quadratic loss function)"></a>1.2平方损失函数(quadratic loss function)</h4><script type="math/tex; mode=display">L(Y,f(X))=(Y-f(X))^2</script><h4 id="1-3绝对损失函数-absolute-loss-function"><a href="#1-3绝对损失函数-absolute-loss-function" class="headerlink" title="1.3绝对损失函数(absolute loss function)"></a>1.3绝对损失函数(absolute loss function)</h4><script type="math/tex; mode=display">L(Y,f(X))=|Y-f(X)|</script><h4 id="1-4对数损失函数-logarithmic-loss-function-或对数似然损失函数-log-likelihood-loss-function"><a href="#1-4对数损失函数-logarithmic-loss-function-或对数似然损失函数-log-likelihood-loss-function" class="headerlink" title="1.4对数损失函数(logarithmic loss function)或对数似然损失函数(log likelihood loss function)"></a>1.4对数损失函数(logarithmic loss function)或对数似然损失函数(log likelihood loss function)</h4><script type="math/tex; mode=display">L(Y,P(Y|X))=-logP(Y|X)</script><h3 id="2-风险函数"><a href="#2-风险函数" class="headerlink" title="2.风险函数"></a>2.风险函数</h3><p><strong>风险函数</strong>是损失函数的期望值，表示为：</p><script type="math/tex; mode=display">R(\theta,d)=E[L(d,\theta)]*R*(θ,*d*) = *E*[*L*(*d*,θ)]。</script><p>决策的目标是要找出一个决策方案$d$，使其对各个自然状态风险值均为最小。应用时，常常对θ(参数的真值)确定一个概率分布，并使其平均的风险值$r(d,\theta)$达到最小，其中：</p><script type="math/tex; mode=display">r(d,\theta) = E[R(d,\theta)]=\sum_{j=1}^LR(d,\theta)p(\theta_j)</script><p>有结构风险函数和经验风险函数</p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1,<a href="http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/" target="_blank" rel="noopener">http://www.csuldw.com/2016/03/26/2016-03-26-loss-function/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-损失函数&quot;&gt;&lt;a href=&quot;#1-损失函数&quot; class=&quot;headerlink&quot; title=&quot;1.损失函数&quot;&gt;&lt;/a&gt;1.损失函数&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;损失函数&lt;/strong&gt;是指一种将一个事件（在一个&lt;a href
-      
-    
-    </summary>
-    
-    
-      <category term="损失函数" scheme="https://www.vhcffh.com/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
